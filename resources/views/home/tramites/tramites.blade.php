@@ -27,6 +27,7 @@
                         @csrf
                         <input type="hidden" name="id_tramite" value="{{ $tramite->Id_tramite }}">
                         <input type="hidden" name="nombre_tramite" value="{{ $tramite->nombre_tramite }}">
+                        <input type="hidden" name="duracion_tramite" value="{{ $tramite->duracion_tramite }}">
                         <!-- Puedes incluir otros campos o información adicional si es necesario -->
                         <button type="submit" class="custom-button">{{ $tramite->nombre_tramite }}</button>
                     </form>
