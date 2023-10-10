@@ -25,7 +25,7 @@
                 <li>
                     <form method="POST" action="{{ route('tramitesdisponibles') }}">
                         @csrf
-                        <input type="hidden" name="id_categoria_tramites" value="1"> <!-- Puedes cambiar el valor según tus necesidades -->
+                        <input type="hidden" name="id_categoria_tramites" value="{{ $ctramite->id_categoria_tramites }}"> <!-- Puedes cambiar el valor según tus necesidades -->
                         <!-- Resto de los campos del formulario -->
                         <button type="submit" class="custom-button">{{ $ctramite->nombre_categoria }}</button>
                     </form>
