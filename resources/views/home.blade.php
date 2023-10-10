@@ -24,7 +24,7 @@
             <h2>Universidad del Valle</h2>
         </div>
         <div class="all">
-            <div class="lefter">
+            <!--<div class="lefter">
                 <a class="link" href="{{ route('home') }}">
                     <div class="text">
                         Trámites
@@ -43,9 +43,9 @@
             </div>
             <div class="righter">
                 <div class="text">Biblioteca</div>
-            </div>
+            </div>-->
             @foreach($areas as $area)
-                <div class="righter">
+                <div class="lefter">
                     @php
                         $nombre_area_slug = Str::slug($area->nombre_area, '-');
                     @endphp

@@ -7,6 +7,8 @@ use App\Models\Area;
 use App\Models\CategoriaTramites;
 use App\Models\Tramite;
 use App\Models\RequisitoTramite;
+use App\Models\Caja;
+use App\Models\RequisitoCaja;
 
 class HomeController extends Controller
 {
@@ -48,6 +50,27 @@ class HomeController extends Controller
 
         return view('home.tramites.requisitos', ['nombreTramite' => $nombreTramite, 'duracionTramite' => $duracionTramite, 'requisitos' => $requisitos]);
     }
+
+    public function cajas()
+    {
+        $cajas = Caja::all();
+        return view('home.cajas.cajas', ['cajas' => $cajas]);
+    }
+
+    public function requisitosCaja(Request $request)
+{
+    // Obtén el ID de la caja desde la solicitud POST
+    $idCaja = $request->input('id_caja');
+
+    // Obtén la información de la caja correspondiente al requisito
+    $requisitoCaja = Caja::find($idCaja);
+
+    // Obtén los requisitos de la caja
+    $requisitos = RequisitoCaja::where('Id_caja', $idCaja)->get();
+
+    return view('home.cajas.requisitos', ['requisitoCaja' => $requisitoCaja, 'requisitos' => $requisitos]);
+}
+
 
 
 

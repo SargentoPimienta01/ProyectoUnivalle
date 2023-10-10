@@ -24,6 +24,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home/cajas', [HomeController::class, 'cajas'])->name('cajas');
+
+Route::post('/home/requisitosCaja', [HomeController::class, 'requisitosCaja'])->name('requisitosCaja');
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites');
@@ -37,6 +41,7 @@ Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
 Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
 
 Route::post('/home/requisitos', [HomeController::class, 'requisitos'])->name('requisitos');
+
 
 Auth::routes();
   
