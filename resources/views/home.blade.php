@@ -45,10 +45,15 @@
                 <div class="text">Biblioteca</div>
             </div>
             @foreach($areas as $area)
-            <div class="righter">
-                <div class="text">{{ $area->nombre_area }}</div>
-            </div>
-            @endforeach
+                <div class="righter">
+                    @php
+                        $nombre_area_slug = Str::slug($area->nombre_area, '-');
+                    @endphp
+                    <a class="link" href="{{ route('nombre_area', ['nombre_area' => $nombre_area_slug]) }}">
+                        <div class="text">{{ $area->nombre_area }}</div>
+                    </a>
+                </div>
+            @endforeach 
         </div>
     </div>
 

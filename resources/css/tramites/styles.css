@@ -419,7 +419,6 @@ nav ul li a::before {
   transform: scaleX(0);
   transition: all 0.3s ease-in-out 0s;
 }
-
 /*
 .detalle{
 
@@ -431,101 +430,5 @@ nav ul li a::before {
 
 .duracion{
 
-}*/
-
-/*BOTONES ENLACES*/
-
-.link {
-  display: block; /* Hacer que el enlace sea un bloque */
-  width: 100%;    /* Ocupar todo el ancho del contenedor div */
-  height: 100%;   /* Ocupar todo el alto del contenedor div */
-  text-decoration: none; /* Para eliminar subrayado del enlace si es necesario */
-  color: inherit; /* Para que el color del enlace sea heredado del texto */
 }
-
-/* Estilo para el botón personalizado */
-.custom-button {
-  font-size: 1.5em;
-  transition: all 0.5s ease;
-  display: block;
-  text-decoration: none;
-  color: var(--negro);
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
-}
-
-.custom-button:hover {
-  color: var(--color_secundario);
-  transform: scale(1.1);
-}
-
-.custom-button::before {
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 2px;
-  bottom: 0;
-  left: 25%;
-  background: white;
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out 0s;
-}
-
-/* Estilo para eliminar el estilo predeterminado del botón */
-.custom-button:focus {
-  outline: none;
-}
-
-/* Estilo para la lista ul */
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* Estilo para cada elemento li dentro de la lista */
-li {
-  margin-bottom: 10px; /* Espacio entre elementos de la lista */
-  text-align: center; /* Centra el contenido de cada elemento li */
-}
-
-/* Estilo para el botón personalizado dentro de cada elemento li */
-.custom-button {
-  font-size: 1.5em;
-  transition: all 0.5s ease;
-  display: inline-block; /* Cambiar a "inline-block" para centrar horizontalmente */
-  text-decoration: none;
-  color: var(--negro);
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: relative;
-  padding: 0;
-  margin: 0 auto; /* Centra horizontalmente el botón */
-}
-
-.custom-button:hover {
-  color: var(--color_secundario);
-  transform: scale(1.1);
-}
-
-.custom-button::before {
-  content: "";
-  position: absolute;
-  width: 50%;
-  height: 2px;
-  bottom: 0;
-  left: 25%;
-  background: white;
-  visibility: hidden;
-  transform: scaleX(0);
-  transition: all 0.3s ease-in-out 0s;
-}
-
-/* Estilo para eliminar el estilo predeterminado del botón */
-.custom-button:focus {
-  outline: none;
-}
+*/

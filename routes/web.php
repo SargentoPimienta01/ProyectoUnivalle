@@ -24,11 +24,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
-  
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites');
+
+Route::post('/home/tramitesdisponibles', [HomeController::class, 'tramitesdisponibles'])->name('tramitesdisponibles');
+
+Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
+    ->where('nombre_categoria', '[A-Za-z0-9\-]+')
+    ->name('nombre_categoria');
+
+Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
+
+Route::post('/home/requisitos', [HomeController::class, 'requisitos'])->name('requisitos');
+
 Auth::routes();
   
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
   
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
