@@ -8,6 +8,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CajaController;
+use App\Http\Controllers\RequisitoCajaController;
+use App\Http\Controllers\TramiteController;
   
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +55,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('areas', AreaController::class);
+    Route::resource('cajas', CajaController::class);
+    Route::resource('cajasrequisitos', RequisitoCajaController::class);
 });
