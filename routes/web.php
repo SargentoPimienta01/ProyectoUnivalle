@@ -11,6 +11,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CajaController;
 use App\Http\Controllers\RequisitoCajaController;
 use App\Http\Controllers\TramiteController;
+use App\Http\Controllers\CategoriaTramiteController;
+use App\Http\Controllers\RequisitoTramiteController;
   
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('areas', AreaController::class);
+    Route::resource('tramites', TramiteController::class);
+    Route::resource('categoria-tramites', CategoriaTramiteController::class);
+    Route::resource('requisito-tramites', RequisitoTramiteController::class);
     Route::resource('cajas', CajaController::class);
     Route::resource('cajasrequisitos', RequisitoCajaController::class);
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CategoriaTramite;
+use App\Models\CategoriaTramites;
 use Illuminate\Http\Request;
 
 /**
@@ -18,7 +19,7 @@ class CategoriaTramiteController extends Controller
      */
     public function index()
     {
-        $categoriaTramites = CategoriaTramite::paginate();
+        $categoriaTramites = CategoriaTramites::paginate();
 
         return view('categoria-tramite.index', compact('categoriaTramites'))
             ->with('i', (request()->input('page', 1) - 1) * $categoriaTramites->perPage());
@@ -31,7 +32,7 @@ class CategoriaTramiteController extends Controller
      */
     public function create()
     {
-        $categoriaTramite = new CategoriaTramite();
+        $categoriaTramite = new CategoriaTramites();
         return view('categoria-tramite.create', compact('categoriaTramite'));
     }
 
@@ -43,9 +44,9 @@ class CategoriaTramiteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(CategoriaTramite::$rules);
+        request()->validate(CategoriaTramites::$rules);
 
-        $categoriaTramite = CategoriaTramite::create($request->all());
+        $categoriaTramite = CategoriaTramites::create($request->all());
 
         return redirect()->route('categoria-tramites.index')
             ->with('success', 'CategoriaTramite created successfully.');
@@ -59,7 +60,7 @@ class CategoriaTramiteController extends Controller
      */
     public function show($id)
     {
-        $categoriaTramite = CategoriaTramite::find($id);
+        $categoriaTramite = CategoriaTramites::find($id);
 
         return view('categoria-tramite.show', compact('categoriaTramite'));
     }
@@ -72,7 +73,7 @@ class CategoriaTramiteController extends Controller
      */
     public function edit($id)
     {
-        $categoriaTramite = CategoriaTramite::find($id);
+        $categoriaTramite = CategoriaTramites::find($id);
 
         return view('categoria-tramite.edit', compact('categoriaTramite'));
     }
@@ -81,12 +82,12 @@ class CategoriaTramiteController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  CategoriaTramite $categoriaTramite
+     * @param  CategoriaTramites $categoriaTramite
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CategoriaTramite $categoriaTramite)
+    public function update(Request $request, CategoriaTramites $categoriaTramite)
     {
-        request()->validate(CategoriaTramite::$rules);
+        request()->validate(CategoriaTramites::$rules);
 
         $categoriaTramite->update($request->all());
 
@@ -101,7 +102,7 @@ class CategoriaTramiteController extends Controller
      */
     public function destroy($id)
     {
-        $categoriaTramite = CategoriaTramite::find($id)->delete();
+        $categoriaTramite = CategoriaTramites::find($id)->delete();
 
         return redirect()->route('categoria-tramites.index')
             ->with('success', 'CategoriaTramite deleted successfully');

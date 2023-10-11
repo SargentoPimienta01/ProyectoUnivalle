@@ -48,7 +48,10 @@
                         @else
                             <li><a class="nav-link" href="{{ route('users.index') }}">Administrar Usuarios</a></li>
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Administrar Roles</a></li>
-                            <li><a class="nav-link" href="{{ route('areas.index') }}">Areas</a></li>
+                            <li><a class="nav-link" href="{{ route('areas.index') }}">Áreas</a></li>
+                            <li><a class="nav-link" href="{{ route('tramites.index') }}">Trámites</a></li>
+                            <li><a class="nav-link" href="{{ route('categoria-tramites.index') }}">Categorías de trámites</a></li>
+                            <li><a class="nav-link" href="{{ route('requisito-tramites.index') }}">Trámites requisitos</a></li>
                             <li><a class="nav-link" href="{{ route('cajas.index') }}">Cajas</a></li>
                             <li><a class="nav-link" href="{{ route('cajasrequisitos.index') }}">Cajas Requisitos</a></li>
                             <li class="nav-item dropdown">
