@@ -11,7 +11,7 @@ class CreateTramiteTable extends Migration
         Schema::create('Tramite', function (Blueprint $table) {
             $table->id('Id_tramite');
             $table->string('nombre_tramite');
-            $table->string('duracion_tramite', 10);
+            $table->string('duracion_tramite', 100);
             $table->unsignedBigInteger('id_categoria_tramites');
             $table->boolean('estado');
             $table->foreign('id_categoria_tramites')

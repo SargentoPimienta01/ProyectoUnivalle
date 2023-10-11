@@ -10,7 +10,7 @@ class CreateAreasTable extends Migration
     {
         Schema::create('areas', function (Blueprint $table) {
             $table->id('Id_area'); // Utilizamos un campo autoincremental en lugar de INT NOT NULL
-            $table->string('nombre_area', 20);
+            $table->string('nombre_area', 100);
             $table->string('descripcion', 256)->nullable(); // Permitimos valores nulos en la descripción
             $table->boolean('estado');
             $table->timestamps();

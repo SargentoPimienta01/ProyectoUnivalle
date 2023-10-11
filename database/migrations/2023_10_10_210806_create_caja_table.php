@@ -10,7 +10,7 @@ class CreateCajaTable extends Migration
     {
         Schema::create('caja', function (Blueprint $table) {
             $table->id('Id_caja');
-            $table->string('nombre_caja', 20);
+            $table->string('nombre_caja', 100);
             $table->string('descripcion_caja', 256);
             $table->boolean('estado');
             $table->unsignedBigInteger('Id_area');

@@ -10,7 +10,7 @@ class CreateRequisitoTramiteTable extends Migration
     {
         Schema::create('RequisitoTramite', function (Blueprint $table) {
             $table->id('Id_requisito');
-            $table->string('nombre_requisito', 20);
+            $table->string('nombre_requisito', 100);
             $table->string('descripcion_requisito', 500);
             $table->boolean('estado');
             $table->unsignedBigInteger('Id_tramite');

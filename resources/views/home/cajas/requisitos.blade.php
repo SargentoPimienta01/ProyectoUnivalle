@@ -17,26 +17,32 @@
     <div class="titulo">
       <h2>Requisitos para la caja: {{ $requisitoCaja->nombre_caja }}</h2>
     </div>
-      
+
+    
     <div class="container">
         <table>
             <thead>
                 <tr>
-                    <th>Detalle</th>
-                    <th>Requisitos</th>
-                    <th>Descripción de requisito</th>
+                    <th>Servicio</th>
+                    <th>Requisitos</th>  
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>SER</td>
+                    <td>REQ</td>
+                </tr>
+                
+            </tbody>
+            <tbody>
                 @foreach ($requisitos as $requisito)
                 <tr>
-                    <td>{{ $requisito->Id_requisito }}</td>
                     <td>{{ $requisito->nombre_requisito }}</td>
                     <td>{{ $requisito->descripcion_requisito }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-    </div>
+</div>
 </body>
 </html>
