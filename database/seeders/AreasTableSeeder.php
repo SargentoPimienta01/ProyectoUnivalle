@@ -35,6 +35,11 @@ class AreasTableSeeder extends Seeder
                 'descripcion' => 'NAF se encarga de la parte fiscal',
                 'estado' => true,
             ],
+            [
+                'nombre_area' => 'Cafeteria',
+                'descripcion' => 'La Cafeteria de la Universidad',
+                'estado' => true,
+            ],
         ];
 
         DB::table('areas')->insert($areas);

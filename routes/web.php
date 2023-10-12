@@ -1,6 +1,7 @@
 <?php
   
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
   
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
@@ -30,6 +31,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home/naf', [HomeController::class, 'naf'])->name('naf');
+
+Route::get('/home/cafeteria', [HomeController::class, 'cafeteria'])->name('cafeteria');
 
 Route::get('/home/gabinete-medico', [HomeController::class, 'gabinetemedico'])->name('gabinete-medico');
 
@@ -71,3 +74,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('cajas', CajaController::class);
     Route::resource('cajasrequisitos', RequisitoCajaController::class);
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

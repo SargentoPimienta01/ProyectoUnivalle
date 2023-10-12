@@ -90,4 +90,9 @@ class HomeController extends Controller
     {
         return view ('home.naf.index');
     }
+
+    public function cafeteria ()
+    {
+        return view ('home.cafeteria.cafeteria');
+    }
 }
