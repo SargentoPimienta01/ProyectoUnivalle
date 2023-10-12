@@ -22,7 +22,17 @@ class AreasTableSeeder extends Seeder
             ],
             [
                 'nombre_area' => 'Plataforma de Atención',
-                'descripcion' => 'El área de cajas se encarga de la gestión económica',
+                'descripcion' => 'La plataforma de atención se encarga de la atención al usuario',
+                'estado' => true,
+            ],
+            [
+                'nombre_area' => 'Gabinete Médico',
+                'descripcion' => 'Gabinete médico se encarga de la atención médica',
+                'estado' => true,
+            ],
+            [
+                'nombre_area' => 'NAF',
+                'descripcion' => 'NAF se encarga de la parte fiscal',
                 'estado' => true,
             ],
         ];

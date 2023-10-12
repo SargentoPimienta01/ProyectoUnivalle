@@ -81,4 +81,13 @@ class HomeController extends Controller
         return view ('home.plataforma-de-atencion.servicios');
     }
 
+    public function gabinetemedico ()
+    {
+        return view ('home.gabinete-medico.index');
+    }
+
+    public function naf ()
+    {
+        return view ('home.naf.index');
+    }
 }
