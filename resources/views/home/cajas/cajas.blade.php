@@ -1,3 +1,5 @@
+@extends('layouts.indexbutton')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

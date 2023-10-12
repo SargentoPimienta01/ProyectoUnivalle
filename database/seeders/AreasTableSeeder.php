@@ -20,6 +20,11 @@ class AreasTableSeeder extends Seeder
                 'descripcion' => 'El área de cajas se encarga de la gestión económica',
                 'estado' => true,
             ],
+            [
+                'nombre_area' => 'Plataforma de Atención',
+                'descripcion' => 'El área de cajas se encarga de la gestión económica',
+                'estado' => true,
+            ],
         ];
 
         DB::table('areas')->insert($areas);

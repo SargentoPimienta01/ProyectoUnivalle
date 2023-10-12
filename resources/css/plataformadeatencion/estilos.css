@@ -1,0 +1,129 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #6a0821;
+}
+
+header {
+    background-color: #6a0821; /* Guindo oscuro */
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav li {
+    background-color: #9d033f;
+    display: inline;
+    margin-right: 20px;
+    border: 1px solid #9d033f; /* Añade un borde de 1 píxel sólido con color #9d033f */
+    padding: 5px; /* Agrega un poco de espacio interno */
+    border-radius: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+}
+
+section {
+    
+    padding: 20px;
+    background-color: white; /* Blanco rosado */
+    color: #6a0821; /* Guindo oscuro */
+    margin: 20px 150px; /* Agrega un margen de 10px alrededor de la sección */
+    border-radius: 10px;
+}
+
+/* Hacer el texto en la sección de inicio más grueso */
+section#inicio h2 {
+    font-weight: bold;
+}
+
+
+button {
+    background-color: #9d033f; /* Cambia el color del botón a #9d033f */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold; /* Hacer el texto del botón más grueso */
+    border-radius: 5px; /* Agrega un borde redondeado al botón */
+}
+
+button:hover {
+    background-color: #6a0821; /* Guindo más claro al pasar el mouse */
+}
+
+footer {
+    background-color: #6a0821; /* Guindo oscuro */
+    color: white;
+    border: 2px solid white;
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 1px;
+}
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* servicios */
+/* **************** */
+/* **************** */
+/* **************** */
+
+
+
+/* **************** */
+/* **************** */
+/* **************** */
+/* contenedor */
+/* **************** */
+/* **************** */
+/* **************** */
+.contenedor {
+    display: flex;
+    flex-direction: column; /* Muestra los cuadros en columnas */
+    align-items: center; /* Centra los cuadros horizontalmente */
+}
+
+.cuadroInformativo {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin: 10px; /* Espacio entre cuadros */
+    max-width: 600px;
+    text-align: left;
+}
+
+.tituloInf {
+    margin: 3px;
+
+    border: 3px solid #6a0821;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+}
+
+.parrafoInf {
+    border: 3px solid #6a0821;
+    margin: 3px;
+    font-size: 17px;
+    color: #333;
+    padding: 10px 10px;
+
+}
+.header {
+    text-align: left;
+    margin: 20px;
+    text-align: center;
+}

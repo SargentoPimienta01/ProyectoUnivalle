@@ -58,20 +58,27 @@ class HomeController extends Controller
     }
 
     public function requisitosCaja(Request $request)
-{
-    // Obtén el ID de la caja desde la solicitud POST
-    $idCaja = $request->input('id_caja');
+    {
+        // Obtén el ID de la caja desde la solicitud POST
+        $idCaja = $request->input('id_caja');
 
-    // Obtén la información de la caja correspondiente al requisito
-    $requisitoCaja = Caja::find($idCaja);
+        // Obtén la información de la caja correspondiente al requisito
+        $requisitoCaja = Caja::find($idCaja);
 
-    // Obtén los requisitos de la caja
-    $requisitos = RequisitoCaja::where('Id_caja', $idCaja)->get();
+        // Obtén los requisitos de la caja
+        $requisitos = RequisitoCaja::where('Id_caja', $idCaja)->get();
 
-    return view('home.cajas.requisitos', ['requisitoCaja' => $requisitoCaja, 'requisitos' => $requisitos]);
-}
+        return view('home.cajas.requisitos', ['requisitoCaja' => $requisitoCaja, 'requisitos' => $requisitos]);
+    }
 
+    public function plataformadeatencion ()
+    {
+        return view ('home.plataforma-de-atencion.index');
+    }
 
-
+    public function paservicios ()
+    {
+        return view ('home.plataforma-de-atencion.servicios');
+    }
 
 }
