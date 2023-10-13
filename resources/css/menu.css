@@ -1,0 +1,144 @@
+:root{
+    ---principal: #68091Fff;
+    ---secundario: #9E0442ff;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/UnivalleBackground.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.logo{
+    color: white;
+    font-size: 28px;
+    overflow: hidden; 
+    max-width: 200px;
+}
+
+span{
+    color: var(---principal);
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: var(---principal);
+    transition: 0.3s;
+}
+
+button{
+    border: none;
+    background: var(---principal);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+button a{
+    text-decoration: none;
+    color: white;
+}
+
+button:hover{
+    color: var(---principal);
+    transition: 0.4s;
+    background-color: white;
+}
+
+button a:hover{
+    color: var(---principal);
+}
+
+.Opciones{
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+}
+
+.Opciones a {
+    z-index: 1;
+    transition: all .2s;
+    position: relative;
+    max-width: fit-content;
+    display: block;
+    margin: 0 auto;
+    text-decoration: none;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Opciones a:hover {
+    text-decoration: none;
+    transform: translate(-1px,-1px);
+}
+
+.boton {
+    display: block;
+    z-index: 0;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    color: #000;
+    text-align: center;
+    background-color: rgba(255,255,255,.3);
+    border-radius: 0.25rem;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    transition: all .2s;
+    position: relative;
+    transform: translate(0);
+    box-shadow: 1px 1px 1rem rgb(26 26 26 / 15%);
+}
+
+.boton:hover {
+    text-decoration: none;
+    transform: translate(-1px,-1px);
+}
+
+.boton_bg-grad {
+    z-index: -2;
+    background: linear-gradient(20deg, var(---principal) 0%, var(---secundario) 100%);
+    background-position: 0 0;
+    background-size: cover;
+    border-radius: 4px;
+    position: absolute;
+    top: 0%;
+    bottom: 0%;
+    left: 0%;
+    right: 0%;
+    transform: translate(0.5rem,0.5rem);
+    pointer-events: none;
+}

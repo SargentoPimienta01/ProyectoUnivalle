@@ -27,7 +27,7 @@ use App\Http\Controllers\RequisitoTramiteController;
 */
   
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/home');;
 });
 
 Route::get('/home/naf', [HomeController::class, 'naf'])->name('naf');
