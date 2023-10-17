@@ -32,14 +32,14 @@
                     <li><a href="{{ url('/home') }}">Menu</a></li>
                     <li><a href="{{ url('/home/tramites') }}">Tramites</a></li>
                     <li><a href="{{ url('/home/cajas') }}">Cajas</a></li>
-                    <li><a href="#">Postgrdo</a></li>
+                    <li><a href="#">Postgrado</a></li>
                 </ul>
-                <button type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
+                <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
             </nav>
 
             <div class="Opciones">  
             @foreach($areas as $area)
-                <div class="lefter">
+                <div>
                     @php
                         $nombre_area_slug = Str::slug($area->nombre_area, '-');
                     @endphp

@@ -1,5 +1,3 @@
-@extends('layouts.indexbutton')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,32 +8,51 @@
     <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
     <title>Tramites | Univalle</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ Vite::asset('resources/css/tramites/styles_user_tables.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/css/styles.css') }}">
+    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     
 </head>
 <body>
   
-    <div class="titulo">
-      <h2>Tramites</h2>
+    <div class="intro">
+      <h1>Tramites</h1>
     </div>
-      
-      <aside>
+
+    <div class="hero">
+        <!-- Barra de Navegacion -->
         <nav>
-        <ul>
-            @foreach($ctramites as $ctramite)
-                <li>
-                    <form method="POST" action="{{ route('tramitesdisponibles') }}">
-                        @csrf
-                        <input type="hidden" name="id_categoria_tramites" value="{{ $ctramite->id_categoria_tramites }}"> <!-- Puedes cambiar el valor según tus necesidades -->
-                        <!-- Resto de los campos del formulario -->
-                        <button type="submit" class="custom-button">{{ $ctramite->nombre_categoria }}</button>
-                    </form>
-                </li>
-            @endforeach
-        </ul>
+            <a href="{{ url('/home') }}">
+            <img src="{{ Vite::asset('resources/img/banner.png') }}" alt="Univalle Logo" class="logo">
+            </a>
+            <ul>
+                <li><a href="{{ url('/home') }}">Menu</a></li>
+                <li><a href="{{ url('/home/tramites') }}">Tramites</a></li>
+                <li><a href="{{ url('/home/cajas') }}">Cajas</a></li>
+                <li><a href="#">Postgrado</a></li>
+            </ul>
+            <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
         </nav>
-      </aside>
+
+        <div class="Opciones2">
+            @foreach($ctramites as $ctramite)
+                    
+                <form method="POST" action="{{ route('tramitesdisponibles') }}">
+                    @csrf
+                    <input type="hidden" name="id_categoria_tramites" value="{{ $ctramite->id_categoria_tramites }}"> <!-- Puedes cambiar el valor según tus necesidades -->
+                    <!-- Resto de los campos del formulario -->
+                    <button type="submit" class="button-anon-pen"><span>{{ $ctramite->nombre_categoria }}</span></button>
+                </form>    
+                
+            @endforeach
+
+        </div>
         
+
+
+
+    </div>
+    
+        
+      <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
 </html>
