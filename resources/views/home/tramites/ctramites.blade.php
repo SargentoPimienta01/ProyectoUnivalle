@@ -56,3 +56,4 @@
       <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
 </html>
+
