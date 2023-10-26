@@ -54,6 +54,12 @@
                             <li><a class="nav-link" href="{{ route('requisito-tramites.index') }}">Trámites requisitos</a></li>
                             <li><a class="nav-link" href="{{ route('cajas.index') }}">Cajas</a></li>
                             <li><a class="nav-link" href="{{ route('cajasrequisitos.index') }}">Cajas Requisitos</a></li>
+                            <li><a class="nav-link" href="{{ route('nafs.index') }}">Nafs</a></li>
+                            <li><a class="nav-link" href="{{ route('requisitos-naf.index') }}">Nafs Requisitos</a></li>
+                            <li><a class="nav-link" href="{{ route('gabinetes-medico.index') }}">Gabinetes Medicos</a></li>
+                            <li><a class="nav-link" href="{{ route('requisitos-gabinetesmedico.index') }}">Gabinetes Medicos requisitos</a></li>
+
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

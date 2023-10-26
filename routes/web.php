@@ -13,7 +13,12 @@ use App\Http\Controllers\CajaController;
 use App\Http\Controllers\RequisitoCajaController;
 use App\Http\Controllers\TramiteController;
 use App\Http\Controllers\CategoriaTramiteController;
+use App\Http\Controllers\GabinetesMedicoController;
+use App\Http\Controllers\NafController;
+use App\Http\Controllers\RequisitosGabinetesMedicoController;
+use App\Http\Controllers\RequisitosNafController;
 use App\Http\Controllers\RequisitoTramiteController;
+
   
 /*
 |--------------------------------------------------------------------------
@@ -73,6 +78,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('requisito-tramites', RequisitoTramiteController::class);
     Route::resource('cajas', CajaController::class);
     Route::resource('cajasrequisitos', RequisitoCajaController::class);
+    Route::resource('nafs', NafController::class);
+    Route::resource('gabinetes-medico', GabinetesMedicoController::class);
+    Route::resource('requisitos-naf', RequisitosNafController::class);
+    Route::resource('requisitos-gabinetesmedico', RequisitosGabinetesMedicoController::class);
+
+
 });
 Auth::routes();
 
