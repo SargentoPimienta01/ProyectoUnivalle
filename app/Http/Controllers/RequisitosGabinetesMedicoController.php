@@ -47,7 +47,7 @@ class RequisitosGabinetesMedicoController extends Controller
 
         $requisitosGabinetesMedico = RequisitosGabinetesMedico::create($request->all());
 
-        return redirect()->route('requisitos-gabinetemedico.index')
+        return redirect()->route('requisitos-gabinetesmedico.index')
             ->with('success', 'RequisitosGabinetesMedico created successfully.');
     }
 

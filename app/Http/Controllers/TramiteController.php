@@ -60,7 +60,7 @@ class TramiteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Tramite::$rules);
+        //request()->validate(Tramite::$rules);
 
         $tramite = Tramite::create($request->all());
 
@@ -111,7 +111,7 @@ class TramiteController extends Controller
      */
     public function update(Request $request, Tramite $tramite)
     {
-        request()->validate(Tramite::$rules);
+        //request()->validate(Tramite::$rules);
 
         $tramite->update($request->all());
 
