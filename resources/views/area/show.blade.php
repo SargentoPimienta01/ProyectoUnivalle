@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    {{ $area->name ?? "{{ __('Show') Area" }}
+    {{ $area->nombre_area ?? __('Mostrar Área') }}
 @endsection
 
 @section('content')
@@ -11,25 +11,25 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Area</span>
+                            <span class="card-title">{{ __('Mostrar Área') }}</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('areas.index') }}"> {{ __('Back') }}</a>
+                            <a class="btn btn-primary" href="{{ route('areas.index') }}"> {{ __('Atrás') }}</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Id Area:</strong>
+                            <strong>Id Área:</strong>
                             {{ $area->Id_area }}
                         </div>
                         <div class="form-group">
-                            <strong>Nombre Area:</strong>
+                            <strong>Nombre Área:</strong>
                             {{ $area->nombre_area }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
+                            <strong>Descripción:</strong>
                             {{ $area->descripcion }}
                         </div>
                         <div class="form-group">

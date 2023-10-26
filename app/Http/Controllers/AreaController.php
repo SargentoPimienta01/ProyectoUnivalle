@@ -73,10 +73,11 @@ class AreaController extends Controller
      */
     public function show($id)
     {
-        $area = Area::find($id);
+        $area = Area::where('Id_area', $id)->first();
 
         return view('area.show', compact('area'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

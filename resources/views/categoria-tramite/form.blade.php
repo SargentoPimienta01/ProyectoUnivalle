@@ -1,7 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('id_categoria_tramites') }}
             {{ Form::text('id_categoria_tramites', $categoriaTramite->id_categoria_tramites, ['class' => 'form-control' . ($errors->has('id_categoria_tramites') ? ' is-invalid' : ''), 'placeholder' => 'Id Categoria Tramites']) }}
             {!! $errors->first('id_categoria_tramites', '<div class="invalid-feedback">:message</div>') !!}
@@ -11,9 +11,9 @@
             {{ Form::text('nombre_categoria', $categoriaTramite->nombre_categoria, ['class' => 'form-control' . ($errors->has('nombre_categoria') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Categoria']) }}
             {!! $errors->first('nombre_categoria', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('estado') }}
-            {{ Form::text('estado', $categoriaTramite->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+            {{ Form::text('estado', old('estado', $categoriaTramite->estado ?? 1), ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">

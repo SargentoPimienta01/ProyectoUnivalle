@@ -1,7 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('Id_requisito') }}
             {{ Form::text('Id_requisito', $requisitoTramite->Id_requisito, ['class' => 'form-control' . ($errors->has('Id_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Id Requisito']) }}
             {!! $errors->first('Id_requisito', '<div class="invalid-feedback">:message</div>') !!}
@@ -16,12 +16,12 @@
             {{ Form::text('descripcion_requisito', $requisitoTramite->descripcion_requisito, ['class' => 'form-control' . ($errors->has('descripcion_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion Requisito']) }}
             {!! $errors->first('descripcion_requisito', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('estado') }}
             {{ Form::text('estado', $requisitoTramite->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('Id_tramite') }}
             {{ Form::text('Id_tramite', $requisitoTramite->Id_tramite, ['class' => 'form-control' . ($errors->has('Id_tramite') ? ' is-invalid' : ''), 'placeholder' => 'Id Tramite']) }}
             {!! $errors->first('Id_tramite', '<div class="invalid-feedback">:message</div>') !!}

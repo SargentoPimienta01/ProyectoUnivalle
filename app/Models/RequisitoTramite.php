@@ -9,6 +9,8 @@ class RequisitoTramite extends Model
 {
     protected $table = 'RequisitoTramite';
 
+    protected $primaryKey = 'Id_requisito';
+
     protected $fillable = [
         'nombre_requisito', 'descripcion_requisito', 'estado', 'Id_tramite'
     ];

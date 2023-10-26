@@ -35,36 +35,35 @@
         </nav>
 
         <div>
-            <h2>Requisitos para el trámite: {{ $nombreTramite }}</h2>
+            <h2 style="color: white; text-align: center;">Requisitos para el trámite: {{ $nombreTramite }}</h2>
         </div>
 
-          <div class="container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Detalle</th>
-                        <th>Requisitos</th>
-                        <th>Duracion de tramite</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>DET</td>
-                        <td>REQ</td>
-                        <td>DUR</td> 
-                    </tr>
-                    <tr>
-                    @foreach ($requisitos as $requisito)
-                        <td>{{ $requisito->nombre_requisito }}</td>
-                    @endforeach
-                    @foreach ($requisitos as $requisito)
-                        <td>{{ $requisito->descripcion_requisito }}</td>
-                    @endforeach
-                        <td>{{ $duracionTramite }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="container">
+    <table>
+        <thead>
+            <tr>
+                <th>Detalle</th>
+                <th>Requisitos</th>
+                <th>Duracion de tramite</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>DET</td>
+                <td>REQ</td>
+                <td>DUR</td>
+            </tr>
+            @foreach ($requisitos as $requisito)
+            <tr>
+                <td>{{ $requisito->nombre_requisito }}</td>
+                <td>{{ $requisito->descripcion_requisito }}</td>
+                <td>{{ $duracionTramite }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
         
     </div>  
 
