@@ -43,7 +43,7 @@ class RequisitosGabinetesMedicoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(RequisitosGabinetesMedico::$rules);
+        //request()->validate(RequisitosGabinetesMedico::$rules);
 
         $requisitosGabinetesMedico = RequisitosGabinetesMedico::create($request->all());
 
@@ -86,7 +86,7 @@ class RequisitosGabinetesMedicoController extends Controller
      */
     public function update(Request $request, RequisitosGabinetesMedico $requisitosGabinetesMedico)
     {
-        request()->validate(RequisitosGabinetesMedico::$rules);
+        //request()->validate(RequisitosGabinetesMedico::$rules);
 
         $requisitosGabinetesMedico->update($request->all());
 
