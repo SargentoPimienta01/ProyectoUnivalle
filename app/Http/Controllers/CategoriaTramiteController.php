@@ -44,7 +44,7 @@ class CategoriaTramiteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(CategoriaTramites::$rules);
+        //request()->validate(CategoriaTramites::$rules);
 
         $categoriaTramite = CategoriaTramites::create($request->all());
 
@@ -87,7 +87,7 @@ class CategoriaTramiteController extends Controller
      */
     public function update(Request $request, CategoriaTramites $categoriaTramite)
     {
-        request()->validate(CategoriaTramites::$rules);
+        //request()->validate(CategoriaTramites::$rules);
 
         $categoriaTramite->update($request->all());
 

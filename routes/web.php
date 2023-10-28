@@ -51,7 +51,7 @@ Route::post('/home/requisitosCaja', [HomeController::class, 'requisitosCaja'])->
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites');
+Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites-inicio');
 
 Route::post('/home/tramitesdisponibles', [HomeController::class, 'tramitesdisponibles'])->name('tramitesdisponibles');
 
@@ -73,9 +73,26 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('areas', AreaController::class);
-    Route::resource('tramites', TramiteController::class);
+
     Route::resource('categoria-tramites', CategoriaTramiteController::class);
-    Route::resource('requisito-tramites', RequisitoTramiteController::class);
+    
+    //Rutas de trámites
+    Route::post('tramites/cambiarEstado/{id}', [TramiteController::class, 'cambiarEstado'])->name('tramites.cambiarEstado');
+    Route::get('/tramites/inactivos', [TramiteController::class, 'inactivos'])->name('tramites.inactivos');
+    //Route::resource('tramites', TramiteController::class);
+    Route::resource('tramites', TramiteController::class)->names('tramites');
+
+    Route::resource('categoria-tramites', CategoriaTramiteController::class);
+    //Requisitos de trámites
+    // Primero definir las rutas específicas antes de las rutas con parámetros
+    Route::get('tramites/requisito-tramites/inactivos', [RequisitoTramiteController::class, 'inactivos'])->name('requisito-tramites.inactivos');
+    Route::get('tramites/requisito-tramites/{id_tramite}', [RequisitoTramiteController::class, 'index'])->name('requisito-tramites.index');
+
+    // Ahora, las rutas generales o las rutas con parámetros
+    Route::resource('tramites/requisito-tramites', RequisitoTramiteController::class);
+    Route::put('tramites/requisito-tramites/cambiarEstado/{requisito}', [RequisitoTramiteController::class, 'cambiarEstado'])->name('requisito-tramites.cambiarEstado');
+
+
     Route::resource('cajas', CajaController::class);
     Route::resource('cajasrequisitos', RequisitoCajaController::class);
     Route::resource('nafs', NafController::class);

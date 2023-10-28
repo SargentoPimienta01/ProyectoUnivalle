@@ -32,11 +32,14 @@ class HomeController extends Controller
         // Obtén la categoría de trámites correspondiente
         $ctramite = CategoriaTramites::find($idCategoriaTramites);
 
-        // Obtén los trámites que pertenecen a esa categoría
-        $tramites = Tramite::where('id_categoria_tramites', $idCategoriaTramites)->get();
+        // Obtén los trámites que pertenecen a esa categoría y que tengan estado igual a 1
+        $tramites = Tramite::where('id_categoria_tramites', $idCategoriaTramites)
+            ->where('estado', 1)
+            ->get();
 
         return view('home.tramites.tramites', ['ctramite' => $ctramite, 'tramites' => $tramites]);
     }
+
 
     public function requisitos(Request $request)
     {
@@ -45,11 +48,14 @@ class HomeController extends Controller
         $nombreTramite = $request->input('nombre_tramite');
         $duracionTramite = $request->input('duracion_tramite');
 
-        // Obtén los requisitos del trámite especificado por id_tramite
-        $requisitos = RequisitoTramite::where('Id_tramite', $idTramite)->get();
+        // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
+        $requisitos = RequisitoTramite::where('Id_tramite', $idTramite)
+            ->where('estado', 1)
+            ->get();
 
         return view('home.tramites.requisitos', ['nombreTramite' => $nombreTramite, 'duracionTramite' => $duracionTramite, 'requisitos' => $requisitos]);
     }
+
 
     public function cajas()
     {

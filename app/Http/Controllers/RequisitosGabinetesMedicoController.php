@@ -43,11 +43,11 @@ class RequisitosGabinetesMedicoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(RequisitosGabinetesMedico::$rules);
+        //request()->validate(RequisitosGabinetesMedico::$rules);
 
         $requisitosGabinetesMedico = RequisitosGabinetesMedico::create($request->all());
 
-        return redirect()->route('requisitos-gabinetemedico.index')
+        return redirect()->route('requisitos-gabinetesmedico.index')
             ->with('success', 'RequisitosGabinetesMedico created successfully.');
     }
 
@@ -86,7 +86,7 @@ class RequisitosGabinetesMedicoController extends Controller
      */
     public function update(Request $request, RequisitosGabinetesMedico $requisitosGabinetesMedico)
     {
-        request()->validate(RequisitosGabinetesMedico::$rules);
+        //request()->validate(RequisitosGabinetesMedico::$rules);
 
         $requisitosGabinetesMedico->update($request->all());
 

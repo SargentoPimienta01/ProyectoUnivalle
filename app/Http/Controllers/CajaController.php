@@ -43,7 +43,7 @@ class CajaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Caja::$rules);
+        //request()->validate(Caja::$rules);
 
         $caja = Caja::create($request->all());
 
@@ -86,7 +86,7 @@ class CajaController extends Controller
      */
     public function update(Request $request, Caja $caja)
     {
-        request()->validate(Caja::$rules);
+        //request()->validate(Caja::$rules);
 
         $caja->update($request->all());
 

@@ -14,7 +14,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisitos del Trámite: ') }}{{ $tramite -> nombre_tramite }}
+                                {{ __('Requisitos de Trámite Inactivos: ') }}
                             </span>
 
                              <!--<div class="float-right">
@@ -32,26 +32,7 @@
                             {{ __('Agregar requisito') }}
                             </button>
 
-                            <!-- Modal de creación -->
-                            <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="createModalLabel">{{ __('Create New Requisito Tramite') }}</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                <form method="POST" action="{{ route('requisito-tramites.store') }}"  role="form" enctype="multipart/form-data">
-                                    @csrf
-
-                                    <!-- Aquí incluirás el formulario de creación, puedes usar Blade para incluir el contenido -->
-                                    @include('requisito-tramite.formview')
-                                </form>
-                                </div>
-                                </div>
-                            </div>
+                           
                             </div>
 
                         </div>
@@ -73,32 +54,36 @@
 										<th>Nombre Requisito</th>
 										<th>Descripcion Requisito</th>
 										<th>Estado</th>
+										<th>Id Tramite</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($requisitoTramites as $requisitoTramite)
+                                    @foreach ($requisitosInactivos as $requisitoInactivo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $requisitoTramite->Id_requisito }}</td>
-											<td>{{ $requisitoTramite->nombre_requisito }}</td>
-											<td>{{ $requisitoTramite->descripcion_requisito }}</td>
-											<td>
-                                                {{ $requisitoTramite->estado == 1 ? 'Activo' : 'Inactivo' }}
-                                            </td>
-                                            <td>
-                                            <form action="{{ route('requisito-tramites.cambiarEstado', $requisitoTramite->Id_requisito) }}" method="POST">
-                                @csrf
-                                @method('PUT') <!-- Agrega este campo oculto para indicar una solicitud PUT -->
-                                <button type="submit" class="btn btn-sm btn-{{ $requisitoTramite->estado == 1 ? 'warning' : 'success' }}">
-                                    <i class="fa fa-fw fa-power-off"></i>
-                                    {{ $requisitoTramite->estado == 1 ? 'Desactivar' : 'Activar' }}
-                                </button>
-                            </form>
+											<td>{{ $requisitoInactivo->Id_requisito }}</td>
+											<td>{{ $requisitoInactivo->nombre_requisito }}</td>
+											<td>{{ $requisitoInactivo->descripcion_requisito }}</td>
+											<td>{{ $requisitoInactivo->estado }}</td>
+											<td>{{ $requisitoInactivo->Id_tramite }}</td>
 
-                    <a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoTramite->Id_requisito) }}">
+                                            <td>
+                    {{ $requisitoInactivo->estado == 1 ? 'Activo' : 'Inactivo' }}
+                </td>
+                <td>
+                <form action="{{ route('requisito-tramites.cambiarEstado', $requisitoInactivo->Id_requisito) }}" method="POST">
+    @csrf
+    @method('PUT') <!-- Agrega este campo oculto para indicar una solicitud PUT -->
+    <button type="submit" class="btn btn-sm btn-{{ $requisitoInactivo->estado == 1 ? 'warning' : 'success' }}">
+        <i class="fa fa-fw fa-power-off"></i>
+        {{ $requisitoInactivo->estado == 1 ? 'Desactivar' : 'Activar' }}
+    </button>
+</form>
+
+                    <a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoInactivo->Id_requisito) }}">
                         <i class="fa fa-fw fa-edit"></i> Editar
                     </a>
                     <!-- Otros botones de acciones -->
@@ -110,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $requisitoTramites->links() !!}
+                {!! $requisitosInactivos->links() !!}
             </div>
         </div>
     </div>

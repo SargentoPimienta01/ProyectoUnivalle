@@ -16,12 +16,29 @@ class TramiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $tramites = Tramite::paginate();
+    public function index(Request $request)
+{
+    $search = $request->input('search');
 
-        return view('tramite.index', compact('tramites'))
-            ->with('i', (request()->input('page', 1) - 1) * $tramites->perPage());
+    // Consulta de tramites con búsqueda
+    $tramites = Tramite::where('estado', 1)
+        ->where(function ($query) use ($search) {
+            $query->where('nombre_tramite', 'LIKE', "%$search%")
+                ->orWhere('duracion_tramite', 'LIKE', "%$search%")
+                ->orWhere('id_categoria_tramites', 'LIKE', "%$search%");
+        })
+        ->paginate();
+
+    return view('tramite.index', compact('tramites', 'search'))
+        ->with('i', (request()->input('page', 1) - 1) * $tramites->perPage());
+}
+
+
+    public function inactivos()
+    {
+        $tramitesInactivos = Tramite::where('estado', 0)->paginate();
+        return view('tramite.inactivos', compact('tramitesInactivos'))
+            ->with('i', (request()->input('page', 1) - 1) * $tramitesInactivos->perPage());;
     }
 
     /**
@@ -43,7 +60,7 @@ class TramiteController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Tramite::$rules);
+        //request()->validate(Tramite::$rules);
 
         $tramite = Tramite::create($request->all());
 
@@ -59,7 +76,11 @@ class TramiteController extends Controller
      */
     public function show($id)
     {
-        $tramite = Tramite::find($id);
+        $tramite = Tramite::where('Id_tramite', $id)->first();
+
+        if (!$tramite) {
+            abort(404);
+        }
 
         return view('tramite.show', compact('tramite'));
     }
@@ -72,7 +93,11 @@ class TramiteController extends Controller
      */
     public function edit($id)
     {
-        $tramite = Tramite::find($id);
+        $tramite = Tramite::where('Id_tramite', $id)->first();
+
+        if (!$tramite) {
+            abort(404);
+        }
 
         return view('tramite.edit', compact('tramite'));
     }
@@ -86,7 +111,7 @@ class TramiteController extends Controller
      */
     public function update(Request $request, Tramite $tramite)
     {
-        request()->validate(Tramite::$rules);
+        //request()->validate(Tramite::$rules);
 
         $tramite->update($request->all());
 
@@ -99,11 +124,36 @@ class TramiteController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Exception
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $tramite = Tramite::find($id)->delete();
 
         return redirect()->route('tramites.index')
             ->with('success', 'Tramite deleted successfully');
+    }*/
+    public function cambiarEstado($id)
+    {
+        $tramite = Tramite::find($id);
+
+        if (!$tramite) {
+            return redirect()->route('tramites.index')->with('error', 'Trámite no encontrado');
+        }
+
+        // Cambia el estado
+        $nuevoEstado = $tramite->estado == 1 ? 0 : 1;
+        $tramite->estado = $nuevoEstado;
+        $tramite->save();
+
+        if ($nuevoEstado == 1) {
+            return redirect()->route('tramites.index')->with('success', 'Estado del trámite cambiado exitosamente');
+        } else {
+            return redirect()->route('tramites.inactivos')->with('success', 'Estado del trámite cambiado exitosamente');
+        }
     }
+
+
+
+
+
+
 }
