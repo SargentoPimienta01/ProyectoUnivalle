@@ -16,7 +16,7 @@
             {{ Form::text('estado', old('estado', $categoriaTramite->estado ?? 1), ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('Id_area') }}
             {{ Form::text('Id_area', $categoriaTramite->Id_area, ['class' => 'form-control' . ($errors->has('Id_area') ? ' is-invalid' : ''), 'placeholder' => 'Id Area']) }}
             {!! $errors->first('Id_area', '<div class="invalid-feedback">:message</div>') !!}
@@ -24,6 +24,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
     </div>
 </div>

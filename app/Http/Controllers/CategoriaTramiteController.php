@@ -44,13 +44,15 @@ class CategoriaTramiteController extends Controller
      */
     public function store(Request $request)
     {
-        //request()->validate(CategoriaTramites::$rules);
-
+        // Agregar el campo Id_area con el valor predeterminado de 1
+        $request->merge(['Id_area' => 1]);
+        
         $categoriaTramite = CategoriaTramites::create($request->all());
 
         return redirect()->route('categoria-tramites.index')
-            ->with('success', 'CategoriaTramite created successfully.');
+            ->with('success', 'Categoria de trámite creada correctamente.');
     }
+
 
     /**
      * Display the specified resource.
@@ -87,13 +89,15 @@ class CategoriaTramiteController extends Controller
      */
     public function update(Request $request, CategoriaTramites $categoriaTramite)
     {
-        //request()->validate(CategoriaTramites::$rules);
+        // Agregar el campo Id_area con el valor predeterminado de 1
+        $request->merge(['Id_area' => 1]);
 
         $categoriaTramite->update($request->all());
 
         return redirect()->route('categoria-tramites.index')
-            ->with('success', 'CategoriaTramite updated successfully');
+            ->with('success', 'Categoria de trámite actualizada correctamente');
     }
+
 
     /**
      * @param int $id
@@ -105,6 +109,26 @@ class CategoriaTramiteController extends Controller
         $categoriaTramite = CategoriaTramites::find($id)->delete();
 
         return redirect()->route('categoria-tramites.index')
-            ->with('success', 'CategoriaTramite deleted successfully');
+            ->with('success', 'Categoria de trámite eliminada correctamente');
+    }
+
+    public function cambiarEstado(Request $request, $id)
+    {
+        $categoriaTramite = CategoriaTramites::find($id);
+
+        if (!$categoriaTramite) {
+            return redirect()->route('categoria-tramites.index')->with('error', 'Categoría de Trámites no encontrada');
+        }
+
+        // Cambia el estado
+        $nuevoEstado = $categoriaTramite->estado == 1 ? 0 : 1;
+        $categoriaTramite->estado = $nuevoEstado;
+        $categoriaTramite->save();
+
+        if ($nuevoEstado == 1) {
+            return redirect()->route('categoria-tramites.index')->with('success', 'Categoría de Trámites desactivada exitosamente');
+        } else {
+            return redirect()->route('categoria-tramites.index')->with('success', 'Categoría de Trámites activada exitosamente');
+        }
     }
 }

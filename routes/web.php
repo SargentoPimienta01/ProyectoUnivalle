@@ -82,6 +82,7 @@ Route::group(['middleware' => ['auth']], function() {
     //Route::resource('tramites', TramiteController::class);
     Route::resource('tramites', TramiteController::class)->names('tramites');
 
+    Route::put('/categoria-tramites/{id}/cambiarEstado', [CategoriaTramiteController::class, 'cambiarEstado'])->name('categoria-tramites.cambiarEstado');
     Route::resource('categoria-tramites', CategoriaTramiteController::class);
     //Requisitos de trámites
     // Primero definir las rutas específicas antes de las rutas con parámetros
