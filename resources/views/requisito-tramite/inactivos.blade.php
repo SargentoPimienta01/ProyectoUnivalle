@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 @extends('layouts.jquery')
 
 @section('template_title')
@@ -48,13 +48,10 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Id Requisito</th>
+										<th>Id</th>
 										<th>Nombre Requisito</th>
 										<th>Descripcion Requisito</th>
 										<th>Estado</th>
-										<th>Id Tramite</th>
 
                                         <th></th>
                                     </tr>
@@ -62,35 +59,53 @@
                                 <tbody>
                                     @foreach ($requisitosInactivos as $requisitoInactivo)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $requisitoInactivo->Id_requisito }}</td>
 											<td>{{ $requisitoInactivo->nombre_requisito }}</td>
 											<td>{{ $requisitoInactivo->descripcion_requisito }}</td>
-											<td>{{ $requisitoInactivo->estado }}</td>
-											<td>{{ $requisitoInactivo->Id_tramite }}</td>
-
+											<td>
+                                                {{ $requisitoInactivo->estado == 1 ? 'Activo' : 'Inactivo' }}
+                                            </td>
                                             <td>
-                    {{ $requisitoInactivo->estado == 1 ? 'Activo' : 'Inactivo' }}
-                </td>
-                <td>
-                <form action="{{ route('requisito-tramites.cambiarEstado', $requisitoInactivo->Id_requisito) }}" method="POST">
-    @csrf
-    @method('PUT') <!-- Agrega este campo oculto para indicar una solicitud PUT -->
-    <button type="submit" class="btn btn-sm btn-{{ $requisitoInactivo->estado == 1 ? 'warning' : 'success' }}">
-        <i class="fa fa-fw fa-power-off"></i>
-        {{ $requisitoInactivo->estado == 1 ? 'Desactivar' : 'Activar' }}
-    </button>
-</form>
+                                            <!-- Botón para cambiar el estado con modal de confirmación -->
+                                            <button type="button" class="btn btn-sm btn-{{ $requisitoInactivo->estado == 1 ? 'danger' : 'success' }}" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoInactivo->Id_requisito }}">
+                                                <i class="fa fa-fw fa-power-off"></i>
+                                                {{ $requisitoInactivo->estado == 1 ? 'Desactivar' : 'Activar' }}
+                                            </button>
 
-                    <a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoInactivo->Id_requisito) }}">
-                        <i class="fa fa-fw fa-edit"></i> Editar
-                    </a>
-                    <!-- Otros botones de acciones -->
-                </td>
-            </tr>
-        @endforeach
-    </tbody>
+                                            <!-- Modal de confirmación para cambiar el estado -->
+                                            <div class="modal fade" id="confirmChangeState{{ $requisitoInactivo->Id_requisito }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ¿Está seguro de que desea cambiar el estado de este requisito?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            <form action="{{ route('requisito-tramites.cambiarEstado', $requisitoInactivo->Id_requisito) }}" method="POST">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <button type="submit" class="btn btn-{{ $requisitoInactivo->estado == 1 ? 'success' : 'danger' }}">
+                                                                    Confirmar Cambio de Estado
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoInactivo->Id_requisito) }}">
+                                                <i class="fa fa-fw fa-edit"></i> Editar
+                                            </a>
+                                            <!-- Otros botones de acciones -->
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
                             </table>
                         </div>
                     </div>

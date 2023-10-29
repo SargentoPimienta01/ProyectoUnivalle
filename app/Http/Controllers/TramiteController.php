@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tramite;
+use App\Models\CategoriaTramites;
 use Illuminate\Http\Request;
 
 /**
@@ -17,21 +18,21 @@ class TramiteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-{
-    $search = $request->input('search');
+    {
+        $search = $request->input('search');
 
-    // Consulta de tramites con búsqueda
-    $tramites = Tramite::where('estado', 1)
-        ->where(function ($query) use ($search) {
-            $query->where('nombre_tramite', 'LIKE', "%$search%")
-                ->orWhere('duracion_tramite', 'LIKE', "%$search%")
-                ->orWhere('id_categoria_tramites', 'LIKE', "%$search%");
-        })
-        ->paginate();
+        // Consulta de tramites con búsqueda
+        $tramites = Tramite::where('estado', 1)
+            ->where(function ($query) use ($search) {
+                $query->where('nombre_tramite', 'LIKE', "%$search%")
+                    ->orWhere('duracion_tramite', 'LIKE', "%$search%")
+                    ->orWhere('id_categoria_tramites', 'LIKE', "%$search%");
+            })
+            ->paginate();
 
-    return view('tramite.index', compact('tramites', 'search'))
-        ->with('i', (request()->input('page', 1) - 1) * $tramites->perPage());
-}
+        return view('tramite.index', compact('tramites', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * $tramites->perPage());
+    }
 
 
     public function inactivos()
@@ -49,8 +50,10 @@ class TramiteController extends Controller
     public function create()
     {
         $tramite = new Tramite();
-        return view('tramite.create', compact('tramite'));
+        $categoriasTramites = CategoriaTramites::all(); // Obtener todas las categorías de trámites desde la base de datos
+        return view('tramite.create', compact('tramite', 'categoriasTramites'));
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -94,12 +97,12 @@ class TramiteController extends Controller
     public function edit($id)
     {
         $tramite = Tramite::where('Id_tramite', $id)->first();
-
+        $categoriasTramites = CategoriaTramites::all();
         if (!$tramite) {
             abort(404);
         }
 
-        return view('tramite.edit', compact('tramite'));
+        return view('tramite.edit', compact('tramite', 'categoriasTramites'));
     }
 
     /**

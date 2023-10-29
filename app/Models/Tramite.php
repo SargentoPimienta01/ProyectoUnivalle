@@ -13,4 +13,10 @@ class Tramite extends Model
     protected $fillable = [
         'nombre_tramite', 'duracion_tramite', 'id_categoria_tramites', 'estado'
     ];
+
+    public function categoriaTramite()
+    {
+        return $this->belongsTo(CategoriaTramites::class, 'id_categoria_tramites', 'id_categoria_tramites');
+    }
+
 }

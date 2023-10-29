@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CategoriaTramites extends Model
 {
-    protected $table = 'CategoriaTramites';
+    protected $table = 'categoriatramites';
 
     protected $primaryKey = 'id_categoria_tramites';
 
