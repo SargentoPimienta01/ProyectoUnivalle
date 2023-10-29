@@ -1,3 +1,4 @@
+@extends('adminlte::page')
 @extends('layout/template')
 
 @section('title', 'productos')

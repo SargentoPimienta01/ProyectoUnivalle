@@ -1,5 +1,5 @@
 <!-- resources/views/categoria_menus/index.blade.php -->
-
+@extends('adminlte::page')
 @extends('layout/template')
 
 @section('contenido')
