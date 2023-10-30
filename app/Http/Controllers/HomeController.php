@@ -20,9 +20,10 @@ class HomeController extends Controller
 
     public function tramites()
     {
-        $ctramites = CategoriaTramites::all();
+        $ctramites = CategoriaTramites::where('estado', 1)->get();
         return view('home.tramites.ctramites', ['ctramites' => $ctramites]);
     }
+
 
     public function tramitesdisponibles(Request $request)
     {
