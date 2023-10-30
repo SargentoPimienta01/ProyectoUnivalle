@@ -16,11 +16,39 @@
                                 {{ __('Categoria Tramite') }}
                             </span>
 
-                             <div class="float-right">
+                             <!--<div class="float-right">
                                 <a href="{{ route('categoria-tramites.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear nueva categoría') }}
                                 </a>
-                              </div>
+                              </div>-->
+                              <!-- Botón para abrir el modal de creación -->
+                            <div class="float-right">
+                                <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#createCategoriaTramiteModal">
+                                    Crear nueva categoría
+                                </button>
+                            </div>
+
+                            <!-- Modal de creación -->
+                            <div class="modal fade" id="createCategoriaTramiteModal" tabindex="-1" role="dialog" aria-labelledby="createCategoriaTramiteModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="createCategoriaTramiteModalLabel">Crear nueva categoría de trámites</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <!-- Aquí incluye el formulario de creación de categoría de trámites -->
+                                            <form method="POST" action="{{ route('categoria-tramites.store') }}" role="form" enctype="multipart/form-data">
+                                                @csrf
+                                                @include('categoria-tramite.form')
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -47,37 +75,37 @@
 											<td>{{ $categoriaTramite->id_categoria_tramites }}</td>
 											<td>{{ $categoriaTramite->nombre_categoria }}</td>
 											<td>
-    <button class="btn btn-sm btn-{{ $categoriaTramite->estado == 1 ? 'danger' : 'success' }}" data-toggle="modal" data-target="#confirmChangeState{{ $categoriaTramite->id_categoria_tramites }}">
-        <i class="fa fa-fw fa-power-off"></i>
-        {{ $categoriaTramite->estado == 1 ? 'Desactivar' : 'Activar' }}
-    </button>
-</td>
-<!-- Modal de Confirmación para Cambio de Estado -->
-<div class="modal fade" id="confirmChangeState{{ $categoriaTramite->id_categoria_tramites }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                ¿Está seguro de que desea {{ $categoriaTramite->estado == 1 ? 'desactivar' : 'activar' }} esta categoría de trámites?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <form action="{{ route('categoria-tramites.cambiarEstado', $categoriaTramite->id_categoria_tramites) }}" method="POST">
-                    @csrf
-                    @method('PUT') <!-- Agrega este campo oculto para indicar una solicitud PUT -->
-                    <button type="submit" class="btn btn-{{ $categoriaTramite->estado == 1 ? 'danger' : 'success' }}">
-                        Confirmar Cambio de Estado
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                                                <button class="btn btn-sm btn-{{ $categoriaTramite->estado == 1 ? 'danger' : 'success' }}" data-toggle="modal" data-target="#confirmChangeState{{ $categoriaTramite->id_categoria_tramites }}">
+                                                    <i class="fa fa-fw fa-power-off"></i>
+                                                    {{ $categoriaTramite->estado == 1 ? 'Desactivar' : 'Activar' }}
+                                                </button>
+                                            </td>
+                                            <!-- Modal de Confirmación para Cambio de Estado -->
+                                            <div class="modal fade" id="confirmChangeState{{ $categoriaTramite->id_categoria_tramites }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            ¿Está seguro de que desea {{ $categoriaTramite->estado == 1 ? 'desactivar' : 'activar' }} esta categoría de trámites?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                            <form action="{{ route('categoria-tramites.cambiarEstado', $categoriaTramite->id_categoria_tramites) }}" method="POST">
+                                                                @csrf
+                                                                @method('PUT') <!-- Agrega este campo oculto para indicar una solicitud PUT -->
+                                                                <button type="submit" class="btn btn-{{ $categoriaTramite->estado == 1 ? 'danger' : 'success' }}">
+                                                                    Confirmar Cambio de Estado
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
 											<!--<td>{{ $categoriaTramite->Id_area }}</td>-->
                                             <td>

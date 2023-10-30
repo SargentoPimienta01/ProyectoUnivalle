@@ -20,8 +20,8 @@ class CategoriaTramiteController extends Controller
     public function index()
     {
         $categoriaTramites = CategoriaTramites::paginate();
-
-        return view('categoria-tramite.index', compact('categoriaTramites'))
+        $categoriaTramite = new CategoriaTramites();
+        return view('categoria-tramite.index', compact('categoriaTramites', 'categoriaTramite'))
             ->with('i', (request()->input('page', 1) - 1) * $categoriaTramites->perPage());
     }
 

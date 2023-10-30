@@ -72,6 +72,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+
+    Route::put('/areas/cambiarEstado/{id}', [AreaController::class, 'cambiarEstado'])->name('areas.cambiarEstado');
     Route::resource('areas', AreaController::class);
 
     Route::resource('categoria-tramites', CategoriaTramiteController::class);

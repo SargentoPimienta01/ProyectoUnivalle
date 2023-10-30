@@ -33,8 +33,8 @@ class AreaController extends Controller
     public function index()
     {
         $areas = Area::paginate();
-
-        return view('area.index', compact('areas'))
+        $area = new Area();
+        return view('area.index', compact('areas', 'area'))
             ->with('i', (request()->input('page', 1) - 1) * $areas->perPage());
     }
 
@@ -121,4 +121,25 @@ class AreaController extends Controller
         return redirect()->route('areas.index')
             ->with('success', 'Area deleted successfully');
     }
+
+    public function cambiarEstado(Request $request, $id)
+    {
+        $area = Area::find($id);
+
+        if (!$area) {
+            return redirect()->route('areas.index')->with('error', 'Área no encontrada');
+        }
+
+        // Cambia el estado
+        $nuevoEstado = $area->estado == 1 ? 0 : 1;
+        $area->estado = $nuevoEstado;
+        $area->save();
+
+        if ($nuevoEstado == 1) {
+            return redirect()->route('areas.index')->with('success', 'Área desactivada exitosamente');
+        } else {
+            return redirect()->route('areas.index')->with('success', 'Área activada exitosamente');
+        }
+    }
+
 }

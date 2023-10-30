@@ -14,9 +14,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $areas = Area::all();
-        return view('home', ['areas' => $areas]);
+        $areas = Area::where('estado', 1)->get();
+        return view('home', compact('areas'));
     }
+
 
     public function tramites()
     {

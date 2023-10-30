@@ -9,6 +9,8 @@ class Area extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'Id_area';
+
     /**
      * The attributes that are mass assignable.
      *	
