@@ -341,44 +341,68 @@ return [
             'icon' => 'fas fa-th',
         ],
         [
-            'text' => 'Trámites',
-            'url' => '/tramites',
-            'icon' => 'fas fa-file',
+            'text'    => 'Trámites',
+            'icon'    => 'fas fa-fw fa-file',
+            'submenu' => [
+                [
+                    'text' => 'Categorías de Trámites',
+                    'url' => '/categoria-tramites',
+                    'icon' => 'fas fa-folder',
+                ],
+                [
+                    'text' => 'Gestionar Trámites',
+                    'url' => '/tramites',
+                    'icon' => 'fas fa-list',
+                ],
+            ]
         ],
         [
-            'text' => 'Categorías de Trámites',
-            'url' => '/categoria-tramites',
-            'icon' => 'fas fa-folder',
+        'text'    => 'Cajas',
+            'icon'    => 'fas fa-fw fa-archive',
+            'submenu' => [
+                [
+                    'text' => 'Gestionar Cajas',
+                    'url' => '/cajas',
+                    'icon' => 'fas fa-list',
+                ],
+                [
+                    'text' => 'Cajas Requisitos',
+                    'url' => '/cajasrequisitos',
+                    'icon' => 'fas fa-clipboard-list',
+                ],
+            ],
         ],
         [
-            'text' => 'Cajas',
-            'url' => '/cajas',
-            'icon' => 'fas fa-archive',
+            'text'    => 'Nafs',
+            'icon'    => 'fas fa-fw fa-money-bill-wave',
+            'submenu' => [
+                [
+                    'text' => 'Gestionar Nafs',
+                    'url' => '/nafs',
+                    'icon' => 'fas fa-list',
+                ],
+                [
+                    'text' => 'Nafs Requisitos',
+                    'url' => '/requisitos-naf',
+                    'icon' => 'fas fa-clipboard-list',
+                ],
+            ],
         ],
         [
-            'text' => 'Cajas Requisitos',
-            'url' => '/cajasrequisitos',
-            'icon' => 'fas fa-clipboard-list',
-        ],
-        [
-            'text' => 'Nafs',
-            'url' => '/nafs',
-            'icon' => 'fas fa-money-bill-wave',
-        ],
-        [
-            'text' => 'Nafs Requisitos',
-            'url' => '/requisitos-naf',
-            'icon' => 'fas fa-clipboard-list',
-        ],
-        [
-            'text' => 'Gabinetes Médicos',
-            'url' => '/gabinetes-medico',
-            'icon' => 'fas fa-medkit',
-        ],
-        [
-            'text' => 'Gabinetes Médicos Requisitos',
-            'url' => '/requisitos-gabinetesmedico',
-            'icon' => 'fas fa-clipboard-list',
+            'text'    => 'Gabinetes Médicos',
+            'icon'    => 'fas fa-fw fa-medkit',
+            'submenu' => [
+                [
+                    'text' => 'Gestionar Gabinetes Médicos',
+                    'url' => '/gabinetes-medico',
+                    'icon' => 'fas fa-list',
+                ],
+                [
+                    'text' => 'Gabinetes Médicos Requisitos',
+                    'url' => '/requisitos-gabinetesmedico',
+                    'icon' => 'fas fa-clipboard-list',
+                ],
+            ],
         ],
         // Menú de usuario
         [
