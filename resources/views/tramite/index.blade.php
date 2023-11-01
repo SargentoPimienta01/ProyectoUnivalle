@@ -30,6 +30,9 @@
                         <span id="card_title">
                             {{ __('Trámites') }}
                         </span>
+                        <a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
+                            {{ __('Trámites inactivos') }}
+                        </a>
                         <a href="{{ route('admin') }}" class="btn btn-danger">
                             {{ __('Volver atrás') }}
                         </a>

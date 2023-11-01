@@ -30,7 +30,7 @@
                         <span id="card_title">
                             {{ __('Trámites') }}
                         </span>
-                        <a href="{{ route('admin') }}" class="btn btn-danger">
+                        <a href="{{ route('tramites.index') }}" class="btn btn-danger">
                             {{ __('Volver atrás') }}
                         </a>
                          <div class="float-right">
