@@ -31,7 +31,7 @@
                             {{ __('Trámites') }}
                         </span>
                         <a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
-                            {{ __('Trámites inactivos') }}
+                            {{ __('Ir a Trámites inactivos') }}
                         </a>
                         <a href="{{ route('admin') }}" class="btn btn-danger">
                             {{ __('Volver atrás') }}
