@@ -11,4 +11,18 @@ class Caja extends Model
 
     protected $table = 'caja';
     protected $primaryKey = 'Id_caja';
+
+    protected $fillable = [
+        'nombre_caja',
+        'descripcion_caja',
+        'estado',
+        'Id_area',
+        // No incluyas '_token', ya que es una columna interna de Laravel y no debe agregarse aquí.
+    ];
+    
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class, 'Id_area', 'Id_area');
+    }
 }

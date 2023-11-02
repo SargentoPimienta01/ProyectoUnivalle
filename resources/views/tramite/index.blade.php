@@ -15,11 +15,7 @@
             </div>
         </form>
     </div>
-    <div class="table-responsive">
-        <!-- Tu tabla de tramites -->
-    </div>
 </div>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">

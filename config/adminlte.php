@@ -367,7 +367,7 @@ return [
                 ],
                 [
                     'text' => 'Cajas Requisitos',
-                    'url' => '/cajasrequisitos',
+                    'url' => '/',
                     'icon' => 'fas fa-clipboard-list',
                 ],
             ],

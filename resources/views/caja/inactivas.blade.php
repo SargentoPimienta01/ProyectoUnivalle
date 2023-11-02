@@ -5,16 +5,6 @@
 @endsection
 
 @section('content')
-<div class="card-body">
-    <div class="mb-3">
-        <form action="{{ route('cajas.index') }}" method="GET">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Buscar...">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-            </div>
-        </form>
-    </div>
-</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -22,17 +12,16 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <span id="card_title">
-                                {{ __('Cajas') }}
+                                {{ __('Caja') }}
                             </span>
-                            <a class="btn btn-secondary" href="{{ route('cajas.inactivas') }}">
-                                {{ __('Ir a Cajas Inactivas') }}
-                            </a>
-
-                            <div class="float-right">
+                            <!--<div class="float-right">
                                 <a href="{{ route('cajas.create') }}" class="btn btn-primary btn-sm float-right" data-placement="left">
                                   {{ __('Crear Nueva Caja') }}
                                 </a>
-                            </div>
+                            </div>-->
+                            <a href="{{ route('cajas.index') }}" class="btn btn-danger">
+                            {{ __('Volver a Cajas') }}
+                            </a>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -66,7 +55,6 @@
                                                     Inactivo
                                                 @endif
                                             </td>
-                                            <!--<td>{{ $caja->area->nombre_area }}</td>-->
                                             <td>
                                                 <!--<form action="{{ route('cajas.destroy', $caja->Id_caja) }}" method="POST">-->
                                                     <!--<a class="btn btn-sm btn-primary" href="{{ route('cajas.show', $caja->Id_caja) }}">
@@ -80,42 +68,36 @@
                                                     <!--<button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
                                                     </button>-->
-
-                                                    <a class="btn btn-sm btn-secondary" href="{{ route('cajas.requisitos.index', ['id_caja' => $caja->Id_caja]) }}">
-                                                        <i class="fa fa-fw fa-exchange"></i> {{ __('Ver Requisitos') }}
-                                                    </a>
-
-
                                                     <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $caja->Id_caja }}">
                                                         <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
                                                     </button>
 
-                                                    <!-- Modal de Confirmación para Cambio de Estado -->
-                                                    <div class="modal fade" id="confirmChangeState{{ $caja->Id_caja }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    ¿Está seguro de que desea cambiar el estado de esta caja?
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                    <form method="POST" action="{{ route('cajas.cambiarEstado', $caja->Id_caja) }}">
-                                                                        @csrf
-                                                                        @method('PUT')
-                                                                        <button type="submit" class="btn btn-warning btn-sm">
-                                                                            <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
-                                                                        </button>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+<!-- Modal de Confirmación para Cambio de Estado -->
+<div class="modal fade" id="confirmChangeState{{ $caja->Id_caja }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea cambiar el estado de esta caja?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <form method="POST" action="{{ route('cajas.cambiarEstado', $caja->Id_caja) }}">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-warning btn-sm">
+                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
                                                 <!--</form>-->

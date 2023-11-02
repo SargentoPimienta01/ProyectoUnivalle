@@ -39,6 +39,6 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
-        <a href="{{ route('tramites.index') }}" class="btn btn-danger">{{ __('Volver atrás') }}</a>
+        <a href="{{ route('tramites.index') }}" class="btn btn-danger">{{ __('Volver a trámites') }}</a>
     </div>
 </div>

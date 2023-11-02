@@ -33,11 +33,11 @@
                         <a href="{{ route('tramites.index') }}" class="btn btn-danger">
                             {{ __('Volver a Trámites') }}
                         </a>
-                         <div class="float-right">
+                         <!--<div class="float-right">
                             <a href="{{ route('tramites.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                               {{ __('Crear nuevo trámite') }}
                             </a>
-                          </div>
+                          </div>-->
                     </div>
                 </div>
                 @if ($message = Session::get('success'))

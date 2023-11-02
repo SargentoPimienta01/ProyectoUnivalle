@@ -96,8 +96,18 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('tramites/requisito-tramites/cambiarEstado/{requisito}', [RequisitoTramiteController::class, 'cambiarEstado'])->name('requisito-tramites.cambiarEstado');
 
 
+    // Rutas específicas para Cajas antes de las generales
+    Route::get('cajas/inactivas', [CajaController::class, 'inactivas'])->name('cajas.inactivas');
+    Route::get('cajas/requisitos/{id_caja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
+
+    // Rutas generales o con parámetros para Cajas
     Route::resource('cajas', CajaController::class);
-    Route::resource('cajasrequisitos', RequisitoCajaController::class);
+    Route::put('cajas/cambiarEstado/{caja}', [CajaController::class, 'cambiarEstado'])->name('cajas.cambiarEstado');
+
+    // Rutas para Requisitos de Cajas
+    Route::resource('cajas/requisitos', RequisitoCajaController::class);
+    Route::put('cajas/requisitos/cambiarEstado/{requisitoCaja}', [RequisitoCajaController::class, 'cambiarEstado'])->name('cajas.requisitos.cambiarEstado');
+
     Route::resource('nafs', NafController::class);
     Route::resource('gabinetes-medico', GabinetesMedicoController::class);
     Route::resource('requisitos-naf', RequisitosNafController::class);

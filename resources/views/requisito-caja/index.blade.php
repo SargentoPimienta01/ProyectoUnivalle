@@ -34,9 +34,7 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Id Requisito</th>
+										<th>Id</th>
 										<th>Nombre Requisito</th>
 										<th>Descripcion Requisito</th>
 										<th>Estado</th>
@@ -48,8 +46,6 @@
                                 <tbody>
                                     @foreach ($requisitoCajas as $requisitoCaja)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $requisitoCaja->Id_requisito }}</td>
 											<td>{{ $requisitoCaja->nombre_requisito }}</td>
 											<td>{{ $requisitoCaja->descripcion_requisito }}</td>
