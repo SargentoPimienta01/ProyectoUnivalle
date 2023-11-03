@@ -61,9 +61,10 @@ class HomeController extends Controller
 
     public function cajas()
     {
-        $cajas = Caja::all();
+        $cajas = Caja::where('estado', 1)->get();
         return view('home.cajas.cajas', ['cajas' => $cajas]);
     }
+
 
     public function requisitosCaja(Request $request)
     {
@@ -73,11 +74,14 @@ class HomeController extends Controller
         // Obtén la información de la caja correspondiente al requisito
         $requisitoCaja = Caja::find($idCaja);
 
-        // Obtén los requisitos de la caja
-        $requisitos = RequisitoCaja::where('Id_caja', $idCaja)->get();
+        // Obtén los requisitos de la caja con estado 1
+        $requisitos = RequisitoCaja::where('Id_caja', $idCaja)
+            ->where('estado', 1)
+            ->get();
 
         return view('home.cajas.requisitos', ['requisitoCaja' => $requisitoCaja, 'requisitos' => $requisitos]);
     }
+
 
     public function plataformadeatencion ()
     {
