@@ -106,8 +106,8 @@ class RequisitoTramiteController extends Controller
         $requisitoTramite->update($request->all());
 
         // Redirigir al índice de requisitos de trámite
-        return redirect()->route('requisito-tramites.show', ['requisito_tramite' => $requisitoTramite->Id_tramite])
-            ->with('success', 'RequisitoTramite updated successfully');
+        return redirect()->route('requisito-tramites.show', $requisitoTramite->Id_tramite)
+    ->with('success', 'RequisitoTramite updated successfully');
     }
 
 

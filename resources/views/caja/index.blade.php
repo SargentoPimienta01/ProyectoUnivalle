@@ -82,7 +82,7 @@
                                                     </button>-->
 
                                                     <a class="btn btn-sm btn-secondary" href="{{ route('cajas.requisitos.index', ['id_caja' => $caja->Id_caja]) }}">
-                                                        <i class="fa fa-fw fa-exchange"></i> {{ __('Ver Requisitos') }}
+                                                        <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar Requisitos') }}
                                                     </a>
 
 

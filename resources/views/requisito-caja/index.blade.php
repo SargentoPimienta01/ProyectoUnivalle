@@ -13,34 +13,38 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisito Caja') }}
+                                {{ __('Requisito de Caja: ') }}{{ $caja -> nombre_caja }}
                             </span>
 
-                            <div class="float-right">
-    <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#createRequisitoCajaModal">
-        {{ __('Agregar') }}
-    </button>
-</div>
+                            <a href="{{ route('cajas.index') }}" class="btn btn-danger">
+                                {{ __('Volver atrás') }}
+                            </a>
 
-<!-- Modal para la creación de Requisito Caja -->
-<div class="modal fade" id="createRequisitoCajaModal" tabindex="-1" role="dialog" aria-labelledby="createRequisitoCajaModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="createRequisitoCajaModalLabel">{{ __('Create New Requisito Caja') }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="card-body">
-            <form method="POST" action="{{ route('cajas.requisitos.store') }}"  role="form" enctype="multipart/form-data">
-                @csrf
-                @include('requisito-caja.form')
-            </form>
-        </div>
-        </div>
-    </div>
-</div>
+                            <div class="float-right">
+                                <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#createRequisitoCajaModal">
+                                    {{ __('Agregar') }}
+                                </button>
+                            </div>
+
+                            <!-- Modal para la creación de Requisito Caja -->
+                            <div class="modal fade" id="createRequisitoCajaModal" tabindex="-1" role="dialog" aria-labelledby="createRequisitoCajaModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="createRequisitoCajaModalLabel">{{ __('Crear nuevo Requisito de Caja') }}</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="card-body">
+                                        <form method="POST" action="{{ route('cajas.requisitos.store') }}"  role="form" enctype="multipart/form-data">
+                                            @csrf
+                                            @include('requisito-caja.form')
+                                        </form>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                     </div>

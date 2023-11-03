@@ -45,8 +45,6 @@
                                 <div class="modal-body">
                                 <form method="POST" action="{{ route('requisito-tramites.store') }}"  role="form" enctype="multipart/form-data">
                                     @csrf
-
-                                    <!-- Aquí incluirás el formulario de creación, puedes usar Blade para incluir el contenido -->
                                     @include('requisito-tramite.formview')
                                 </form>
                                 </div>

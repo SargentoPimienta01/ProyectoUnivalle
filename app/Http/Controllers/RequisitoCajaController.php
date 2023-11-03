@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RequisitoCaja;
+use App\Models\Caja;
 use Illuminate\Http\Request;
 
 /**
@@ -15,8 +16,9 @@ class RequisitoCajaController extends Controller
     {
         $requisitoCajas = RequisitoCaja::where('Id_caja', $id_caja)->paginate();
         $requisitoCaja = new RequisitoCaja();
+        $caja = Caja::where('Id_caja', $id_caja)->first();
 
-        return view('requisito-caja.index', compact('requisitoCajas', 'requisitoCaja', 'id_caja'))
+        return view('requisito-caja.index', compact('requisitoCajas', 'requisitoCaja', 'id_caja','caja'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitoCajas->perPage());
     }
 
