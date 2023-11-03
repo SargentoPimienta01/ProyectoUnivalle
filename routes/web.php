@@ -105,7 +105,7 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Rutas para Requisitos de Cajas
     Route::post('cajas/requisitos', [RequisitoCajaController::class, 'store'])->name('requisito-cajas.store');
-    Route::get('cajas/requisitos/{requisitoCaja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
+    Route::get('cajas/requisitos/{id_caja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
     Route::get('cajas/requisitos/inactivos', [RequisitoCajaController::class, 'inactivos'])->name('cajas.requisitos.inactivos');
 
 
