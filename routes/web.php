@@ -98,15 +98,26 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Rutas específicas para Cajas antes de las generales
     Route::get('cajas/inactivas', [CajaController::class, 'inactivas'])->name('cajas.inactivas');
-    Route::get('cajas/requisitos/{id_caja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
 
     // Rutas generales o con parámetros para Cajas
     Route::resource('cajas', CajaController::class);
     Route::put('cajas/cambiarEstado/{caja}', [CajaController::class, 'cambiarEstado'])->name('cajas.cambiarEstado');
 
     // Rutas para Requisitos de Cajas
+    Route::post('cajas/requisitos', [RequisitoCajaController::class, 'store'])->name('requisito-cajas.store');
+    Route::get('cajas/requisitos/{requisitoCaja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
+    Route::get('cajas/requisitos/inactivos', [RequisitoCajaController::class, 'inactivos'])->name('cajas.requisitos.inactivos');
+
+
+    Route::post('cajas/requisitos/store', [RequisitoCajaController::class, 'store'])->name('cajas.requisitos.store');
+    Route::post('cajas/requisitos/{requisitoCaja}/edit', [RequisitoCajaController::class, 'edit'])->name('cajas.requisitos.edit');
+    Route::put('cajas/requisitos/update/{requisitoCaja}', [RequisitoCajaController::class, 'update'])->name('requisito-cajas.update');
+    /*Route::resource('cajas/requisitos', RequisitoCajaController::class);*/
+    Route::put('cajas/requisitos/cambiarEstado/{requisitoCaja}', [RequisitoCajaController::class, 'cambiarEstado'])->name('cajas.requisitos.cambiarEstado');
+
     Route::resource('cajas/requisitos', RequisitoCajaController::class);
     Route::put('cajas/requisitos/cambiarEstado/{requisitoCaja}', [RequisitoCajaController::class, 'cambiarEstado'])->name('cajas.requisitos.cambiarEstado');
+
 
     Route::resource('nafs', NafController::class);
     Route::resource('gabinetes-medico', GabinetesMedicoController::class);

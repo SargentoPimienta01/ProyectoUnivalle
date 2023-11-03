@@ -16,8 +16,8 @@
                         <span class="card-title">{{ __('Update') }} Requisito Caja</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('requisito-cajas.update', $requisitoCaja->Id_requisito) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PUT') }}
+                        <form method="POST" action="{{ route('requisito-cajas.update', $requisitoCaja->id) }}"  role="form" enctype="multipart/form-data">
+                            {{ method_field('PATCH') }}
                             @csrf
 
                             @include('requisito-caja.form')

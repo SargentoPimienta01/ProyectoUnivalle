@@ -11,4 +11,12 @@ class RequisitoCaja extends Model
 
     protected $table = 'requisito_caja';
     protected $primaryKey = 'Id_requisito';
+
+    protected $fillable = [
+        'nombre_requisito',
+        'descripcion_requisito',
+        'estado',
+        'Id_caja',
+        // No incluyas '_token', ya que es una columna interna de Laravel y no debe agregarse aquí.
+    ];
 }

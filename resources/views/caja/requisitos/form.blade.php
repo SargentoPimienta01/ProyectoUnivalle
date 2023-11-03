@@ -1,7 +1,7 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         
-        <div class="form-group" style="display: none;">
+        <div class="form-group">
             {{ Form::label('Id_requisito') }}
             {{ Form::text('Id_requisito', $requisitoCaja->Id_requisito, ['class' => 'form-control' . ($errors->has('Id_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Id Requisito']) }}
             {!! $errors->first('Id_requisito', '<div class="invalid-feedback">:message</div>') !!}
@@ -16,15 +16,16 @@
             {{ Form::text('descripcion_requisito', $requisitoCaja->descripcion_requisito, ['class' => 'form-control' . ($errors->has('descripcion_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion Requisito']) }}
             {!! $errors->first('descripcion_requisito', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group" style="display: none;">
+        <div class="form-group">
             {{ Form::label('estado') }}
-            {{ Form::text('estado', 1, ['class' => 'form-control', 'placeholder' => 'Estado']) }}
+            {{ Form::text('estado', $requisitoCaja->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+            {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group" style="display: none;">
+        <div class="form-group">
             {{ Form::label('Id_caja') }}
-            {{ Form::text('Id_caja', $id_caja, ['class' => 'form-control', 'placeholder' => 'Id Caja']) }}
+            {{ Form::text('Id_caja', $requisitoCaja->Id_caja, ['class' => 'form-control' . ($errors->has('Id_caja') ? ' is-invalid' : ''), 'placeholder' => 'Id Caja']) }}
+            {!! $errors->first('Id_caja', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-
 
     </div>
     <div class="box-footer mt20">

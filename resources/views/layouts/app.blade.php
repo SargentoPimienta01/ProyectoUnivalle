@@ -52,7 +52,6 @@
                             <li><a class="nav-link" href="{{ route('tramites.index') }}">Trámites</a></li>
                             <li><a class="nav-link" href="{{ route('categoria-tramites.index') }}">Categorías de trámites</a></li>
                             <li><a class="nav-link" href="{{ route('cajas.index') }}">Cajas</a></li>
-                            <li><a class="nav-link" href="{{ route('cajasrequisitos.index') }}">Cajas Requisitos</a></li>
                             <li><a class="nav-link" href="{{ route('nafs.index') }}">Nafs</a></li>
                             <li><a class="nav-link" href="{{ route('requisitos-naf.index') }}">Nafs Requisitos</a></li>
                             <li><a class="nav-link" href="{{ route('gabinetes-medico.index') }}">Gabinetes Medicos</a></li>
