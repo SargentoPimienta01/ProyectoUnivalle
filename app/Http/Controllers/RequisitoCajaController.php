@@ -31,7 +31,7 @@ class RequisitoCajaController extends Controller
 {
     $requisitoCaja = RequisitoCaja::create($request->all());
 
-    return redirect()->route('cajas.requisitos.index', ['requisitoCaja' => $requisitoCaja->Id_caja])
+    return redirect()->route('cajas.requisitos.index', ['id_caja' => $requisitoCaja->Id_caja])
         ->with('success', 'RequisitoCaja created successfully.');
 }
 
@@ -56,7 +56,7 @@ class RequisitoCajaController extends Controller
 {
     $requisitoCaja->update($request->all());
 
-    return redirect()->route('cajas.requisitos.index', ['requisitoCaja' => $requisitoCaja->Id_caja])
+    return redirect()->route('cajas.requisitos.index', ['id_caja' => $requisitoCaja->Id_caja])
         ->with('success', 'RequisitoCaja updated successfully');
 }
 
@@ -93,9 +93,10 @@ class RequisitoCajaController extends Controller
     $requisitoCaja->save();
 
     if ($nuevoEstado == 1) {
-        return redirect()->route('cajas.requisitos.index', ['requisitoCaja' => $id_caja]);
+        return redirect()->route('cajas.requisitos.index', ['id_caja' => $id_caja]);
     } else {
-        return redirect()->route('cajas.requisitos.inactivos')->with('success', 'Estado del requisito de caja cambiado exitosamente');
+        return redirect()->route('cajas.requisitos.index', ['id_caja' => $id_caja])->with('success', 'Estado del requisito de caja cambiado exitosamente');
+        //return redirect()->route('cajas.requisitos.inactivos')->with('success', 'Estado del requisito de caja cambiado exitosamente');
     }
 }
 

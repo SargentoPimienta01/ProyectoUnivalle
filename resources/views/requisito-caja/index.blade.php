@@ -32,10 +32,12 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <div class="card-body">
             <form method="POST" action="{{ route('cajas.requisitos.store') }}"  role="form" enctype="multipart/form-data">
                 @csrf
                 @include('requisito-caja.form')
             </form>
+        </div>
         </div>
     </div>
 </div>
