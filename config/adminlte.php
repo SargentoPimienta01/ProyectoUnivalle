@@ -363,11 +363,6 @@ return [
                 [
                     'text' => 'Gestionar Cajas',
                     'url' => '/cajas',
-                    'icon' => 'fas fa-list',
-                ],
-                [
-                    'text' => 'Cajas Requisitos',
-                    'url' => '/',
                     'icon' => 'fas fa-clipboard-list',
                 ],
             ],
