@@ -17,7 +17,7 @@
                             </span>
 
                             <a href="{{ route('cajas.index') }}" class="btn btn-danger">
-                                {{ __('Volver atrás') }}
+                                {{ __('Volver a cajas') }}
                             </a>
 
                             <div class="float-right">

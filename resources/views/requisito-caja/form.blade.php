@@ -29,5 +29,8 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <a href="{{ route('cajas.requisitos.index', $id_caja) }}" class="btn btn-danger">
+            {{ __('Volver a requisitos') }}
+        </a>
     </div>
 </div>
