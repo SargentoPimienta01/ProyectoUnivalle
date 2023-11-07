@@ -18,6 +18,7 @@ use App\Http\Controllers\NafController;
 use App\Http\Controllers\RequisitosGabinetesMedicoController;
 use App\Http\Controllers\RequisitosNafController;
 use App\Http\Controllers\RequisitoTramiteController;
+use App\Http\Controllers\ImagenController;
 
   
 /*
@@ -34,6 +35,10 @@ use App\Http\Controllers\RequisitoTramiteController;
 Route::get('/', function () {
     return redirect('/home');;
 });
+
+    //Images
+    Route::get('/subir-imagen', [ImagenController::class, 'index'])->name('subir-imagen');
+    Route::post('/subir-imagen', [ImagenController::class, 'subirImagen']);
 
 Route::get('/home/naf', [HomeController::class, 'naf'])->name('naf');
 
