@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Tramite;
 use App\Models\CategoriaTramites;
+use App\Models\Ubicacion;
 use Illuminate\Http\Request;
 
 /**
@@ -50,8 +51,9 @@ class TramiteController extends Controller
     public function create()
     {
         $tramite = new Tramite();
-        $categoriasTramites = CategoriaTramites::all(); // Obtener todas las categorías de trámites desde la base de datos
-        return view('tramite.create', compact('tramite', 'categoriasTramites'));
+        $categoriasTramites = CategoriaTramites::all();
+        $ubicaciones = Ubicacion::all();
+        return view('tramite.create', compact('tramite', 'categoriasTramites','ubicaciones'));
     }
 
 
@@ -98,11 +100,12 @@ class TramiteController extends Controller
     {
         $tramite = Tramite::where('Id_tramite', $id)->first();
         $categoriasTramites = CategoriaTramites::all();
+        $ubicaciones = Ubicacion::all();
         if (!$tramite) {
             abort(404);
         }
 
-        return view('tramite.edit', compact('tramite', 'categoriasTramites'));
+        return view('tramite.edit', compact('tramite', 'categoriasTramites','ubicaciones'));
     }
 
     /**

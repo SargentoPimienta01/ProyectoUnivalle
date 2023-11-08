@@ -26,6 +26,15 @@
         </div>
 
         <div class="form-group">
+            {{ Form::label('id_ubicacion', 'Ubicaciones') }}
+            <select name="id_ubicacion" class="form-control">
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre_ubicacion }}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
             {{ Form::label('estado', 'Estado') }}
             <select name="estado" class="form-control{{ $errors->has('estado') ? ' is-invalid' : '' }}">
                 <option value="1" {{ $tramite->estado == 1 ? 'selected' : '' }}>Activo</option>

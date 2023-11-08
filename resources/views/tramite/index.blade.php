@@ -54,7 +54,8 @@
                                     
                                     <th>Nombre Tramite</th>
                                     <th>Duracion Tramite</th>
-                                    <th>Id Categoria Tramites</th>
+                                    <th>Categoria de Tramite</th>
+                                    <th>Ubicación</th>
                                     <th>Estado</th>
 
                                     <th></th>
@@ -69,6 +70,7 @@
                                         <td>{{ $tramite->duracion_tramite }}</td>
                                         <!--<td>{{ $tramite->id_categoria_tramites }}</td>-->
                                         <td>{{ $tramite->categoriaTramite->nombre_categoria }}</td>
+                                        <td>{{ $tramite->ubicacion->nombre_ubicacion }}</td>
                                         <td>
                                             {{ $tramite->estado == 1 ? 'Activo' : 'Inactivo' }}
                                         </td>

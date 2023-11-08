@@ -32,6 +32,7 @@ class TramiteTableSeeder extends Seeder
                 'duracion_tramite' => 'Todos los trámites son de manera personal. (Duración del trámite 72Hrs)',
                 'id_categoria_tramites' => 1, // Cambia esto según el ID de la categoría correspondiente
                 'estado' => true,
+                'id_ubicacion' => 1,
             ]);
         }
     }

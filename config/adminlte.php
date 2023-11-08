@@ -399,6 +399,11 @@ return [
                 ],
             ],
         ],
+        [
+            'text' => 'Ubicaciones',
+            'url' => '/ubicacion',
+            'icon' => 'fas fa-map-marker-alt',
+        ],
         // Menú de usuario
         [
             'text' => 'Perfil',

@@ -17,6 +17,10 @@ class CreateTramiteTable extends Migration
             $table->foreign('id_categoria_tramites')
                 ->references('id_categoria_tramites')
                 ->on('CategoriaTramites');
+            $table->unsignedBigInteger('id_ubicacion');
+            $table->foreign('id_ubicacion')
+                ->references('id')
+                ->on('ubicaciones')->default(1);
             $table->timestamps();
         });
     }
