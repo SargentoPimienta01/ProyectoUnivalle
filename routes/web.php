@@ -20,6 +20,8 @@ use App\Http\Controllers\RequisitosNafController;
 use App\Http\Controllers\RequisitoTramiteController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\UbicacionController;
+use App\Http\Controllers\PostgradoController;
+
 
   
 /*
@@ -78,6 +80,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+    Route::resource('postgrados', PostgradoController::class);
 
     Route::resource('ubicacion', UbicacionController::class);
 
