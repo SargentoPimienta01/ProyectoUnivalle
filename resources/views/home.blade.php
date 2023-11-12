@@ -20,6 +20,14 @@
         </h1> 
     </div>
   
+    <!--<form action="{{ route('requisitos') }}" method="post">
+        @csrf
+        <input type="hidden" name="id_tramite" value="1">
+        <input type="hidden" name="nombre_tramite" value="Estudiante regular">
+        <input type="hidden" name="duracion_tramite" value="72 horas">
+        <button type="submit">Ir a Requisitos</button>
+    </form>-->
+
         
         <div class="hero">
             
