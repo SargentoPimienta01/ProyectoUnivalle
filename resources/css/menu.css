@@ -91,9 +91,19 @@ nav ul li a:hover{
 
 .Opciones2{
     /* justify-content: center; */
-    flex-direction: column;
+
+    /* Opcion 1 */
+
+    /* flex-direction: column;
     align-items: center;
-    display: flex;
+    display: flex; */
+
+    /* Opcion 2 */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define el ancho mínimo y ajusta automáticamente las columnas */
+    gap: 10px; /* Espacio entre las opciones */
+    justify-content: center; /* Alinea el contenido al centro horizontalmente */
+    align-items: center;
 }
 
 .Opciones a {
