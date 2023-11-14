@@ -156,23 +156,3 @@
 
 </body>
 </html>-->
-
-<!--<script src="https://www.gptbots.ai/widget/etgwhmakueebcpvaorlick8/chat.js" async></script>-->
-
-<!--<script>
-window.embeddedChatbotConfig = {
-chatbotId: "aRtJ6rxs0QTvtQDrzfo-i",
-domain: "www.chatbase.co"
-}
-</script>
-<script
-src="https://www.chatbase.co/embed.min.js"
-chatbotId="aRtJ6rxs0QTvtQDrzfo-i"
-domain="www.chatbase.co"
-defer>
-</script>
-
-<iframe width="100%" height="350px" allow="microphone *" src="https://www.gptbots.ai/widget/etgwhmakueebcpvaorlick8/chat.html"></iframe>
-  
-
--->
