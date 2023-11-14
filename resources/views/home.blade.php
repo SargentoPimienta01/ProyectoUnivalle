@@ -1,4 +1,3 @@
-@extends('layouts.assistant')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,8 @@
     <title>Univalle | Menu Inicio</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/Univalle_logo.png') }}">
+    <link href="{{ Vite::asset('resources/css/asistente.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
 </head>
 <body>
     <div class="intro">
@@ -52,10 +52,20 @@
         </div>
 
         
+        <div id="person-container">
+ 
+            <img id="person" class="person-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_JdYlVpWfBP468NtwMoaWp7itjbhXr8NtFYoaWBMfQY4pH4iPWBa4zNuq7bNU3LkqFR4&usqp=CAU" alt="Person Icon">
+            <div id="bubble">
+                <p id="text"></p>
+            </div>
+        </div>
+
+        
 
 <!--<script src="https://www.gptbots.ai/widget/etgwhmakueebcpvaorlick8/chat.js" async></script>-->
   
   
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
+    <script src="{{ Vite::asset('resources/js/asistenteHome.js') }}"></script>
 </body>
 </html>
