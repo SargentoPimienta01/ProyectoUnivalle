@@ -26,37 +26,48 @@ class HomeController extends Controller
     }
 
 
-    public function tramitesdisponibles(Request $request)
+    public function tramitesdisponibles($id_categoria_tramites, $nombre_categoria = null)
     {
-        // Obtiene el id_categoria_tramites desde la solicitud POST
-        $idCategoriaTramites = $request->input('id_categoria_tramites');
-
-        // Obtén la categoría de trámites correspondiente
-        $ctramite = CategoriaTramites::find($idCategoriaTramites);
+        // Obtén la categoría de trámites correspondiente si se proporciona un ID
+        $ctramite = $id_categoria_tramites ? CategoriaTramites::find($id_categoria_tramites) : null;
 
         // Obtén los trámites que pertenecen a esa categoría y que tengan estado igual a 1
-        $tramites = Tramite::where('id_categoria_tramites', $idCategoriaTramites)
+        $tramites = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
             ->where('estado', 1)
             ->get();
 
-        return view('home.tramites.tramites', ['ctramite' => $ctramite, 'tramites' => $tramites]);
+        return view('home.tramites.tramites', ['ctramite' => $ctramite, 'tramites' => $tramites, 'nombre_categoria' => $nombre_categoria]);
     }
 
 
-    public function requisitos(Request $request)
-    {
-        // Obtén el id_tramite y el nombre_tramite desde la solicitud POST
-        $idTramite = $request->input('id_tramite');
-        $nombreTramite = $request->input('nombre_tramite');
-        $duracionTramite = $request->input('duracion_tramite');
+    public function requisitos($id_categoria_tramites, $nombre_categoria, $id_tramite, $nombre_tramite = null)
+{
+    // Obtén la duración del trámite
+    $duracionTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
+        ->where('id_tramite', $id_tramite)
+        ->value('duracion_tramite');
 
-        // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
-        $requisitos = RequisitoTramite::where('Id_tramite', $idTramite)
-            ->where('estado', 1)
-            ->get();
+    $tituloTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
+        ->where('id_tramite', $id_tramite)
+        ->value('nombre_tramite');
 
-        return view('home.tramites.requisitos', ['nombreTramite' => $nombreTramite, 'duracionTramite' => $duracionTramite, 'requisitos' => $requisitos]);
-    }
+    // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
+    $requisitos = RequisitoTramite::where('Id_tramite', $id_tramite)
+        ->where('estado', 1)
+        ->get();
+
+    return view('home.tramites.requisitos', [
+        'nombreCategoria' => $nombre_categoria,
+        'idCategoriaTramites' => $id_categoria_tramites,
+        'idTramite' => $id_tramite,
+        'nombreTramite' => $nombre_tramite,
+        'duracionTramite' => $duracionTramite,
+        'tituloTramite' => $tituloTramite,
+        'requisitos' => $requisitos
+    ]);
+}
+
+
 
 
     public function cajas()

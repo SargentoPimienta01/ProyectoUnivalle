@@ -21,6 +21,8 @@ use App\Http\Controllers\RequisitoTramiteController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\UbicacionController;
 use App\Http\Controllers\PostgradoController;
+use App\Http\Controllers\PdfController;
+use App\Http\Controllers\QRCodeController;
 
 
   
@@ -38,6 +40,11 @@ use App\Http\Controllers\PostgradoController;
 Route::get('/', function () {
     return redirect('/home');;
 });
+
+    //PDF
+    Route::get('/generate-pdf', [PdfController::class, 'generatePDF']);
+
+    Route::get('/generate-qr', [QRCodeController::class, 'generateQrCode']);
 
     //Images
     Route::get('/subir-imagen', [ImagenController::class, 'index'])->name('subir-imagen');
@@ -61,7 +68,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites-inicio');
 
-Route::post('/home/tramitesdisponibles', [HomeController::class, 'tramitesdisponibles'])->name('tramitesdisponibles');
+Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}', [HomeController::class, 'tramitesdisponibles'])
+    ->where('id_categoria_tramites', '[0-9]+') // Para asegurar que el ID sea un número
+    ->name('tramitesdisponibles');
+
 
 Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
     ->where('nombre_categoria', '[A-Za-z0-9\-]+')
@@ -69,7 +79,11 @@ Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
 
 Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
 
-Route::post('/home/requisitos', [HomeController::class, 'requisitos'])->name('requisitos');
+Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}/requisitos/{id_tramite}/{nombre_tramite?}', [HomeController::class, 'requisitos'])
+    ->where('id_categoria_tramites', '[0-9]+')
+    ->where('id_tramite', '[0-9]+')
+    ->name('requisitos');
+
 
 
 Auth::routes();

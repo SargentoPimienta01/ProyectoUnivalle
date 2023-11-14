@@ -1,3 +1,4 @@
+@extends('layouts.assistant')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +19,7 @@
                 Univalle
             </span> -->
         </h1> 
-    </div>
-  
-    <!--<form action="{{ route('requisitos') }}" method="post">
-        @csrf
-        <input type="hidden" name="id_tramite" value="1">
-        <input type="hidden" name="nombre_tramite" value="Estudiante regular">
-        <input type="hidden" name="duracion_tramite" value="72 horas">
-        <button type="submit">Ir a Requisitos</button>
-    </form>-->
-
-        
+    </div>        
         <div class="hero">
             
             <!-- Barra de Navegacion -->
@@ -60,6 +51,11 @@
             </div>
         </div>
 
+        
+
+<!--<script src="https://www.gptbots.ai/widget/etgwhmakueebcpvaorlick8/chat.js" async></script>-->
+  
+  
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
 </html>

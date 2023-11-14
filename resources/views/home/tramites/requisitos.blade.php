@@ -16,7 +16,7 @@
 <body>
 
     <div class="intro">
-        <h1>{{ $nombreTramite }}</h1>
+        <h1>{{ $tituloTramite }}</h1>
       </div>
 
       <div class="hero">
@@ -35,7 +35,7 @@
         </nav>
 
         <div>
-            <h2 style="color: white; text-align: center;">Requisitos para el trámite: {{ $nombreTramite }}</h2>
+            <h2 style="color: white; text-align: center;">Requisitos para el trámite: {{ $tituloTramite }}</h2>
         </div>
 
         <div class="container">

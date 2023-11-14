@@ -34,18 +34,15 @@
         </nav>
 
         <div class="Opciones2">
-            @foreach($ctramites as $ctramite)
-                    
-                <form method="POST" action="{{ route('tramitesdisponibles') }}">
-                    @csrf
-                    <input type="hidden" name="id_categoria_tramites" value="{{ $ctramite->id_categoria_tramites }}"> <!-- Puedes cambiar el valor según tus necesidades -->
-                    <!-- Resto de los campos del formulario -->
-                    <button type="submit" class="button-anon-pen"><span>{{ $ctramite->nombre_categoria }}</span></button>
-                </form>    
-                
-            @endforeach
+    @foreach($ctramites as $ctramite)
+        <a href="{{ route('tramitesdisponibles', ['id_categoria_tramites' => $ctramite->id_categoria_tramites, 'nombre_categoria' => Str::slug($ctramite->nombre_categoria)]) }}" class="button-anon-pen">
+            <span>{{ $ctramite->nombre_categoria }}</span>
+        </a>
+    @endforeach
+</div>
 
-        </div>
+
+
         
 
 
