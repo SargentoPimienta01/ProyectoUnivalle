@@ -23,7 +23,7 @@ use App\Http\Controllers\UbicacionController;
 use App\Http\Controllers\PostgradoController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QRCodeController;
-
+use App\Http\Controllers\PlataformaDeAtencionController;
 
   
 /*
@@ -95,6 +95,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('postgrados', PostgradoController::class);
+    Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
 
     Route::resource('ubicacion', UbicacionController::class);
 
