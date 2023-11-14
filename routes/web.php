@@ -24,7 +24,9 @@ use App\Http\Controllers\PostgradoController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\PlataformaDeAtencionController;
-
+use App\Http\Controllers\bibliotecaController;
+use App\Http\Controllers\productoController;
+use App\Http\Controllers\CategoriaMenuController;
   
 /*
 |--------------------------------------------------------------------------
@@ -150,63 +152,81 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('requisitos-naf', RequisitosNafController::class);
     Route::resource('requisitos-gabinetesmedico', RequisitosGabinetesMedicoController::class);
 
+    //biblioteca
+    
+    Route::resource('/bibliotecas', bibliotecaController::class);
+
+    Route::get('/bibliotecas/{id}', 'bibliotecaController@show')->name('bibliotecas.show');
+
+    Route::delete('/bibliotecas/{id}', [bibliotecaController::class, 'delete'])->name('bibliotecas.delete');
+
+    Route::get('/bibliotecas/{id}', 'bibliotecaController@buscar')->name('bibliotecas.buscar');
+
+    Route::get('/bibliotecas/estados', [bibliotecaController::class, 'estados'])->name('bibliotecas.estados');
+
+    Route::patch('/bibliotecas/activar/{id}', [bibliotecaController::class, 'activar'])->name('bibliotecas.activar');
+    Route::patch('/bibliotecas/desactivar/{id}', [bibliotecaController::class, 'desactivar'])->name('bibliotecas.desactivar');
+
+    Route::get('bibliotecaspdf', [bibliotecaController::class, 'generarReporte'])->name('bibliotecaspdf');
+    Route::resource('/productos',productoController::class);
+    
+
+    Route::get('/productos/{id}', 'productoController@show')->name('productos.show');
+
+
+    Route::delete('/productos/{id}', [productoController::class, 'delete'])->name('productos.delete');
+
+    Route::get('/productos/{id}', 'productoController@buscar')->name('productos.buscar');
+
+    Route::get('/productos/estados', [ProductoController::class, 'estados'])->name('productos.estados');
+
+
+    Route::patch('/productos/activar/{id}', [productoController::class, 'activar'])->name('productos.activar');
+    Route::patch('/productos/desactivar/{id}', [productoController::class, 'desactivar'])->name('productos.desactivar');
+
+    Route::get('productospdf', [productoController::class, 'generarReporte'])->name('productospdf');
+
+
+    Route::resource('/categorias',CategoriaMenuController::class);
+    // routes/web.php
+
+    Route::get('categoria_menus/create', [CategoriaMenuController::class, 'create'])->name('categoria_menus.create');
+
+    // Ruta para mostrar la lista de categorías
+    Route::get('categoria_menus', [CategoriaMenuController::class, 'index'])->name('categoria_menus.index');
+
+    Route::post('/categoria_menus', 'CategoriaMenuController@store')->name('categoria_menus.store');
+    Route::post('/categoria_menus', 'CategoriaMenuController@edit')->name('categoria_menus.edit');
+    Route::post('/categoria_menus', 'CategoriaMenuController@create')->name('categoria_menus.create');
+
+    // Ruta para mostrar el formulario de edición
+    Route::get('categoria_menus/{id}/edit', [CategoriaMenuController::class, 'edit'])->name('categoria_menus.edit');
+
+    //
+    // Ruta para mostrar la lista de categorías
+    Route::get('/categoria_menus', [CategoriaMenuController::class, 'index'])->name('categoria_menus.index');
+
+    // Ruta para mostrar el formulario de creación de categoría
+    Route::get('/categoria_menus/create', [CategoriaMenuController::class, 'create'])->name('categoria_menus.create');
+
+    // Ruta para almacenar una nueva categoría
+    Route::post('/categoria_menus/store', [CategoriaMenuController::class, 'store'])->name('categoria_menus.store');
+
+    // Ruta para mostrar el formulario de edición de categoría
+    Route::get('/categorias/{id}/edit', [CategoriaMenuController::class, 'edit'])->name('categoria_menus.edit');
+
+    // Ruta para actualizar una categoría existente
+    Route::put('/categorias/{id}', [CategoriaMenuController::class, 'update'])->name('categoria_menus.update');
+
+    // Ruta para eliminar una categoría
+    Route::delete('/categorias/{id}', [CategoriaMenuController::class, 'destroy'])->name('categoria_menus.destroy');
+
+
 
 });
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//menu
 
-Route::resource('/productos',productoController::class);
-
-Route::get('/productos/{id}', 'productoController@show')->name('productos.show');
-
-
-Route::delete('/productos/{id}', [productoController::class, 'delete'])->name('productos.delete');
-
-Route::get('/productos/{id}', 'productoController@buscar')->name('productos.buscar');
-
-Route::get('/productos/estados', [ProductosController::class, 'estados'])->name('productos.estados');
-
-
-Route::patch('/productos/activar/{id}', [productoController::class, 'activar'])->name('productos.activar');
-Route::patch('/productos/desactivar/{id}', [productoController::class, 'desactivar'])->name('productos.desactivar');
-
-Route::get('productospdf', [productoController::class, 'generarReporte'])->name('productospdf');
-
-
-Route::resource('/categorias',CategoriaMenuController::class);
-// routes/web.php
-
-Route::get('categoria_menus/create', [CategoriaMenuController::class, 'create'])->name('categoria_menus.create');
-
-// Ruta para mostrar la lista de categorías
-Route::get('categoria_menus', [CategoriaMenuController::class, 'index'])->name('categoria_menus.index');
-
-Route::post('/categoria_menus', 'CategoriaMenuController@store')->name('categoria_menus.store');
-Route::post('/categoria_menus', 'CategoriaMenuController@edit')->name('categoria_menus.edit');
-Route::post('/categoria_menus', 'CategoriaMenuController@create')->name('categoria_menus.create');
-
-// Ruta para mostrar el formulario de edición
-Route::get('categoria_menus/{id}/edit', [CategoriaMenuController::class, 'edit'])->name('categoria_menus.edit');
-
-//
-// Ruta para mostrar la lista de categorías
-Route::get('/categoria_menus', [CategoriaMenuController::class, 'index'])->name('categoria_menus.index');
-
-// Ruta para mostrar el formulario de creación de categoría
-Route::get('/categoria_menus/create', [CategoriaMenuController::class, 'create'])->name('categoria_menus.create');
-
-// Ruta para almacenar una nueva categoría
-Route::post('/categoria_menus/store', [CategoriaMenuController::class, 'store'])->name('categoria_menus.store');
-
-// Ruta para mostrar el formulario de edición de categoría
-Route::get('/categorias/{id}/edit', [CategoriaMenuController::class, 'edit'])->name('categoria_menus.edit');
-
-// Ruta para actualizar una categoría existente
-Route::put('/categorias/{id}', [CategoriaMenuController::class, 'update'])->name('categoria_menus.update');
-
-// Ruta para eliminar una categoría
-Route::delete('/categorias/{id}', [CategoriaMenuController::class, 'destroy'])->name('categoria_menus.destroy');
 
