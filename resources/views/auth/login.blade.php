@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta property="og:type" content="website"/>
+    <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
+    <title>Univalle | Menu Inicio</title>
+    <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ Vite::asset('resources/css/asistente.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
+</head>
+<div class="hero">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -69,5 +82,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

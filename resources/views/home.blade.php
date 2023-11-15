@@ -33,7 +33,19 @@
                     <li><a href="{{ url('/home/cajas') }}">Cajas</a></li>
                     <li><a href="#">Postgrado</a></li>
                 </ul>
-                <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
+                @if(auth()->check())
+                    @if(!auth()->user()->hasRole('Usuario'))
+                        <button class="buttonS" type="button"><a href="{{ route('admin') }}">Ir al Admin </a></button>
+                    @else
+                        <button class="buttonS" type="button"><a href="{{ route('home') }}">Home  </a></button>
+                    @endif
+                @else
+                    <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesión</a></button>
+                @endif
+
+
+
+
             </nav>
 
             <div class="Opciones">  
