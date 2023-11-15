@@ -64,7 +64,11 @@ Route::get('/home/plataforma-de-atencion', [HomeController::class, 'plataformade
 
 Route::get('/home/cajas', [HomeController::class, 'cajas'])->name('cajas');
 
-Route::post('/home/requisitosCaja', [HomeController::class, 'requisitosCaja'])->name('requisitosCaja');
+Route::get('/home/requisitosCaja/{id_caja}/{nombre?}', [HomeController::class, 'requisitosCaja'])
+    ->where('id_caja', '[0-9]+')
+    ->where('nombre', '[A-Za-z0-9\-]+') // Permite solo letras, números y guiones en el nombre
+    ->name('requisitosCaja');
+
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 

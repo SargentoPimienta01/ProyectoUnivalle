@@ -33,19 +33,16 @@
             <h2 style="color: white; text-align: center;">Cajas</h2>
         </div>
 
-          <div class="Opciones2">
-            @foreach($cajas as $caja)
-                    
-                <form method="POST" action="{{ route('requisitosCaja') }}">
-                    @csrf
-                        <input type="hidden" name="id_caja" value="{{ $caja->Id_caja }}">
-                        <!-- Agrega el resto de los campos del formulario si es necesario -->
-                        <button type="submit" class="button-anon-pen"><span>{{ $caja->nombre_caja }}</span></button>
-                </form>    
-                
-            @endforeach
+        <div class="Opciones2">
+        @foreach($cajas as $caja)
+            <a href="{{ route('requisitosCaja', ['id_caja' => $caja->Id_caja, 'nombre' => Str::slug($caja->nombre_caja)]) }}" class="button-anon-pen">
+                <span>{{ $caja->nombre_caja }}</span>
+            </a>
+        @endforeach
+    </div>
 
-        </div>
+
+
         
 
 
