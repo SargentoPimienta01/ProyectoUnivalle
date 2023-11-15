@@ -45,7 +45,7 @@
                                 <div class="modal-body">
                                 <form method="POST" action="{{ route('requisito-tramites.store') }}"  role="form" enctype="multipart/form-data">
                                     @csrf
-                                    @include('requisito-tramite.formview')
+                                    @include('admin.tramite.requisito-tramite.formview')
                                 </form>
                                 </div>
                                 </div>

@@ -22,7 +22,7 @@ class RequisitoTramiteController extends Controller
     {
         $requisitoTramites = RequisitoTramite::paginate();
 
-        return view('requisito-tramite.index', compact('requisitoTramites'))
+        return view('admin.tramite.requisito-tramite.index', compact('requisitoTramites'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitoTramites->perPage());
     }*/
     public function index($id_tramite)
@@ -31,7 +31,7 @@ class RequisitoTramiteController extends Controller
         $requisitoTramite = new RequisitoTramite();
         $tramite = Tramite::where('Id_tramite', $id_tramite)->first();
 
-        return view('requisito-tramite.index', compact('requisitoTramites', 'requisitoTramite', 'id_tramite', 'tramite'))
+        return view('admin.tramite.requisito-tramite.index', compact('requisitoTramites', 'requisitoTramite', 'id_tramite', 'tramite'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitoTramites->perPage());
     }
 
@@ -45,7 +45,7 @@ class RequisitoTramiteController extends Controller
     public function create()
     {
         $requisitoTramite = new RequisitoTramite();
-        return view('requisito-tramite.create', compact('requisitoTramite'));
+        return view('admin.tramite.requisito-tramite.create', compact('requisitoTramite'));
     }
 
     /**
@@ -76,7 +76,7 @@ class RequisitoTramiteController extends Controller
     {
         $requisitoTramite = RequisitoTramite::find($id);
 
-        return view('requisito-tramite.show', compact('requisitoTramite'));
+        return view('admin.tramite.requisito-tramite.show', compact('requisitoTramite'));
     }*/
 
     /**
@@ -89,7 +89,7 @@ class RequisitoTramiteController extends Controller
     {
         $requisitoTramite = RequisitoTramite::find($id);
 
-        return view('requisito-tramite.edit', compact('requisitoTramite'));
+        return view('admin.tramite.requisito-tramite.edit', compact('requisitoTramite'));
     }
 
     /**
@@ -138,7 +138,7 @@ class RequisitoTramiteController extends Controller
     public function inactivos()
     {
         $requisitosInactivos = RequisitoTramite::where('estado', 0)->paginate();
-        return view('requisito-tramite.inactivos', compact('requisitosInactivos'))
+        return view('admin.tramite.requisito-tramite.inactivos', compact('requisitosInactivos'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosInactivos->perPage());
     }
 

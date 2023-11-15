@@ -1,26 +1,25 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Tramite
+    {{ __('Create') }} Requisito Tramite
 @endsection
 
 @section('content')
     <section class="content container-fluid">
-        <div class="">
+        <div class="row">
             <div class="col-md-12">
 
                 @includeif('partials.errors')
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Tramite</span>
+                        <span class="card-title">{{ __('Create') }} Requisito Tramite</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('tramites.update', $tramite->Id_tramite) }}"  role="form" enctype="multipart/form-data">
-                            {{ method_field('PATCH') }}
+                        <form method="POST" action="{{ route('requisito-tramites.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('tramite.form')
+                            @include('admin.tramite.requisito-tramite.form')
 
                         </form>
                     </div>

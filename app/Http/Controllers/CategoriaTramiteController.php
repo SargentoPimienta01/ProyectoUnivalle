@@ -21,7 +21,7 @@ class CategoriaTramiteController extends Controller
     {
         $categoriaTramites = CategoriaTramites::paginate();
         $categoriaTramite = new CategoriaTramites();
-        return view('categoria-tramite.index', compact('categoriaTramites', 'categoriaTramite'))
+        return view('admin.tramite.categoria-tramite.index', compact('categoriaTramites', 'categoriaTramite'))
             ->with('i', (request()->input('page', 1) - 1) * $categoriaTramites->perPage());
     }
 
@@ -33,7 +33,7 @@ class CategoriaTramiteController extends Controller
     public function create()
     {
         $categoriaTramite = new CategoriaTramites();
-        return view('categoria-tramite.create', compact('categoriaTramite'));
+        return view('admin.tramite.categoria-tramite.create', compact('categoriaTramite'));
     }
 
     /**
@@ -64,7 +64,7 @@ class CategoriaTramiteController extends Controller
     {
         $categoriaTramite = CategoriaTramites::find($id);
 
-        return view('categoria-tramite.show', compact('categoriaTramite'));
+        return view('admin.tramite.categoria-tramite.show', compact('categoriaTramite'));
     }
 
     /**
@@ -77,7 +77,7 @@ class CategoriaTramiteController extends Controller
     {
         $categoriaTramite = CategoriaTramites::find($id);
 
-        return view('categoria-tramite.edit', compact('categoriaTramite'));
+        return view('admin.tramite.categoria-tramite.edit', compact('categoriaTramite'));
     }
 
     /**

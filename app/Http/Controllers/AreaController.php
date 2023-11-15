@@ -34,7 +34,7 @@ class AreaController extends Controller
     {
         $areas = Area::paginate();
         $area = new Area();
-        return view('area.index', compact('areas', 'area'))
+        return view('admin.area.index', compact('areas', 'area'))
             ->with('i', (request()->input('page', 1) - 1) * $areas->perPage());
     }
 
@@ -46,7 +46,7 @@ class AreaController extends Controller
     public function create()
     {
         $area = new Area();
-        return view('area.create', compact('area'));
+        return view('admin.area.create', compact('area'));
     }
 
     /**
@@ -75,7 +75,7 @@ class AreaController extends Controller
     {
         $area = Area::where('Id_area', $id)->first();
 
-        return view('area.show', compact('area'));
+        return view('admin.area.show', compact('area'));
     }
 
 
@@ -89,7 +89,7 @@ class AreaController extends Controller
     {
         $area = Area::find($id);
 
-        return view('area.edit', compact('area'));
+        return view('admin.area.edit', compact('area'));
     }
 
     /**
@@ -105,7 +105,7 @@ class AreaController extends Controller
 
         $area->update($request->all());
 
-        return redirect()->route('areas.index')
+        return redirect()->route('admin.areas.index')
             ->with('success', 'Area updated successfully');
     }
 
@@ -118,7 +118,7 @@ class AreaController extends Controller
     {
         $area = Area::find($id)->delete();
 
-        return redirect()->route('areas.index')
+        return redirect()->route('admin.areas.index')
             ->with('success', 'Area deleted successfully');
     }
 

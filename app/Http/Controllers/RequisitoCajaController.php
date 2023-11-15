@@ -18,7 +18,7 @@ class RequisitoCajaController extends Controller
         $requisitoCaja = new RequisitoCaja();
         $caja = Caja::where('Id_caja', $id_caja)->first();
 
-        return view('requisito-caja.index', compact('requisitoCajas', 'requisitoCaja', 'id_caja','caja'))
+        return view('admin.caja.requisito-caja.index', compact('requisitoCajas', 'requisitoCaja', 'id_caja','caja'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitoCajas->perPage());
     }
 
@@ -26,7 +26,7 @@ class RequisitoCajaController extends Controller
     {
         $requisitoCaja = new RequisitoCaja();
 
-        return view('requisito-caja.create', compact('requisitoCaja'));
+        return view('admin.caja.requisito-caja.create', compact('requisitoCaja'));
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class RequisitoCajaController extends Controller
     {
         $requisitoCaja = RequisitoCaja::find($id);
 
-        return view('requisito-caja.show', compact('requisitoCaja'));
+        return view('admin.caja.requisito-caja.show', compact('requisitoCaja'));
     }
     
 
@@ -51,7 +51,7 @@ class RequisitoCajaController extends Controller
         $requisitoCaja = RequisitoCaja::find($id);
         $id_caja = $requisitoCaja -> Id_caja;
 
-        return view('requisito-caja.edit', compact('requisitoCaja','id_caja'));
+        return view('admin.caja.requisito-caja.edit', compact('requisitoCaja','id_caja'));
     }
 
     public function update(Request $request, RequisitoCaja $requisitoCaja)

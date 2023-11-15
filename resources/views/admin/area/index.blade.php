@@ -39,7 +39,7 @@
                                         <div class="modal-body">
                                             <form method="POST" action="{{ route('areas.store') }}" role="form" enctype="multipart/form-data">
                                                 @csrf
-                                                @include('area.form')
+                                                @include('admin.area.form')
                                             </form>
                                         </div>
                                     </div>
@@ -137,7 +137,7 @@
                                                                 <!--<form method="POST" action="{{ route('areas.update', $area->Id_area) }}" role="form" enctype="multipart/form-data">
                                                                     {{ method_field('PATCH') }}
                                                                     @csrf
-                                                                    @include('area.form')
+                                                                    @include('admin.area.form')
                                                                 </form>
                                                             </div>
                                                         </div>

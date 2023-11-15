@@ -68,7 +68,7 @@
                                                                     <form method="POST" action="{{ route('categoria-tramites.update', $categoriaTramite->id_categoria_tramites) }}"  role="form" enctype="multipart/form-data">
                                                                         {{ method_field('PATCH') }}
                                                                         @csrf
-                                                                        @include('categoria-tramite.form')
+                                                                        @include('admin.tramite.categoria-tramite.form')
                                                                     </form>
                                                                 </div>
                                                             </div>

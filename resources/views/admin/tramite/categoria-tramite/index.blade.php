@@ -42,7 +42,7 @@
                                             <!-- Aquí incluye el formulario de creación de categoría de trámites -->
                                             <form method="POST" action="{{ route('categoria-tramites.store') }}" role="form" enctype="multipart/form-data">
                                                 @csrf
-                                                @include('categoria-tramite.form')
+                                                @include('admin.tramite.categoria-tramite.form')
                                             </form>
                                         </div>
                                     </div>
@@ -128,7 +128,7 @@
                                                                     <form method="POST" action="{{ route('categoria-tramites.update', $categoriaTramite->id_categoria_tramites) }}"  role="form" enctype="multipart/form-data">
                                                                         {{ method_field('PATCH') }}
                                                                         @csrf
-                                                                        @include('categoria-tramite.form')
+                                                                        @include('admin.tramite.categoria-tramite.form')
                                                                     </form>
                                                                 </div>
                                                             </div>

@@ -17,14 +17,14 @@ class CajaController extends Controller
             })
             ->paginate();
 
-        return view('caja.index', compact('cajas', 'search'))
+        return view('admin.caja.index', compact('cajas', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $cajas->perPage());
     }
 
     public function create()
     {
         $caja = new Caja();
-        return view('caja.create', compact('caja'));
+        return view('admin.caja.create', compact('caja'));
     }
 
     /**
@@ -45,14 +45,14 @@ class CajaController extends Controller
     {
         $caja = Caja::find($id);
 
-        return view('caja.show', compact('caja'));
+        return view('admin.caja.show', compact('caja'));
     }
 
     public function edit($id)
     {
         $caja = Caja::find($id);
 
-        return view('caja.edit', compact('caja'));
+        return view('admin.caja.edit', compact('caja'));
     }
 
     public function update(Request $request, Caja $caja)
@@ -94,7 +94,7 @@ class CajaController extends Controller
     public function inactivas()
     {
         $cajas = Caja::where('estado', 0)->paginate();
-        return view('caja.inactivas', compact('cajas'));
+        return view('admin.caja.inactivas', compact('cajas'));
     }
 
 

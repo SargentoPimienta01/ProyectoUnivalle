@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Area
+    {{ __('Update') }} Requisito Tramite
 @endsection
 
 @section('content')
@@ -13,14 +13,17 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Area</span>
+                        <span class="card-title">{{ __('Update') }} Requisito Tramite</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('areas.update', $area->id) }}"  role="form" enctype="multipart/form-data">
+
+                    <form method="POST" action="{{ route('requisito-tramites.update', $requisitoTramite->Id_requisito) }}" role="form" enctype="multipart/form-data">
+
+
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('area.form')
+                            @include('admin.tramite.requisito-tramite.form')
 
                         </form>
                     </div>

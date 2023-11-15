@@ -31,7 +31,7 @@ class TramiteController extends Controller
             })
             ->paginate();
 
-        return view('tramite.index', compact('tramites', 'search'))
+        return view('admin.tramite.index', compact('tramites', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $tramites->perPage());
     }
 
@@ -39,7 +39,7 @@ class TramiteController extends Controller
     public function inactivos()
     {
         $tramitesInactivos = Tramite::where('estado', 0)->paginate();
-        return view('tramite.inactivos', compact('tramitesInactivos'))
+        return view('admin.tramite.inactivos', compact('tramitesInactivos'))
             ->with('i', (request()->input('page', 1) - 1) * $tramitesInactivos->perPage());;
     }
 
@@ -53,7 +53,7 @@ class TramiteController extends Controller
         $tramite = new Tramite();
         $categoriasTramites = CategoriaTramites::all();
         $ubicaciones = Ubicacion::all();
-        return view('tramite.create', compact('tramite', 'categoriasTramites','ubicaciones'));
+        return view('admin.tramite.create', compact('tramite', 'categoriasTramites','ubicaciones'));
     }
 
 
@@ -87,7 +87,7 @@ class TramiteController extends Controller
             abort(404);
         }
 
-        return view('tramite.show', compact('tramite'));
+        return view('admin.tramite.show', compact('tramite'));
     }
 
     /**
@@ -105,7 +105,7 @@ class TramiteController extends Controller
             abort(404);
         }
 
-        return view('tramite.edit', compact('tramite', 'categoriasTramites','ubicaciones'));
+        return view('admin.tramite.edit', compact('tramite', 'categoriasTramites','ubicaciones'));
     }
 
     /**

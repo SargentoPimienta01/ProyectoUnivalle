@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Requisito Caja
+    {{ __('Create') }} Categoria Tramite
 @endsection
 
 @section('content')
@@ -13,13 +13,13 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Requisito Caja</span>
+                        <span class="card-title">{{ __('Create') }} Categoria Tramite</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('requisito-cajas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('categoria-tramites.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('requisito-caja.form')
+                            @include('admin.tramite.categoria-tramite.form')
 
                         </form>
                     </div>
