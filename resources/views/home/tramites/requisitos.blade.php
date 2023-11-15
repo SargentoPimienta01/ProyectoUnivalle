@@ -9,6 +9,7 @@
     <title>Tramites | Univalle</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/tramites/styles_user_tables.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     
@@ -16,7 +17,7 @@
 <body>
 
     <div class="intro">
-        <h1>{{ $tituloTramite }}</h1>
+        <h1>{{ $nombreTramite }}</h1>
       </div>
 
       <div class="hero">
@@ -35,34 +36,56 @@
         </nav>
 
         <div>
-            <h2 style="color: white; text-align: center;">Requisitos para el trámite: {{ $tituloTramite }}</h2>
+            <h2 style="color: white; text-align: center;">Requisitos para el trámite: {{ $nombreTramite }}</h2>
         </div>
 
-        <div class="container">
-    <table>
-        <thead>
-            <tr>
-                <th>Detalle</th>
-                <th>Requisitos</th>
-                <th>Duracion de tramite</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>DET</td>
-                <td>REQ</td>
-                <td>DUR</td>
-            </tr>
+
+
+        <div class ="contenidopro">
+
             @foreach ($requisitos as $requisito)
-            <tr>
-                <td>{{ $requisito->nombre_requisito }}</td>
-                <td>{{ $requisito->descripcion_requisito }}</td>
-                <td>{{ $duracionTramite }}</td>
-            </tr>
+
+            <div class="">
+            <div class="card">
+                <div class="face front">
+                    <img src="{{ Vite::asset('resources/img/tramites/tramite.jpg') }}" alt="Requisitos">
+                    <h3>Requisitos</h3>
+                </div>
+                <div class="face back">
+                    <h3>Requisitos</h3>
+                    <p>{{ $requisito->descripcion_requisito }}</p>
+                    
+                </div>
+            </div>
+            </div>
+    
+            <div class="card">
+                <div class="face front">
+                    <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion">
+                    <h3>Duracion</h3>
+                </div>
+                <div class="face back">
+                    <h3>Duracion</h3>
+                    <p>{{ $duracionTramite }}</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="face front">
+                    <img src="{{ Vite::asset('resources/img/tramites/ubicacion.jpeg') }}" alt="">
+                    <h3>Ubicacion</h3>
+                </div>
+                <div class="face back">
+                    <h3>Ubicacion</h3>
+                    <p>Profesionales en esta área trabajan en el diseño de estrategias de gestión y políticas económicas. Su labor contribuye a mejorar la toma de decisiones, promoviendo un entorno económico y empresarial más efectivo y sostenible.</p>
+                    
+                </div>
+            </div>
+    
             @endforeach
-        </tbody>
-    </table>
-</div>
+        </div>
+        
+
 
         
     </div>  
