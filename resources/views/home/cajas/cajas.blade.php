@@ -14,10 +14,6 @@
 </head>
 <body>
   
-    <div class="intro">
-        <h1>Tramites</h1>
-      </div>
-  
       <div class="hero">
           <!-- Barra de Navegacion -->
           <nav>
@@ -32,6 +28,10 @@
               </ul>
               <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
           </nav>
+
+          <div>
+            <h2 style="color: white; text-align: center;">Cajas</h2>
+        </div>
 
           <div class="Opciones2">
             @foreach($cajas as $caja)
@@ -54,3 +54,4 @@
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>    
 </body>
 </html>
+

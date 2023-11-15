@@ -16,10 +16,6 @@
 </head>
 <body>
 
-    <div class="intro">
-        <h1>{{ $nombreTramite }}</h1>
-      </div>
-
       <div class="hero">
         <!-- Barra de Navegacion -->
         <nav>

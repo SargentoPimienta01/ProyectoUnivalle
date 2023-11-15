@@ -13,10 +13,6 @@
     
 </head>
 <body>
-  
-    <div class="intro">
-        <h1>{{ $ctramite->nombre_categoria }}</h1>
-    </div>
 
     <div class="hero">
         <!-- Barra de Navegacion -->
@@ -33,15 +29,25 @@
             <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
         </nav>
 
+        <div>
+            <h2 style="color: white; text-align: center;">{{ $ctramite->nombre_categoria }}</h2>
+        </div>
+
         <div class="Opciones2">
-    @foreach($tramites as $tramite)
-        <form method="GET" action="{{ route('requisitos', ['id_categoria_tramites' => $ctramite->id_categoria_tramites, 'nombre_categoria' => Str::slug($ctramite->nombre_categoria), 'id_tramite' => $tramite->Id_tramite, 'nombre_tramite' => Str::slug($tramite->nombre_tramite)]) }}">
-            <button type="submit" class="button-anon-pen"><span>{{ $tramite->nombre_tramite }}</span></button>
-        </form>   
-    @endforeach
-</div>
+            @foreach($tramites as $tramite)
+                    
+            <form method="POST" action="{{ route('requisitos') }}">
+                @csrf
+                <input type="hidden" name="id_tramite" value="{{ $tramite->Id_tramite }}">
+                <input type="hidden" name="nombre_tramite" value="{{ $tramite->nombre_tramite }}">
+                <input type="hidden" name="duracion_tramite" value="{{ $tramite->duracion_tramite }}">
+                <!-- Puedes incluir otros campos o información adicional si es necesario -->
+                <button type="submit" class="button-anon-pen"><span>{{ $tramite->nombre_tramite }}</span></button>
+            </form>   
+                
+            @endforeach
 
-
+        </div>
         
 
 

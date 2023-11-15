@@ -6,7 +6,7 @@
     <meta content="summary_large_image" name="twitter:card"/>
     <meta property="og:type" content="website"/>
     <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
-    <title>Tramites | Univalle</title>
+    <title>Cajas | Univalle</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
@@ -15,10 +15,6 @@
     
 </head>
 <body>
-
-    <div class="intro">
-        <h1>{{ $nombreTramite }}</h1>
-      </div>
 
       <div class="hero">
         <!-- Barra de Navegacion -->
@@ -36,7 +32,7 @@
         </nav>
 
         <div>
-            <h2 style="color: white; text-align: center;">Requisitos para el trámite: {{ $nombreTramite }}</h2>
+            <h2 style="color: white; text-align: center;">Requisitos para la caja: {{ $requisitoCaja->nombre_caja }}</h2>
         </div>
 
 
@@ -49,11 +45,11 @@
             <div class="card">
                 <div class="face front">
                     <img src="{{ Vite::asset('resources/img/tramites/tramite.jpg') }}" alt="Requisitos">
-                    <h3>Requisitos</h3>
+                    <h3>Servicio</h3>
                 </div>
                 <div class="face back">
-                    <h3>Requisitos</h3>
-                    <p>{{ $requisito->descripcion_requisito }}</p>
+                    <h3>Servicio</h3>
+                    <p>{{ $requisito->nombre_requisito }}</p>
                     
                 </div>
             </div>
@@ -62,25 +58,14 @@
             <div class="card">
                 <div class="face front">
                     <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion">
-                    <h3>Duracion</h3>
+                    <h3>Requisitos</h3>
                 </div>
                 <div class="face back">
-                    <h3>Duracion</h3>
-                    <p>{{ $duracionTramite }}</p>
+                    <h3>Requisitos</h3>
+                    <p>{{ $requisito->descripcion_requisito }}</p>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="face front">
-                    <img src="{{ Vite::asset('resources/img/tramites/ubicacion.jpeg') }}" alt="">
-                    <h3>Ubicacion</h3>
-                </div>
-                <div class="face back">
-                    <h3>Ubicacion</h3>
-                    <p>Profesionales en esta área trabajan en el diseño de estrategias de gestión y políticas económicas. Su labor contribuye a mejorar la toma de decisiones, promoviendo un entorno económico y empresarial más efectivo y sostenible.</p>
-                    
-                </div>
-            </div>
     
             @endforeach
         </div>
@@ -93,3 +78,4 @@
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
 </html>
+
