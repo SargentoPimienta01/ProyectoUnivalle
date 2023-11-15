@@ -404,6 +404,26 @@ return [
             'url' => '/ubicacion',
             'icon' => 'fas fa-map-marker-alt',
         ],
+        [
+            'text' => 'Postgrados',
+            'url' => '/postgrados',
+            'icon' => 'fas fa-graduation-cap',
+        ],
+        [
+            'text' => 'Plataforma de Atención',
+            'url' => '/plataforma-de-atencions',
+            'icon' => 'fas fa-comments',
+        ],   
+        [
+            'text' => 'Biblioteca',
+            'url' => '/bibliotecas',
+            'icon' => 'fas fa-book',
+        ],
+        [
+            'text' => 'Cafetería',
+            'url' => '/productos',
+            'icon' => 'fas fa-coffee',
+        ],        
         // Menú de usuario
         [
             'text' => 'Perfil',
