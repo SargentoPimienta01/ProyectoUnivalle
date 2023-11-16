@@ -90,7 +90,7 @@
                     <td>
                         <a class="link" href="{{ route('naf') }}">
                             <div class="boton">
-                                <img src="{{ Vite::asset('resources/images/cafecitoo.png') }}" alt="Imagen 3">
+                                <img src="{{ Vite::asset('resources/images/NAF.png') }}" alt="Imagen 3">
                             </div>
                             <div class="boton_bg-grad"></div>
                         </a>
@@ -98,7 +98,7 @@
                     <td>
                         <a class="link" href="{{ route('plataforma-de-atencion') }}">
                             <div class="boton">
-                                <img src="{{ Vite::asset('resources/images/cafecitoo.png') }}" alt="Imagen 4">
+                                <img src="{{ Vite::asset('resources/images/P_ATENCION.png') }}" alt="Imagen 4">
                             </div>
                             <div class="boton_bg-grad"></div>
                         </a>
@@ -118,7 +118,7 @@
                     <td>
                         <a class="link" href="{{ route('posgrado') }}">
                             <div class="boton">
-                                <img src="{{ Vite::asset('resources/images/cajas.png') }}" alt="Imagen 2">
+                                <img src="{{ Vite::asset('resources/images/POSGRADO.png') }}" alt="Imagen 2">
                             </div>
                             <div class="boton_bg-grad"></div>
                         </a>
@@ -126,7 +126,7 @@
                     <td>
                         <a class="link" href="{{ route('biblioteca') }}">
                             <div class="boton">
-                                <img src="{{ Vite::asset('resources/images/cafecitoo.png') }}" alt="Imagen 3">
+                                <img src="{{ Vite::asset('resources/images/BIBLIOTECA.png') }}" alt="Imagen 3">
                             </div>
                             <div class="boton_bg-grad"></div>
                         </a>
@@ -134,7 +134,7 @@
                     <td>
                         <a class="link" href="{{ route('gabinete-medico') }}">
                             <div class="boton">
-                                <img src="{{ Vite::asset('resources/images/cafecitoo.png') }}" alt="Imagen 4">
+                                <img src="{{ Vite::asset('resources/images/MEDICO.png') }}" alt="Imagen 4">
                             </div>
                             <div class="boton_bg-grad"></div>
                         </a>
