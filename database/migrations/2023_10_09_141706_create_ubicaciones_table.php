@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('planta');
             $table->text('horario')->default('Preguntar en información');
             $table->text('detalles_direccion')->default('Preguntar en la entrada o informaciones Univalle');
+            $table->boolean('estado')->default(1);
             $table->timestamps();
         });
     }

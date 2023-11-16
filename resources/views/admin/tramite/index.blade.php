@@ -10,12 +10,18 @@
     <div class="mb-3">
         <form action="{{ route('tramites.index') }}" method="GET">
             <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Buscar...">
+                <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
                 <button type="submit" class="btn btn-primary">Buscar</button>
+                @if($search)
+                    <div class="input-group-append">
+                        <a href="{{ route('tramites.index') }}" class="btn btn-outline-danger">Limpiar</a>
+                    </div>
+                @endif
             </div>
         </form>
     </div>
 </div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -33,7 +39,7 @@
                             {{ __('Volver atrás') }}
                         </a>
                          <div class="float-right">
-                            <a href="{{ route('tramites.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                            <a href="{{ route('tramites.create') }}" class="btn btn-primary float-right"  data-placement="left">
                               {{ __('Crear nuevo trámite') }}
                             </a>
                           </div>

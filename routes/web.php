@@ -103,7 +103,15 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('postgrados', PostgradoController::class);
     Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
 
+    //Ubicaciones
+    // Rutas personalizadas primero
+    Route::get('/ubicacion/inactivas', [UbicacionController::class, 'inactivas'])->name('admin.ubicacion.inactivas');
+    Route::get('/ubicacion/toggleEstado/{id}', [UbicacionController::class, 'toggleEstado'])->name('ubicacion.toggleEstado');
+
+    // Rutas generadas por Route::resource
     Route::resource('ubicacion', UbicacionController::class);
+
+
 
     Route::put('/areas/cambiarEstado/{id}', [AreaController::class, 'cambiarEstado'])->name('areas.cambiarEstado');
     Route::resource('areas', AreaController::class);

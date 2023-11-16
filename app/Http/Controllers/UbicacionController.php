@@ -16,13 +16,20 @@ class UbicacionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $ubicaciones = Ubicacion::paginate();
+        $search = $request->input('search');
 
-        return view('ubicacion.index', compact('ubicaciones'))
+        $ubicaciones = Ubicacion::where('estado', 1)
+            ->where(function ($query) use ($search) {
+                $query->where('nombre_ubicacion', 'like', "%$search%");
+            })
+            ->paginate(10);
+
+        return view('admin.ubicacion.index', compact('ubicaciones', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $ubicaciones->perPage());
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +39,7 @@ class UbicacionController extends Controller
     public function create()
     {
         $ubicacion = new Ubicacion();
-        return view('ubicacion.create', compact('ubicacion'));
+        return view('admin.ubicacion.create', compact('ubicacion'));
     }
 
     /**
@@ -61,7 +68,7 @@ class UbicacionController extends Controller
     {
         $ubicacion = Ubicacion::find($id);
 
-        return view('ubicacion.show', compact('ubicacion'));
+        return view('admin.ubicacion.show', compact('ubicacion'));
     }
 
     /**
@@ -74,7 +81,7 @@ class UbicacionController extends Controller
     {
         $ubicacion = Ubicacion::find($id);
 
-        return view('ubicacion.edit', compact('ubicacion'));
+        return view('admin.ubicacion.edit', compact('ubicacion'));
     }
 
     /**
@@ -106,4 +113,37 @@ class UbicacionController extends Controller
         return redirect()->route('ubicacion.index')
             ->with('success', 'Ubicacion deleted successfully');
     }
+
+    public function toggleEstado($id)
+    {
+        $ubicacion = Ubicacion::find($id);
+
+        if (!$ubicacion) {
+            return redirect()->back()->with('error', 'Ubicación no encontrada.');
+        }
+
+        // Cambiar el estado
+        $ubicacion->estado = !$ubicacion->estado;
+        $ubicacion->save();
+
+        $message = $ubicacion->estado ? 'Ubicación activada exitosamente.' : 'Ubicación desactivada exitosamente.';
+
+        return redirect()->route($ubicacion->estado ? 'ubicacion.index' : 'admin.ubicacion.inactivas')->with('success', $message);
+    }
+
+
+    public function inactivas(Request $request)
+    {
+        $search = $request->input('search');
+
+        $ubicacionesInactivas = Ubicacion::where('estado', 0)
+            ->where(function ($query) use ($search) {
+                $query->where('nombre_ubicacion', 'like', "%$search%");
+            })
+            ->paginate(10);
+
+        return view('admin.ubicacion.inactivas', compact('ubicacionesInactivas', 'search'))
+            ->with('i', (request()->input('page', 1) - 1) * $ubicacionesInactivas->perPage());
+    }
+
 }
