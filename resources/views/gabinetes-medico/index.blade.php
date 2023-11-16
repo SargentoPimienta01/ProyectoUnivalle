@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -33,28 +34,22 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
-                                        <th>No</th>
-                                        
-										<th>Id Gabinetemedico</th>
+                                    <tr>               
+										<th>Id</th>
 										<th>Nombre Gabinetemedico</th>
 										<th>Ubicacion Gabinetemedico</th>
 										<th>Estado</th>
-										<th>Id Area</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($gabinetesMedicos as $gabinetesMedico)
-                                        <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
+                                        <tr>                                  
 											<td>{{ $gabinetesMedico->Id_gabinetemedico }}</td>
 											<td>{{ $gabinetesMedico->nombre_gabinetemedico }}</td>
 											<td>{{ $gabinetesMedico->ubicacion_gabinetemedico }}</td>
 											<td>{{ $gabinetesMedico->estado }}</td>
-											<td>{{ $gabinetesMedico->Id_area }}</td>
 
                                             <td>
                                                 <form action="{{ route('gabinetes-medico.destroy',$gabinetesMedico->Id_gabinetemedico) }}" method="POST">
