@@ -53,7 +53,7 @@
 
                                             <td>
                                                 <form action="{{ route('gabinetes-medico.destroy',$gabinetesMedico->Id_gabinetemedico) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('gabinetes-medico.show',$gabinetesMedico->Id_gabinetemedico) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <!--<a class="btn btn-sm btn-primary " href="{{ route('gabinetes-medico.show',$gabinetesMedico->Id_gabinetemedico) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>-->
                                                     <a class="btn btn-sm btn-success" href="{{ route('gabinetes-medico.edit',$gabinetesMedico->Id_gabinetemedico) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')

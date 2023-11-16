@@ -74,7 +74,7 @@ class RequisitosGabinetesMedicoController extends Controller
     {
         $requisitosGabinetesMedico = RequisitosGabinetesMedico::find($id);
 
-        return view('requisitos-gabinetes-medico.edit', compact('requisitosGabinetesMedico'));
+        return view('requisitos-gabinetesmedico.edit', compact('requisitosGabinetesMedico'));
     }
 
     /**
@@ -90,7 +90,7 @@ class RequisitosGabinetesMedicoController extends Controller
 
         $requisitosGabinetesMedico->update($request->all());
 
-        return redirect()->route('requisitos-gabinetemedico.index')
+        return redirect()->route('requisitos-gabinetesmedico.index')
             ->with('success', 'RequisitosGabinetesMedico updated successfully');
     }
 
@@ -103,7 +103,7 @@ class RequisitosGabinetesMedicoController extends Controller
     {
         $requisitosGabinetesMedico = RequisitosGabinetesMedico::find($id)->delete();
 
-        return redirect()->route('requisitos-gabinetemedico.index')
+        return redirect()->route('requisitos-gabinetesmedico.index')
             ->with('success', 'RequisitosGabinetesMedico deleted successfully');
     }
 }

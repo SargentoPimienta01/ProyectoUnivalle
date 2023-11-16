@@ -164,8 +164,11 @@ use App\Http\Controllers\CategoriaMenuController;
     //Gabinete Medico
     Route::resource('gabinetes-medico', GabinetesMedicoController::class);
     Route::resource('requisitos-gabinetesmedico', RequisitosGabinetesMedicoController::class);
-    Route::put('gabinetes-medico/{gabinetesMedico}', [GabinetesMedicoController::class, 'update'])->name('gabinetes-medico.update');
 
+    Route::put('gabinetes-medico/{gabinetesMedico}', [GabinetesMedicoController::class, 'update'])->name('gabinetes-medico.update');
+    Route::put('requisitos-gabinetesmedico/{requisitosGabinetesMedico}', [RequisitosGabinetesMedicoController::class, 'update'])->name('requisitos-gabinetesmedico.update');
+
+    
     //NAFS
     Route::resource('nafs', NafController::class);
     Route::resource('requisitos-naf', RequisitosNafController::class);

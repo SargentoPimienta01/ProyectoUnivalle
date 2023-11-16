@@ -34,13 +34,12 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
                                         
 										<th>Id Requisito</th>
 										<th>Nombre Requisito</th>
 										<th>Descripcion Requisito</th>
 										<th>Estado</th>
-										<th>Id Gabinetemedico</th>
+										<th>Nombre Gabinete Medico</th>
 
                                         <th></th>
                                     </tr>
@@ -48,17 +47,18 @@
                                 <tbody>
                                     @foreach ($requisitosGabinetesMedicos as $requisitosGabinetesMedico)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $requisitosGabinetesMedico->Id_requisito }}</td>
 											<td>{{ $requisitosGabinetesMedico->nombre_requisito }}</td>
 											<td>{{ $requisitosGabinetesMedico->descripcion_requisito }}</td>
 											<td>{{ $requisitosGabinetesMedico->estado }}</td>
-											<td>{{ $requisitosGabinetesMedico->Id_gabinetemedico }}</td>
+                                            <!-- Obtener el nombre del gabinete médico relacionado -->
+                                            <td>
+                                                {{ $requisitosGabinetesMedico->gabinetesMedico->nombre_gabinetemedico }}
+                                            </td>
 
                                             <td>
                                                 <form action="{{ route('requisitos-gabinetesmedico.destroy',$requisitosGabinetesMedico->Id_requisito) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('requisitos-gabinetesmedico.show',$requisitosGabinetesMedico->Id_requisito) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
+                                                    <!--<a class="btn btn-sm btn-primary " href="{{ route('requisitos-gabinetesmedico.show',$requisitosGabinetesMedico->Id_requisito) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>-->
                                                     <a class="btn btn-sm btn-success" href="{{ route('requisitos-gabinetesmedico.edit',$requisitosGabinetesMedico->Id_requisito) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
