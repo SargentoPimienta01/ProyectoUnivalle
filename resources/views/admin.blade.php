@@ -13,12 +13,12 @@
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3></h3>
+                            <h3>Categorías de trámites</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
-                                <i class=""></i>
-                                <a href=""></a>
+                                <i class="fas fa-folder"></i>
+                                <a href="/categoria-tramites">Categorías de trámites.</a>
                             </p>
                         </div>
                     </div>
