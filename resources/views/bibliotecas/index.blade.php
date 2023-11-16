@@ -1,9 +1,8 @@
-@extends('layout/template')
+@extends('adminlte::page')
 
 @section('title', 'productos')
 
-@section('contenido')
-
+@section('content')
 <main> 
         <div class="container-fluid contenido">
             @yield('dashOpt')

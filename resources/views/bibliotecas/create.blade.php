@@ -1,9 +1,8 @@
-@extends('layout/template')
+@extends('adminlte::page')
 
 @section('title', 'Registrar Producto')
 
-@section('contenido')
-
+@section('content')
 <main>
     <div class="container py-4">
         <h2>Registrar Anuncio</h2>
@@ -53,3 +52,4 @@
         </form>
     </div>
 </main>
+@endsection

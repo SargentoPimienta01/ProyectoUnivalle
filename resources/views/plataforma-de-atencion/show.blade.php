@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
     {{ $plataformaDeAtencion->name ?? "{{ __('Show') Plataforma De Atencion" }}
