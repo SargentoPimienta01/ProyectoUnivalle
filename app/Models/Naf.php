@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
 class Naf extends Model
-{   
+{       
     protected $primaryKey = 'Id_naf';
     static $rules = [
 		'Id_naf' => 'required',
