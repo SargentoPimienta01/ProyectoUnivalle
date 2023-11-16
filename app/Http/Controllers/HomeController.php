@@ -56,6 +56,9 @@ class HomeController extends Controller
         ->where('estado', 1)
         ->get();
 
+    // Obtén la ubicación del trámite
+    $ubicacionTramite = Tramite::find($id_tramite)->ubicacion;
+
     return view('home.tramites.requisitos', [
         'nombreCategoria' => $nombre_categoria,
         'idCategoriaTramites' => $id_categoria_tramites,
@@ -63,7 +66,8 @@ class HomeController extends Controller
         'nombreTramite' => $nombre_tramite,
         'duracionTramite' => $duracionTramite,
         'tituloTramite' => $tituloTramite,
-        'requisitos' => $requisitos
+        'requisitos' => $requisitos,
+        'ubicacionTramite' => $ubicacionTramite
     ]);
 }
 

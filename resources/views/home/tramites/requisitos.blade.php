@@ -72,9 +72,19 @@
                     <h3>Ubicacion</h3>
                 </div>
                 <div class="face back">
-                    <h3>Ubicacion</h3>
-                    <p>Profesionales en esta área trabajan en el diseño de estrategias de gestión y políticas económicas. Su labor contribuye a mejorar la toma de decisiones, promoviendo un entorno económico y empresarial más efectivo y sostenible.</p>
-                    
+                    <h3>Ubicacion de {{ $ubicacionTramite->nombre }}</h3>
+                        <p>
+                            Edificio: {{ $ubicacionTramite->edificio }}<br>
+                            Planta: @if ($ubicacionTramite->planta == 0)
+                                                Planta baja
+                                            @else
+                                                {{ $ubicacionTramite->planta }}
+                                            @endif
+                            <br>
+                            Horario: {{ $ubicacionTramite->horario }}<br>
+                            Horario: {{ $ubicacionTramite->detalles_direccion }}<br>
+                            <!-- Agrega más campos según sea necesario -->
+                        </p>
                 </div>
             </div>
     
