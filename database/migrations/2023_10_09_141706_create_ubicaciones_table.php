@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nombre_ubicacion');
             $table->string('edificio');
             $table->integer('planta');
-            $table->longText('horario')->default('Preguntar en información');
-            $table->longText('detalles_direccion')->default('Preguntar en la entrada o informaciones Univalle');
+            $table->longText('horario');
+            $table->longText('detalles_direccion');
             $table->tinyInteger('estado')->default(1);
             $table->timestamps();
         });
