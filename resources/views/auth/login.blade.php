@@ -13,6 +13,69 @@
     <link href="{{ Vite::asset('resources/css/asistente.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
 </head>
+<style>
+        /* Add this CSS to your existing styles.css or create a new CSS file */
+
+/* Global Styles */
+body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4; /* Add a light background color */
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        /* Login Card Styles */
+        .card {
+            border: none; /* Remove the border */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #68091f;
+            color: #fff;
+            border-bottom: none; /* Remove the border */
+            border-radius: 10px 10px 0 0; /* Add border-radius only to the top */
+        }
+
+        .card-body {
+            padding: 30px; /* Increase padding */
+        }
+
+        .form-control {
+            margin-bottom: 20px; /* Increase margin */
+            border-radius: 5px; /* Add border-radius */
+        }
+
+        .btn-primary {
+            background-color: #b85474;
+            border-color: #b85474;
+            border-radius: 5px; /* Add border-radius */
+        }
+
+        .btn-primary:hover {
+            background-color: #68091f; /* Change hover color */
+            border-color: #68091f; /* Change hover color */
+        }
+
+        /* Optional: Center the card on the page */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        /* Optional: Responsive Design */
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+    </style>
 <!--
 <div class="logo-container">
     <img src="{{ Vite::asset('resources/images/Univalle_logo.png') }}" alt="Univalle Logo">
