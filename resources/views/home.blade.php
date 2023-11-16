@@ -110,7 +110,7 @@
                     <td>
                         <a class="link" href="{{ route('cafeteria') }}">
                             <div class="boton">
-                                <img src="{{ Vite::asset('resources/images/tramites.png') }}" alt="Imagen 1">
+                                <img src="{{ Vite::asset('resources/images/CAFETERIA.png') }}" alt="Imagen 1">
                             </div>
                             <div class="boton_bg-grad"></div>
                         </a>
