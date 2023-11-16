@@ -161,10 +161,14 @@ use App\Http\Controllers\CategoriaMenuController;
     Route::put('cajas/requisitos/cambiarEstado/{requisitoCaja}', [RequisitoCajaController::class, 'cambiarEstado'])->name('cajas.requisitos.cambiarEstado');
 
 
-    Route::resource('nafs', NafController::class);
+    //Gabinete Medico
     Route::resource('gabinetes-medico', GabinetesMedicoController::class);
-    Route::resource('requisitos-naf', RequisitosNafController::class);
     Route::resource('requisitos-gabinetesmedico', RequisitosGabinetesMedicoController::class);
+    Route::put('gabinetes-medico/{gabinetesMedico}', [GabinetesMedicoController::class, 'update'])->name('gabinetes-medico.update');
+
+    //NAFS
+    Route::resource('nafs', NafController::class);
+    Route::resource('requisitos-naf', RequisitosNafController::class);
 
     //biblioteca
     
