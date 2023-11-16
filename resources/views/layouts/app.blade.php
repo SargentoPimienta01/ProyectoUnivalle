@@ -81,19 +81,19 @@
             </div>
         </nav>-->
   
-        <main class="py-4">
+        <!--<main class="py-4">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="card">
-                            <div class="card-body">
+                            <div class="card-body">-->
                                 @yield('content')
-                            </div>
+                            <!--</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </main>-->
           
     </div>
 </body>
