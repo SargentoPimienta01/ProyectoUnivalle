@@ -307,18 +307,6 @@ return [
             'type' => 'sidebar-menu-search',
             'text' => 'search',
         ],
-
-        // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
         // Sidebar items:
         [
             'text' => 'Panel de control',
