@@ -92,7 +92,10 @@ use App\Http\Controllers\CategoriaMenuController;
     ->where('id_tramite', '[0-9]+')
     ->name('requisitos');
 
-
+    Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}/requisitos/{id_tramite}/{nombre_tramite?}/pdf', [PdfController::class, 'generateRequisitosPdf'])
+    ->where('id_categoria_tramites', '[0-9]+')
+    ->where('id_tramite', '[0-9]+')
+    ->name('requisitos_pdf');
 
     Auth::routes();
   

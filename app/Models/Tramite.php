@@ -24,4 +24,10 @@ class Tramite extends Model
         return $this->belongsTo(Ubicacion::class, 'id_ubicacion');
     }
 
+    // En el modelo Tramite.php
+    public function requisitos()
+    {
+        return $this->hasMany(RequisitoTramite::class, 'id_tramite', 'id');
+    }
+
 }
