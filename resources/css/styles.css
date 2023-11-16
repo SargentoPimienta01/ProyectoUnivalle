@@ -156,6 +156,9 @@
     background: var(--negro); /* Asegúrate de que --negro esté definido en tu hoja de estilo o cambia esto a un color válido */
     transition: 3s;
 }
+.intro h1 {
+  color: #68091Fff; /* Código de color guindo */
+}
 
 .intro p{
     color: grey;
