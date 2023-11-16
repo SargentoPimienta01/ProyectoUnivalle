@@ -22,7 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class GabinetesMedico extends Model
 {
-    
+    protected $primaryKey = 'Id_gabinetemedico';
+
     static $rules = [
 		'Id_gabinetemedico' => 'required',
 		'nombre_gabinetemedico' => 'required',
