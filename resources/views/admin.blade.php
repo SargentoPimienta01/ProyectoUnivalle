@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 @extends('adminlte::page')
 
 @section('title', 'Dashboard')
@@ -8,7 +8,23 @@
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="container">
+        <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3></h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class=""></i>
+                                <a href=""></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 @stop
 
 @section('css')
@@ -18,24 +34,3 @@
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
