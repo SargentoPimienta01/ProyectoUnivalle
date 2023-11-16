@@ -20,10 +20,10 @@ class RequisitosGabinetesMedicoController extends Controller
     {
         $requisitosGabinetesMedicos = RequisitosGabinetesMedico::paginate();
 
-        return view('requisitos-gabinetes-medico.index', compact('requisitosGabinetesMedicos'))
+        return view('requisitos-gabinetesmedico.index', compact('requisitosGabinetesMedicos'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosGabinetesMedicos->perPage());
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +32,7 @@ class RequisitosGabinetesMedicoController extends Controller
     public function create()
     {
         $requisitosGabinetesMedico = new RequisitosGabinetesMedico();
-        return view('requisitos-gabinetes-medico.create', compact('requisitosGabinetesMedico'));
+        return view('requisitos-gabinetesmedico.create', compact('requisitosGabinetesMedico'));
     }
 
     /**
@@ -61,7 +61,7 @@ class RequisitosGabinetesMedicoController extends Controller
     {
         $requisitosGabinetesMedico = RequisitosGabinetesMedico::find($id);
 
-        return view('requisitos-gabinetes-medico.show', compact('requisitosGabinetesMedico'));
+        return view('requisitos-gabinetesmedico.show', compact('requisitosGabinetesMedico'));
     }
 
     /**
