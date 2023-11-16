@@ -39,9 +39,9 @@ use App\Http\Controllers\CategoriaMenuController;
 |
 */
   
-Route::get('/', function () {
-    return redirect('/home');;
-});
+    Route::get('/', function () {
+        return redirect('/home');;
+    });
 
     //PDF
     Route::get('/generate-pdf', [PdfController::class, 'generatePDF']);
@@ -52,51 +52,53 @@ Route::get('/', function () {
     Route::get('/subir-imagen', [ImagenController::class, 'index'])->name('subir-imagen');
     Route::post('/subir-imagen', [ImagenController::class, 'subirImagen']);
 
-Route::get('/home/naf', [HomeController::class, 'naf'])->name('naf');
+    Route::get('/home/naf', [HomeController::class, 'naf'])->name('naf');
 
-Route::get('/home/cafeteria', [HomeController::class, 'cafeteria'])->name('cafeteria');
+    Route::get('/home/cafeteria', [HomeController::class, 'cafeteria'])->name('cafeteria');
+    Route::get('/home/biblioteca', [HomeController::class, 'biblioteca'])->name('biblioteca');
+    Route::get('/home/posgrado', [HomeController::class, 'posgrado'])->name('posgrado');
 
-Route::get('/home/gabinete-medico', [HomeController::class, 'gabinetemedico'])->name('gabinete-medico');
+    Route::get('/home/gabinete-medico', [HomeController::class, 'gabinetemedico'])->name('gabinete-medico');
 
-Route::get('/home/plataforma-de-atencion/servicios', [HomeController::class, 'paservicios'])->name('paservicios');
+    Route::get('/home/plataforma-de-atencion/servicios', [HomeController::class, 'paservicios'])->name('paservicios');
 
-Route::get('/home/plataforma-de-atencion', [HomeController::class, 'plataformadeatencion'])->name('plataforma-de-atencion');
+    Route::get('/home/plataforma-de-atencion', [HomeController::class, 'plataformadeatencion'])->name('plataforma-de-atencion');
 
-Route::get('/home/cajas', [HomeController::class, 'cajas'])->name('cajas');
+    Route::get('/home/cajas', [HomeController::class, 'cajas'])->name('cajas');
 
-Route::get('/home/requisitosCaja/{id_caja}/{nombre?}', [HomeController::class, 'requisitosCaja'])
+    Route::get('/home/requisitosCaja/{id_caja}/{nombre?}', [HomeController::class, 'requisitosCaja'])
     ->where('id_caja', '[0-9]+')
     ->where('nombre', '[A-Za-z0-9\-]+') // Permite solo letras, números y guiones en el nombre
     ->name('requisitosCaja');
 
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites-inicio');
+    Route::get('/home/tramites', [HomeController::class, 'tramites'])->name('tramites-inicio');
 
-Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}', [HomeController::class, 'tramitesdisponibles'])
+    Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}', [HomeController::class, 'tramitesdisponibles'])
     ->where('id_categoria_tramites', '[0-9]+') // Para asegurar que el ID sea un número
     ->name('tramitesdisponibles');
 
 
-Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
+    Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
     ->where('nombre_categoria', '[A-Za-z0-9\-]+')
     ->name('nombre_categoria');
 
-Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
+    Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
 
-Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}/requisitos/{id_tramite}/{nombre_tramite?}', [HomeController::class, 'requisitos'])
+    Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}/requisitos/{id_tramite}/{nombre_tramite?}', [HomeController::class, 'requisitos'])
     ->where('id_categoria_tramites', '[0-9]+')
     ->where('id_tramite', '[0-9]+')
     ->name('requisitos');
 
 
 
-Auth::routes();
+    Auth::routes();
   
-Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin');
   
-Route::group(['middleware' => ['auth']], function() {
+    Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
@@ -110,8 +112,6 @@ Route::group(['middleware' => ['auth']], function() {
 
     // Rutas generadas por Route::resource
     Route::resource('ubicacion', UbicacionController::class);
-
-
 
     Route::put('/areas/cambiarEstado/{id}', [AreaController::class, 'cambiarEstado'])->name('areas.cambiarEstado');
     Route::resource('areas', AreaController::class);
@@ -134,7 +134,6 @@ Route::group(['middleware' => ['auth']], function() {
     // Ahora, las rutas generales o las rutas con parámetros
     Route::resource('tramites/requisito-tramites', RequisitoTramiteController::class);
     Route::put('tramites/requisito-tramites/cambiarEstado/{requisito}', [RequisitoTramiteController::class, 'cambiarEstado'])->name('requisito-tramites.cambiarEstado');
-
 
     // Rutas específicas para Cajas antes de las generales
     Route::get('cajas/inactivas', [CajaController::class, 'inactivas'])->name('cajas.inactivas');
@@ -236,9 +235,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 
 });
-Auth::routes();
+    Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 

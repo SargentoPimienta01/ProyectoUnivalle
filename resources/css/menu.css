@@ -135,7 +135,7 @@ nav ul li a:hover{
     border-radius: 0.25rem;
     padding: 0.75rem 1.5rem;
     font-weight: 500;
-    transition: all .2s;
+    transition: transform 0.4s ease-in-out; 
     position: relative;
     transform: translate(0);
     box-shadow: 1px 1px 1rem rgb(26 26 26 / 15%);
@@ -143,7 +143,8 @@ nav ul li a:hover{
 
 .boton:hover {
     text-decoration: none;
-    transform: translate(-1px,-1px);
+    transform: translate(-8px,-8px);
+    /*transform: scale(1.1);*/
 }
 
 .boton_bg-grad {
@@ -157,6 +158,7 @@ nav ul li a:hover{
     bottom: 0%;
     left: 0%;
     right: 0%;
+    transition: transform 0.5s ease-in-out;
     transform: translate(0.5rem,0.5rem);
     pointer-events: none;
 }
@@ -178,7 +180,9 @@ nav ul li a:hover{
     overflow: hidden;
     transition: background-position 1.6s ease-in;
 }
-
+.boton:hover .boton_bg-grad {
+    transform: scale(1.1); /* Aumenta el tamaño del fondo del hover al 110% del tamaño original */
+}
 .button-anon-pen:hover {
     background-position: -390px; /* La última posición para completar la animación */
 }

@@ -124,6 +124,16 @@ class HomeController extends Controller
 
     public function cafeteria ()
     {
-        return view ('home.cafeteria.cafeteria');
+        return view ('home.cafeteria.index');
+    }
+
+    public function biblioteca ()
+    {
+        return view ('home.biblioteca.index');
+    }
+
+    public function posgrado ()
+    {
+        return view ('home.posgrado.index');
     }
 }
