@@ -15,16 +15,16 @@
 
     <style>
         body {
-            overflow: hidden; /* Desactivamos -> barra de desplazamiento */
+        overflow: hidden; 
         }
+
         .boton img {
-            width: 200px;
-            height: 200px;
+            width: 100%; 
             height: auto;
         }
 
         .Opciones table {
-            width: 80%;
+            width: 100%; 
             margin: auto;
             border-spacing: 20px;
         }
@@ -35,12 +35,37 @@
         }
 
         .Opciones {
-            margin-top: 100px;
+            margin-top: 50px;
         }
 
         .Opciones table tr {
-            margin-bottom: 50px;
+            margin-bottom: 20px;
         }
+
+        @media only screen and (min-width: 600px) {
+            .Opciones table {
+                width: 80%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            .Opciones table {
+                width: 60%;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            .Opciones table {
+                width: 50%;
+            }
+        }
+
+        @media only screen and (min-width: 1200px) {
+            .Opciones table {
+                width: 40%;
+            }
+        }
+
     </style>
 </head>
 
