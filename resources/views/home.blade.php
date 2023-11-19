@@ -12,6 +12,7 @@
     <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ Vite::asset('resources/css/asistente.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
+    @vite(['resources/js/app.js'])
     
     <style>
         body {
