@@ -8,10 +8,10 @@
     <meta property="og:type" content="website" />
     <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description" />
     <title>Univalle | Menu Inicio</title>
-    <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ Vite::asset('resources/css/asistente.css') }}" rel="stylesheet" type="text/css" />
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
+    @vite(['resources/css/style.css'])
+    @vite(['resources/css/menu.css'])
+    @vite(['resources/css/asistente.css'])
+    @vite(['resources/img/UnivalleLogo.png'])
 
     <style>
         body {
