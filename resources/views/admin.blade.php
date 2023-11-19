@@ -39,6 +39,20 @@
                     </div>
                 </div>
                 <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Administrar Bienestar Universitario</h3>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <i class="fas fa-users"></i>
+                            <a href="/bienestar">Bienestar Universitario</a>
+                            <br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
                             <h3>Administrar Trámites</h3>

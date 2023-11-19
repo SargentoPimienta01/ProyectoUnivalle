@@ -27,6 +27,8 @@ use App\Http\Controllers\PlataformaDeAtencionController;
 use App\Http\Controllers\bibliotecaController;
 use App\Http\Controllers\productoController;
 use App\Http\Controllers\CategoriaMenuController;
+use App\Http\Controllers\BienestarUniversitarioController;
+use App\Http\Controllers\RequisitoBienestarController;
   
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +109,35 @@ use App\Http\Controllers\CategoriaMenuController;
     Route::resource('products', ProductController::class);
     Route::resource('postgrados', PostgradoController::class);
     Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
+
+    //Bienestar Universitario
+    Route::get('/bienestar', [BienestarUniversitarioController::class, 'index'])->name('bienestar.index');
+    Route::get('/bienestar/inactivos', [BienestarUniversitarioController::class, 'inactivos'])->name('bienestar.inactivos');
+    Route::post('/bienestar', [BienestarUniversitarioController::class, 'store'])->name('bienestar.store');
+    Route::put('/bienestar/{bienestar}', [BienestarUniversitarioController::class, 'update'])->name('bienestar.update');
+    Route::post('/bienestar/{bienestar}/cambiarEstado', [BienestarUniversitarioController::class, 'cambiarEstado'])->name('bienestar.cambiarEstado');
+
+    // Rutas para la gestión de requisitos de Bienestar
+    Route::get('bienestar/{id_bienestar}/requisitos', [RequisitoBienestarController::class, 'index'])
+    ->name('requisito-bienestares.index');
+
+    Route::get('bienestar/{id_bienestar}/requisitos/create', [RequisitoBienestarController::class, 'create'])
+    ->name('requisito-bienestares.create');
+
+    Route::post('bienestar/{id_bienestar}/requisitos', [RequisitoBienestarController::class, 'store'])
+    ->name('requisito-bienestares.store');
+
+    Route::get('bienestar/{id_bienestar}/requisitos/{id}/edit', [RequisitoBienestarController::class, 'edit'])
+    ->name('requisito-bienestares.edit');
+
+    Route::put('bienestar/{id_bienestar}/requisitos/{id}', [RequisitoBienestarController::class, 'update'])
+    ->name('requisito-bienestares.update');
+
+    Route::get('bienestar/requisitos/inactivos', [RequisitoBienestarController::class, 'inactivos'])
+    ->name('requisito-bienestares.inactivos');
+
+    Route::post('bienestar/requisitos/{requisito_bienestar}/cambiar-estado', [RequisitoBienestarController::class, 'cambiarEstado'])
+    ->name('requisito-bienestares.cambiarEstado');
 
     //Ubicaciones
     // Rutas personalizadas primero

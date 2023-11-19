@@ -304,6 +304,11 @@ return [
         ],
         // Sidebar items:
         [
+            'text' => 'Vista de usuario',
+            'url' => 'home',
+            'icon' => 'fas fa-home',
+        ],
+        [
             'text' => 'Panel de control',
             'url' => 'admin',
             'icon' => 'fas fa-tachometer-alt',
@@ -392,6 +397,11 @@ return [
             'url' => '/postgrados',
             'icon' => 'fas fa-graduation-cap',
         ],
+        [
+            'text' => 'Bienestar Universitario',
+            'url' => '/bienestar',
+            'icon' => 'fas fa-university',
+        ],        
         [
             'text' => 'Plataforma de Atención',
             'url' => '/plataforma-de-atencions',

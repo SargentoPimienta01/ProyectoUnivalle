@@ -9,6 +9,8 @@ use App\Models\Tramite;
 use App\Models\RequisitoTramite;
 use App\Models\Caja;
 use App\Models\RequisitoCaja;
+use App\Models\BienestarUniversitario;
+use App\Models\RequisitoBienestar;
 
 class HomeController extends Controller
 {
@@ -41,35 +43,35 @@ class HomeController extends Controller
 
 
     public function requisitos($id_categoria_tramites, $nombre_categoria, $id_tramite, $nombre_tramite = null)
-{
-    // Obtén la duración del trámite
-    $duracionTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
-        ->where('id_tramite', $id_tramite)
-        ->value('duracion_tramite');
+    {
+        // Obtén la duración del trámite
+        $duracionTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
+            ->where('id_tramite', $id_tramite)
+            ->value('duracion_tramite');
 
-    $tituloTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
-        ->where('id_tramite', $id_tramite)
-        ->value('nombre_tramite');
+        $tituloTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
+            ->where('id_tramite', $id_tramite)
+            ->value('nombre_tramite');
 
-    // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
-    $requisitos = RequisitoTramite::where('Id_tramite', $id_tramite)
-        ->where('estado', 1)
-        ->get();
+        // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
+        $requisitos = RequisitoTramite::where('Id_tramite', $id_tramite)
+            ->where('estado', 1)
+            ->get();
 
-    // Obtén la ubicación del trámite
-    $ubicacionTramite = Tramite::find($id_tramite)->ubicacion;
+        // Obtén la ubicación del trámite
+        $ubicacionTramite = Tramite::find($id_tramite)->ubicacion;
 
-    return view('home.tramites.requisitos', [
-        'nombreCategoria' => $nombre_categoria,
-        'idCategoriaTramites' => $id_categoria_tramites,
-        'idTramite' => $id_tramite,
-        'nombreTramite' => $nombre_tramite,
-        'duracionTramite' => $duracionTramite,
-        'tituloTramite' => $tituloTramite,
-        'requisitos' => $requisitos,
-        'ubicacionTramite' => $ubicacionTramite
-    ]);
-}
+        return view('home.tramites.requisitos', [
+            'nombreCategoria' => $nombre_categoria,
+            'idCategoriaTramites' => $id_categoria_tramites,
+            'idTramite' => $id_tramite,
+            'nombreTramite' => $nombre_tramite,
+            'duracionTramite' => $duracionTramite,
+            'tituloTramite' => $tituloTramite,
+            'requisitos' => $requisitos,
+            'ubicacionTramite' => $ubicacionTramite
+        ]);
+    }
 
 
 
