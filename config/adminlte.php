@@ -401,7 +401,12 @@ return [
             'text' => 'Bienestar Universitario',
             'url' => '/bienestar',
             'icon' => 'fas fa-university',
-        ],        
+        ],
+        [
+            'text' => 'Direcciones de carrera',
+            'url' => '/direccion-carrera',
+            'icon' => 'fas fa-award',
+        ], 
         [
             'text' => 'Plataforma de Atención',
             'url' => '/plataforma-de-atencions',
