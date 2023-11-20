@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/cards.css',
                 'resources/css/laravel.css',
                 'resources/css/login.css',
+                'resources/img/UnivalleLogo.png',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
             ],
