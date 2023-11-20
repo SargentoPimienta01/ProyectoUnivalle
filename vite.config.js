@@ -5,7 +5,13 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                'resources/css/',
+                'resources/css/styles.css',
+                'resources/css/menu.css',
+                'resources/css/asistente.css',
+                'resources/css/cafeteria.css',
+                'resources/css/cards.css',
+                'resources/css/laravel.css',
+                'resources/css/login.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
             ],
