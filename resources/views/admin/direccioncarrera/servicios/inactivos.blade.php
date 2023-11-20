@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Requisitos de Bienestar inactivos')
+@section('title', 'Servicios de Dirección Inactivos')
 
 @section('content')
     <div class="container-fluid">
@@ -11,11 +11,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisitos de Bienestar: ') }}
+                                {{ __('Servicios de Dirección Inactivos') }}
                             </span>
 
-                            <a href="{{ route('bienestar.index') }}" class="btn btn-danger">
-                                {{ __('Volver a bienestar') }}
+                            <a href="{{ route('direccion-carrera.index') }}" class="btn btn-danger">
+                                {{ __('Volver a Direcciones de Carrera') }}
                             </a>
 
                         </div>
@@ -32,37 +32,35 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>Id</th>
-                                        <th>Servicio</th>
-                                        <th>Detalle</th>
+                                        <th>Título</th>
+                                        <th>Imagen</th>
                                         <th>Requisitos</th>
-                                        <th>Horarios</th>
                                         <th>Estado</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($requisitosInactivos as $requisitoInactivo)
+                                @foreach ($serviciosInactivos as $servicioInactivo)
                                     <tr>
-                                        <td>{{ $requisitoInactivo->id }}</td>
-                                        <td>{{ $requisitoInactivo->servicio }}</td>
-                                        <td>{{ $requisitoInactivo->detalle }}</td>
-                                        <td>{{ $requisitoInactivo->requisitos }}</td>
-                                        <td>{{ $requisitoInactivo->horarios }}</td>
+                                        <td>{{ $servicioInactivo->id }}</td>
+                                        <td>{{ $servicioInactivo->Titulo }}</td>
+                                        <td>{{ $servicioInactivo->Image }}</td>
+                                        <td>{{ $servicioInactivo->Requisitos }}</td>
                                         <td>
-                                            {{ $requisitoInactivo->estado == 1 ? 'Activo' : 'Inactivo' }}
+                                            {{ $servicioInactivo->estado == 1 ? 'Activo' : 'Inactivo' }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('requisito-bienestares.edit', ['id_bienestar' => $requisitoInactivo->Id_bienestar, 'id' => $requisitoInactivo->id]) }}" class="btn btn-success">Editar</a>
+                                        <a href="{{ route('servicio-direccion.edit', ['id' => $servicioInactivo->id, 'direccion_carrera_id' => $servicioInactivo->direccion_carrera_id]) }}" class="btn btn-success">Modificar</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoInactivo->id }}">
+                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#confirmChangeState{{ $servicioInactivo->id }}">
                                                 Cambiar Estado
                                             </a>
                                         </td>
                                     </tr>
 
                                 <!-- Modal de Confirmación para Cambio de Estado -->
-                                    <div class="modal fade" id="confirmChangeState{{ $requisitoInactivo->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="confirmChangeState{{ $servicioInactivo->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -72,11 +70,11 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    ¿Está seguro de que desea cambiar el estado de este requisito?
+                                                    ¿Está seguro de que desea cambiar el estado de este servicio de dirección?
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                    <form action="{{ route('requisito-bienestares.cambiarEstado', $requisitoInactivo->id) }}" method="POST">
+                                                    <form action="{{ route('servicio-direccion.cambiarEstado', ['direccion_carrera_id' => $servicioInactivo->direccion_carrera_id, 'id' => $servicioInactivo->id]) }}" method="POST">
                                                         @csrf
                                                         <button type="submit" class="btn btn-warning">Confirmar Cambio de Estado</button>
                                                     </form>
@@ -90,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $requisitosInactivos->links() !!}
+                {!! $serviciosInactivos->links() !!}
             </div>
         </div>
     </div>

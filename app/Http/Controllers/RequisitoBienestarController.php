@@ -86,28 +86,28 @@ class RequisitoBienestarController extends Controller
     }
 
     public function cambiarEstado($id)
-{
-    // Encuentra el requisito de bienestar por su ID
-    $requisitoBienestar = RequisitoBienestar::findOrFail($id);
+    {
+        // Encuentra el requisito de bienestar por su ID
+        $requisitoBienestar = RequisitoBienestar::findOrFail($id);
 
-    // Guarda el id_bienestar antes de cambiar el estado
-    $id_bienestar = $requisitoBienestar->Id_bienestar;
+        // Guarda el id_bienestar antes de cambiar el estado
+        $id_bienestar = $requisitoBienestar->Id_bienestar;
 
-    // Cambia el estado
-    $requisitoBienestar->estado = $requisitoBienestar->estado == 1 ? 0 : 1;
-    $requisitoBienestar->save();
+        // Cambia el estado
+        $requisitoBienestar->estado = $requisitoBienestar->estado == 1 ? 0 : 1;
+        $requisitoBienestar->save();
 
-    // Redirige a diferentes vistas según el estado cambiado
-    if ($requisitoBienestar->estado == 0) {
-        // Si el estado es 0, redirige a la vista de inactivos
-        return redirect()->route('requisito-bienestares.inactivos')
-            ->with('success', 'Estado cambiado exitosamente.');
-    } else {
-        // Si el estado es 1, redirige a la vista de requisitos activos
-        return redirect()->route('requisito-bienestares.index', ['id_bienestar' => $id_bienestar])
-            ->with('success', 'Estado cambiado exitosamente.');
+        // Redirige a diferentes vistas según el estado cambiado
+        if ($requisitoBienestar->estado == 0) {
+            // Si el estado es 0, redirige a la vista de inactivos
+            return redirect()->route('requisito-bienestares.inactivos')
+                ->with('success', 'Estado cambiado exitosamente.');
+        } else {
+            // Si el estado es 1, redirige a la vista de requisitos activos
+            return redirect()->route('requisito-bienestares.index', ['id_bienestar' => $id_bienestar])
+                ->with('success', 'Estado cambiado exitosamente.');
+        }
     }
-}
 
 
 

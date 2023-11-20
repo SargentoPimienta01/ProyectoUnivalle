@@ -19,14 +19,14 @@ class DireccionCarreraController extends Controller
             })
             ->paginate();
 
-        return view('admin.direccion-carrera.index', compact('direccionCarreras', 'search'))
+        return view('admin.direccioncarrera.index', compact('direccionCarreras', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $direccionCarreras->perPage());
     }
 
     public function inactivos()
     {
         $direccionCarreras = DireccionCarrera::where('estado', 0)->paginate();
-        return view('admin.direccion-carrera.inactivos', compact('direccionCarreras'))
+        return view('admin.direccioncarrera.inactivos', compact('direccionCarreras'))
             ->with('i', (request()->input('page', 1) - 1) * $direccionCarreras->perPage());
     }
 

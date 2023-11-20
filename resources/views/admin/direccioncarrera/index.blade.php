@@ -135,6 +135,9 @@
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $item->id }}">
                                                 <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
                                             </button>
+                                            <a class="btn btn-sm btn-secondary" href="{{ route('servicio-direccion.index', ['direccion_carrera_id' => $item->id]) }}">
+                                                <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar servicios') }}
+                                            </a>
                                         </td>
 
                                         <!-- Modal de Confirmación para Cambio de Estado -->

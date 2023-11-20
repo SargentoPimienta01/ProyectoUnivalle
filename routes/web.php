@@ -30,6 +30,7 @@ use App\Http\Controllers\CategoriaMenuController;
 use App\Http\Controllers\BienestarUniversitarioController;
 use App\Http\Controllers\RequisitoBienestarController;
 use App\Http\Controllers\DireccionCarreraController;
+use App\Http\Controllers\ServicioDireccionController;
   
 /*
 |--------------------------------------------------------------------------
@@ -145,6 +146,18 @@ use App\Http\Controllers\DireccionCarreraController;
     Route::post('direccion-carrera/cambiarEstado/{id}', [DireccionCarreraController::class, 'cambiarEstado'])
     ->name('direccion-carrera.cambiarEstado');
     Route::resource('direccion-carrera', DireccionCarreraController::class);
+    //Servicios de direcciones de carrera
+    //Servicios de direcciones de carrera
+    Route::prefix('direccion-carrera/{direccion_carrera_id}/servicio-direccion')->group(function () {
+        Route::get('/requisitos', [ServicioDireccionController::class, 'index'])->name('servicio-direccion.index');
+        Route::get('/inactivos', [ServicioDireccionController::class, 'inactivos'])->name('servicio-direccion.inactivos');
+        Route::get('/create', [ServicioDireccionController::class, 'create'])->name('servicio-direccion.create');
+        Route::post('/store', [ServicioDireccionController::class, 'store'])->name('servicio-direccion.store');
+        Route::get('/edit/{id}', [ServicioDireccionController::class, 'edit'])->name('servicio-direccion.edit');
+        Route::put('/update/{id}', [ServicioDireccionController::class, 'update'])->name('servicio-direccion.update');
+        Route::post('/cambiarEstado/{id}', [ServicioDireccionController::class, 'cambiarEstado'])->name('servicio-direccion.cambiarEstado');
+    });
+
 
     //Ubicaciones
     // Rutas personalizadas primero
