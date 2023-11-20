@@ -34,5 +34,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RequisitoCajaTableSeeder::class);
 
         $this->call(BibliotecasTableSeeder::class);
+
+        $this->call(BienestarUniversitarioSeeder::class);
+
+        $this->call(DireccionCarreraSeeder::class);
     }
 }

@@ -29,6 +29,7 @@ use App\Http\Controllers\productoController;
 use App\Http\Controllers\CategoriaMenuController;
 use App\Http\Controllers\BienestarUniversitarioController;
 use App\Http\Controllers\RequisitoBienestarController;
+use App\Http\Controllers\DireccionCarreraController;
   
 /*
 |--------------------------------------------------------------------------
@@ -138,6 +139,12 @@ use App\Http\Controllers\RequisitoBienestarController;
 
     Route::post('bienestar/requisitos/{requisito_bienestar}/cambiar-estado', [RequisitoBienestarController::class, 'cambiarEstado'])
     ->name('requisito-bienestares.cambiarEstado');
+
+    //Direcciones de carrera
+    Route::get('direccion-carrera/inactivos', [DireccionCarreraController::class, 'inactivos'])->name('direccion-carrera.inactivos');
+    Route::post('direccion-carrera/cambiarEstado/{id}', [DireccionCarreraController::class, 'cambiarEstado'])
+    ->name('direccion-carrera.cambiarEstado');
+    Route::resource('direccion-carrera', DireccionCarreraController::class);
 
     //Ubicaciones
     // Rutas personalizadas primero

@@ -45,6 +45,11 @@ class AreasTableSeeder extends Seeder
                 'descripcion' => 'Bienestar de los estudiantes de la universidad',
                 'estado' => true,
             ],
+            [
+                'nombre_area' => 'Direcciones de carrera',
+                'descripcion' => 'Información de las direcciones de carrera',
+                'estado' => true,
+            ],
         ];
 
         DB::table('areas')->insert($areas);
