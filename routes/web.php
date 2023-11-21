@@ -31,6 +31,7 @@ use App\Http\Controllers\BienestarUniversitarioController;
 use App\Http\Controllers\RequisitoBienestarController;
 use App\Http\Controllers\DireccionCarreraController;
 use App\Http\Controllers\ServicioDireccionController;
+use App\Http\Controllers\CampusController;
   
 /*
 |--------------------------------------------------------------------------
@@ -157,6 +158,9 @@ use App\Http\Controllers\ServicioDireccionController;
         Route::put('/update/{id}', [ServicioDireccionController::class, 'update'])->name('servicio-direccion.update');
         Route::post('/cambiarEstado/{id}', [ServicioDireccionController::class, 'cambiarEstado'])->name('servicio-direccion.cambiarEstado');
     });
+
+    //Campus
+    Route::resource('campuses', CampusController::class);
 
 
     //Ubicaciones

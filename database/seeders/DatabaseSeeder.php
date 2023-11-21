@@ -39,5 +39,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(DireccionCarreraSeeder::class);
         $this->call(ServicioDireccionSeeder::class);
+
+        $this->call(CampusSeeder::class);
     }
 }
