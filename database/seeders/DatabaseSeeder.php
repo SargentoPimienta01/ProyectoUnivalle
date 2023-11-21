@@ -42,5 +42,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ServicioDireccionSeeder::class);
 
         $this->call(CampusSeeder::class);
+
+        $this->call(PostgradoSeeder::class);
     }
 }

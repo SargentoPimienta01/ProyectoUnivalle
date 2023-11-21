@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('modalidad', 100);
             $table->string('categoria', 100);
             $table->boolean('estado');
-            $table->unsignedBigInteger('Id_area');
+            $table->unsignedBigInteger('Id_area')->default(9);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();
         });

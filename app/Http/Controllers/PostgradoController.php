@@ -48,7 +48,7 @@ class PostgradoController extends Controller
         $postgrado = Postgrado::create($request->all());
 
         return redirect()->route('postgrados.index')
-            ->with('success', 'Postgrado created successfully.');
+            ->with('success', 'Postgrado agregado exitosamente.');
     }
 
     /**
@@ -72,7 +72,12 @@ class PostgradoController extends Controller
      */
     public function edit($id)
     {
-        $postgrado = Postgrado::find($id);
+        $postgrado = Postgrado::where('Id_postgrado', $id)->first();
+
+        if (!$postgrado) {
+            // Manejar el caso en que no se encuentra el postgrado con el ID dado
+            abort(404);
+        }
 
         return view('postgrado.edit', compact('postgrado'));
     }
@@ -91,7 +96,7 @@ class PostgradoController extends Controller
         $postgrado->update($request->all());
 
         return redirect()->route('postgrados.index')
-            ->with('success', 'Postgrado updated successfully');
+            ->with('success', 'Postgrado actualizado exitosamente');
     }
 
     /**

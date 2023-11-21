@@ -1,11 +1,5 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
-        <div class="form-group">
-            {{ Form::label('Id_postgrado') }}
-            {{ Form::text('Id_postgrado', $postgrado->Id_postgrado, ['class' => 'form-control' . ($errors->has('Id_postgrado') ? ' is-invalid' : ''), 'placeholder' => 'Id Postgrado']) }}
-            {!! $errors->first('Id_postgrado', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
         <div class="form-group">
             {{ Form::label('nombre_programa') }}
             {{ Form::text('nombre_programa', $postgrado->nombre_programa, ['class' => 'form-control' . ($errors->has('nombre_programa') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Programa']) }}
@@ -27,18 +21,15 @@
             {!! $errors->first('categoria', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('estado') }}
-            {{ Form::text('estado', $postgrado->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
-            {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="estado">Estado:</label>
+            <select name="estado" class="form-control" required>
+                <option value="1" {{ (isset($postgrado) && $postgrado->estado == 1) ? 'selected' : '' }}>Activo</option>
+                <option value="0" {{ (isset($postgrado) && $postgrado->estado == 0) ? 'selected' : '' }}>Inactivo</option>
+            </select>
         </div>
-        <div class="form-group">
-            {{ Form::label('Id_area') }}
-            {{ Form::text('Id_area', $postgrado->Id_area, ['class' => 'form-control' . ($errors->has('Id_area') ? ' is-invalid' : ''), 'placeholder' => 'Id Area']) }}
-            {!! $errors->first('Id_area', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <a class="btn btn-danger" href="{{ route('postgrados.index') }}"> {{ __('Volver') }}</a>
     </div>
 </div>

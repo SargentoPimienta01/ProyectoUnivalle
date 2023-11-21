@@ -73,12 +73,8 @@
         <div class="form-group">
             <label for="estado">Estado:</label>
             <select name="estado" class="form-control" required>
-                <optgroup label="Activo">
-                    <option value="1" {{ (isset($item) && $item->estado == 1) ? 'selected' : '' }}>Activo</option>
-                </optgroup>
-                <optgroup label="Inactivo">
-                    <option value="0" {{ (isset($item) && $item->estado == 0) ? 'selected' : '' }}>Inactivo</option>
-                </optgroup>
+                <option value="1" {{ (isset($item) && $item->estado == 1) ? 'selected' : '' }}>Activo</option>
+                <option value="0" {{ (isset($item) && $item->estado == 0) ? 'selected' : '' }}>Inactivo</option>
             </select>
         </div>
         <div class="form-group" style="display:none;">
@@ -195,12 +191,8 @@
         <div class="form-group">
             <label for="estado">Estado:</label>
             <select name="estado" class="form-control" required>
-                <optgroup label="Activo">
-                    <option value="1" {{ (isset($item) && $item->estado == 1) ? 'selected' : '' }}>Activo</option>
-                </optgroup>
-                <optgroup label="Inactivo">
-                    <option value="0" {{ (isset($item) && $item->estado == 0) ? 'selected' : '' }}>Inactivo</option>
-                </optgroup>
+                <option value="1" {{ (isset($item) && $item->estado == 1) ? 'selected' : '' }}>Activo</option>
+                <option value="0" {{ (isset($item) && $item->estado == 0) ? 'selected' : '' }}>Inactivo</option>
             </select>
         </div>
         <div class="form-group" style="display:none;">

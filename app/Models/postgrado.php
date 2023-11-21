@@ -25,23 +25,23 @@ class Postgrado extends Model
 {
     
     static $rules = [
-		'Id_postgrado' => 'required',
 		'nombre_programa' => 'required',
 		'descripcion' => 'required',
 		'modalidad' => 'required',
 		'categoria' => 'required',
 		'estado' => 'required',
-		'Id_area' => 'required',
     ];
 
     protected $perPage = 20;
+
+    protected $primaryKey = 'Id_postgrado';
 
     /**
      * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['Id_postgrado','nombre_programa','descripcion','modalidad','categoria','estado','Id_area'];
+    protected $fillable = ['Id_postgrado','nombre_programa','descripcion','modalidad','categoria','estado'];
 
 
     /**
