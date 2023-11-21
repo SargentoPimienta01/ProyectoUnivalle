@@ -101,7 +101,26 @@ class HomeController extends Controller
     }
     
 
+    public function bienestaruniversitario ()
+    {
+        $bienestares = BienestarUniversitario::where('estado', 1)->get();
+        return view ('home.bienestar.index', ['bienestares' => $bienestares]);
+    }
 
+    public function requisitosBienestaru($idBienestar, $servicio = null)
+    {
+        $servicioBienestar = BienestarUniversitario::find($idBienestar);
+    
+        $servicios = RequisitoBienestar::where('id', $idBienestar)
+            ->where('estado', 1)
+            ->get();
+    
+        return view('home.bienestar.servicios', [
+            'servicioBienestar' => $servicioBienestar,
+            'servicios' => $servicios,
+            'servicio' => $servicio,
+        ]);
+    }
 
 
     public function plataformadeatencion ()

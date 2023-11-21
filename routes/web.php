@@ -48,6 +48,13 @@ use App\Http\Controllers\CampusController;
         return redirect('/home');;
     });
 
+    Route::get('/home/bienestar-universitario', [HomeController::class, 'bienestaruniversitario'])->name('bienestar-universitario');
+    
+    Route::get('/home/bienestar-universitario/{id_bienestar}/{servicio?}', [HomeController::class, 'requisitosBienestaru'])
+    ->where('id_bienestar', '[0-9]+')
+    ->where('servicio', '[A-Za-z0-9\-]+')
+    ->name('requisitosBienestaru');
+
     //PDF
     Route::get('/generate-pdf', [PdfController::class, 'generatePDF']);
 
