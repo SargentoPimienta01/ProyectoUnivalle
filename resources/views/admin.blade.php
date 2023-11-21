@@ -208,6 +208,19 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Administrar servicios de Campus deportivo</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-hockey-puck"></i>
+                                <a href="/campuses">Campus deportivo</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
         </div>
     </div>
 @stop
