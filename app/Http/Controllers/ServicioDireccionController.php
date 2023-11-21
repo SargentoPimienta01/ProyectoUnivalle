@@ -81,7 +81,7 @@ class ServicioDireccionController extends Controller
             ->with('success', 'Servicio de Dirección actualizado exitosamente.');
     }
 
-    public function cambiarEstado($id)
+    public function cambiarEstado($direccion_carrera_id, $id)
     {
         // Encuentra el servicio de dirección por su ID
         $servicioDireccion = ServicioDireccion::findOrFail($id);
