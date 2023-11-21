@@ -422,6 +422,11 @@ return [
             'url' => '/productos',
             'icon' => 'fas fa-coffee',
         ],
+        [
+            'text' => 'Servicios de campus deportivo',
+            'url' => '/campuses',
+            'icon' => 'fas fa-hockey-puck',
+        ],
     ],
 
     /*
