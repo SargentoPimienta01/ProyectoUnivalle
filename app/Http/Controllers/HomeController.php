@@ -11,6 +11,8 @@ use App\Models\Caja;
 use App\Models\RequisitoCaja;
 use App\Models\BienestarUniversitario;
 use App\Models\RequisitoBienestar;
+use App\Models\DireccionCarrera;
+use App\Models\ServicioDireccion;
 
 class HomeController extends Controller
 {
@@ -117,6 +119,27 @@ class HomeController extends Controller
     
         return view('home.bienestar.servicios', [
             'servicioBienestar' => $servicioBienestar,
+            'servicios' => $servicios,
+            'servicio' => $servicio,
+        ]);
+    }
+
+    public function direccioncarrera()
+    {
+        $direcciones = DireccionCarrera::where('estado', 1)->get();
+        return view ('home.direccioncarrera.index', ['direcciones' => $direcciones]);
+    }
+
+    public function serviciosDireccion($idDireccion, $servicio = null)
+    {
+        $servicioDireccion = DireccionCarrera::find($idDireccion);
+    
+        $servicios = ServicioDireccion::where('id', $idDireccion)
+            ->where('estado', 1)
+            ->get();
+    
+        return view('home.direccioncarrera.servicios', [
+            'servicioDireccion' => $servicioDireccion,
             'servicios' => $servicios,
             'servicio' => $servicio,
         ]);

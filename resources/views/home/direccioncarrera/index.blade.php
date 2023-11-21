@@ -6,7 +6,7 @@
     <meta content="summary_large_image" name="twitter:card"/>
     <meta property="og:type" content="website"/>
     <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
-    <title>Bienestar Universitario | Univalle</title>
+    <title>Direcciones de carrera | Univalle</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
@@ -30,13 +30,13 @@
         </nav>
 
         <div>
-            <h2 style="color: white; text-align: center;">Servicios de Bienestar</h2>
+            <h2 style="color: white; text-align: center;">Direcciones de carrera</h2>
         </div>
 
         <div class="Opciones2">
-            @foreach($bienestares as $bienestar)
-                <a href="{{ route('requisitosBienestaru', ['id_bienestar' => $bienestar->id, 'nombre' => Str::slug($bienestar->servicio)]) }}" class="button-anon-pen">
-                    <span>{{ $bienestar->servicio }}</span>
+            @foreach($direcciones as $direccion)
+                <a href="{{ route('serviciosDireccion', ['id_direccion' => $direccion->id, 'servicio' => Str::slug($direccion->carrera)]) }}">
+                    <span>{{ $direccion->carrera }}</span>
                 </a>
             @endforeach
         </div>

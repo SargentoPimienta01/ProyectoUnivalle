@@ -48,12 +48,21 @@ use App\Http\Controllers\CampusController;
         return redirect('/home');;
     });
 
+    //Bienestar Universitario
     Route::get('/home/bienestar-universitario', [HomeController::class, 'bienestaruniversitario'])->name('bienestar-universitario');
     
     Route::get('/home/bienestar-universitario/{id_bienestar}/{servicio?}', [HomeController::class, 'requisitosBienestaru'])
     ->where('id_bienestar', '[0-9]+')
     ->where('servicio', '[A-Za-z0-9\-]+')
     ->name('requisitosBienestaru');
+
+    //Direccion de carrera
+    Route::get('/home/direccion-de-carrera', [HomeController::class, 'direccioncarrera'])->name('direccion-de-carrera');
+    
+    Route::get('/home/direccion-de-carrera/{id_direccion}/{servicio?}', [HomeController::class, 'serviciosDireccion'])
+    ->where('id_direccion', '[0-9]+')
+    ->where('servicio', '[A-Za-z0-9\-]+')
+    ->name('serviciosDireccion');
 
     //PDF
     Route::get('/generate-pdf', [PdfController::class, 'generatePDF']);

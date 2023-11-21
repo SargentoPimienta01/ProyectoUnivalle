@@ -17,4 +17,9 @@ class DireccionCarrera extends Model
         'facultad',
         'estado',
     ];
+    // En el modelo DireccionCarrera
+    public function servicios()
+    {
+        return $this->hasMany(ServicioDireccion::class, 'id', 'idDireccion');
+    }
 }
