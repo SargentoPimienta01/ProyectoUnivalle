@@ -24,6 +24,26 @@
         </a>
     </div>
     <div class="contenedor">
+    @foreach($posgrados as $posgrado)
+    <div class="cuadroInformativo">
+        <div class="contenido">
+            <div class="tituloInf">
+                <h3>PROGRAMA {{ $posgrado->nombre_posgrado }}</h3>
+                <br>
+            </div>
+            <div class="parrafoInf">
+            <b>Descripción:</b>
+                <br>
+                <p>{{ $posgrado->descripcion }}</p>
+                <ul>
+                    <li>Modalidad: {{ $posgrado->modalidad }}</li>
+                    <li>Categoría: {{ $posgrado->categoria }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
         <div class="cuadroInformativo">
             <div class="contenido">
                 <div class="tituloInf">

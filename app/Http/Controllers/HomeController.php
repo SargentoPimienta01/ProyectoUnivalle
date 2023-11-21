@@ -14,6 +14,7 @@ use App\Models\RequisitoBienestar;
 use App\Models\DireccionCarrera;
 use App\Models\ServicioDireccion;
 use App\Models\Campus;
+use App\Models\postgrado;
 
 class HomeController extends Controller
 {
@@ -187,6 +188,7 @@ class HomeController extends Controller
 
     public function posgrado ()
     {
-        return view ('home.posgrado.index');
+        $posgrados = postgrado::where('estado', 1)->get();
+        return view('home.posgrado.index', ['posgrados' => $posgrados]);   
     }
 }
