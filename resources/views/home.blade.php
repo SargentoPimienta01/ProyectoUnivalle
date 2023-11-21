@@ -180,6 +180,14 @@
                             <div class="boton_bg-grad"></div>
                         </a>
                     </td>
+                    <td>
+                        <a class="link" href="{{ route('campus') }}">
+                            <div class="boton">
+                                <img src="{{ Vite::asset('resources/images/MEDICO.png') }}" alt="Imagen 4">
+                            </div>
+                            <div class="boton_bg-grad"></div>
+                        </a>
+                    </td>
                 </tr>
             </table>
         </div>

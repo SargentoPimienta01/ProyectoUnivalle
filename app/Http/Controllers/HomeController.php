@@ -13,6 +13,7 @@ use App\Models\BienestarUniversitario;
 use App\Models\RequisitoBienestar;
 use App\Models\DireccionCarrera;
 use App\Models\ServicioDireccion;
+use App\Models\Campus;
 
 class HomeController extends Controller
 {
@@ -145,6 +146,12 @@ class HomeController extends Controller
             'servicios' => $servicios,
             'servicio' => $servicio,
         ]);
+    }
+
+    public function campus ()
+    {
+        $campuses = Campus::where('estado', 1)->get();
+        return view('home.campus.index', ['campuses' => $campuses]);
     }
 
 

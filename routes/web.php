@@ -64,6 +64,9 @@ use App\Http\Controllers\CampusController;
     ->where('servicio', '[A-Za-z0-9\-]+')
     ->name('serviciosDireccion');
 
+    //Campus
+    Route::get('/home/campus', [HomeController::class, 'campus'])->name('campus');
+
     //PDF
     Route::get('/generate-pdf', [PdfController::class, 'generatePDF']);
 
