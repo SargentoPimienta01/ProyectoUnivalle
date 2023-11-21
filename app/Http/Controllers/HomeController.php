@@ -113,7 +113,7 @@ class HomeController extends Controller
     {
         $servicioBienestar = BienestarUniversitario::find($idBienestar);
     
-        $servicios = RequisitoBienestar::where('id', $idBienestar)
+        $servicios = RequisitoBienestar::where('Id_bienestar', $idBienestar)
             ->where('estado', 1)
             ->get();
     
@@ -134,7 +134,9 @@ class HomeController extends Controller
     {
         $servicioDireccion = DireccionCarrera::find($idDireccion);
     
-        $servicios = ServicioDireccion::where('id', $idDireccion)
+        //$servicios = $servicioDireccion->servicios()->where('estado', 1)->get();
+
+        $servicios = ServicioDireccion::where('direccion_carrera_id', $idDireccion)
             ->where('estado', 1)
             ->get();
     
