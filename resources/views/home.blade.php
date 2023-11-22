@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="summary_large_image" name="twitter:card" />
