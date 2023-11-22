@@ -9,8 +9,8 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    font-size: 16px;
 }
-
 .hero{
     height: 100vh;
     width: 100%;
@@ -78,62 +78,6 @@ nav ul li a:hover{
     color: white;
 }
 
-.Opciones{
-    padding: 20px;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
-    display: flex;
-    position: relative;
-}
-
-.Opciones2{
-   
-    padding: 30px;
-    padding-right: 0px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define el ancho mínimo y ajusta automáticamente las columnas */
-    gap: 10px; /* Espacio entre las opciones */
-   /* justify-content: center; 
-    align-items: center;*/
-}
-
-.Opciones2 {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.button-anon-pen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: #fff;
-    background: linear-gradient(to bottom right, #68091Fff, #9E0442ff);
-    padding: 20px;
-    margin: 10px; /* Reduce the margin */
-    border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    width: calc(14.28% - 20px); /* Adjust the width to accommodate 7 per row */
-    max-width: 160px; /* Adjust the max-width as needed */
-    height: 200px;
-    border: 3px solid #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.button-anon-pen:hover {
-    transform: scale(1.04);
-}
-
-.button-anon-pen span {
-    margin-top: 10px;
-}
-
-/*
 .Opciones a {
     z-index: 1;
     transition: all .2s;
@@ -160,6 +104,8 @@ nav ul li a:hover{
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: #000;
+    height: 200px;
+    width: 200px;
     text-align: center;
     background-color: rgba(255,255,255,.3);
     border-radius: 0.25rem;
@@ -227,4 +173,5 @@ nav ul li a:hover{
     background: #000;
     border-radius: 3px;
 }
-*/
+
+

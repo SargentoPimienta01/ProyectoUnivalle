@@ -1,0 +1,136 @@
+:root{
+    ---principal: #68091Fff;
+    ---secundario: #9E0442ff;
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    font-size: 16px;
+}
+
+.hero{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(../img/UnivalleBackground.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.logo{
+    color: white;
+    font-size: 28px;
+    overflow: hidden; 
+    max-width: 200px;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover{
+    color: var(---principal);
+    transition: 0.3s;
+}
+
+.buttonS{
+    border: none;
+    background: var(---secundario);
+    padding: 12px 30px;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.buttonS a{
+    text-decoration: none;
+    color:white;
+}
+
+.buttonS:hover{
+    color: var(---secundario);
+    transition: 0.4s;
+    background-color: #68091Fff;
+}
+
+.buttonS a:hover{
+    color: white;
+}
+
+.Opciones{
+    padding: 20px;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.Opciones2{
+   
+    padding: 30px;
+    padding-right: 0px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px; /* Espacio entre las opciones */
+   /* justify-content: center; 
+    align-items: center;*/
+}
+
+.Opciones2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.button-anon-pen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to bottom right, #68091Fff, #9E0442ff);
+    padding: 20px;
+    margin: 10px; /* Reduce the margin */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    width: calc(14.28% - 20px); /* Adjust the width to accommodate 7 per row */
+    max-width: 160px; /* Adjust the max-width as needed */
+    height: 200px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-anon-pen:hover {
+    transform: scale(1.04);
+}
+
+.button-anon-pen span {
+    margin-top: 10px;
+}
+

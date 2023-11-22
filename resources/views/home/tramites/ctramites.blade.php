@@ -7,9 +7,19 @@
     <meta property="og:type" content="website"/>
     <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
     <title>Tramites | Univalle</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
+    <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ Vite::asset('resources/css/tramites.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/css/styles.css') }}">
+    <style>
+        .Opciones2 {
+            width: 200%; 
+        }
+        .button-anon-pen {
+            width: 480px; 
+            height: 150px;
+           
+        }
+    </style> 
 </head>
 <body>
     <div class="hero">

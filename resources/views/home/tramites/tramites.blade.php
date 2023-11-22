@@ -8,9 +8,18 @@
     <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
     <title>Tramites | Univalle</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ Vite::asset('resources/css/tramites.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/css/styles.css') }}">
-    
+    <style>
+        .Opciones2 {
+            width: 200%; 
+        }
+        .button-anon-pen {
+            width: 480px; 
+            height: 150px;
+           
+        }
+    </style> 
 </head>
 <body>
 
@@ -20,12 +29,7 @@
             <a href="{{ url('/home') }}">
             <img src="{{ Vite::asset('resources/img/banner.png') }}" alt="Univalle Logo" class="logo">
             </a>
-            <ul>
-                <li><a href="{{ url('/home') }}">Menu</a></li>
-                <li><a href="{{ url('/home/tramites') }}">Tramites</a></li>
-                <li><a href="{{ url('/home/cajas') }}">Cajas</a></li>
-                <li><a href="#">Postgrado</a></li>
-            </ul>
+            
             <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
         </nav>
 
