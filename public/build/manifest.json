@@ -4,6 +4,46 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/css/asistente.css": {
+    "file": "assets/asistente-a7fe97f3.css",
+    "isEntry": true,
+    "src": "resources/css/asistente.css"
+  },
+  "resources/css/cafeteria.css": {
+    "file": "assets/cafeteria-3525a1ca.css",
+    "isEntry": true,
+    "src": "resources/css/cafeteria.css"
+  },
+  "resources/css/cards.css": {
+    "file": "assets/cards-62355ad9.css",
+    "isEntry": true,
+    "src": "resources/css/cards.css"
+  },
+  "resources/css/laravel.css": {
+    "file": "assets/laravel-204a46de.css",
+    "isEntry": true,
+    "src": "resources/css/laravel.css"
+  },
+  "resources/css/login.css": {
+    "file": "assets/login-56ec19a5.css",
+    "isEntry": true,
+    "src": "resources/css/login.css"
+  },
+  "resources/css/menu.css": {
+    "file": "assets/menu-7cbc3170.css",
+    "isEntry": true,
+    "src": "resources/css/menu.css"
+  },
+  "resources/css/styles.css": {
+    "file": "assets/styles-71206377.css",
+    "isEntry": true,
+    "src": "resources/css/styles.css"
+  },
+  "resources/css/tramites.css": {
+    "file": "assets/tramites-1ea545e0.css",
+    "isEntry": true,
+    "src": "resources/css/tramites.css"
+  },
   "resources/images/BIBLIOTECA.png": {
     "file": "assets/BIBLIOTECA-bc01c139.png",
     "src": "resources/images/BIBLIOTECA.png"
