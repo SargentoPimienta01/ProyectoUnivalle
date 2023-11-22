@@ -15,6 +15,7 @@ use App\Models\DireccionCarrera;
 use App\Models\ServicioDireccion;
 use App\Models\Campus;
 use App\Models\postgrado;
+use App\Models\PlataformaDeAtencion;
 
 class HomeController extends Controller
 {
@@ -158,12 +159,14 @@ class HomeController extends Controller
 
     public function plataformadeatencion ()
     {
-        return view ('home.plataforma-de-atencion.index');
+        $plataformasdeatencion = PlataformaDeAtencion::where('estado', 1)->get();
+        return view ('home.plataforma-de-atencion.index', ['plataformasdeatencion' => $plataformasdeatencion]);
     }
 
     public function paservicios ()
     {
-        return view ('home.plataforma-de-atencion.servicios');
+        $plataformasdeatencion = PlataformaDeAtencion::where('estado', 1)->get();
+        return view ('home.plataforma-de-atencion.servicios', ['plataformasdeatencion' => $plataformasdeatencion]);
     }
 
     public function gabinetemedico ()

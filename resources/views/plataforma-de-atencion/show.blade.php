@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ $plataformaDeAtencion->name ?? "{{ __('Show') Plataforma De Atencion" }}
+    {{ $plataformaDeAtencion->name ?? "{{ __('Mostrar') Plataforma De Atencion" }}
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">{{ __('Show') }} Plataforma De Atencion</span>
+                            <span class="card-title">{{ __('Mostrar') }} Plataforma De Atencion</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('plataforma-de-atencions.index') }}"> {{ __('Back') }}</a>
@@ -36,11 +36,6 @@
                             <strong>Estado:</strong>
                             {{ $plataformaDeAtencion->estado }}
                         </div>
-                        <div class="form-group">
-                            <strong>Id Area:</strong>
-                            {{ $plataformaDeAtencion->Id_area }}
-                        </div>
-
                     </div>
                 </div>
             </div>

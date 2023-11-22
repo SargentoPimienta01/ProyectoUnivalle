@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Plataforma De Atencion
+    {{ __('Actualizar') }} Plataforma De Atencion
 @endsection
 
 @section('content')
@@ -13,10 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Plataforma De Atencion</span>
+                        <span class="card-title">{{ __('Actualizar') }} Plataforma De Atencion</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('plataforma-de-atencions.update', $plataformaDeAtencion->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('plataforma-de-atencions.update', $plataformaDeAtencion->Id_plataforma_de_atencion) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

@@ -44,5 +44,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CampusSeeder::class);
 
         $this->call(PostgradoSeeder::class);
+
+        $this->call(PlataformaDeAtencionSeeder::class);
     }
 }

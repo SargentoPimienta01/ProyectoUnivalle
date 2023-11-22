@@ -1,11 +1,5 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
-        <div class="form-group">
-            {{ Form::label('Id_plataforma_de_atencion') }}
-            {{ Form::text('Id_plataforma_de_atencion', $plataformaDeAtencion->Id_plataforma_de_atencion, ['class' => 'form-control' . ($errors->has('Id_plataforma_de_atencion') ? ' is-invalid' : ''), 'placeholder' => 'Id Plataforma De Atencion']) }}
-            {!! $errors->first('Id_plataforma_de_atencion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
         <div class="form-group">
             {{ Form::label('servicio') }}
             {{ Form::text('servicio', $plataformaDeAtencion->servicio, ['class' => 'form-control' . ($errors->has('servicio') ? ' is-invalid' : ''), 'placeholder' => 'Servicio']) }}
@@ -17,18 +11,20 @@
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('estado') }}
-            {{ Form::text('estado', $plataformaDeAtencion->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
-            {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('requisitos') }}
+            {{ Form::textArea('requisitos', $plataformaDeAtencion->requisitos, ['class' => 'form-control' . ($errors->has('requisitos') ? ' is-invalid' : ''), 'placeholder' => 'Requisitos']) }}
+            {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('Id_area') }}
-            {{ Form::text('Id_area', $plataformaDeAtencion->Id_area, ['class' => 'form-control' . ($errors->has('Id_area') ? ' is-invalid' : ''), 'placeholder' => 'Id Area']) }}
-            {!! $errors->first('Id_area', '<div class="invalid-feedback">:message</div>') !!}
+            <label for="estado">Estado:</label>
+            <select name="estado" class="form-control" required>
+                <option value="1" {{ (isset($plataformaDeAtencion) && $plataformaDeAtencion->estado == 1) ? 'selected' : '' }}>Activo</option>
+                <option value="0" {{ (isset($plataformaDeAtencion) && $plataformaDeAtencion->estado == 0) ? 'selected' : '' }}>Inactivo</option>
+            </select>
         </div>
-
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+    <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <a class="btn btn-danger" href="{{ route('postgrados.index') }}"> {{ __('Volver') }}</a>
     </div>
 </div>

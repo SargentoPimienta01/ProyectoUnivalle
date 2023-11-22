@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('plataforma-de-atencions.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Agregar') }}
                                 </a>
                               </div>
                         </div>
@@ -34,36 +34,36 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Id Plataforma De Atencion</th>
+										<th>Id</th>
 										<th>Servicio</th>
 										<th>Descripcion</th>
+                                        <th>Requisitos</th>
 										<th>Estado</th>
-										<th>Id Area</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($plataformaDeAtencions as $plataformaDeAtencion)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $plataformaDeAtencion->Id_plataforma_de_atencion }}</td>
 											<td>{{ $plataformaDeAtencion->servicio }}</td>
 											<td>{{ $plataformaDeAtencion->descripcion }}</td>
-											<td>{{ $plataformaDeAtencion->estado }}</td>
-											<td>{{ $plataformaDeAtencion->Id_area }}</td>
-
+                                            <td>{{ $plataformaDeAtencion->requisitos }}</td>
+											<td>
+                                                @if ($plataformaDeAtencion->estado == 1)
+                                                    Activo
+                                                @else
+                                                    Inactivo
+                                                @endif
+                                            </td>
                                             <td>
-                                                <form action="{{ route('plataforma-de-atencions.destroy',$plataformaDeAtencion->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('plataforma-de-atencions.show',$plataformaDeAtencion->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('plataforma-de-atencions.edit',$plataformaDeAtencion->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
+                                                <!--<form action="{{ route('plataforma-de-atencions.destroy',$plataformaDeAtencion->Id_plataforma_de_atencion) }}" method="POST">-->
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('plataforma-de-atencions.show',$plataformaDeAtencion->Id_plataforma_de_atencion) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('plataforma-de-atencions.edit',$plataformaDeAtencion->Id_plataforma_de_atencion) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                    <!--@csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
-                                                </form>
+                                                </form>-->
                                             </td>
                                         </tr>
                                     @endforeach

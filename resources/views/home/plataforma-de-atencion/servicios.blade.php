@@ -20,6 +20,24 @@
     </header>
 
     <div class="contenedor">
+        @foreach($plataformasdeatencion as $servicio)
+        <div class="cuadroInformativo">
+            <div class="tituloInf">
+                <h3>{{ $servicio->servicio}}</h3>
+            </div> 
+            <div class="parrafoInf">
+                <h3>Detalles</h3>
+                <p class="requisitos">{{ $servicio->descripcion}}
+                </p>
+            </div>
+            <div class="parrafoInf">
+                <h3>Requisitos</h3>
+                <p class="requisitos">{{ $servicio->requisitos}}
+                </p>
+            </div>
+        </div>
+        @endforeach
+
         <div class="cuadroInformativo">
             <div class="tituloInf">
                 <h3>Plan de pagos</h3>

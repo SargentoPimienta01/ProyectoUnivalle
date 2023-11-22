@@ -23,12 +23,13 @@ class PlataformaDeAtencion extends Model
 {
     
     static $rules = [
-		'Id_plataforma_de_atencion' => 'required',
 		'servicio' => 'required',
 		'descripcion' => 'required',
+    'requisitos' => 'required',
 		'estado' => 'required',
-		'Id_area' => 'required',
     ];
+
+    protected $primaryKey = 'Id_plataforma_de_atencion';
 
     protected $perPage = 20;
 
@@ -37,7 +38,7 @@ class PlataformaDeAtencion extends Model
      *
      * @var array
      */
-    protected $fillable = ['Id_plataforma_de_atencion','servicio','descripcion','estado','Id_area'];
+    protected $fillable = ['Id_plataforma_de_atencion','servicio','descripcion', 'requisitos', 'estado'];
 
 
     /**

@@ -15,8 +15,9 @@ return new class extends Migration
             $table->bigIncrements('Id_plataforma_de_atencion');
             $table->string('servicio', 100);
             $table->string('descripcion', 100);
+            $table->text('requisitos');
             $table->boolean('estado');
-            $table->unsignedBigInteger('Id_area');
+            $table->unsignedBigInteger('Id_area')->default(10);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();
         });

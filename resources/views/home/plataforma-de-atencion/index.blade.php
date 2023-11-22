@@ -32,6 +32,9 @@
             <li>Atención al Cliente</li>
             <li>Soporte Técnico</li>
             <li>Asesoramiento Personalizado</li>
+            @foreach($plataformasdeatencion as $servicio)
+            <li>{{ $servicio->servicio}}</li>
+            @endforeach
         </ul>
     </section>
 
