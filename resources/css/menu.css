@@ -2,12 +2,13 @@
     ---principal: #68091Fff;
     ---secundario: #9E0442ff;
 }
-
-*{
-    padding: 0;
-    margin: 0;
+* {
     box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
 .hero{
@@ -34,10 +35,6 @@ nav{
     max-width: 200px;
 }
 
-/* span{
-    color: var(---principal);
-} */
-
 nav ul li {
     list-style-type: none;
     display: inline-block;
@@ -57,10 +54,10 @@ nav ul li a:hover{
 
 .buttonS{
     border: none;
-    background: var(---principal);
+    background: var(---secundario);
     padding: 12px 30px;
     border-radius: 30px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     font-size: 15px;
     text-decoration: none;
@@ -68,20 +65,21 @@ nav ul li a:hover{
 
 .buttonS a{
     text-decoration: none;
-    color: white;
+    color:white;
 }
 
 .buttonS:hover{
-    color: var(---principal);
+    color: var(---secundario);
     transition: 0.4s;
-    background-color: white;
+    background-color: #68091Fff;
 }
 
 .buttonS a:hover{
-    color: var(---principal);
+    color: white;
 }
 
 .Opciones{
+    padding: 20px;
     justify-content: center;
     flex-direction: row;
     align-items: center;
@@ -90,26 +88,57 @@ nav ul li a:hover{
 }
 
 .Opciones2{
-    /* justify-content: center; */
-
-    /* Opcion 1 */
-
-    /* flex-direction: column;
-    align-items: center;
-    display: flex; */
-
-    /* Opcion 2 */
-    display: grid;
+   
+    padding: 30px;
+    padding-right: 0px;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define el ancho mínimo y ajusta automáticamente las columnas */
     gap: 10px; /* Espacio entre las opciones */
-    justify-content: center; /* Alinea el contenido al centro horizontalmente */
-    align-items: center;
+   /* justify-content: center; 
+    align-items: center;*/
 }
 
+.Opciones2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.button-anon-pen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(to bottom right, #68091Fff, #9E0442ff);
+    padding: 20px;
+    margin: 10px; /* Reduce the margin */
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    width: calc(14.28% - 20px); /* Adjust the width to accommodate 7 per row */
+    max-width: 160px; /* Adjust the max-width as needed */
+    height: 200px;
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-anon-pen:hover {
+    transform: scale(1.04);
+}
+
+.button-anon-pen span {
+    margin-top: 10px;
+}
+
+/*
 .Opciones a {
     z-index: 1;
     transition: all .2s;
     position: relative;
+    
     max-width: fit-content;
     display: block;
     margin: 0 auto;
@@ -118,6 +147,7 @@ nav ul li a:hover{
     align-items: center;
     justify-content: center;
 }
+
 
 .Opciones a:hover {
     text-decoration: none;
@@ -144,7 +174,7 @@ nav ul li a:hover{
 .boton:hover {
     text-decoration: none;
     transform: translate(-8px,-8px);
-    /*transform: scale(1.1);*/
+   
 }
 
 .boton_bg-grad {
@@ -167,7 +197,7 @@ nav ul li a:hover{
 .button-anon-pen {
     width: 200px;
     flex-wrap: wrap;
-    background-image: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+    background:white;
     text-align: center;
     margin: 10px;
     
@@ -181,13 +211,15 @@ nav ul li a:hover{
     transition: background-position 1.6s ease-in;
 }
 .boton:hover .boton_bg-grad {
-    transform: scale(1.1); /* Aumenta el tamaño del fondo del hover al 110% del tamaño original */
+    transform: scale(1.1);
 }
 .button-anon-pen:hover {
-    background-position: -390px; /* La última posición para completar la animación */
+    background-position: -390px; 
 }
 
 .button-anon-pen span {
+    width: 193px;
+    height: 150px;
     padding: 14px 0;
     font-size: 22px;
     display: block;
@@ -195,3 +227,4 @@ nav ul li a:hover{
     background: #000;
     border-radius: 3px;
 }
+*/
