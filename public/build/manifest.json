@@ -4,6 +4,66 @@
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/images/BIBLIOTECA.png": {
+    "file": "assets/BIBLIOTECA-bc01c139.png",
+    "src": "resources/images/BIBLIOTECA.png"
+  },
+  "resources/images/CAFETERIA.png": {
+    "file": "assets/CAFETERIA-b52f3844.png",
+    "src": "resources/images/CAFETERIA.png"
+  },
+  "resources/images/MEDICO.png": {
+    "file": "assets/MEDICO-b7be992b.png",
+    "src": "resources/images/MEDICO.png"
+  },
+  "resources/images/NAF.png": {
+    "file": "assets/NAF-feccf1a0.png",
+    "src": "resources/images/NAF.png"
+  },
+  "resources/images/POSGRADO.png": {
+    "file": "assets/POSGRADO-01d7b357.png",
+    "src": "resources/images/POSGRADO.png"
+  },
+  "resources/images/P_ATENCION.png": {
+    "file": "assets/P_ATENCION-df32e28c.png",
+    "src": "resources/images/P_ATENCION.png"
+  },
+  "resources/images/Univalle_logo.png": {
+    "file": "assets/Univalle_logo-b6e9f2d6.png",
+    "src": "resources/images/Univalle_logo.png"
+  },
+  "resources/images/cafe.jpg": {
+    "file": "assets/cafe-47ad4b21.jpg",
+    "src": "resources/images/cafe.jpg"
+  },
+  "resources/images/cafecitoo.png": {
+    "file": "assets/cafecitoo-76b355dc.png",
+    "src": "resources/images/cafecitoo.png"
+  },
+  "resources/images/cajas.png": {
+    "file": "assets/cajas-6955b83f.png",
+    "src": "resources/images/cajas.png"
+  },
+  "resources/images/fondo.jpeg": {
+    "file": "assets/fondo-dc81c372.jpeg",
+    "src": "resources/images/fondo.jpeg"
+  },
+  "resources/images/torre_univalle.jpg": {
+    "file": "assets/torre_univalle-db462694.jpg",
+    "src": "resources/images/torre_univalle.jpg"
+  },
+  "resources/images/tramites.png": {
+    "file": "assets/tramites-c1668b97.png",
+    "src": "resources/images/tramites.png"
+  },
+  "resources/images/univalle_fondo.gif": {
+    "file": "assets/univalle_fondo-51328f78.gif",
+    "src": "resources/images/univalle_fondo.gif"
+  },
+  "resources/img/UnivalleBackground.jpeg": {
+    "file": "assets/UnivalleBackground-bf65d40e.jpeg",
+    "src": "resources/img/UnivalleBackground.jpeg"
+  },
   "resources/js/app.js": {
     "file": "assets/app-39dcccdc.js",
     "isEntry": true,
