@@ -93,8 +93,18 @@
     "isEntry": true,
     "src": "resources/img/banner.png"
   },
+  "resources/js/app.css": {
+    "file": "assets/app-4f97c92d.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-39dcccdc.js",
+    "assets": [
+      "assets/UnivalleBackground-bf65d40e.jpeg"
+    ],
+    "css": [
+      "assets/app-4f97c92d.css"
+    ],
+    "file": "assets/app-88e31652.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   },
