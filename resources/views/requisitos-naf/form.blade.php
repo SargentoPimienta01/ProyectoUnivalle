@@ -17,7 +17,7 @@
         </div>
         <div class="form-group" style="display: none;">
             {{ Form::label('Id_naf') }}
-            {{ Form::text('Id_naf', $naf->Id_naf ?? '', ['class' => 'form-control' . ($errors->has('Id_naf') ? ' is-invalid' : ''), 'placeholder' => 'Id Naf']) }}
+            {{ Form::text('Id_naf', $requisitosNaf->Id_naf ?? '', ['class' => 'form-control' . ($errors->has('Id_naf') ? ' is-invalid' : ''), 'placeholder' => 'Id Naf']) }}
             {!! $errors->first('Id_naf', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>
