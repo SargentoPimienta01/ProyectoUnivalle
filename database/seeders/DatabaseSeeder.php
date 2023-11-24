@@ -49,5 +49,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call(NafsTableSeeder::class);
         $this->call(RequisitoNafsTableSeeder::class);
+
+        $this->call(GabineteMedicoTableSeeder::class);
+        $this->call(RequisitosGabineteMedicoTableSeeder::class);
     }
 }
