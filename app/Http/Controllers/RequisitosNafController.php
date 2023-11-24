@@ -55,7 +55,7 @@ class RequisitosNafController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(RequisitosNaf::$rules);
+        //request()->validate(RequisitosNaf::$rules);
 
         $requisitosNaf = RequisitosNaf::create($request->all());
 
@@ -98,7 +98,7 @@ class RequisitosNafController extends Controller
      */
     public function update(Request $request, RequisitosNaf $requisitosNaf)
     {
-        request()->validate(RequisitosNaf::$rules);
+        //request()->validate(RequisitosNaf::$rules);
 
         $requisitosNaf->update($request->all());
 
