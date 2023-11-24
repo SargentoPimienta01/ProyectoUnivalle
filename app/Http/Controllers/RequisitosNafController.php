@@ -60,7 +60,7 @@ class RequisitosNafController extends Controller
         $requisitosNaf = RequisitosNaf::create($request->all());
 
         return redirect()->route('requisitos-naf.index')
-            ->with('success', 'RequisitosNaf created successfully.');
+            ->with('success', 'Requisito actualizado exitosamente.');
     }
 
     /**
@@ -103,7 +103,7 @@ class RequisitosNafController extends Controller
         $requisitosNaf->update($request->all());
 
         return redirect()->route('requisitos-nafs.index')
-            ->with('success', 'RequisitosNaf updated successfully');
+            ->with('success', 'Requisito actualizado exitosamente.');
     }
 
     /**
