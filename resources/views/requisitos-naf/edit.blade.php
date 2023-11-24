@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Requisitos Naf
+    {{ __('Actualizar') }} Requisitos Naf
 @endsection
 
 @section('content')
@@ -13,10 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Requisitos Naf</span>
+                        <span class="card-title">{{ __('Actualizar') }} Requisitos Naf</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('requisitos-nafs.update', $requisitosNaf->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('requisitos-naf.update', $requisitosNaf->Id_naf) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

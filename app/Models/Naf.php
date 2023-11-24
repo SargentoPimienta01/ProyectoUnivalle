@@ -23,11 +23,9 @@ class Naf extends Model
 {       
     protected $primaryKey = 'Id_naf';
     static $rules = [
-		'Id_naf' => 'required',
 		'nombre_naf' => 'required',
-		'ubicacion_naf' => 'required',
+		'id_ubicacion' => 'required',
 		'estado' => 'required',
-		'Id_area' => 'required',
     ];
 
     protected $perPage = 20;
@@ -37,7 +35,7 @@ class Naf extends Model
      *
      * @var array
      */
-    protected $fillable = ['Id_naf','nombre_naf','ubicacion_naf','estado','Id_area'];
+    protected $fillable = ['nombre_naf','id_ubicacion','estado'];
 
 
     /**
@@ -47,6 +45,10 @@ class Naf extends Model
     {
         return $this->hasOne('App\Models\Area', 'Id_area', 'Id_area');
     }
-    
+
+    public function ubicacion()
+    {
+        return $this->belongsTo(Ubicacion::class, 'id_ubicacion');
+    }    
 
 }

@@ -14,9 +14,12 @@ return new class extends Migration
         Schema::create('nafs', function (Blueprint $table) {
             $table->bigIncrements('Id_naf');
             $table->string('nombre_naf', 100);
-            $table->string('ubicacion_naf', 100);
-            $table->boolean('estado');
-            $table->unsignedBigInteger('Id_area');
+            $table->unsignedBigInteger('id_ubicacion');
+            $table->foreign('id_ubicacion')
+                ->references('id')
+                ->on('ubicaciones')->default(1);
+            $table->boolean('estado')->default(1);
+            $table->unsignedBigInteger('Id_area')->default(5);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();
         });

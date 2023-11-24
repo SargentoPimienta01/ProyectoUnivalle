@@ -2,33 +2,30 @@
     <div class="box-body">
         
         <div class="form-group">
-            {{ Form::label('Id_naf') }}
-            {{ Form::text('Id_naf', $naf->Id_naf, ['class' => 'form-control' . ($errors->has('Id_naf') ? ' is-invalid' : ''), 'placeholder' => 'Id Naf']) }}
-            {!! $errors->first('Id_naf', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
             {{ Form::label('nombre_naf') }}
             {{ Form::text('nombre_naf', $naf->nombre_naf, ['class' => 'form-control' . ($errors->has('nombre_naf') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Naf']) }}
             {!! $errors->first('nombre_naf', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('ubicacion_naf') }}
-            {{ Form::text('ubicacion_naf', $naf->ubicacion_naf, ['class' => 'form-control' . ($errors->has('ubicacion_naf') ? ' is-invalid' : ''), 'placeholder' => 'Ubicacion Naf']) }}
-            {!! $errors->first('ubicacion_naf', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('id_ubicacion', 'Ubicaciones') }}
+            <select name="id_ubicacion" class="form-control">
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre_ubicacion }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
-            {{ Form::label('estado') }}
-            {{ Form::text('estado', $naf->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+            {{ Form::label('estado', 'Estado') }}
+            <select name="estado" class="form-control{{ $errors->has('estado') ? ' is-invalid' : '' }}">
+                <option value="1" {{ $naf->estado == 1 ? 'selected' : '' }}>Activo</option>
+                <option value="0" {{ $naf->estado == 0 ? 'selected' : '' }}>Inactivo</option>
+            </select>
             {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('Id_area') }}
-            {{ Form::text('Id_area', $naf->Id_area, ['class' => 'form-control' . ($errors->has('Id_area') ? ' is-invalid' : ''), 'placeholder' => 'Id Area']) }}
-            {!! $errors->first('Id_area', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Submit') }}</button>
+        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <a href="{{ route('nafs.index') }}" class="btn btn-danger">{{ __('Volver a Nafs') }}</a>
     </div>
 </div>

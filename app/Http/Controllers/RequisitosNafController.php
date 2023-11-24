@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\RequisitosNaf;
+use App\Models\Naf;
 use Illuminate\Http\Request;
 
 /**
@@ -16,13 +17,24 @@ class RequisitosNafController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /*
     public function index()
     {
         $requisitosNafs = RequisitosNaf::paginate();
 
         return view('requisitos-naf.index', compact('requisitosNafs'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosNafs->perPage());
+    }*/
+    public function index($id_naf)
+    {
+        $requisitosNafs = RequisitosNaf::where('Id_naf', $id_naf)->paginate();
+        $naf = Naf::where('Id_naf', $id_naf)->first();
+
+        return view('requisitos-naf.index', compact('requisitosNafs', 'id_naf', 'naf'))
+            ->with('i', (request()->input('page', 1) - 1) * $requisitosNafs->perPage());
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -57,12 +69,12 @@ class RequisitosNafController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
         $requisitosNaf = RequisitosNaf::find($id);
 
         return view('requisitos-naf.show', compact('requisitosNaf'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.

@@ -13,31 +13,31 @@ class NafsTableSeeder extends Seeder
         $nafs = [
             [
                 'nombre_naf' => 'Atencion al Contribuyente',
-                'ubicacion_naf' => 'Piso 1',
+                'id_ubicacion' => 1,
                 'estado' => true,
                 'Id_area' => 5, // Reemplaza esto con el ID del área al que pertenece el NAF
             ],
             [
                 'nombre_naf' => 'RE - IVA',
-                'ubicacion_naf' => 'Piso 1',
+                'id_ubicacion' => 1,
                 'estado' => true,
                 'Id_area' => 5, // Reemplaza esto con el ID del área al que pertenece el NAF
             ],
             [
                 'nombre_naf' => 'Dependientes (fromulario no sujetos FC- IVA)',
-                'ubicacion_naf' => 'Piso 1',
+                'id_ubicacion' => 1,
                 'estado' => true,
                 'Id_area' => 5, // Reemplaza esto con el ID del área al que pertenece el NAF
             ],
             [
                 'nombre_naf' => 'Emision de Facturas',
-                'ubicacion_naf' => 'Piso 1',
+                'id_ubicacion' => 1,
                 'estado' => true,
                 'Id_area' => 5, // Reemplaza esto con el ID del área al que pertenece el NAF
             ],
             [
                 'nombre_naf' => 'Facilidades de pago',
-                'ubicacion_naf' => 'Piso 1',
+                'id_ubicacion' => 1,
                 'estado' => true,
                 'Id_area' => 5, // Reemplaza esto con el ID del área al que pertenece el NAF
             ],

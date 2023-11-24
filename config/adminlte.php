@@ -364,11 +364,6 @@ return [
                     'url' => '/nafs',
                     'icon' => 'fas fa-list',
                 ],
-                [
-                    'text' => 'Nafs Requisitos',
-                    'url' => '/requisitos-naf',
-                    'icon' => 'fas fa-clipboard-list',
-                ],
             ],
         ],
         [

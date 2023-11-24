@@ -104,12 +104,12 @@ use App\Http\Controllers\CampusController;
     ->where('id_categoria_tramites', '[0-9]+') // Para asegurar que el ID sea un número
     ->name('tramitesdisponibles');
 
-
+/*
     Route::get('/home/tramites/{nombre_categoria}', 'TuControlador@tuMetodo')
     ->where('nombre_categoria', '[A-Za-z0-9\-]+')
-    ->name('nombre_categoria');
+    ->name('nombre_categoria');*/
 
-    Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
+    //Route::get('/home/{nombre_area}', 'HomeController@{nombre_area}')->name('nombre_area');
 
     Route::get('/home/tramites/disponibles/{id_categoria_tramites}/{nombre_categoria?}/requisitos/{id_tramite}/{nombre_tramite?}', [HomeController::class, 'requisitos'])
     ->where('id_categoria_tramites', '[0-9]+')
@@ -244,18 +244,28 @@ use App\Http\Controllers\CampusController;
 
     
     //NAFS
-    Route::resource('nafs', NafController::class);
-    Route::resource('requisitos-naf', RequisitosNafController::class);
+    // Rutas de nafs
+    Route::resource('nafs', NafController::class)->except(['show']);
+
+    // Rutas de requisitos de nafs
+    // Primero definir las rutas específicas antes de las rutas con parámetros
+    Route::get('nafs/requisitos-naf/{id_naf}', [RequisitosNafController::class, 'index'])->name('requisitos-naf.index');
+    Route::get('nafs/requisitos-naf/inactivos', [RequisitosNafController::class, 'inactivos'])->name('requisitos-naf.inactivos');
+
+    // Ahora, las rutas generales o las rutas con parámetros
+    Route::resource('nafs/requisitos-naf', RequisitosNafController::class)->except(['show'])->names('requisitos-naf');
+    Route::put('nafs/requisitos-naf/cambiarEstado/{requisito}', [RequisitosNafController::class, 'cambiarEstado'])->name('requisitos-naf.cambiarEstado');
+
 
     //biblioteca
     
     Route::resource('/bibliotecas', bibliotecaController::class);
 
-    Route::get('/bibliotecas/{id}', 'bibliotecaController@show')->name('bibliotecas.show');
+    //Route::get('/bibliotecas/{id}', 'bibliotecaController@show')->name('bibliotecas.show');
 
     Route::delete('/bibliotecas/{id}', [bibliotecaController::class, 'delete'])->name('bibliotecas.delete');
 
-    Route::get('/bibliotecas/{id}', 'bibliotecaController@buscar')->name('bibliotecas.buscar');
+    //Route::get('/bibliotecas/{id}', 'bibliotecaController@buscar')->name('bibliotecas.buscar');
 
     Route::get('/bibliotecas/estados', [bibliotecaController::class, 'estados'])->name('bibliotecas.estados');
 
@@ -266,12 +276,12 @@ use App\Http\Controllers\CampusController;
     Route::resource('/productos',productoController::class);
     
 
-    Route::get('/productos/{id}', 'productoController@show')->name('productos.show');
+    //Route::get('/productos/{id}', 'productoController@show')->name('productos.show');
 
 
     Route::delete('/productos/{id}', [productoController::class, 'delete'])->name('productos.delete');
 
-    Route::get('/productos/{id}', 'productoController@buscar')->name('productos.buscar');
+    //Route::get('/productos/{id}', 'productoController@buscar')->name('productos.buscar');
 
     Route::get('/productos/estados', [ProductoController::class, 'estados'])->name('productos.estados');
 
@@ -290,9 +300,9 @@ use App\Http\Controllers\CampusController;
     // Ruta para mostrar la lista de categorías
     Route::get('categoria_menus', [CategoriaMenuController::class, 'index'])->name('categoria_menus.index');
 
-    Route::post('/categoria_menus', 'CategoriaMenuController@store')->name('categoria_menus.store');
-    Route::post('/categoria_menus', 'CategoriaMenuController@edit')->name('categoria_menus.edit');
-    Route::post('/categoria_menus', 'CategoriaMenuController@create')->name('categoria_menus.create');
+    //Route::post('/categoria_menus', 'CategoriaMenuController@store')->name('categoria_menus.store');
+    //Route::post('/categoria_menus', 'CategoriaMenuController@edit')->name('categoria_menus.edit');
+    //Route::post('/categoria_menus', 'CategoriaMenuController@create')->name('categoria_menus.create');
 
     // Ruta para mostrar el formulario de edición
     Route::get('categoria_menus/{id}/edit', [CategoriaMenuController::class, 'edit'])->name('categoria_menus.edit');

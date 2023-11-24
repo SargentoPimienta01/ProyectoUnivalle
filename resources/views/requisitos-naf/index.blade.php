@@ -13,14 +13,41 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisitos Naf') }}
+                                {{ __('Requisitos Naf: ') }}{{ $naf->nombre_naf }}
                             </span>
 
-                             <div class="float-right">
+                            <a href="{{ route('nafs.index') }}" class="btn btn-danger">
+                                {{ __('Volver a Nafs') }}
+                            </a>
+
+                             <!--<div class="float-right">
                                 <a href="{{ route('requisitos-naf.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Agregar requisito') }}
                                 </a>
-                              </div>
+                              </div>-->
+                              <!-- Botón que abre el modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+                            {{ __('Agregar requisito') }}
+                            </button>
+
+                            <!-- Modal de creación -->
+                            <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="createModalLabel">{{ __('Agregar requisito') }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <form method="POST" action="{{ route('requisitos-naf.store') }}"  role="form" enctype="multipart/form-data">
+                                    @csrf
+                                    @include('requisitos-naf.form')
+                                </form>
+                                </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -34,36 +61,21 @@
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-                                        
-										<th>Id Requisito</th>
+										<th>Id</th>
 										<th>Nombre Requisito</th>
 										<th>Descripcion Requisito</th>
 										<th>Estado</th>
-										<th>Id Naf</th>
-
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($requisitosNafs as $requisitosNaf)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
-                                            
 											<td>{{ $requisitosNaf->Id_requisito }}</td>
 											<td>{{ $requisitosNaf->nombre_requisito }}</td>
 											<td>{{ $requisitosNaf->descripcion_requisito }}</td>
-											<td>{{ $requisitosNaf->estado }}</td>
-											<td>{{ $requisitosNaf->Id_naf }}</td>
-
+											<td>{{ $requisitosNaf->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
                                             <td>
-                                                <form action="{{ route('requisitos-naf.destroy',$requisitosNaf->Id_requisito) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('requisitos-naf.show',$requisitosNaf->Id_requisito) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Show') }}</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('requisitos-naf.edit',$requisitosNaf->Id_requisito) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Edit') }}</a>
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Delete') }}</button>
-                                                </form>
+                                                <a class="btn btn-sm btn-success" href="{{ route('requisitos-naf.edit',$requisitosNaf->Id_requisito) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                             </td>
                                         </tr>
                                     @endforeach

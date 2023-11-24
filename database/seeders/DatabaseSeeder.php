@@ -46,5 +46,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PostgradoSeeder::class);
 
         $this->call(PlataformaDeAtencionSeeder::class);
+
+        $this->call(NafsTableSeeder::class);
+        $this->call(RequisitoNafsTableSeeder::class);
     }
 }

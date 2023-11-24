@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Naf;
 use Illuminate\Http\Request;
+use App\Models\Ubicacion;
 
 /**
  * Class NafController
@@ -32,7 +33,8 @@ class NafController extends Controller
     public function create()
     {
         $naf = new Naf();
-        return view('naf.create', compact('naf'));
+        $ubicaciones = Ubicacion::all();
+        return view('naf.create', compact('naf','ubicaciones'));
     }
 
     /**
@@ -56,13 +58,13 @@ class NafController extends Controller
      *
      * @param  int $id
      * @return \Illuminate\Http\Response
-     */
+     *//*
     public function show($id)
     {
         $naf = Naf::find($id);
 
         return view('naf.show', compact('naf'));
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -73,8 +75,9 @@ class NafController extends Controller
     public function edit($id)
     {
         $naf = Naf::find($id);
+        $ubicaciones = Ubicacion::all();
 
-        return view('naf.edit', compact('naf'));
+        return view('naf.edit', compact('naf', 'ubicaciones'));
     }
 
     /**
