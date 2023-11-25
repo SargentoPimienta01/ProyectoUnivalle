@@ -52,5 +52,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GabineteMedicoTableSeeder::class);
         $this->call(RequisitosGabineteMedicoTableSeeder::class);
+
+        $this->call(ProductosTableSeeder::class);
     }
 }
