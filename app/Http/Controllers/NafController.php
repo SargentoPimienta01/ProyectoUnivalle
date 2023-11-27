@@ -45,7 +45,7 @@ class NafController extends Controller
      */
     public function store(Request $request)
     {
-        //request()->validate(Naf::$rules);
+        request()->validate(Naf::$rules);
 
         $naf = Naf::create($request->all());
 
