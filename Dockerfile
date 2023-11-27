@@ -1,37 +1,53 @@
-# Usa una imagen oficial de PHP con Apache
-FROM php:7.4-apache
+FROM php:8.1-apache
 
-# Instala dependencias
-RUN apt-get update && \
-    apt-get install -y libzip-dev unzip libonig-dev && \
-    docker-php-ext-install pdo_mysql zip
+# Arguments defined in docker-compose.yml
+ARG user
+ARG uid
 
-# Habilita el módulo Apache de reescritura
-RUN a2enmod rewrite
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip
 
-# Establece el directorio de trabajo en el directorio de la aplicación
+# Clear cache
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
+
+# Get latest Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Set up node and npm
+
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash
+RUN apt-get update && apt-get -y install nodejs 
+
+# Set working directory
+WORKDIR /var/www
+
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libpng-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install -j$(nproc) gd
+
 WORKDIR /var/www/html
+COPY . .
 
-# Copia los archivos del proyecto al contenedor
-COPY . /var/www/html
+#Modify php.ini setings
 
-# Instala Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN touch /usr/local/etc/php/conf.d/uploads.ini \
+    && echo "upload_max_filesize = 10M;" >> /usr/local/etc/php/conf.d/uploads.ini
 
-# Instala las dependencias de Composer
-RUN composer install --optimize-autoloader --no-dev
+#Serve the application
 
-# Genera las claves de la aplicación y configura el cache
-RUN php artisan key:generate
-RUN php artisan config:cache
-RUN php artisan route:cache
-
-# Configura el almacenamiento y los permisos
-RUN php artisan storage:link
-RUN chmod -R 775 storage bootstrap/cache
-
-# Expon el puerto 80 del contenedor
-EXPOSE 80
-
-# Comando de inicio
-CMD ["apache2-foreground"]
+RUN composer install
+RUN npm install
+CMD php artisan migrate --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT
