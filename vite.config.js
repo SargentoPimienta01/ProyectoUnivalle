@@ -3,8 +3,9 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
-      chunkSizeWarningLimit: 3072, // 3MB
-      assetsInlineLimit: 0,
+        assetsDir: ['img'],
+        chunkSizeWarningLimit: 3072, // 3MB
+        assetsInlineLimit: 0,
     },
     plugins: [
         laravel({
