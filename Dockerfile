@@ -50,4 +50,4 @@ RUN touch /usr/local/etc/php/conf.d/uploads.ini \
 
 RUN composer install
 RUN npm install
-CMD npm update && npm run prod && php artisan migrate --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT
+CMD php artisan migrate --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT
