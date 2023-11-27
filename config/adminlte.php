@@ -372,6 +372,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Gestionar Gabinetes Médicos',
+                    'url' => '/bienestar/1/requisitos/gabinete-medico',
+                    'icon' => 'fas fa-list',
+                ],
+                /*[
+                    'text' => 'Gestionar Gabinetes Médicos',
                     'url' => '/gabinetes-medico',
                     'icon' => 'fas fa-list',
                 ],
@@ -379,7 +384,7 @@ return [
                     'text' => 'Gabinetes Médicos Requisitos',
                     'url' => '/requisitos-gabinetesmedico',
                     'icon' => 'fas fa-clipboard-list',
-                ],
+                ],*/
             ],
         ],
         [

@@ -16,6 +16,12 @@ class BienestarUniversitario extends Model
         'detalle',
         'estado',
         'Id_area',
+        'id_ubicacion',
     ];
+
+    public function ubicacion()
+    {
+        return $this->belongsTo(Ubicacion::class, 'id_ubicacion');
+    }
 }
 

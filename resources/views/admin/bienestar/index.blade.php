@@ -79,6 +79,7 @@
                                     <th>Id</th>
                                     <th>Servicio</th>
                                     <th>Detalle</th>
+                                    <th>Ubicación</th>
                                     <th>Estado</th>
                                     <!--<th>Id Área</th>-->
                                     <th>Acciones</th>
@@ -90,6 +91,7 @@
                                         <td>{{ $item->id }}</td>
                                         <td>{{ $item->servicio }}</td>
                                         <td>{{ $item->detalle }}</td>
+                                        <td>{{ $item->ubicacion->nombre_ubicacion }}</td>
                                         <td>{{ $item->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
                                         <!--<td>{{ $item->Id_area }}</td>-->
                                         <td>
@@ -100,10 +102,10 @@
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $item->id }}">
                                                 <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
                                             </button>
-                                            <a class="btn btn-sm btn-secondary" href="{{ route('requisito-bienestares.index', ['id_bienestar' => $item->id]) }}">
+                                            <a class="btn btn-sm btn-secondary" href="{{ route('requisito-bienestares.index', ['id_bienestar' => $item->id, 'bienestar' => Str::slug(strtolower($item->servicio))]) }}">
                                                 <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar requisitos') }}
                                             </a>
-                                        </td>
+
 
                                         <!-- Modal de Confirmación para Cambio de Estado -->
                                         <div class="modal fade" id="confirmChangeState{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -125,7 +127,11 @@
                                                             <button type="submit" class="btn btn-warning">Confirmar Cambio de Estado</button>
                                                         </form>
                                                     </div>
-                                                    <div class="modal fade" id="editBienestarModal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="modal fade" id="editBienestarModal{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -145,9 +151,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </tr>
                                 @endforeach
                             </tbody>

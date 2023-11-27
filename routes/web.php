@@ -140,7 +140,7 @@ use App\Http\Controllers\CampusController;
     Route::post('/bienestar/{bienestar}/cambiarEstado', [BienestarUniversitarioController::class, 'cambiarEstado'])->name('bienestar.cambiarEstado');
 
     // Rutas para la gestión de requisitos de Bienestar
-    Route::get('bienestar/{id_bienestar}/requisitos', [RequisitoBienestarController::class, 'index'])
+    Route::get('bienestar/{id_bienestar}/requisitos/{bienestar?}', [RequisitoBienestarController::class, 'index'])
     ->name('requisito-bienestares.index');
 
     Route::get('bienestar/{id_bienestar}/requisitos/create', [RequisitoBienestarController::class, 'create'])

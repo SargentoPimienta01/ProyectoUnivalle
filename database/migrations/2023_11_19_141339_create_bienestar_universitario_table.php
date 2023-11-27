@@ -16,6 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('Id_area');
             $table->string('servicio');
             $table->text('detalle');
+            $table->unsignedBigInteger('id_ubicacion')->default(1);;
+            $table->foreign('id_ubicacion')
+                ->references('id')
+                ->on('ubicaciones')->default(1);
             $table->boolean('estado');
             $table->foreign('Id_area')->references('Id_area')->on('areas')->default(7);
             $table->timestamps();

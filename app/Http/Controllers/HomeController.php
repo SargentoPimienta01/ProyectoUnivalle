@@ -119,11 +119,21 @@ class HomeController extends Controller
         $servicios = RequisitoBienestar::where('Id_bienestar', $idBienestar)
             ->where('estado', 1)
             ->get();
+        
+        // Verificar si se encontró el BienestarUniversitario
+        if ($servicioBienestar) {
+            // Acceder a la relación 'ubicacion' para obtener la ubicación asociada
+            $ubicacion = $servicioBienestar->ubicacion;
+        } else {
+            // Manejar el caso en el que no se encuentre el BienestarUniversitario
+            $ubicacion = null;
+        }
     
         return view('home.bienestar.servicios', [
             'servicioBienestar' => $servicioBienestar,
             'servicios' => $servicios,
             'servicio' => $servicio,
+            'ubicacion' => $ubicacion,
         ]);
     }
 

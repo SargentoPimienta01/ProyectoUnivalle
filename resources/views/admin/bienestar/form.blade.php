@@ -8,6 +8,14 @@
             <label for="detalle">Detalle:</label>
             <input type="text" name="detalle" class="form-control" placeholder="Ingrese el detalle" value="{{ isset($item) ? $item->detalle : old('detalle') }}" required>
         </div>
+        <div class="form-group">
+            {{ Form::label('id_ubicacion', 'Ubicaciones') }}
+            <select name="id_ubicacion" class="form-control">
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre_ubicacion }}</option>
+                @endforeach
+            </select>
+        </div>
         <div class="form-group" style="display:none;">
             <label for="Id_area">ID Área:</label>
             <input type="number" name="Id_area" class="form-control" placeholder="Ingrese el ID de Área" value="{{ isset($item) ? $item->Id_area : old('Id_area', 7) }}" required>

@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\BienestarUniversitario;
 use Illuminate\Http\Request;
+use App\Models\Ubicacion;
 
 class BienestarUniversitarioController extends Controller
 {
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $ubicaciones = Ubicacion::all();
 
         // Consulta de Bienestar Universitario con búsqueda
         $bienestarUniversitario = BienestarUniversitario::where('estado', 1)
@@ -20,7 +22,7 @@ class BienestarUniversitarioController extends Controller
             })
             ->paginate();
 
-        return view('admin.bienestar.index', compact('bienestarUniversitario', 'search'))
+        return view('admin.bienestar.index', compact('bienestarUniversitario', 'search','ubicaciones'))
             ->with('i', (request()->input('page', 1) - 1) * $bienestarUniversitario->perPage());
     }
 

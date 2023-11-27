@@ -11,7 +11,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisitos de Bienestar: ') }}{{ $bienestar->nombre_bienestar }}
+                                {{ __('Requisitos de Bienestar: ') }}{{ $bienestar->servicio }}
                             </span>
 
                             <a href="{{ route('bienestar.index') }}" class="btn btn-danger">
