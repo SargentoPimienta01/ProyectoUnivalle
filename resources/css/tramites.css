@@ -12,6 +12,18 @@ body {
     font-size: 16px;
 }
 
+.TituloH2{
+    color: white; 
+    text-align: center;
+    font-size: 40px;
+}
+
+.MigaDePan{
+    color: white;
+    text-align: left;
+    margin-left: 10px;
+}
+
 .hero{
     height: 100vh;
     width: 100%;
@@ -55,10 +67,10 @@ nav ul li a:hover{
 
 .buttonS{
     border: none;
-    background: var(---secundario);
+    background: var(---principal);
     padding: 12px 30px;
     border-radius: 30px;
-    color: rgb(255, 255, 255);
+    color: white;
     font-weight: bold;
     font-size: 15px;
     text-decoration: none;
@@ -72,7 +84,7 @@ nav ul li a:hover{
 .buttonS:hover{
     color: var(---secundario);
     transition: 0.4s;
-    background-color: #68091Fff;
+    background-color: var(---secundario);
 }
 
 .buttonS a:hover{
@@ -89,22 +101,20 @@ nav ul li a:hover{
 }
 
 .Opciones2{
-   
-    padding: 30px;
-    padding-right: 0px;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
-    gap: 10px; /* Espacio entre las opciones */
-   /* justify-content: center; 
-    align-items: center;*/
-}
-
-.Opciones2 {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
     max-width: 1200px;
     margin: 0 auto;
+
+    padding: 30px;
+    padding-right: 0px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 10px; /* Espacio entre las opciones */
+    width: 200%; 
+   /* justify-content: center; 
+    align-items: center;*/
 }
 
 .button-anon-pen {
@@ -114,16 +124,18 @@ nav ul li a:hover{
     justify-content: center;
     text-decoration: none;
     color: #fff;
-    background: linear-gradient(to bottom right, #68091Fff, #9E0442ff);
+    background-image: linear-gradient(to bottom right, #68091Fff, #9E0442ff, #A0072E);
     padding: 20px;
     margin: 10px; /* Reduce the margin */
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
-    width: calc(14.28% - 20px); /* Adjust the width to accommodate 7 per row */
+    transition: transform 1.6s ease-in-out;
+    /* width: calc(14.28% - 20px); Adjust the width to accommodate 7 per row */
     max-width: 160px; /* Adjust the max-width as needed */
-    height: 200px;
     border: 3px solid #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    width: 480px; 
+    height: 150px;
 }
 
 .button-anon-pen:hover {
@@ -132,5 +144,9 @@ nav ul li a:hover{
 
 .button-anon-pen span {
     margin-top: 10px;
+    font-weight: bold;
 }
 
+.SpanB{
+    font-weight: bold;
+}
