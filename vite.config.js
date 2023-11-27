@@ -3,9 +3,8 @@ import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     build: {
-        assetsDir: ['img'],
-        chunkSizeWarningLimit: 3072, // 3MB
-        assetsInlineLimit: 0,
+      chunkSizeWarningLimit: 3072, // 3MB
+      assetsInlineLimit: 0,
     },
     plugins: [
         laravel({
@@ -21,6 +20,9 @@ export default defineConfig({
                 'resources/css/tramites.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
+                'resources/js/intro.js',
+                'resources/js/bootstrap.js',
+                'resources/js/asistenteHome.js',
                 'resources/img/UnivalleLogo.png',
                 'resources/img/banner.png',
                 'resources/images/tramites.png',
