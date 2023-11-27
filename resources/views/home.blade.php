@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    @vite(['resources/css/app.css', 'resources/css/styles.css', 'resources/css/menu.css', 'resources/css/asistente.css', 'resources/css/cafeteria.css', 'resources/css/cards.css', 'resources/css/laravel.css', 'resources/css/login.css', 'resources/css/tramites.css', 'resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="summary_large_image" name="twitter:card" />
@@ -14,60 +13,6 @@
     <link href="{{ Vite::asset('resources/css/asistente.css') }}" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     
-    <style>
-        body {
-        overflow: hidden; 
-        }
-
-        .boton img {
-            width: 100%; 
-            height: auto;
-        }
-
-        .Opciones table {
-            width: 100%; 
-            margin: auto;
-            border-spacing: 20px;
-        }
-
-        .Opciones .boton {
-            text-align: center;
-            position: relative;
-        }
-
-        .Opciones {
-            margin-top: 50px;
-        }
-
-        .Opciones table tr {
-            margin-bottom: 20px;
-        }
-
-        @media only screen and (min-width: 600px) {
-            .Opciones table {
-                width: 80%;
-            }
-        }
-
-        @media only screen and (min-width: 768px) {
-            .Opciones table {
-                width: 60%;
-            }
-        }
-
-        @media only screen and (min-width: 992px) {
-            .Opciones table {
-                width: 50%;
-            }
-        }
-
-        @media only screen and (min-width: 1200px) {
-            .Opciones table {
-                width: 40%;
-            }
-        }
-
-    </style>
 </head>
 
 <body>

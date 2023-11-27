@@ -9,17 +9,7 @@
     <title>Tramites | Univalle</title>
     <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/tramites.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/css/styles.css') }}">
-    <style>
-        .Opciones2 {
-            width: 200%; 
-        }
-        .button-anon-pen {
-            width: 480px; 
-            height: 150px;
-           
-        }
-    </style> 
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
 </head>
 <body>
     <div class="hero">
@@ -28,18 +18,20 @@
             <a href="{{ url('/home') }}">
             <img src="{{ Vite::asset('resources/img/banner.png') }}" alt="Univalle Logo" class="logo">
             </a>
+
+            <h2 class="TituloH2">Tipos De Tramites</h2>
            
             <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
         </nav>
 
         <div>
-            <h2 style="color: white; text-align: center;">Tipos de tramites</h2>
+            <h2 class="MigaDePan">Tramites: Tipos de tramites</h2>
         </div>
 
         <div class="Opciones2">
             @foreach($ctramites as $ctramite)
                 <a href="{{ route('tramitesdisponibles', ['id_categoria_tramites' => $ctramite->id_categoria_tramites, 'nombre_categoria' => Str::slug($ctramite->nombre_categoria)]) }}" class="button-anon-pen">
-                    <span>{{ $ctramite->nombre_categoria }}</span>
+                    <span class="SpanB">{{ $ctramite->nombre_categoria }}</span>
                 </a>
             @endforeach
         </div>
@@ -47,5 +39,3 @@
       <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
 </html>
-
-

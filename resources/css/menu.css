@@ -54,10 +54,10 @@ nav ul li a:hover{
 
 .buttonS{
     border: none;
-    background: var(---secundario);
+    background: var(---principal);
     padding: 12px 30px;
     border-radius: 30px;
-    color: rgb(255, 255, 255);
+    color: white;
     font-weight: bold;
     font-size: 15px;
     text-decoration: none;
@@ -69,20 +69,19 @@ nav ul li a:hover{
 }
 
 .buttonS:hover{
-    color: var(---secundario);
+    color: var(---principal);
     transition: 0.4s;
-    background-color: #68091Fff;
+    background-color: var(---secundario);
 }
 
-.buttonS a:hover{
-    color: white;
+.Opciones {
+    margin-top: 50px;
 }
 
 .Opciones a {
     z-index: 1;
     transition: all .2s;
     position: relative;
-    
     max-width: fit-content;
     display: block;
     margin: 0 auto;
@@ -96,6 +95,45 @@ nav ul li a:hover{
 .Opciones a:hover {
     text-decoration: none;
     transform: translate(-1px,-1px);
+}
+
+.Opciones table {
+    width: 100%; 
+    margin: auto;
+    border-spacing: 20px;
+}
+
+.Opciones .boton {
+    text-align: center;
+    position: relative;
+}
+
+.Opciones table tr {
+    margin-bottom: 20px;
+}
+
+@media only screen and (min-width: 600px) {
+    .Opciones table {
+        width: 80%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Opciones table {
+        width: 60%;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .Opciones table {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .Opciones table {
+        width: 40%;
+    }
 }
 
 .boton {
@@ -120,12 +158,14 @@ nav ul li a:hover{
 .boton:hover {
     text-decoration: none;
     transform: translate(-8px,-8px);
+    background-color: var(---principal);
    
 }
 
 .boton_bg-grad {
     z-index: -2;
-    background: linear-gradient(20deg, var(---principal) 0%, var(---secundario) 100%);
+    /* background: linear-gradient(20deg, var(---principal) 0%, var(---secundario) 100%); */
+    background: var(---principal);
     background-position: 0 0;
     background-size: cover;
     border-radius: 4px;
@@ -173,5 +213,3 @@ nav ul li a:hover{
     background: #000;
     border-radius: 3px;
 }
-
-

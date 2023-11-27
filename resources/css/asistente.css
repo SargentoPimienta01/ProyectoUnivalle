@@ -63,7 +63,7 @@
 }
 
 
-h1 {
+/* h1 {
     font-size: 76px;
     font-weight: bold;
     color: #9B717Cff;
@@ -78,7 +78,7 @@ h1 span {
     display: block;
     font-size: 40px;
     font-weight: normal;
-}
+} */
 
 @keyframes fadeInUp {
     from {
