@@ -9,146 +9,146 @@
     
 </head>
 <body>
-    <div class="navbar">
+    <div class="univalle-navbar">
         <!--<a href="/home" class="nav-button nav-left">
             <div class="circle"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Univalle_bol_cbb_logo.png" alt="Univalle Logo" height="30"></div>
         </a>-->
-        <a href="/home" class="nav-button nav-left">
-            <div class="circle"><i class="fas fa-home"></i></div>
+        <a href="/home" class="univalle-nav-button univalle-nav-left">
+            <div class="univalle-circle"><i class="fas fa-home"></i></div>
         </a>
-        <a class="nav-button nav-left" id="backButton">
-            <div class="circle"><i class="fas fa-arrow-left"></i></div>
+        <a class="univalle-nav-button univalle-nav-left" id="univalle-backButton">
+            <div class="univalle-circle"><i class="fas fa-arrow-left"></i></div>
         </a>
         
-        <h2 class="nav-center">UNIVALLE</h2>
+        <h2 class="univalle-nav-center">UNIVALLE</h2>
         <!--<a href="/" class="nav-button nav-right">
             <div class="circle"><i class="fas fa-sign-in-alt"></i></div>
         </a>-->
-        <a href="/" class="nav-button nav-left">
-            <div class="circle"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Univalle_bol_cbb_logo.png" alt="Univalle Logo" height="30"></div>
+        <a href="/" class="univalle-nav-button univalle-nav-left">
+            <div class="univalle-circle"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Univalle_bol_cbb_logo.png" alt="Univalle Logo" height="30"></div>
         </a>
     </div>
 </body>
 <style>
     body {
-    font-family: Arial, sans-serif;
-    background-color: #68091Fff;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: 100vh;
-    margin-top: 5%;
+    font-family: Arial, sans-serif !important;
+    background-color: #68091Fff !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    height: 100vh !important;
+    margin-top: 5% !important;
 }
 
-.navbar {
-    position: fixed;
-    top: 0; /* Fija la barra en la parte superior */
-    left: 0; /* Fija la barra en la parte izquierda */
-    width: 100%; /* Ocupa todo el ancho de la ventana */
-    background-color: rgb(68, 7, 21);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    z-index: 999; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra opcional para resaltar la barra */
+.univalle-navbar {
+    position: fixed !important;
+    top: 0 !important; /* Fija la barra en la parte superior */
+    left: 0 !important; /* Fija la barra en la parte izquierda */
+    width: 100% !important; /* Ocupa todo el ancho de la ventana */
+    background-color: rgb(68, 7, 21) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 10px !important;
+    z-index: 999 !important; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important; /* Sombra opcional para resaltar la barra */
 }
 
 body {
-    margin-top: 60px; /* Ajusta el margen superior del cuerpo para evitar que se solape con la barra de navegación fija */
+    margin-top: 60px !important; /* Ajusta el margen superior del cuerpo para evitar que se solape con la barra de navegación fija */
 }
 
-.nav-left, .nav-right {
-    display: flex;
-    align-items: center;
+.univalle-nav-left, .univalle-nav-right {
+    display: flex !important;
+    align-items: center !important;
 }
 
-.nav-center {
-    text-align: center;
-    flex-grow: 1;
+.univalle-nav-center {
+    text-align: center !important;
+    flex-grow: 1 !important;
 }
 
-.nav-button {
-    text-decoration: none;
-    color: #fff;
-    margin: 0 10px;
+.univalle-nav-button {
+    text-decoration: none !important;
+    color: #fff !important;
+    margin: 0 10px !important;
 }
 
 .header {
-    text-align: left;
-    margin: 20px;
+    text-align: left !important;
+    margin: 20px !important;
 }
 
 h2 {
-    font-size: 30px;
-    color: #fff;
-    margin: 0;
+    font-size: 30px !important;
+    color: #fff !important;
+    margin: 0 !important;
 }
 
 .contenedor {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important; 
 }
 
 .cuadroInformativo {
-    background-color: #fff;
-    border-radius: 10px;
-    width: 35%;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin: 10px;
-    text-align: left;
+    background-color: #fff !important;
+    border-radius: 10px !important;
+    width: 35% !important;
+    padding: 20px !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2) !important;
+    margin: 10px !important;
+    text-align: left !important;
 }
 
 .contenido {
-    height: 100%; 
-    display: flex;
-    flex-direction: column;
+    height: 100% !important; 
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .tituloInf {
-    font-size: 20px;
-    color: #000;
-    margin: 10px 0;
+    font-size: 20px !important;
+    color: #000 !important;
+    margin: 10px 0 !important;
 }
 
 .subTitulo {
-    font-size: 19px;
-    color: #000;
-    margin: 10px 0;
+    font-size: 19px !important;
+    color: #000 !important;
+    margin: 10px 0 !important;
 }
 
 .parrafoInf {
-    font-size: 15px;
-    color: #333;
-    margin: 10px 0;
+    font-size: 15px !important;
+    color: #333 !important;
+    margin: 10px 0 !important;
 }
 
-.circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px; 
-    height: 40px; 
-    background-color: rgb(49, 6, 16);
-    border-radius: 50%;
-    margin: 0 0px; 
-    margin-right: 10%;
+.univalle-circle {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 40px !important; 
+    height: 40px !important; 
+    background-color: rgb(49, 6, 16) !important;
+    border-radius: 50% !important;
+    margin: 0 0px !important; 
+    margin-right: 10% !important;
 }
 
-.circle i {
-    color: #fff; 
-    font-size: 20px; 
-    cursor: pointer;
+.univalle-circle i {
+    color: #fff !important; 
+    font-size: 20px !important; 
+    cursor: pointer !important;
 }
 
-.circle img {
-    border-radius: 50%;
-    width: 100%;
-    height: 100%;
+.univalle-circle img {
+    border-radius: 50% !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 </style>
@@ -164,7 +164,7 @@ h2 {
             event.preventDefault();
         }
     });
-    document.getElementById('backButton').addEventListener('click', function (event) {
+    document.getElementById('univalle-backButton').addEventListener('click', function (event) {
         // Verificar si el clic fue realizado en el ícono de flecha izquierda
         if (event.target.closest('.fa-arrow-left')) {
             // Realizar la acción deseada, por ejemplo, volver atrás en la historia del navegador

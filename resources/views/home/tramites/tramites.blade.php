@@ -23,7 +23,7 @@
 
             <h2 class="TituloH2">{{ $ctramite->nombre_categoria }}</h2>
             
-            <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
+            <!--<button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>-->
         </nav>
 
         <div>

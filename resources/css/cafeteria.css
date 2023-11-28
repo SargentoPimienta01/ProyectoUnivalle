@@ -61,7 +61,7 @@ h1 span {
 .menu-category:hover {
     background: linear-gradient(rgba(167, 143, 154, 0.8), rgba(167, 143, 154, 0.8)), url('https://cdn-icons-png.flaticon.com/512/4880/4880443.png');
     background-size: cover;
-    transform: scale(1.01);
+    /*transform: scale(1.01);*/
 }
 
 

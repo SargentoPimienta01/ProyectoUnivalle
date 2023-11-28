@@ -17,7 +17,7 @@
   
     <div class="hero">
         <!-- Barra de Navegacion -->
-        <nav>
+        <!--<nav>
             <a href="{{ url('/home') }}">
             <img src="{{ Vite::asset('resources/img/banner.png') }}" alt="Univalle Logo" class="logo">
             </a>
@@ -28,7 +28,7 @@
                 <li><a href="#">Postgrado</a></li>
             </ul>
             <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
-        </nav>
+        </nav>-->
 
         <div>
             <h2 style="color: white; text-align: center;">Direcciones de carrera</h2>
