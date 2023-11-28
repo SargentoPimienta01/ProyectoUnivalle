@@ -74,6 +74,17 @@
             </div>
         </div>
 
+        <div class="card">
+            <div class="face front">
+                <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion">
+                <h3>Ubicación</h3>
+            </div>
+            <div class="face back">
+                    <h3>Requisitos</h3>
+                <p>{{ $ubicacion->nombre_ubicacion }}</p>
+            </div>
+        </div>
+
     @endforeach
 
 </div>

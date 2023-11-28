@@ -18,6 +18,10 @@ class CreateDireccionCarreraTable extends Migration
             $table->string('carrera');
             $table->text('descripcion');
             $table->string('facultad');
+            $table->unsignedBigInteger('id_ubicacion')->default(1);
+            $table->foreign('id_ubicacion')
+                ->references('id')
+                ->on('ubicaciones')->default(1);
             $table->boolean('estado');
             $table->unsignedBigInteger('Id_area')->default(8);
             $table->foreign('Id_area')->references('Id_area')->on('areas')->default(8);

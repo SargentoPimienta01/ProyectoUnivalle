@@ -71,6 +71,14 @@
             <input type="text" name="facultad" class="form-control" placeholder="Ingrese la facultad" value="{{ isset($item) ? $item->facultad : old('facultad') }}" required>
         </div>
         <div class="form-group">
+            {{ Form::label('id_ubicacion', 'Ubicaciones') }}
+            <select name="id_ubicacion" class="form-control">
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre_ubicacion }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="estado">Estado:</label>
             <select name="estado" class="form-control" required>
                 <option value="1" {{ (isset($item) && $item->estado == 1) ? 'selected' : '' }}>Activo</option>
@@ -112,6 +120,7 @@
                                     <th>Carrera</th>
                                     <th>Descripción</th>
                                     <th>Facultad</th>
+                                    <th>Ubicación</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -122,6 +131,7 @@
                                         <td>{{ $item->carrera }}</td>
                                         <td>{{ $item->descripcion }}</td>
                                         <td>{{ $item->facultad }}</td>
+                                        <td>{{ $item->ubicacion->nombre_ubicacion }}</td>
                                         <td>{{ $item->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
                                         <td>
                                             <!-- Botón para abrir el modal de edición -->
@@ -187,6 +197,14 @@
         <div class="form-group">
             <label for="facultad">Facultad:</label>
             <input type="text" name="facultad" class="form-control" placeholder="Ingrese la facultad" value="{{ isset($item) ? $item->facultad : old('facultad') }}" required>
+        </div>
+        <div class="form-group">
+            {{ Form::label('id_ubicacion', 'Ubicaciones') }}
+            <select name="id_ubicacion" class="form-control">
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre_ubicacion }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="estado">Estado:</label>

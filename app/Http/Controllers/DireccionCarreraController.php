@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DireccionCarrera;
+use App\Models\Ubicacion;
 
 class DireccionCarreraController extends Controller
 {
@@ -19,7 +20,9 @@ class DireccionCarreraController extends Controller
             })
             ->paginate();
 
-        return view('admin.direccioncarrera.index', compact('direccionCarreras', 'search'))
+        $ubicaciones = Ubicacion::all();
+
+        return view('admin.direccioncarrera.index', compact('direccionCarreras', 'search', 'ubicaciones'))
             ->with('i', (request()->input('page', 1) - 1) * $direccionCarreras->perPage());
     }
 

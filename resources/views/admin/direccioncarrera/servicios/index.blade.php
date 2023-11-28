@@ -56,78 +56,73 @@
                                             <td>{{ $servicioDireccion->id }}</td>
                                             <td>{{ $servicioDireccion->Titulo }}</td>
                                             <td>
-    <!-- Miniatura de la imagen -->
-<!-- Miniatura de la imagen -->
-<td>
-    <img class="thumbnail" src="{{ $servicioDireccion->Image }}" onclick="showImagePopup('{{ $servicioDireccion->Image }}')">
-</td>
+                                            <!-- Miniatura de la imagen -->
+                                            <td>
+                                                <img class="thumbnail" src="{{ $servicioDireccion->Image }}" onclick="showImagePopup('{{ $servicioDireccion->Image }}')">
+                                            </td>
 
-<!-- Popup de la imagen -->
-<div class="image-popup" id="imagePopup">
-    <span class="close" onclick="closeImagePopup()">&times;</span>
-    <img class="popup-content" id="imgPopup">
-</div>
+                                            <!-- Popup de la imagen -->
+                                            <div class="image-popup" id="imagePopup">
+                                                <span class="close" onclick="closeImagePopup()">&times;</span>
+                                                <img class="popup-content" id="imgPopup">
+                                            </div>
 
-<style>
-    /* Estilos para la miniatura */
-    .thumbnail {
-        cursor: pointer;
-        max-width: 100px; /* Tamaño inicial de la miniatura */
-    }
+                                            <style>
+                                                /* Estilos para la miniatura */
+                                                .thumbnail {
+                                                    cursor: pointer;
+                                                    max-width: 100px; /* Tamaño inicial de la miniatura */
+                                                }
 
-    /* Estilos para el popup */
-    .image-popup {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.9);
-        padding-top: 120px;
-    }
+                                                /* Estilos para el popup */
+                                                .image-popup {
+                                                    display: none;
+                                                    position: fixed;
+                                                    z-index: 1;
+                                                    left: 0;
+                                                    top: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    overflow: auto;
+                                                    background-color: rgba(0, 0, 0, 0.9);
+                                                    padding-top: 120px;
+                                                }
 
-    .popup-content {
-        padding-left: 50px;
-        margin: auto;
-        display: block;
-        max-width: 80%; /* Tamaño máximo del popup */
-        max-height: 80vh;
-    }
+                                                .popup-content {
+                                                    padding-left: 50px;
+                                                    margin: auto;
+                                                    display: block;
+                                                    max-width: 80%; /* Tamaño máximo del popup */
+                                                    max-height: 80vh;
+                                                }
 
-    .close {
-        padding-top: 50px;
-        color: #fff;
-        position: absolute;
-        top: 15px;
-        right: 35px;
-        font-size: 30px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-</style>
+                                                .close {
+                                                    padding-top: 50px;
+                                                    color: #fff;
+                                                    position: absolute;
+                                                    top: 15px;
+                                                    right: 35px;
+                                                    font-size: 30px;
+                                                    font-weight: bold;
+                                                    cursor: pointer;
+                                                }
+                                            </style>
 
-<script>
-    // Función para mostrar el popup con la imagen más grande
-    function showImagePopup(imgSrc) {
-        var popup = document.getElementById("imagePopup");
-        var popupImg = document.getElementById("imgPopup");
-        popup.style.display = "block";
-        popupImg.src = imgSrc;
-    }
+                                            <script>
+                                                // Función para mostrar el popup con la imagen más grande
+                                                function showImagePopup(imgSrc) {
+                                                    var popup = document.getElementById("imagePopup");
+                                                    var popupImg = document.getElementById("imgPopup");
+                                                    popup.style.display = "block";
+                                                    popupImg.src = imgSrc;
+                                                }
 
-    // Función para cerrar el popup
-    function closeImagePopup() {
-        var popup = document.getElementById("imagePopup");
-        popup.style.display = "none";
-    }
-</script>
-
-
-
-
+                                                // Función para cerrar el popup
+                                                function closeImagePopup() {
+                                                    var popup = document.getElementById("imagePopup");
+                                                    popup.style.display = "none";
+                                                }
+                                            </script>
                                             <td>{{ $servicioDireccion->Requisitos }}</td>
                                             <td>
                                                 {{ $servicioDireccion->estado == 1 ? 'Activo' : 'Inactivo' }}

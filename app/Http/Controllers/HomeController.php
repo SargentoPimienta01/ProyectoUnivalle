@@ -152,11 +152,21 @@ class HomeController extends Controller
         $servicios = ServicioDireccion::where('direccion_carrera_id', $idDireccion)
             ->where('estado', 1)
             ->get();
+
+        // Verificar si se encontró el BienestarUniversitario
+        if ($servicioDireccion) {
+            // Acceder a la relación 'ubicacion' para obtener la ubicación asociada
+            $ubicacion = $servicioDireccion->ubicacion;
+        } else {
+            // Manejar el caso en el que no se encuentre el BienestarUniversitario
+            $ubicacion = null;
+        }
     
         return view('home.direccioncarrera.servicios', [
             'servicioDireccion' => $servicioDireccion,
             'servicios' => $servicios,
             'servicio' => $servicio,
+            'ubicacion' => $ubicacion,
         ]);
     }
 

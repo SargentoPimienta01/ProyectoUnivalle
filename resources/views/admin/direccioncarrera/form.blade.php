@@ -13,6 +13,14 @@
             <input type="text" name="facultad" class="form-control" placeholder="Ingrese la facultad" value="{{ isset($item) ? $item->facultad : old('facultad') }}" required>
         </div>
         <div class="form-group">
+            {{ Form::label('id_ubicacion', 'Ubicaciones') }}
+            <select name="id_ubicacion" class="form-control">
+                @foreach ($ubicaciones as $ubicacion)
+                    <option value="{{ $ubicacion->id }}">{{ $ubicacion->nombre_ubicacion }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="estado">Estado:</label>
             <select name="estado" class="form-control" required>
                 <option value="1" {{ (isset($item) && $item->estado == 1) ? 'selected' : '' }}>Activo</option>

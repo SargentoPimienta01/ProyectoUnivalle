@@ -15,11 +15,16 @@ class DireccionCarrera extends Model
         'carrera',
         'descripcion',
         'facultad',
+        'id_ubicacion',
         'estado',
     ];
     // En el modelo DireccionCarrera
     public function servicios()
     {
         return $this->hasMany(ServicioDireccion::class, 'id', 'idDireccion');
+    }
+    public function ubicacion()
+    {
+        return $this->belongsTo(Ubicacion::class, 'id_ubicacion');
     }
 }

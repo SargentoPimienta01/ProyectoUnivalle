@@ -19,6 +19,7 @@ class DireccionCarreraSeeder extends Seeder
             'carrera' => 'Ingeniería de Sistemas Informáticos',
             'descripcion' => 'Descripción de Ingeniería Informática.',
             'facultad'=>'Facultad de Informática y Electrónica',
+            'id_ubicacion'=> 1,
             'estado' => 1,
             'Id_area' => 8,
         ]);
@@ -27,6 +28,7 @@ class DireccionCarreraSeeder extends Seeder
             'carrera' => 'Ingeniería Civil',
             'descripcion' => 'Descripción de Ciencias de la Computación.',
             'facultad'=>'Facultad de Tecnología',
+            'id_ubicacion'=> 1,
             'estado' => 1,
             'Id_area' => 8,
         ]);
