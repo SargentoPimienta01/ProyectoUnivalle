@@ -6,60 +6,41 @@
     <meta property="og:type" content="website" />
     <title>Univalle | Menu Inicio</title>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
-    
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-        overflow: hidden; 
+        .buttonS {           
+            background: #fff;
+            color: rgb(0, 0, 0)f3f; 
+            padding: 10px 20px; 
+            border-radius: 8px; 
+            text-decoration: none;
+            font-size: 16px;  
         }
-
-        .boton img {
-            width: 100%; 
-            height: auto;
-        }
-
-        .Opciones table {
-            width: 100%; 
-            margin: auto;
-            border-spacing: 20px;
-        }
-
-        .Opciones .boton {
-            text-align: center;
-            position: relative;
-        }
-
-        .Opciones {
-            margin-top: 50px;
-        }
-
-        .Opciones table tr {
+        .card {
             margin-bottom: 20px;
+            height: 357px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--transparent-white);
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945); 
+            transition: transform 1s ease, box-shadow 1s ease; 
         }
-
-        @media only screen and (min-width: 600px) {
-            .Opciones table {
-                width: 80%;
-            }
+        .card img {
+            margin-top: 40px;
+            width: 200px;
+            height: 160px;
         }
-
-        @media only screen and (min-width: 768px) {
-            .Opciones table {
-                width: 60%;
-            }
+        .card-body {
+            text-align: center;
         }
-
-        @media only screen and (min-width: 992px) {
-            .Opciones table {
-                width: 50%;
-            }
+        .card:hover {
+        transform: scale(1.05); 
+        box-shadow: 0 6px 13px rgba(128, 9, 9, 0.945); 
         }
-
-        @media only screen and (min-width: 1200px) {
-            .Opciones table {
-                width: 40%;
-            }
-        }
-
     </style>
 </head>
 
