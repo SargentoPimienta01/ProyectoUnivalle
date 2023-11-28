@@ -1,3 +1,4 @@
+@extends('layouts.backspace')
 <!DOCTYPE html>
 <html lang="en">
 <head>

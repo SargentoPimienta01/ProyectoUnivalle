@@ -45,7 +45,7 @@ use App\Http\Controllers\CampusController;
 */
   
     Route::get('/', function () {
-        return redirect('/home');;
+        return redirect('/home');
     });
 
     //Bienestar Universitario

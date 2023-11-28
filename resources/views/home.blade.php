@@ -52,17 +52,6 @@
                 <span class="univalle-text">UNIVALLE</span>
             </a>
         </div>
-        <div class="navbar-nav ml-auto">
-            <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesión</a></button>
-
-            @if(auth()->check())
-                @if(!auth()->user()->hasRole('Usuario'))
-                    <button class="buttonS" type="button"><a href="{{ route('admin') }}">Ir al Admin</a></button>
-                @else
-                    <button class="buttonS" type="button"><a href="{{ route('home') }}">Home</a></button>
-                @endif
-            @endif
-        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

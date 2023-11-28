@@ -1,3 +1,4 @@
+@extends('layouts.backspace')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,7 +72,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <!--<nav class="navbar navbar-expand-lg navbar-light">
         <div class="navbar-brand">
             <a href="{{ route('home') }}">
                 <img src="{{ Vite::asset('resources/img/UnivalleLogo.png') }}" alt="Univalle Logo" height="70">
@@ -80,8 +81,8 @@
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        </button>-->
+        <!--<div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('tramites-inicio') }}">Tramites</a>
@@ -111,8 +112,8 @@
                     <a class="nav-link" href="{{ route('campus') }}">Campus</a>
                 </li>
             </ul>
-        </div>
-    </nav>
+        </div>-->
+    <!--</nav>-->
     <h1 class="text-center mt-3" style="color: #630505;">Tipos de trámites</h1>
     <div class="container-fluid">
         <div class="row">
