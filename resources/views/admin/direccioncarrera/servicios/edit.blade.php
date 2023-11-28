@@ -11,7 +11,7 @@
                         <h3 class="card-title">Editar Servicio de Dirección</h3>
                     </div>
                     <div class="card-body">
-                    <form action="{{ route('servicio-direccion.update', ['direccion_carrera_id' => $servicioDireccion->direccion_carrera_id, 'id' => $servicioDireccion->id]) }}" method="POST">
+                        <form action="{{ route('servicio-direccion.update', ['direccion_carrera_id' => $servicioDireccion->direccion_carrera_id, 'id' => $servicioDireccion->id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <!-- Campos del formulario con valores actuales -->
@@ -19,9 +19,15 @@
                                 <label for="Titulo">Título:</label>
                                 <input type="text" name="Titulo" class="form-control" value="{{ $servicioDireccion->Titulo }}" required>
                             </div>
+                            <!-- Cambios aquí: usa input de tipo file para permitir la carga de una nueva imagen -->
                             <div class="form-group">
-                                <label for="Image">Imagen:</label>
-                                <input type="text" name="Image" class="form-control" value="{{ $servicioDireccion->Image }}" required>
+                                <label for="Image">Nueva Imagen:</label>
+                                <input type="file" name="imagen" class="form-control">
+                            </div>
+                            <!-- Muestra la imagen actual -->
+                            <div class="form-group">
+                                <label for="Image">Imagen Actual:</label>
+                                <img src="{{ $servicioDireccion->Image }}" alt="Imagen Actual" class="img-thumbnail" style="max-width: 300px;">
                             </div>
                             <div class="form-group">
                                 <label for="Requisitos">Requisitos:</label>

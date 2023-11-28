@@ -11,8 +11,7 @@
                         <h3 class="card-title">Crear Servicio Dirección</h3>
                     </div>
                     <div class="card-body">
-                        <!-- Agrega aquí el formulario de creación -->
-                        <form action="{{ route('servicio-direccion.store', ['direccion_carrera_id' => $direccion_carrera_id]) }}" method="POST">
+                        <form action="{{ route('servicio-direccion.store', ['direccion_carrera_id' => $direccion_carrera_id]) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             
                             <div class="form-group">
@@ -20,8 +19,8 @@
                                 <input type="text" name="Titulo" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="Image">Imagen:</label>
-                                <input type="text" name="Image" class="form-control" required>
+                                <label for="imagen">Imagen:</label>
+                                <input type="file" name="imagen" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="Requisitos">Requisitos:</label>

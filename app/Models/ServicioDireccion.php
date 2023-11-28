@@ -10,7 +10,7 @@ class ServicioDireccion extends Model
     use HasFactory;
 
     protected $table = 'servicio_direccion';
-    protected $fillable = ['Titulo', 'Image', 'Requisitos', 'estado', 'direccion_carrera_id'];
+    protected $fillable = ['Titulo', 'imagen', 'Image', 'Requisitos', 'estado', 'direccion_carrera_id'];
 
     public function direccionCarrera()
     {

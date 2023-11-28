@@ -40,21 +40,56 @@ class ServicioDireccionController extends Controller
 
     public function store(Request $request, $direccion_carrera_id)
     {
-        // Validación y creación del servicio de dirección
-        $servicioDireccion = new ServicioDireccion([
-            'Titulo' => $request->Titulo,
-            'Image' => $request->Image,
-            'Requisitos' => $request->Requisitos,
-            'estado' => $request->estado,
-            'direccion_carrera_id' => $direccion_carrera_id,  // Corregir el nombre de la columna
+        // Validación del formulario
+        $request->validate([
+            'Titulo' => 'required',
+            'imagen' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Ajusta según tus necesidades
+            'Requisitos' => 'required',
+            'estado' => 'required',
         ]);
 
-        $servicioDireccion->save();
+        // Manejo de la imagen
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
 
-        // Redirigir al índice de servicios de dirección
-        return redirect()->route('servicio-direccion.index', ['direccion_carrera_id' => $direccion_carrera_id])
-            ->with('success', 'Servicio de Dirección creado exitosamente.');
+            $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'image' => base64_encode(file_get_contents($imagen->path())),
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+            }
+
+            curl_close($ch);
+
+            $resultado = json_decode($response, true);
+
+            // Validación y creación del servicio de dirección
+            $servicioDireccion = new ServicioDireccion([
+                'Titulo' => $request->Titulo,
+                'Requisitos' => $request->Requisitos,
+                'estado' => $request->estado,
+                'direccion_carrera_id' => $direccion_carrera_id,
+                'Image' => $resultado['data']['url'], // Almacena el enlace de la imagen en el campo 'Image'
+            ]);
+
+            $servicioDireccion->save();
+
+            // Redirigir al índice de servicios de dirección
+            return redirect()->route('servicio-direccion.index', ['direccion_carrera_id' => $direccion_carrera_id])
+                ->with('success', 'Servicio de Dirección creado exitosamente.');
+        }
+
+        // Si no se ha cargado una imagen, redirige de vuelta con un mensaje de error
+        return redirect()->back()->with('error', 'Por favor, selecciona una imagen para subir.');
     }
+
 
 
     public function edit($direccion_carrera_id, $id)
@@ -69,17 +104,57 @@ class ServicioDireccionController extends Controller
     }
 
     public function update(Request $request, $direccion_carrera_id, $id)
-    {
-        // Encuentra el servicio de dirección a actualizar
-        $servicioDireccion = ServicioDireccion::findOrFail($id);
+{
+    // Encuentra el servicio de dirección a actualizar
+    $servicioDireccion = ServicioDireccion::findOrFail($id);
 
-        // Actualiza los campos con los nuevos valores
-        $servicioDireccion->update($request->all());
+    // Validación del formulario
+    $request->validate([
+        'Titulo' => 'required',
+        'imagen' => 'sometimes|image|mimes:jpeg,png,jpg,gif|max:2048', // Se permite que sea opcional
+        'Requisitos' => 'required',
+        'estado' => 'required',
+    ]);
 
-        // Redirige al índice de servicios de dirección
-        return redirect()->route('servicio-direccion.index', ['direccion_carrera_id' => $direccion_carrera_id])
-            ->with('success', 'Servicio de Dirección actualizado exitosamente.');
+    // Si se proporciona una nueva imagen, realiza el manejo de la imagen
+    if ($request->hasFile('imagen')) {
+        $imagen = $request->file('imagen');
+        $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+        $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, [
+            'image' => base64_encode(file_get_contents($imagen->path())),
+        ]);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+        }
+
+        curl_close($ch);
+
+        $resultado = json_decode($response, true);
+
+        // Actualiza los campos, incluyendo la nueva imagen
+        $servicioDireccion->update([
+            'Titulo' => $request->Titulo,
+            'Requisitos' => $request->Requisitos,
+            'estado' => $request->estado,
+            'Image' => $resultado['data']['url'], // Almacena el enlace de la nueva imagen en el campo 'Image'
+        ]);
+    } else {
+        // Si no se proporciona una nueva imagen, actualiza los demás campos sin afectar 'Image'
+        $servicioDireccion->update($request->except('Image'));
     }
+
+    // Redirige al índice de servicios de dirección
+    return redirect()->route('servicio-direccion.index', ['direccion_carrera_id' => $direccion_carrera_id])
+        ->with('success', 'Servicio de Dirección actualizado exitosamente.');
+}
+
 
     public function cambiarEstado($direccion_carrera_id, $id)
     {
