@@ -26,41 +26,41 @@ class PdfController extends Controller
     }
 
     public function generateRequisitosPdf($id_categoria_tramites, $nombre_categoria, $id_tramite, $nombre_tramite = null)
-{
-    // Obtén la duración del trámite
-    $duracionTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
-        ->where('id_tramite', $id_tramite)
-        ->value('duracion_tramite');
+    {
+        // Obtén la duración del trámite
+        $duracionTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
+            ->where('id_tramite', $id_tramite)
+            ->value('duracion_tramite');
 
-    $tituloTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
-        ->where('id_tramite', $id_tramite)
-        ->value('nombre_tramite');
+        $tituloTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
+            ->where('id_tramite', $id_tramite)
+            ->value('nombre_tramite');
 
-    // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
-    $requisitos = RequisitoTramite::where('Id_tramite', $id_tramite)
-        ->where('estado', 1)
-        ->get();
+        // Obtén los requisitos del trámite especificado por id_tramite con estado igual a 1
+        $requisitos = RequisitoTramite::where('Id_tramite', $id_tramite)
+            ->where('estado', 1)
+            ->get();
 
-    // Obtén la ubicación del trámite
-    $ubicacionTramite = Tramite::find($id_tramite)->ubicacion;
+        // Obtén la ubicación del trámite
+        $ubicacionTramite = Tramite::find($id_tramite)->ubicacion;
 
-    $data = [
-        'nombreCategoria' => $nombre_categoria,
-        'idCategoriaTramites' => $id_categoria_tramites,
-        'idTramite' => $id_tramite,
-        'nombreTramite' => $nombre_tramite,
-        'duracionTramite' => $duracionTramite,
-        'tituloTramite' => $tituloTramite,
-        'requisitos' => $requisitos,
-        'ubicacionTramite' => $ubicacionTramite
-    ];
+        $data = [
+            'nombreCategoria' => $nombre_categoria,
+            'idCategoriaTramites' => $id_categoria_tramites,
+            'idTramite' => $id_tramite,
+            'nombreTramite' => $nombre_tramite,
+            'duracionTramite' => $duracionTramite,
+            'tituloTramite' => $tituloTramite,
+            'requisitos' => $requisitos,
+            'ubicacionTramite' => $ubicacionTramite
+        ];
 
-    $pdf = PDF::loadView('home.tramites.pdf.requisitos', $data);
+        $pdf = PDF::loadView('home.tramites.pdf.requisitos', $data);
 
-    // Puedes ajustar el nombre del archivo PDF según tus necesidades
-    $filename = 'requisitos_' . $id_tramite . '.pdf';
+        // Puedes ajustar el nombre del archivo PDF según tus necesidades
+        $filename = 'requisitos_' . $id_tramite . '.pdf';
 
-    return $pdf->stream($filename);
-}
+        return $pdf->stream($filename);
+    }
 
 }

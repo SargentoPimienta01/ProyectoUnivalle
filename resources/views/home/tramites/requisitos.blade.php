@@ -1,3 +1,4 @@
+@extends('layouts.jquery')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +13,10 @@
     <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ Vite::asset('resources/css/tramites/styles_user_tables.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -159,7 +163,8 @@
                 $whatsappUrl = "https://wa.me/71968841";
                 $correoUrl = "mailto:aalanocae@univalle.edu";
             ?>
-            <a href="{{ $pdfUrl }}" style="color: inherit;">Descarga los requisitos.</a>
+            <!--<a href="{{ $pdfUrl }}" style="color: inherit;">Descarga los requisitos.</a>-->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
             {!! QrCode::size(100)->generate($pdfUrl); !!}
             <div class="contact-info">
                 <b>Contactar con Responsable:</b> Aydee Alanoca Endara
@@ -176,6 +181,28 @@
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content" style="height: 90vh;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="max-height: 80vh; overflow-y: auto;">
+                <!-- Contenedor para el PDF -->
+                <iframe src="{{ $pdfUrl }}#view=FitH&hide=1" style="width: 100%; height: 100%; border: none; transform: scale(0.9);"></iframe>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
             @endforeach
