@@ -122,8 +122,56 @@
                                     $whatsappUrl = "https://wa.me/71968841";
                                     $correoUrl = "mailto:aalanocae@univalle.edu";
                                 ?>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
+                            {!! QrCode::size(100)->generate($pdfUrl); !!}
+                            <div class="contact-info">
+                                <b>Contactar con Responsable:</b> Aydee Alanoca Endara
+                                <br>
+                                <a href="{{ $whatsappUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de WhatsApp</a>
+                                <br>
+                                {!! QrCode::size(75)->generate($whatsappUrl); !!}
+                                <br>
+                                <a href="{{ $correoUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de correo</a>
+                                <br>
+                                {!! QrCode::size(75)->generate($correoUrl); !!}
+                                <br>
+                            </div>
                                 <a href="{{ $pdfUrl }}" class="btn btn-custom">Descargar requisitos</a>
                             </p>
+                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
+                            {!! QrCode::size(100)->generate($pdfUrl); !!}
+                            <div class="contact-info">
+                                <b>Contactar con Responsable:</b> Aydee Alanoca Endara
+                                <br>
+                                <a href="{{ $whatsappUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de WhatsApp</a>
+                                <br>
+                                {!! QrCode::size(75)->generate($whatsappUrl); !!}
+                                <br>
+                                <a href="{{ $correoUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de correo</a>
+                                <br>
+                                {!! QrCode::size(75)->generate($correoUrl); !!}
+                                <br>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                        <div class="modal-content" style="height: 90vh;">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body" style="max-height: 80vh; overflow-y: auto;">
+                                <!-- Contenedor para el PDF -->
+                                <iframe src="{{ $pdfUrl }}#view=FitH&hide=1" style="width: 100%; height: 100%; border: none; transform: scale(0.9);"></iframe>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            </div>
                         </div>
                     </div>
                 </div>
