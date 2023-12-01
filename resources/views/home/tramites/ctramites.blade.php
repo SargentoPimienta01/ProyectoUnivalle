@@ -52,22 +52,7 @@
         .card-body {
             text-align: center;
         }
-
-        .button-anon-pen {
-            margin: 0 10px; 
-            padding: 10px 20px;
-            background-color: #808080; 
-            color: #fff; 
-            border-radius: 8px; 
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            transition: background-color 0.3s;
-        }
-
-        .button-anon-pen:hover {
-            background-color: var(--chocolate-cosmos);
-        }        
+     
     </style>
 </head>
 
