@@ -11,7 +11,7 @@ class Biblioteca extends Model
     use SoftDeletes;
 
     protected $view_deleted = 'DeletedRecords';
-    protected $fillable = ['titulo', 'descripcion', 'hora', 'fecha', 'estado'];
+    protected $fillable = ['titulo', 'descripcion', 'hora', 'fecha', 'categoria', 'estado'];
     
     protected $dates = ['fecha'];
   //  protected $dates = ['deleted_at'];

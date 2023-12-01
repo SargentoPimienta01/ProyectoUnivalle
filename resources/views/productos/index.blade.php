@@ -61,7 +61,7 @@
         <td>{{$producto->descripcion}}</td>
         <td>{{$producto->precio}}</td>
         <td>{{$producto->foto}}</td>
-        <td>{{$producto->estado}}</td>
+        <td>{{ $producto->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
         <td>
         <a href="{{url('productos/'.$producto->id.'/')}}" data-bs-toggle="modal" data-bs-target="#showModal{{$producto->id}}"  class="btn btn-success">Detalle</a>  
         </td>

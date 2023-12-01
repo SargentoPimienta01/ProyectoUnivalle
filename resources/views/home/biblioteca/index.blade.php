@@ -102,66 +102,45 @@
 <body>
 
   <h1>Biblioteca</h1>
-
   <div class="container">
     <div class="column">
-      <div class="column-heading">ANUNCIOS</div>
-      <div class="item">
-        <div class="item-content">
-          <img src="tu-imagen.jpg" alt="Imagen" />
-          <div>
-            <p><strong>Título del Anuncio 1</strong></p>
-            <p>Descripción del Anuncio 1.</p>
-            <p>Fecha: 2023-11-11</p>
-            <p>Hora: 14:00</p>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="item">
-        <div class="item-content">
-          <img src="tu-imagen.jpg" alt="Imagen" />
-          <div>
-            <p><strong>Título del Anuncio 2</strong></p>
-            <p>Descripción del Anuncio 1.</p>
-            <p>Fecha: 2023-11-11</p>
-            <p>Hora: 14:00</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- MAS -->
+        <div class="column-heading">ANUNCIOS</div>
+        @foreach($bibliotecas as $biblioteca)
+            @if($biblioteca->categoria == 'Anuncio')
+                <div class="item">
+                    <div class="item-content">
+                        <img src="{{ $biblioteca->foto }}" alt="Imagen" />
+                        <div>
+                            <p><strong>{{ $biblioteca->titulo }}</strong></p>
+                            <p>{{ $biblioteca->descripcion }}</p>
+                            <p>Fecha: {{ $biblioteca->fecha }}</p>
+                            <p>Hora: {{ $biblioteca->hora }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
     </div>
 
     <div class="column">
-      <div class="column-heading">EVENTOS</div>
-      <div class="item">
-        <div class="item-content">
-          <img src="tu-otra-imagen.jpg" alt="Imagen" />
-          <div>
-            <p><strong>Título del Evento 1</strong></p>
-            <p>Descripción del Evento 1.</p>
-            <p>Fecha: 2023-11-12</p>
-            <p>Hora: 18:30</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-content">
-          <img src="tu-otra-imagen.jpg" alt="Imagen" />
-          <div>
-            <p><strong>Título del Evento 1</strong></p>
-            <p>Descripción del Evento 1.</p>
-            <p>Fecha: 2023-11-12</p>
-            <p>Hora: 18:30</p>
-          </div>
-        </div>
-      </div>
-      
+        <div class="column-heading">EVENTOS</div>
+        @foreach($bibliotecas as $biblioteca)
+            @if($biblioteca->categoria == 'Evento')
+                <div class="item">
+                    <div class="item-content">
+                        <img src="{{ $biblioteca->foto }}" alt="Imagen" />
+                        <div>
+                            <p><strong>{{ $biblioteca->titulo }}</strong></p>
+                            <p>{{ $biblioteca->descripcion }}</p>
+                            <p>Fecha: {{ $biblioteca->fecha }}</p>
+                            <p>Hora: {{ $biblioteca->hora }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endforeach
     </div>
-  </div>
+</div>
 
 </body>
 </html>

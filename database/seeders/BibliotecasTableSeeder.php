@@ -20,6 +20,7 @@ class BibliotecasTableSeeder extends Seeder
             'hora'        => '14:17:01',
             'fecha'       => '2023-11-01',
             'foto'        => 'https://www.comunidadbaratz.com/wp-content/uploads/La-biblioteca-es-inclusion-social-e-igualdad-de-oportunidades.jpg',
+            'categoria' => 'Anuncio',
             'estado'      => 1,
             // 'deleted_at'  => NULL, // Puedes comentar esta línea si no usas soft deletes
         ]);

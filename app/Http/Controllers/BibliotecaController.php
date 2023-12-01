@@ -57,28 +57,46 @@ class bibliotecaController extends Controller
         'descripcion' => 'required',
         'hora' => 'required',
         'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'categoria' => 'required',
     ]);
-    
+
     $biblioteca = new Biblioteca();
     $biblioteca->titulo = $request->input('titulo');
     $biblioteca->descripcion = $request->input('descripcion');
     $biblioteca->fecha = now()->format('Y-m-d');
     $biblioteca->hora = $request->input('hora');
-    
+
+    // Manejo de la imagen
     if ($request->hasFile('foto')) {
         $image = $request->file('foto');
-        $imageName = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imageName);
-        $biblioteca->foto = $imageName;
+        $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+        $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, [
+            'image' => base64_encode(file_get_contents($image->path())),
+        ]);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($ch);
+
+        if ($response === false) {
+            return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+        }
+
+        curl_close($ch);
+
+        $resultado = json_decode($response, true);
+
+        $biblioteca->foto = $resultado['data']['url']; // Almacena el enlace de la imagen en el campo 'foto'
     }
+
+    $biblioteca->categoria = $request->input('categoria');
     
     $biblioteca->save();
-    
+
     return view("bibliotecas.message", ['msg' => "Registro guardado"]);
 }
-
-    
-    
 
    
     public function show($id)
@@ -103,19 +121,48 @@ class bibliotecaController extends Controller
             'fecha' => 'required',
             'hora' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'categoria' => 'required',
         ]);
-    
+
         $biblioteca = Biblioteca::find($id);
         $biblioteca->titulo = $request->input('titulo');
         $biblioteca->descripcion = $request->input('descripcion');
         $biblioteca->fecha = $request->input('fecha');
         $biblioteca->hora = $request->input('hora');
-        $biblioteca->foto = $request->file('foto') ? $this->uploadImage($request->file('foto')) : $biblioteca->foto;
+
+        // Manejo de la imagen
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+            $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'image' => base64_encode(file_get_contents($image->path())),
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+            }
+
+            curl_close($ch);
+
+            $resultado = json_decode($response, true);
+
+            $biblioteca->foto = $resultado['data']['url']; // Almacena el enlace de la imagen en el campo 'foto'
+        }
+
+        $biblioteca->categoria = $request->input('categoria');
         
+        // Guarda los cambios
         $biblioteca->save();
-    
+
         return view("bibliotecas.message", ['msg' => "Registro modificado"]);
     }
+
 
 
     public function destroy($id)

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->time('hora'); 
             $table->date('fecha');
             $table->string('foto');
+            $table->string('categoria');
             $table->integer('estado')->default(1);
             $table->softDeletes();
             $table->timestamps();

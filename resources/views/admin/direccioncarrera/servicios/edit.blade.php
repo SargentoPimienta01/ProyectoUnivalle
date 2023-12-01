@@ -21,13 +21,13 @@
                             </div>
                             <!-- Cambios aquí: usa input de tipo file para permitir la carga de una nueva imagen -->
                             <div class="form-group">
-                                <label for="Image">Nueva Imagen:</label>
-                                <input type="file" name="imagen" class="form-control">
+                                <label for="imagen">Nueva Imagen:</label>
+                                <input type="file" name="imagen" class="form-control" onchange="previewImage(this, 'imagen-preview');">
                             </div>
                             <!-- Muestra la imagen actual -->
                             <div class="form-group">
-                                <label for="Image">Imagen Actual:</label>
-                                <img src="{{ $servicioDireccion->Image }}" alt="Imagen Actual" class="img-thumbnail" style="max-width: 300px;">
+                                <label for="imagen">Imagen Actual:</label>
+                                <img src="{{ $servicioDireccion->Image }}" alt="Imagen Actual" class="img-thumbnail" style="max-width: 300px;" id="imagen-preview">
                             </div>
                             <div class="form-group">
                                 <label for="Requisitos">Requisitos:</label>
@@ -50,4 +50,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function previewImage(input, previewId) {
+            var preview = document.getElementById(previewId);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endsection

@@ -56,8 +56,6 @@
                                             <td>{{ $servicioDireccion->id }}</td>
                                             <td>{{ $servicioDireccion->Titulo }}</td>
                                             <td>
-                                            <!-- Miniatura de la imagen -->
-                                            <td>
                                                 <img class="thumbnail" src="{{ $servicioDireccion->Image }}" onclick="showImagePopup('{{ $servicioDireccion->Image }}')">
                                             </td>
 

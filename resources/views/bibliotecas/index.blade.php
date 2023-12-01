@@ -1,6 +1,7 @@
 @extends('adminlte::page')
+@extends('layouts.jquery')
 
-@section('title', 'productos')
+@section('title', 'Univalle')
 
 @section('content')
 <main> 
@@ -26,7 +27,7 @@
             </div>
         </form>
 
-        <a href="{{ route('bibliotecaspdf') }}" class="btn btn-success float-left">Generar reporte</a>
+        <!--<a href="{{ route('bibliotecaspdf') }}" class="btn btn-success float-left">Generar reporte</a>-->
 
         <!--inicio nueva funcion delete-->  
         @if(session()->has('success'))
@@ -46,6 +47,7 @@
             <th>Fecha</th>
             <th>Hora</th>
             <th>Foto</th>
+            <th>Categoría</th>
             <th>Estado</th>   
             <th></th>
             <th></th>
@@ -61,10 +63,76 @@
         <td>{{$biblioteca->descripcion}}</td>
         <td>{{$biblioteca->fecha}}</td>
         <td>{{$biblioteca->hora}}</td>
-        <td>{{$biblioteca->foto}}</td>
-        <td>{{$biblioteca->estado}}</td>
         <td>
-        <a href="{{url('bibliotecas/'.$biblioteca->id.'/')}}" data-bs-toggle="modal" data-bs-target="#showModal{{$biblioteca->id}}"  class="btn btn-success">Detalle</a>  
+                                                <img class="thumbnail" src="{{ $biblioteca->foto }}" onclick="showImagePopup('{{ $biblioteca->foto }}')">
+                                            </td>
+
+                                            <!-- Popup de la imagen -->
+                                            <div class="image-popup" id="imagePopup">
+                                                <span class="close" onclick="closeImagePopup()">&times;</span>
+                                                <img class="popup-content" id="imgPopup">
+                                            </div>
+
+                                            <style>
+                                                /* Estilos para la miniatura */
+                                                .thumbnail {
+                                                    cursor: pointer;
+                                                    max-width: 100px; /* Tamaño inicial de la miniatura */
+                                                }
+
+                                                /* Estilos para el popup */
+                                                .image-popup {
+                                                    display: none;
+                                                    position: fixed;
+                                                    z-index: 1;
+                                                    left: 0;
+                                                    top: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    overflow: auto;
+                                                    background-color: rgba(0, 0, 0, 0.9);
+                                                    padding-top: 120px;
+                                                }
+
+                                                .popup-content {
+                                                    padding-left: 50px;
+                                                    margin: auto;
+                                                    display: block;
+                                                    max-width: 80%; /* Tamaño máximo del popup */
+                                                    max-height: 80vh;
+                                                }
+
+                                                .close {
+                                                    padding-top: 50px;
+                                                    color: #fff;
+                                                    position: absolute;
+                                                    top: 15px;
+                                                    right: 35px;
+                                                    font-size: 30px;
+                                                    font-weight: bold;
+                                                    cursor: pointer;
+                                                }
+                                            </style>
+
+                                            <script>
+                                                // Función para mostrar el popup con la imagen más grande
+                                                function showImagePopup(imgSrc) {
+                                                    var popup = document.getElementById("imagePopup");
+                                                    var popupImg = document.getElementById("imgPopup");
+                                                    popup.style.display = "block";
+                                                    popupImg.src = imgSrc;
+                                                }
+
+                                                // Función para cerrar el popup
+                                                function closeImagePopup() {
+                                                    var popup = document.getElementById("imagePopup");
+                                                    popup.style.display = "none";
+                                                }
+                                            </script>
+        <td>{{ $biblioteca->categoria }}</td>
+        <td>{{ $biblioteca->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
+        <td>
+        <!--<a href="{{url('bibliotecas/'.$biblioteca->id.'/')}}" data-bs-toggle="modal" data-bs-target="#showModal{{$biblioteca->id}}"  class="btn btn-success">Detalle</a>-->
         </td>
         
          <!--modal mostrar-->
@@ -170,21 +238,48 @@
 </div>
 
       
-        <td>
-            @if($biblioteca->estado)
-                <form action="{{ route('bibliotecas.desactivar', $biblioteca->id) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="btn btn-danger" >Desactivar</button>
-                </form>
-            @else
-                <form action="{{ route('bibliotecas.activar', $biblioteca->id) }}" method="POST">
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="btn btn-success" >Activar</button>
-                </form>
-            @endif
-        </td>
+<td>
+    @if($biblioteca->estado)
+        <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#changeEstadoModal{{ $biblioteca->id }}">
+            Desactivar
+        </button>
+    @else
+        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#changeEstadoModal{{ $biblioteca->id }}">
+            Activar
+        </button>
+    @endif
+
+    <!-- Modal de cambio de estado de biblioteca -->
+    <div class="modal fade" id="changeEstadoModal{{ $biblioteca->id }}" tabindex="-1" role="dialog" aria-labelledby="changeEstadoModalLabel{{ $biblioteca->id }}" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeEstadoModalLabel{{ $biblioteca->id }}">
+                        Confirmar Cambio de Estado
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Está seguro de que desea {{ $biblioteca->estado == 1 ? 'desactivar' : 'activar' }} esta biblioteca?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <form action="{{ $biblioteca->estado ? route('bibliotecas.desactivar', $biblioteca->id) : route('bibliotecas.activar', $biblioteca->id) }}" method="POST">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" class="btn btn-{{ $biblioteca->estado == 1 ? 'danger' : 'success' }}">
+                            Confirmar Cambio de Estado
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</td>
+
+
     </tr>
     @endforeach
  

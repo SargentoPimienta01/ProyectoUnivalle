@@ -16,6 +16,7 @@ use App\Models\ServicioDireccion;
 use App\Models\Campus;
 use App\Models\postgrado;
 use App\Models\PlataformaDeAtencion;
+use App\Models\Biblioteca;
 
 class HomeController extends Controller
 {
@@ -206,7 +207,8 @@ class HomeController extends Controller
 
     public function biblioteca ()
     {
-        return view ('home.biblioteca.index');
+        $bibliotecas = Biblioteca::where('estado', 1)->get();
+        return view ('home.biblioteca.index', ['bibliotecas' => $bibliotecas]);
     }
 
     public function posgrado ()
