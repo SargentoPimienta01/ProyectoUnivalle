@@ -6,6 +6,9 @@
 @endsection
 
 @section('content')
+<div class="container py-1">
+        <h2>Listado de Trámites</h2>
+</div>
 <div class="card-body">
     <div class="mb-3">
         <form action="{{ route('tramites.index') }}" method="GET">
@@ -36,7 +39,7 @@
                             {{ __('Ir a Trámites inactivos') }}
                         </a>
                         <a href="{{ route('admin') }}" class="btn btn-danger">
-                            {{ __('Volver atrás') }}
+                            {{ __('Volver') }}
                         </a>
                          <div class="float-right">
                             <a href="{{ route('tramites.create') }}" class="btn btn-primary float-right"  data-placement="left">

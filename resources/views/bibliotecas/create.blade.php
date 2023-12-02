@@ -57,6 +57,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('bibliotecas.index') }}" class="btn btn-danger">{{ __('Volver') }}</a>
         </form>
     </div>
 </main>

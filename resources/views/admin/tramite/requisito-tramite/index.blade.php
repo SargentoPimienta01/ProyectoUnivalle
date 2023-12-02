@@ -23,7 +23,7 @@
                                 </a>
                               </div>-->
                             <a href="{{ route('tramites.index') }}" class="btn btn-danger">
-                                {{ __('Volver atrás') }}
+                                {{ __('Volver') }}
                             </a>
 
 
