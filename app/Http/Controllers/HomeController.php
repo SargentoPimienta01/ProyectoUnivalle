@@ -205,11 +205,12 @@ class HomeController extends Controller
         return view ('home.cafeteria.index');
     }
 
-    public function biblioteca ()
+    public function biblioteca()
     {
-        $bibliotecas = Biblioteca::where('estado', 1)->get();
-        return view ('home.biblioteca.index', ['bibliotecas' => $bibliotecas]);
+        $bibliotecas = Biblioteca::where('estado', 1)->paginate(2);
+        return view('home.biblioteca.index', ['bibliotecas' => $bibliotecas]);
     }
+
 
     public function posgrado ()
     {

@@ -96,7 +96,6 @@
         font-weight: bold;
         margin-bottom: 10px;
         }
-
   </style>
 </head>
 <body>
@@ -141,6 +140,7 @@
         @endforeach
     </div>
 </div>
+{{ $bibliotecas->links('vendor.pagination.custom') }}
 
 </body>
 </html>
