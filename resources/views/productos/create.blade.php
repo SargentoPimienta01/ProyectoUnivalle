@@ -35,12 +35,12 @@
 
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio:</label>
-                <input type="text" class="form-control" name="precio" id="precio" required>
+                <input type="number" class="form-control" name="precio" id="precio" required>
             </div>
 
             <div class="mb-3">
-                <label for="categoria" class="form-label">Categoría:</label>
-                <select class="form-select" name="categoria" id="categoria" required>
+                <label for="id_categoria" class="form-label">Categoría:</label>
+                <select class="form-select" name="id_categoria" id="id_categoria" required>
                     <option value="" disabled selected>Selecciona una Categoría</option>
                     @foreach ($categorias as $categoria)
                         <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>

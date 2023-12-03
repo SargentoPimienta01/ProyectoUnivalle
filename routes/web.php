@@ -273,10 +273,10 @@ use App\Http\Controllers\CampusController;
     Route::patch('/bibliotecas/desactivar/{id}', [bibliotecaController::class, 'desactivar'])->name('bibliotecas.desactivar');
 
     Route::get('bibliotecaspdf', [bibliotecaController::class, 'generarReporte'])->name('bibliotecaspdf');
+    Route::get('/productos/inactivos', [productoController::class, 'inactivos'])->name('productos.inactivos');
     Route::resource('/productos',productoController::class);
     
-
-    //Route::get('/productos/{id}', 'productoController@show')->name('productos.show');
+    //Route::get('/productos/{id}', [productoController::class, 'show'])->name('productos.show');
 
 
     Route::delete('/productos/{id}', [productoController::class, 'delete'])->name('productos.delete');
@@ -299,6 +299,10 @@ use App\Http\Controllers\CampusController;
 
     // Ruta para mostrar la lista de categorías
     Route::get('categoria_menus', [CategoriaMenuController::class, 'index'])->name('categoria_menus.index');
+
+    Route::get('/categoria_menus/inactivos', [CategoriaMenuController::class, 'inactivos'])->name('categoria_menus.inactivos');
+
+    Route::post('/categoria_menus/cambiarEstado/{id}', [CategoriaMenuController::class, 'cambiarEstado'])->name('categoria_menus.cambiarEstado');
 
     //Route::post('/categoria_menus', 'CategoriaMenuController@store')->name('categoria_menus.store');
     //Route::post('/categoria_menus', 'CategoriaMenuController@edit')->name('categoria_menus.edit');

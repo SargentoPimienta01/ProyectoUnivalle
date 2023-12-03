@@ -10,9 +10,10 @@ class CategoriaMenuController extends Controller
 {
     public function index()
     {
-        $categorias = CategoriaMenu::all();
+        $categorias = CategoriaMenu::where('estado', 1)->get();
         return view('categoria_menus.index', compact('categorias'));
     }
+
 
     public function create()
     {
@@ -84,5 +85,34 @@ class CategoriaMenuController extends Controller
             $categoria = CategoriaMenu::findOrFail($id);
             return view('categoria_menus.show', compact('categoria'));
         }
+
+        public function inactivos()
+        {
+            $categoriasInactivas = CategoriaMenu::where('estado', 0)->get();
+            return view('categoria_menus.inactivos', compact('categoriasInactivas'));
+        }
+        
+
+        public function cambiarEstado($id)
+        {
+            // Encuentra el registro que deseas modificar por su ID
+            $categoria = CategoriaMenu::find($id);
+        
+            // Verifica si el registro existe
+            if (!$categoria) {
+                // Puedes manejar el caso en el que el registro no se encuentra, por ejemplo, redirigiendo a una página de error o mostrando un mensaje.
+                return redirect()->route('categoria_menus.index')->with('error', 'La categoría de menú no existe.');
+            }
+        
+            // Cambia el estado según el estado anterior
+            $categoria->estado = ($categoria->estado == 1) ? 0 : 1;
+        
+            // Guarda la modificación
+            $categoria->save();
+        
+            // Redirige a la página deseada después de cambiar el estado
+            return redirect()->route('categoria_menus.index')->with('success', 'Estado de la categoría de menú cambiado correctamente.');
+        }
+        
 
 }

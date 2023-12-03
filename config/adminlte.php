@@ -388,6 +388,22 @@ return [
             ],
         ],
         [
+            'text'    => 'Cafetería',
+            'icon'    => 'fas fa-coffee',
+            'submenu' => [
+                [
+                    'text' => 'Gestionar categorías de cafetería',
+                    'url' => '/categoria_menus',
+                    'icon' => 'fas fa-coffee',
+                ],
+                [
+                    'text' => 'Gestionar anuncios de cafetería',
+                    'url' => '/productos',
+                    'icon' => 'fas fa-coffee',
+                ],
+            ],
+        ],
+        [
             'text' => 'Ubicaciones',
             'url' => '/ubicacion',
             'icon' => 'fas fa-map-marker-alt',
@@ -416,11 +432,6 @@ return [
             'text' => 'Biblioteca',
             'url' => '/bibliotecas',
             'icon' => 'fas fa-book',
-        ],
-        [
-            'text' => 'Cafetería',
-            'url' => '/productos',
-            'icon' => 'fas fa-coffee',
         ],
         [
             'text' => 'Servicios de campus deportivo',

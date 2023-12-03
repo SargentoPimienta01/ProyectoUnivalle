@@ -18,7 +18,11 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('descripcion');
             $table->double('precio', 8, 2);
-            $table->string('foto'); 
+            $table->string('foto');
+            $table->unsignedBigInteger('id_categoria');
+            $table->foreign('id_categoria')
+                ->references('id')
+                ->on('categoria_menus')->default(1);
             $table->integer('estado')->default(1);
             $table->softDeletes();
             $table->timestamps();

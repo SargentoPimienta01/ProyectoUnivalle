@@ -123,33 +123,33 @@
                                     $correoUrl = "mailto:aalanocae@univalle.edu";
                                 ?>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
-                            {!! QrCode::size(100)->generate($pdfUrl); !!}
+                            {!! QrCode::size(100)->generate($pdfUrl) !!}
                             <div class="contact-info">
                                 <b>Contactar con Responsable:</b> Aydee Alanoca Endara
                                 <br>
                                 <a href="{{ $whatsappUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de WhatsApp</a>
                                 <br>
-                                {!! QrCode::size(75)->generate($whatsappUrl); !!}
+                                {!! QrCode::size(75)->generate($whatsappUrl) !!}
                                 <br>
                                 <a href="{{ $correoUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de correo</a>
                                 <br>
-                                {!! QrCode::size(75)->generate($correoUrl); !!}
+                                {!! QrCode::size(75)->generate($correoUrl) !!}
                                 <br>
                             </div>
                                 <a href="{{ $pdfUrl }}" class="btn btn-custom">Descargar requisitos</a>
                             </p>
                             <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
-                            {!! QrCode::size(100)->generate($pdfUrl); !!}
+                            {!! QrCode::size(100)->generate($pdfUrl) !!}
                             <div class="contact-info">
                                 <b>Contactar con Responsable:</b> Aydee Alanoca Endara
                                 <br>
                                 <a href="{{ $whatsappUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de WhatsApp</a>
                                 <br>
-                                {!! QrCode::size(75)->generate($whatsappUrl); !!}
+                                {!! QrCode::size(75)->generate($whatsappUrl) !!}
                                 <br>
                                 <a href="{{ $correoUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de correo</a>
                                 <br>
-                                {!! QrCode::size(75)->generate($correoUrl); !!}
+                                {!! QrCode::size(75)->generate($correoUrl) !!}
                                 <br>
                             </div>-->
                         </div>

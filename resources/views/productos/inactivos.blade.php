@@ -15,13 +15,13 @@
 
   <div class="card-body">
     <div class="mb-3">
-      <form action="{{ route('productos.index') }}" method="GET">
+      <form action="{{ route('productos.inactivos') }}" method="GET">
         <div class="input-group">
           <input type="search" name="busqueda" placeholder="Buscar..." class="form-control">
           <button type="submit" class="btn btn-primary">Buscar</button>
           @if($busqueda)
           <div class="input-group-append">
-            <a href="{{ route('productos.index') }}" class="btn btn-outline-danger">Limpiar</a>
+            <a href="{{ route('productos.inactivos') }}" class="btn btn-outline-danger">Limpiar</a>
           </div>
           @endif
         </div>
@@ -39,20 +39,9 @@
                 <span id="card_title">
                   {{ __('Listado de productos') }}
                 </span>
-                <!--<a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
-                            {{ __('Ir a Trámites inactivos') }}
-                        </a>-->
-                <a href="{{ route('admin') }}" class="btn btn-danger">
-                  {{ __('Volver') }}
+                <a href="{{ route('productos.index') }}" class="btn btn-secondary">
+                  {{ __('Volver a activos') }}
                 </a>
-                <a href="{{ route('productos.inactivos') }}" class="btn btn-secondary">
-                  {{ __('Ir a inactivos') }}
-                </a>
-                <div class="float-right">
-                  <a href="{{ route('productos.create') }}" class="btn btn-primary float-right" data-placement="left">
-                    {{ __('Agregar producto') }}
-                  </a>
-                </div>
               </div>
             </div>
             @if(session()->has('success'))
@@ -345,6 +334,8 @@
                             <button type="submit" class="btn btn-danger">Confirmar</button>
                         </form>
                         @endif
+
+
                     </div>
                   </div>
                 </div>

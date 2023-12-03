@@ -1,6 +1,6 @@
-@extends('layout/template')
+@extends('adminlte::page')
 
-@section('contenido')
+@section('content')
     <div class="contenido">
         <h2>Nueva Categoría del Menú</h2>
 

@@ -1,8 +1,6 @@
-@extends('layout/template')
-
 @section('title', 'registrar producto')
 
-@section('contenido')
+@section('content')
 
 <main>
     <div class="container py-4">

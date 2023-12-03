@@ -17,12 +17,23 @@ class productoController extends Controller
 {
    
     public function index(Request $request)
+{
+    $busqueda = $request->busqueda;
+    $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
+        ->where('estado', 1)
+        ->paginate(5);
+
+    return view('productos.index', compact('productos', 'busqueda'));
+}
+
+
+    public function inactivos(Request $request)
     {
         $busqueda = $request->busqueda;
         $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
+            ->where('estado', 0)
             ->paginate(5);
-
-        return view('productos.index', compact('productos', 'busqueda'));
+        return view('productos.inactivos', compact('productos', 'busqueda'));
     }
 
 
@@ -58,7 +69,7 @@ class productoController extends Controller
             'descripcion' => 'required|max:70',
             'precio' => 'required|numeric',
             'foto' => 'required',
-            
+            'id_categoria' => 'required',
         ]);
                 
             $producto = new Producto();
@@ -66,15 +77,36 @@ class productoController extends Controller
             $producto->descripcion = $request->input('descripcion');
             $producto->precio = $request->input('precio');
             
-            if ($request->hasFile('foto')) {
-                $image = $request->file('foto');
-                $imageName = time() . '.' . $image->extension();
-                $image->move(public_path('images'), $imageName);
-                $producto->foto = $imageName;
+            // Manejo de la imagen
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+            $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'image' => base64_encode(file_get_contents($image->path())),
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
             }
-            $producto->save();
+
+            curl_close($ch);
+
+            $resultado = json_decode($response, true);
+
+            $producto->foto = $resultado['data']['url']; // Almacena el enlace de la imagen en el campo 'foto'
+        }
+
+        $producto->id_categoria = $request->input('id_categoria');
+
+        $producto->save();
     
-            return view("productos.message", ['msg' => "Registro guardado"]);
+        return view("productos.message", ['msg' => "Registro guardado"]);
     }
     
 
@@ -82,14 +114,21 @@ class productoController extends Controller
     public function show($id)
     {
         $producto = Producto::find($id);
+    
+        if (!$producto) {
+            return abort(404); // O puedes redirigir a una vista personalizada para el error 404
+        }
+    
         return view('productos.show', compact('producto'));
     }
+    
 
    
     public function edit( $id)
     {
         $producto = producto::find($id);
-        return view ('productos.edit', ['producto' => $producto]);
+        $categorias = CategoriaMenu::all();
+        return view ('productos.edit', ['producto' => $producto, 'categorias' => $categorias]);
     }
 
     
@@ -99,13 +138,42 @@ class productoController extends Controller
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048'  ,
             'nombre' => 'required|max:50',
             'descripcion' => 'nullable|',
-            'precio' => 'required|'
+            'precio' => 'required|',
+            'id_categoria' => 'required',
         ]);
 
         $producto = Producto::find($id);
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
-        $producto->precio = $request->input('precio'); 
+        $producto->precio = $request->input('precio');
+        
+        // Manejo de la imagen
+        if ($request->hasFile('foto')) {
+            $image = $request->file('foto');
+            $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+            $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'image' => base64_encode(file_get_contents($image->path())),
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+            }
+
+            curl_close($ch);
+
+            $resultado = json_decode($response, true);
+
+            $producto->foto = $resultado['data']['url']; // Almacena el enlace de la imagen en el campo 'foto'
+        }
+
+        $producto->id_categoria = $request->input('id_categoria');
+
         $producto->save();
 
         return view("productos.message", ['msg' => "Registro modificado"]);
@@ -113,23 +181,17 @@ class productoController extends Controller
   
     public function destroy($id)
     {
-      /**   $producto = producto::find($id);
-     *   $producto->DELETE();
-      *  return redirect("productos");
-        */
-        producto::find($id)->delete();
-        return back()->with('success','Producto eliminado correctamente');
+        Producto::destroy($id);
+        return redirect()->route('productos.index')->with('success', 'Producto eliminado correctamente');
     }
+    
 
     public function delete($id)
     {
-      /**   $producto = producto::find($id);
-     *   $producto->DELETE();
-      *  return redirect("productos");
-        */
-        producto::find($id)->delete();
-        return back()->with('success','Producto eliminado correctamente');
+        Producto::find($id)->delete();
+        return back()->with('success', 'Producto eliminado correctamente');
     }
+    
 
 
     public function trashed(){
