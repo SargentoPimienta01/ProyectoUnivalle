@@ -17,9 +17,14 @@
         </div>
         <div class="form-group">
             {{ Form::label('categoria') }}
-            {{ Form::text('categoria', $postgrado->categoria, ['class' => 'form-control' . ($errors->has('categoria') ? ' is-invalid' : ''), 'placeholder' => 'Categoria']) }}
+            {{ Form::select('categoria', [
+                'diplomado' => 'Diplomado',
+                'maestria' => 'Maestría',
+                'doctorado' => 'Doctorado'
+            ], isset($postgrado) ? strtolower($postgrado->categoria) : null, ['class' => 'form-control' . ($errors->has('categoria') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona la categoría']) }}
             {!! $errors->first('categoria', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+
         <div class="form-group">
             <label for="estado">Estado:</label>
             <select name="estado" class="form-control" required>

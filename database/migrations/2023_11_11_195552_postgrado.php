@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('postgrados', function (Blueprint $table) {
             $table->bigIncrements('Id_postgrado');
             $table->string('nombre_programa', 100);
-            $table->string('descripcion', 100);
+            $table->string('descripcion', 900);
             $table->string('modalidad', 100);
             $table->string('categoria', 100);
             $table->boolean('estado');

@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="{{ route('home') }}">Inicio</a></li>
                 <li><a href="{{ route('paservicios') }}">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <!--<li><a href="#contacto">Contacto</a></li>-->
             </ul>
         </nav>
     </header>
@@ -30,16 +30,16 @@
     <section id="servicios">
         <h2>Nuestros Servicios</h2>
         <ul>
-            <li>Atención al Cliente</li>
+            <!--<li>Atención al Cliente</li>
             <li>Soporte Técnico</li>
-            <li>Asesoramiento Personalizado</li>
+            <li>Asesoramiento Personalizado</li>-->
             @foreach($plataformasdeatencion as $servicio)
             <li>{{ $servicio->servicio}}</li>
             @endforeach
         </ul>
     </section>
 
-    <section id="contacto">
+    <!--<section id="contacto">
         <h2>Contacto</h2>
         <p>Estamos aquí para ayudarte. Contáctanos:</p>
         <br>
@@ -52,9 +52,9 @@
 
             <button type="submit">Enviar Mensaje</button>
         </form>
-    </section>
-    <footer>
+    </section>-->
+    <!--<footer>
         <p>&copy; 2023 Plataforma de Atención. Todos los derechos reservados.</p>
-    </footer>
+    </footer>-->
 </body>
 </html>

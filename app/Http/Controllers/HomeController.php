@@ -181,7 +181,6 @@ class HomeController extends Controller
         return view('home.campus.index', ['campuses' => $campuses]);
     }
 
-
     public function plataformadeatencion ()
     {
         $plataformasdeatencion = PlataformaDeAtencion::where('estado', 1)->get();
@@ -193,12 +192,6 @@ class HomeController extends Controller
         $plataformasdeatencion = PlataformaDeAtencion::where('estado', 1)->get();
         return view ('home.plataforma-de-atencion.servicios', ['plataformasdeatencion' => $plataformasdeatencion]);
     }
-
-    public function gabinetemedico ()
-    {
-        return view ('home.gabinete-medico.index');
-    }
-
     public function naf ()
     {
         $nafs = Naf::where('estado', 1)->get();
@@ -222,7 +215,33 @@ class HomeController extends Controller
 
     public function posgrado ()
     {
+        /*$posgrados = postgrado::where('estado', 1)->get();
+        return view('home.posgrado.index', ['posgrados' => $posgrados]);*/
         $posgrados = postgrado::where('estado', 1)->get();
-        return view('home.posgrado.index', ['posgrados' => $posgrados]);   
+        return view('home.posgrado.posgrados', ['posgrados' => $posgrados]);
+    }
+
+    public function postgradoDiplomado ()
+    {
+        $posgrados = postgrado::where('categoria', 'diplomado')->where('estado', 1)->get();
+
+        return view('home.posgrado.index', compact('posgrados'));
+    }
+    public function postgradoDoctorado ()
+    {
+        $posgrados = postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
+
+        return view('home.posgrado.index', compact('posgrados'));
+    }
+    public function postgradoMaestria ()
+    {
+        $posgrados = postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
+
+        return view('home.posgrado.index', compact('posgrados'));
+    }
+
+    public function gabinetemedico ()
+    {
+        return view ('home.gabinete-medico.index');
     }
 }

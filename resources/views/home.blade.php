@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:type" content="website" />
     <title>Univalle | Menu Inicio</title>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -48,7 +48,7 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="navbar-brand">
             <a href="{{ route('home') }}">
-                <img src="{{ Vite::asset('resources/img/UnivalleLogo.png') }}" alt="Univalle Logo" height="70">
+                <img src="{{ Vite::asset('resources/images/UnivalleLogo.png') }}" alt="Univalle Logo" height="70">
                 <span class="univalle-text">UNIVALLE</span>
             </a>
         </div>
@@ -172,6 +172,19 @@
                 </div>
                 
             </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="custom-link" onclick="window.location.href='{{ route('plataforma-de-atencion') }}'" style="cursor: pointer;">
+                    <div class="card">
+                        <img src="https://img.freepik.com/free-vector/flat-customer-support-illustration_23-2148899114.jpg?w=740&t=st=1701622438~exp=1701623038~hmac=ff5d16f1f83731a48ee2e60bc4c93b1d786f4aeb01224128217f0d435b92bfb8" alt="Imagen 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Plataforma de atención</h5>
+                            <p class="card-text">Plataforma de atención.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

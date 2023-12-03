@@ -29,7 +29,7 @@
     <div class="cuadroInformativo">
         <div class="contenido">
             <div class="tituloInf">
-                <h3>PROGRAMA {{ $posgrado->nombre_posgrado }}</h3>
+                <h3> {{ $posgrado->nombre_programa }}</h3>
                 <br>
             </div>
             <div class="parrafoInf">
@@ -45,7 +45,7 @@
     </div>
     @endforeach
 
-        <div class="cuadroInformativo">
+        <!--<div class="cuadroInformativo">
             <div class="contenido">
                 <div class="tituloInf">
                     <h3>ATENCION AL CONTRIBUYENTE</h3>
@@ -110,6 +110,7 @@
             </div>
         </div>
 
+        
         <div class="cuadroInformativo">
             <div class="contenido">
                 <div class="tituloInf">
@@ -188,7 +189,7 @@
                 </div>
                 
             </div>
-        </div>
+        </div>-->
     </div>
 </body>
 </html>

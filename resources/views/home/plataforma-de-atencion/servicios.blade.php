@@ -14,7 +14,7 @@
             <ul>
                 <li><a href="{{ route('plataforma-de-atencion') }}">Atrás</a></li>
                 <li><a href="{{ route('paservicios') }}">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <!--<li><a href="#contacto">Contacto</a></li>-->
                 <li><a href="{{ route('home') }}">Inicio</a></li>
             </ul>
         </nav>
@@ -39,7 +39,7 @@
         </div>
         @endforeach
 
-        <div class="cuadroInformativo">
+        <!--<div class="cuadroInformativo">
             <div class="tituloInf">
                 <h3>Plan de pagos</h3>
             </div> 
@@ -103,15 +103,15 @@
                     *El estudiante debe hacerlo despues de cancelar los 1000 bs de inscripcion.
                 </p>
             </div>
-        </div>
+        </div>-->
 
         
         
     </div>
 
-    <footer>
+    <!--<footer>
         <p>&copy; 2023 Plataforma de Atención. Todos los derechos reservados.</p>
-    </footer>
+    </footer>-->
 </body>
 </html>
 
