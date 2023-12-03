@@ -17,6 +17,8 @@ use App\Models\Campus;
 use App\Models\postgrado;
 use App\Models\PlataformaDeAtencion;
 use App\Models\Biblioteca;
+use App\Models\producto;
+use App\Models\CategoriaMenu;
 
 class HomeController extends Controller
 {
@@ -202,7 +204,9 @@ class HomeController extends Controller
 
     public function cafeteria ()
     {
-        return view ('home.cafeteria.index');
+        $categorias = CategoriaMenu::where('estado',1)->get()/*paginate(3)*/;
+        $productos = producto::where('estado', 1)->get();
+        return view ('home.cafeteria.index', ['categorias' => $categorias, 'productos'=> $productos]);	
     }
 
     public function biblioteca()

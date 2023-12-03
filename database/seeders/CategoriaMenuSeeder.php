@@ -47,5 +47,19 @@ class CategoriaMenuSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+
+        DB::table('categoria_menus')->insert([
+            'nombre' => 'Especiales',
+            'descripcion' => 'Especiales Univalle',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('categoria_menus')->insert([
+            'nombre' => 'Ensaladas',
+            'descripcion' => 'Ensaladas Univalle',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
