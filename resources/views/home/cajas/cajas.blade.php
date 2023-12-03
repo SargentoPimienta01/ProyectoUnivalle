@@ -1,55 +1,91 @@
 @extends('layouts.backspace')
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta property="og:type" content="website"/>
-    <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
-    <title>Cajas | Univalle</title>
-    <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
-    
+    <title>Univalle</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
+    <style>
+        .container-fluid {
+            margin-top: 20px; 
+        }
+
+        .row:first-child {
+            margin-bottom: 20px;  
+        }
+
+        .card {
+            margin-bottom: 20px;
+            height: 210px;
+            width: 210px;
+            display: absolute;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--transparent-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
+            transition: transform 1s ease, box-shadow 1s ease;      
+        }
+        
+        .card:hover {
+        transform: scale(1.05); 
+        box-shadow: 0 6px 13px rgba(128, 9, 9, 0.945); 
+        }
+
+        .card-title {
+            color: var(--amaranth-purple);
+        border: none; 
+        margin: 0; 
+        padding: 0; 
+        background: none; 
+        padding-bottom: 15px;
+        cursor: pointer;
+        font-weight: bold;
+        }
+
+        .card-box {
+        padding: 20px;
+        height: 160px; 
+        text-align: center; 
+        }
+
+        .card img {
+            display: none;
+        }
+
+        .card-body {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-  
-      <div class="hero">
-          <!-- Barra de Navegacion -->
-          <!--<nav>
-              <a href="{{ url('/home') }}">
-              <img src="{{ Vite::asset('resources/img/banner.png') }}" alt="Univalle Logo" class="logo">
-              </a>
-              <ul>
-                  <li><a href="{{ url('/home') }}">Menu</a></li>
-                  <li><a href="{{ url('/home/tramites') }}">Tramites</a></li>
-                  <li><a href="{{ url('/home/cajas') }}">Cajas</a></li>
-                  <li><a href="#">Postgrado</a></li>
-              </ul>
-              <button class="buttonS" type="button"><a href="{{ route('login') }}">Inicio de Sesion</a></button>
-          </nav>-->
+    <h1 class="text-center mt-3" style="color: #630505;">Cajas</h1>
 
-          <div>
-            <h2 style="color: white; text-align: center;">Cajas</h2>
+    <div class="container-fluid">
+        <div class="row">
+            @foreach($cajas as $caja)
+            <div class="col-sm-6 col-md-4 col-lg-2">
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image">
+                    <div class="card-body card-box">
+                        <button type="submit" class="card-title">
+                            <span class="card-title">{{ $caja->nombre_caja }}</span>
+                        </button>
+
+                        <a href="{{ route('requisitosCaja', ['id_caja' => $caja->Id_caja, 'nombre' => Str::slug($caja->nombre_caja)]) }}" style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s; padding: 15px 20px;">
+                            Ver Requisitos
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
-
-        <div class="Opciones2">
-        @foreach($cajas as $caja)
-            <a href="{{ route('requisitosCaja', ['id_caja' => $caja->Id_caja, 'nombre' => Str::slug($caja->nombre_caja)]) }}" class="button-anon-pen">
-                <span>{{ $caja->nombre_caja }}</span>
-            </a>
-        @endforeach
     </div>
-
-
-
-        
-
-
-    </div>
-
-    <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
 
