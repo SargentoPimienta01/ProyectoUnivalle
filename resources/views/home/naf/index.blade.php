@@ -24,7 +24,56 @@
             <div class="circle"><i class="fas fa-sign-in-alt"></i></div>
         </a>
     </div>
+    @foreach($nafs as $naf)
     <div class="contenedor">
+        <div class="cuadroInformativo">
+            <div class="contenido">
+                <div class="tituloInf">
+                    <h3>{{ strtoupper($naf->nombre_naf) }}</h3>
+                </div>
+                <div class="parrafoInf">
+                    <ul>
+                    @php
+                        if ($naf->descripcion !== null) {
+                            $lineas = explode("\n", $naf->descripcion);
+                            foreach ($lineas as $linea) {
+                                $elementos = explode(',', $linea);
+                                foreach ($elementos as $elemento) {
+                                    echo '<li>' . trim($elemento) . '</li>';
+                                }
+                            }
+                        }
+                    @endphp
+                    </ul>
+                </div>
+                @foreach($requisitosNaf as $requisitoNaf)
+                @if($requisitoNaf->Id_naf == $naf->Id_naf)
+                    <div class="subTitulo">
+                        <p>Requisitos - {{ $requisitoNaf->nombre_requisito }}</p>
+                    </div>
+                    <div class="parrafoInf">
+                        <ul>
+                            @php
+                                $lineas = explode("\n", $requisitoNaf->descripcion_requisito);
+                                foreach ($lineas as $linea) {
+                                    $elementos = explode(',', $linea);
+                                    foreach ($elementos as $elemento) {
+                                        echo '<li>' . trim($elemento) . '</li>';
+                                    }
+                                }
+                            @endphp
+                        </ul>
+                    </div>
+                @endif
+            @endforeach
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+
+
+    <!--<div class="contenedor">
         <div class="cuadroInformativo">
             <div class="contenido">
                 <div class="tituloInf">
@@ -169,6 +218,6 @@
                 
             </div>
         </div>
-    </div>
+    </div>-->
 </body>
 </html>

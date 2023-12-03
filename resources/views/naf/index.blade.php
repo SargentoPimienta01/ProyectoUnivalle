@@ -37,6 +37,7 @@
 										<th>Id</th>
 										<th>Servicio</th>
 										<th>Ubicación</th>
+                                        <th>Descripción</th>
 										<th>Estado</th>
                                         <th></th>
                                     </tr>
@@ -47,6 +48,13 @@
 											<td>{{ $naf->Id_naf }}</td>
 											<td>{{ $naf->nombre_naf }}</td>
 											<td>{{ $naf->ubicacion->nombre_ubicacion }}</td>
+                                            <td>
+                                                @if($naf->descripcion === null)
+                                                    <span style="color: red;">Nulo</span>
+                                                @else
+                                                    {{ $naf->descripcion }}
+                                                @endif
+                                            </td>
 											<td>{{ $naf->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-secondary" href="{{ url('nafs/requisitos-naf/' . $naf->Id_naf) }}">

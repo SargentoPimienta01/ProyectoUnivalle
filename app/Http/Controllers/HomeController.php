@@ -19,6 +19,8 @@ use App\Models\PlataformaDeAtencion;
 use App\Models\Biblioteca;
 use App\Models\producto;
 use App\Models\CategoriaMenu;
+use App\Models\Naf;
+use App\Models\RequisitosNaf;
 
 class HomeController extends Controller
 {
@@ -199,7 +201,9 @@ class HomeController extends Controller
 
     public function naf ()
     {
-        return view ('home.naf.index');
+        $nafs = Naf::where('estado', 1)->get();
+        $requisitosNaf = RequisitosNaf::where('estado', 1)->get();
+        return view ('home.naf.index', ['nafs' => $nafs, 'requisitosNaf'=> $requisitosNaf]);
     }
 
     public function cafeteria ()

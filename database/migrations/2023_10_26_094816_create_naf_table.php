@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('nafs', function (Blueprint $table) {
             $table->bigIncrements('Id_naf');
             $table->string('nombre_naf', 100);
+            $table->string('descripcion', 100)->nullable();
             $table->unsignedBigInteger('id_ubicacion');
             $table->foreign('id_ubicacion')
                 ->references('id')

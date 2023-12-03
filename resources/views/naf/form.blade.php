@@ -7,6 +7,11 @@
             {!! $errors->first('nombre_naf', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
+            {{ Form::label('descripcion') }}
+            {{ Form::text('descripcion', $naf->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripción Naf']) }}
+            {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
+        <div class="form-group">
             {{ Form::label('id_ubicacion', 'Ubicaciones') }}
             <select name="id_ubicacion" class="form-control">
                 @foreach ($ubicaciones as $ubicacion)

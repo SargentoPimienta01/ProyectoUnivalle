@@ -13,6 +13,7 @@ class NafsTableSeeder extends Seeder
         $nafs = [
             [
                 'nombre_naf' => 'Atencion al Contribuyente',
+                'descripcion'=> 'Declaraciones juridicas, Registro compras y ventas, Rectificaciones de formularios, Consultas varias',
                 'id_ubicacion' => 1,
                 'estado' => true,
                 'Id_area' => 5, // Reemplaza esto con el ID del área al que pertenece el NAF
