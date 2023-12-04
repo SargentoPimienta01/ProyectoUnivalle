@@ -176,20 +176,26 @@ class PdfController extends Controller
         $categoria = 'Diplomado';
         $data = ['posgrados'=>$posgrados, 'categoria'=>$categoria,];
         $pdf = PDF::loadView('home.posgrado.pdf.index', $data);
-        $filename = 'posgrados'.time().'.pdf';
+        $filename = 'diplomado'.time().'.pdf';
         return $pdf->stream($filename);
     }
     public function postgradoDoctoradoPdf ()
     {
         $posgrados = postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
-
-        return view('home.posgrado.index', compact('posgrados'));
+        $categoria = 'Doctorado';
+        $data = ['posgrados'=>$posgrados, 'categoria'=>$categoria,];
+        $pdf = PDF::loadView('home.posgrado.pdf.index', $data);
+        $filename = 'doctorado'.time().'.pdf';
+        return $pdf->stream($filename);
     }
     public function postgradoMaestriaPdf ()
     {
         $posgrados = postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
-
-        return view('home.posgrado.index', compact('posgrados'));
+        $categoria = 'Maestría';
+        $data = ['posgrados'=>$posgrados, 'categoria'=>$categoria,];
+        $pdf = PDF::loadView('home.posgrado.pdf.index', $data);
+        $filename = 'maestria'.time().'.pdf';
+        return $pdf->stream($filename);
     }
 
 }

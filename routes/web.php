@@ -94,11 +94,13 @@ use App\Http\Controllers\CampusController;
     Route::get('/home/posgrado', [HomeController::class, 'posgrado'])->name('posgrado');
 
     Route::get('/home/posgrado/diplomado', [HomeController::class, 'postgradoDiplomado'])->name('posgrado.diplomado');
-
     Route::get('/home/posgrado/diplomado/pdf', [PdfController::class, 'postgradoDiplomadoPdf'])->name('posgrado.diplomadoPdf');
 
     Route::get('/home/posgrado/doctorado', [HomeController::class, 'postgradoDoctorado'])->name('posgrado.doctorado');
+    Route::get('/home/posgrado/doctorado/pdf', [PdfController::class, 'postgradoDoctoradoPdf'])->name('posgrado.doctoradoPdf');
+
     Route::get('/home/posgrado/maestria', [HomeController::class, 'postgradoMaestria'])->name('posgrado.maestria');
+    Route::get('/home/posgrado/maestria/pdf', [PdfController::class, 'postgradoMaestriaPdf'])->name('posgrado.maestriaPdf');
 
     Route::get('/home/gabinete-medico', [HomeController::class, 'gabinetemedico'])->name('gabinete-medico');
 
