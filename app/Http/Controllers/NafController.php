@@ -21,7 +21,7 @@ class NafController extends Controller
     {
         $nafs = Naf::paginate();
 
-        return view('naf.index', compact('nafs'))
+        return view('admin.naf.index', compact('nafs'))
             ->with('i', (request()->input('page', 1) - 1) * $nafs->perPage());
     }
 
@@ -34,7 +34,7 @@ class NafController extends Controller
     {
         $naf = new Naf();
         $ubicaciones = Ubicacion::all();
-        return view('naf.create', compact('naf','ubicaciones'));
+        return view('admin.naf.create', compact('naf','ubicaciones'));
     }
 
     /**
@@ -63,7 +63,7 @@ class NafController extends Controller
     {
         $naf = Naf::find($id);
 
-        return view('naf.show', compact('naf'));
+        return view('admin.naf.show', compact('naf'));
     }*/
 
     /**
@@ -77,7 +77,7 @@ class NafController extends Controller
         $naf = Naf::find($id);
         $ubicaciones = Ubicacion::all();
 
-        return view('naf.edit', compact('naf', 'ubicaciones'));
+        return view('admin.naf.edit', compact('naf', 'ubicaciones'));
     }
 
     /**

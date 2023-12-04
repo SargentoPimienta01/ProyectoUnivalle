@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Agregar') }} Plataforma De Atencion
+    {{ __('Agregar') }} Requisitos Naf
 @endsection
 
 @section('content')
@@ -13,13 +13,13 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Agregar') }} Plataforma De Atencion</span>
+                        <span class="card-title">{{ __('Agregar') }} Requisitos Naf</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('plataforma-de-atencions.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('requisitos-naf.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('plataforma-de-atencion.form')
+                            @include('admin.naf.requisitos-naf.form')
 
                         </form>
                     </div>

@@ -8,6 +8,20 @@ use PDF;
 use App\Models\CategoriaTramites;
 use App\Models\Tramite;
 use App\Models\RequisitoTramite;
+use App\Models\Caja;
+use App\Models\RequisitoCaja;
+use App\Models\BienestarUniversitario;
+use App\Models\RequisitoBienestar;
+use App\Models\DireccionCarrera;
+use App\Models\ServicioDireccion;
+use App\Models\Campus;
+use App\Models\postgrado;
+use App\Models\PlataformaDeAtencion;
+use App\Models\Biblioteca;
+use App\Models\producto;
+use App\Models\CategoriaMenu;
+use App\Models\Naf;
+use App\Models\RequisitosNaf;
 
 class PdfController extends Controller
 {
@@ -60,6 +74,39 @@ class PdfController extends Controller
         // Puedes ajustar el nombre del archivo PDF según tus necesidades
         $filename = 'requisitos_' . $id_tramite . '.pdf';
 
+        return $pdf->stream($filename);
+    }
+
+    public function requisitosCajaPdf($idCaja, $nombre = null)
+    {
+        // Obtén la información de la caja correspondiente al requisito
+        $requisitoCaja = Caja::find($idCaja);
+    
+        // Obtén los requisitos de la caja con estado 1
+        $requisitos = RequisitoCaja::where('Id_caja', $idCaja)
+            ->where('estado', 1)
+            ->get();
+    
+        $data = [
+            'requisitoCaja' => $requisitoCaja,
+            'requisitos' => $requisitos,
+            'nombre' => $nombre,
+        ];
+
+        $pdf = PDF::loadView('home.cajas.pdf.requisitos', $data);
+
+        $filename = 'requisitos'. $idCaja .'.pdf';
+
+        return $pdf->stream($filename);
+    }
+
+    public function nafPdf ()
+    {
+        $nafs = Naf::where('estado', 1)->get();
+        $requisitosNaf = RequisitosNaf::where('estado', 1)->get();
+        $data = ['nafs' => $nafs, 'requisitosNaf'=> $requisitosNaf];
+        $pdf = PDF::loadView('home.naf.pdf.index', $data);
+        $filename = 'nafs'.time().'.pdf';
         return $pdf->stream($filename);
     }
 

@@ -21,7 +21,7 @@ class bibliotecaController extends Controller
         $bibliotecas = Biblioteca::where('titulo', 'LIKE', '%' . $busqueda . '%')
             ->paginate(5);
 
-        return view('bibliotecas.index', compact('bibliotecas', 'busqueda'));
+        return view('admin.bibliotecas.index', compact('bibliotecas', 'busqueda'));
     }
 
 
@@ -39,14 +39,14 @@ class bibliotecaController extends Controller
     public function estados(Request $request)
     {
         $resultadosEliminados = Biblioteca::onlyTrashed()->get();
-        return view('bibliotecas.estados', compact('resultadosEliminados'));
+        return view('admin.bibliotecas.estados', compact('resultadosEliminados'));
     }
 
    
     public function create()
     {
         //$categorias = CategoriaMenu::all();
-        return view('bibliotecas.create');
+        return view('admin.bibliotecas.create');
     }
 
     
@@ -102,14 +102,14 @@ class bibliotecaController extends Controller
     public function show($id)
     {
         $biblioteca = Biblioteca::find($id);
-        return view('bibliotecas.show', compact('biblioteca'));
+        return view('admin.bibliotecas.show', compact('biblioteca'));
     }
 
    
     public function edit( $id)
     {
         $biblioteca = Biblioteca::find($id);
-        return view ('bibliotecas.edit', ['biblioteca' => $biblioteca]);
+        return view ('admin.bibliotecas.edit', ['biblioteca' => $biblioteca]);
     }
 
     
@@ -215,7 +215,7 @@ class bibliotecaController extends Controller
             $bibliotecas = DB::table('bibliotecas')->get();
             $pdf = app('dompdf.wrapper');
             
-            $pdf->loadView('bibliotecas.bibliotecaspdf', compact('bibliotecas'));
+            $pdf->loadView('admin.bibliotecas.bibliotecaspdf', compact('bibliotecas'));
             return $pdf->download('reporteBiblioteca.pdf');
             
         }

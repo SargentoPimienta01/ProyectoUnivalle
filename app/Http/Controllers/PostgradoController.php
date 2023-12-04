@@ -20,7 +20,7 @@ class PostgradoController extends Controller
     {
         $postgrados = Postgrado::paginate();
 
-        return view('postgrado.index', compact('postgrados'))
+        return view('admin.postgrado.index', compact('postgrados'))
             ->with('i', (request()->input('page', 1) - 1) * $postgrados->perPage());
     }
 
@@ -32,7 +32,7 @@ class PostgradoController extends Controller
     public function create()
     {
         $postgrado = new Postgrado();
-        return view('postgrado.create', compact('postgrado'));
+        return view('admin.postgrado.create', compact('postgrado'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PostgradoController extends Controller
     {
         $postgrado = Postgrado::find($id);
 
-        return view('postgrado.show', compact('postgrado'));
+        return view('admin.postgrado.show', compact('postgrado'));
     }
 
     /**
@@ -79,7 +79,7 @@ class PostgradoController extends Controller
             abort(404);
         }
 
-        return view('postgrado.edit', compact('postgrado'));
+        return view('admin.postgrado.edit', compact('postgrado'));
     }
 
     /**

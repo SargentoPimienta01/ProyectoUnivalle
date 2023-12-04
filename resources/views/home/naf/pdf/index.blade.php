@@ -1,23 +1,85 @@
-@extends('layouts.backspace')
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="summary_large_image" name="twitter:card"/>
-    <meta property="og:type" content="website"/>
-    <title>Naf | Univalle</title>
-    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>NAFs_pdf</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .logo {
+            max-width: 100px;
+        }
+
+        h1 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .contenidopro {
+            margin-top: 20px;
+        }
+
+        .hero {
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .contenedor {
+            margin-top: 20px;
+        }
+
+        .cuadroInformativo {
+            border: 1px solid #ddd;
+            padding: 20px;
+        }
+
+        .contenido {
+            text-align: center;
+        }
+
+        .tituloInf {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .subTitulo {
+            margin-top: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+
+        .parrafoInf ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .parrafoInf li {
+            margin-bottom: 5px;
+        }
+    </style>
 </head>
 
 <body>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Univalle_bol_cbb_logo.png" alt="Logo" class="logo">
     @foreach($nafs as $naf)
         <div class="contenedor">
             <div class="cuadroInformativo">

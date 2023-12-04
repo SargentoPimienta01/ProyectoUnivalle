@@ -19,7 +19,7 @@
                         <form method="POST" action="{{ route('postgrados.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
 
-                            @include('postgrado.form')
+                            @include('admin.postgrado.form')
 
                         </form>
                     </div>

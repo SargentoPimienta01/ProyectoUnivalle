@@ -22,7 +22,7 @@ class RequisitosNafController extends Controller
     {
         $requisitosNafs = RequisitosNaf::paginate();
 
-        return view('requisitos-naf.index', compact('requisitosNafs'))
+        return view('admin.naf.requisitos-naf.index', compact('requisitosNafs'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosNafs->perPage());
     }*/
     public function index($id_naf)
@@ -30,7 +30,7 @@ class RequisitosNafController extends Controller
         $requisitosNafs = RequisitosNaf::where('Id_naf', $id_naf)->paginate();
         $naf = Naf::where('Id_naf', $id_naf)->first();
 
-        return view('requisitos-naf.index', compact('requisitosNafs', 'id_naf', 'naf'))
+        return view('admin.naf.requisitos-naf.index', compact('requisitosNafs', 'id_naf', 'naf'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosNafs->perPage());
     }
 
@@ -44,7 +44,7 @@ class RequisitosNafController extends Controller
     public function create()
     {
         $requisitosNaf = new RequisitosNaf();
-        return view('requisitos-naf.create', compact('requisitosNaf'));
+        return view('admin.naf.requisitos-naf.create', compact('requisitosNaf'));
     }
 
     /**
@@ -73,7 +73,7 @@ class RequisitosNafController extends Controller
     {
         $requisitosNaf = RequisitosNaf::find($id);
 
-        return view('requisitos-naf.show', compact('requisitosNaf'));
+        return view('admin.naf.requisitos-naf.show', compact('requisitosNaf'));
     }*/
 
     /**
@@ -86,7 +86,7 @@ class RequisitosNafController extends Controller
     {
         $requisitosNaf = RequisitosNaf::find($id);
 
-        return view('requisitos-naf.edit', compact('requisitosNaf'));
+        return view('admin.naf.requisitos-naf.edit', compact('requisitosNaf'));
     }
 
     /**

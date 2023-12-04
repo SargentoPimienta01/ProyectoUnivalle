@@ -20,7 +20,7 @@ class PlataformaDeAtencionController extends Controller
     {
         $plataformaDeAtencions = PlataformaDeAtencion::paginate();
 
-        return view('plataforma-de-atencion.index', compact('plataformaDeAtencions'))
+        return view('admin.plataforma-de-atencion.index', compact('plataformaDeAtencions'))
             ->with('i', (request()->input('page', 1) - 1) * $plataformaDeAtencions->perPage());
     }
 
@@ -32,7 +32,7 @@ class PlataformaDeAtencionController extends Controller
     public function create()
     {
         $plataformaDeAtencion = new PlataformaDeAtencion();
-        return view('plataforma-de-atencion.create', compact('plataformaDeAtencion'));
+        return view('admin.plataforma-de-atencion.create', compact('plataformaDeAtencion'));
     }
 
     /**
@@ -61,7 +61,7 @@ class PlataformaDeAtencionController extends Controller
     {
         $plataformaDeAtencion = PlataformaDeAtencion::find($id);
 
-        return view('plataforma-de-atencion.show', compact('plataformaDeAtencion'));
+        return view('admin.plataforma-de-atencion.show', compact('plataformaDeAtencion'));
     }
 
     /**
@@ -74,7 +74,7 @@ class PlataformaDeAtencionController extends Controller
     {
         $plataformaDeAtencion = PlataformaDeAtencion::find($id);
 
-        return view('plataforma-de-atencion.edit', compact('plataformaDeAtencion'));
+        return view('admin.plataforma-de-atencion.edit', compact('plataformaDeAtencion'));
     }
 
     /**

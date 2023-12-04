@@ -11,14 +11,14 @@ class CategoriaMenuController extends Controller
     public function index()
     {
         $categorias = CategoriaMenu::where('estado', 1)->get();
-        return view('categoria_menus.index', compact('categorias'));
+        return view('admin.cafecito.categoria_menus.index', compact('categorias'));
     }
 
 
     public function create()
     {
         $categorias = CategoriaMenu::all();
-        return view('categoria_menus.create', ['categorias' => $categorias]);
+        return view('admin.cafecito.categoria_menus.create', ['categorias' => $categorias]);
     }
 
     public function store(Request $request)
@@ -46,7 +46,7 @@ class CategoriaMenuController extends Controller
     public function edit( $id)
     {
         $categoria = CategoriaMenu::findOrFail($id);
-        return view('categoria_menus.edit', compact('categoria'));
+        return view('admin.cafecito.categoria_menus.edit', compact('categoria'));
     }
     
     public function update(Request $request, $id)
@@ -83,13 +83,13 @@ class CategoriaMenuController extends Controller
     public function show($id)
         {
             $categoria = CategoriaMenu::findOrFail($id);
-            return view('categoria_menus.show', compact('categoria'));
+            return view('admin.cafecito.categoria_menus.show', compact('categoria'));
         }
 
         public function inactivos()
         {
             $categoriasInactivas = CategoriaMenu::where('estado', 0)->get();
-            return view('categoria_menus.inactivos', compact('categoriasInactivas'));
+            return view('admin.cafecito.categoria_menus.inactivos', compact('categoriasInactivas'));
         }
         
 

@@ -77,6 +77,7 @@ use App\Http\Controllers\CampusController;
     Route::post('/subir-imagen', [ImagenController::class, 'subirImagen']);
 
     Route::get('/home/naf', [HomeController::class, 'naf'])->name('naf');
+    Route::get('/home/naf/pdf', [PdfController::class, 'nafPdf'])->name('nafPdf');
 
     Route::get('/home/cafeteria', [HomeController::class, 'cafeteria'])->name('cafeteria');
     Route::get('/home/biblioteca', [HomeController::class, 'biblioteca'])->name('biblioteca');
@@ -98,6 +99,11 @@ use App\Http\Controllers\CampusController;
     ->where('id_caja', '[0-9]+')
     ->where('nombre', '[A-Za-z0-9\-]+') // Permite solo letras, números y guiones en el nombre
     ->name('requisitosCaja');
+
+    Route::get('/home/requisitosCaja/{id_caja}/{nombre?}/pdf', [PdfController::class, 'requisitosCajaPdf'])
+    ->where('id_caja', '[0-9]+')
+    ->where('nombre', '[A-Za-z0-9\-]+') // Permite solo letras, números y guiones en el nombre
+    ->name('requisitosCajaPdf');
 
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');

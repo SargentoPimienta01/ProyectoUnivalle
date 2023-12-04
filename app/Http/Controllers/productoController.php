@@ -23,7 +23,7 @@ class productoController extends Controller
         ->where('estado', 1)
         ->paginate(5);
 
-    return view('productos.index', compact('productos', 'busqueda'));
+    return view('admin.cafecito.productos.index', compact('productos', 'busqueda'));
 }
 
 
@@ -33,7 +33,7 @@ class productoController extends Controller
         $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
             ->where('estado', 0)
             ->paginate(5);
-        return view('productos.inactivos', compact('productos', 'busqueda'));
+        return view('admin.cafecito.productos.inactivos', compact('productos', 'busqueda'));
     }
 
 
@@ -51,14 +51,14 @@ class productoController extends Controller
     public function estados(Request $request)
     {
         $resultadosEliminados = Producto::onlyTrashed()->get();
-        return view('productos.estados', compact('resultadosEliminados'));
+        return view('admin.cafecito.productos.estados', compact('resultadosEliminados'));
     }
 
    
     public function create()
     {
         $categorias = CategoriaMenu::all();
-        return view('productos.create', compact('categorias'));
+        return view('admin.cafecito.productos.create', compact('categorias'));
     }
 
     
@@ -119,7 +119,7 @@ class productoController extends Controller
             return abort(404); // O puedes redirigir a una vista personalizada para el error 404
         }
     
-        return view('productos.show', compact('producto'));
+        return view('admin.cafecito.productos.show', compact('producto'));
     }
     
 
@@ -128,7 +128,7 @@ class productoController extends Controller
     {
         $producto = producto::find($id);
         $categorias = CategoriaMenu::all();
-        return view ('productos.edit', ['producto' => $producto, 'categorias' => $categorias]);
+        return view('admin.cafecito.productos.edit', ['producto' => $producto, 'categorias' => $categorias]);
     }
 
     
@@ -223,7 +223,7 @@ class productoController extends Controller
             $productos = DB::table('productos')->get();
             $pdf = app('dompdf.wrapper');
             
-            $pdf->loadView('productos.productospdf', compact('productos'));
+            $pdf->loadView('admin.cafecito.productos.productospdf', compact('productos'));
             return $pdf->download('reporteProductos.pdf');
             
         }
