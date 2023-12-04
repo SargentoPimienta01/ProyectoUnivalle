@@ -56,6 +56,11 @@ use App\Http\Controllers\CampusController;
     ->where('servicio', '[A-Za-z0-9\-]+')
     ->name('requisitosBienestaru');
 
+    Route::get('/home/bienestar-universitario/{id_bienestar}/{servicio?}/pdf', [PdfController::class, 'requisitosBienestaruPdf'])
+    ->where('id_bienestar', '[0-9]+')
+    ->where('servicio', '[A-Za-z0-9\-]+')
+    ->name('requisitosBienestaruPdf');
+
     //Direccion de carrera
     Route::get('/home/direccion-de-carrera', [HomeController::class, 'direccioncarrera'])->name('direccion-de-carrera');
     
@@ -63,6 +68,11 @@ use App\Http\Controllers\CampusController;
     ->where('id_direccion', '[0-9]+')
     ->where('servicio', '[A-Za-z0-9\-]+')
     ->name('serviciosDireccion');
+
+    Route::get('/home/direccion-de-carrera/{id_direccion}/{servicio?}/pdf', [PdfController::class, 'serviciosDireccionPdf'])
+    ->where('id_direccion', '[0-9]+')
+    ->where('servicio', '[A-Za-z0-9\-]+')
+    ->name('serviciosDireccionPdf');
 
     //Campus
     Route::get('/home/campus', [HomeController::class, 'campus'])->name('campus');
@@ -84,6 +94,9 @@ use App\Http\Controllers\CampusController;
     Route::get('/home/posgrado', [HomeController::class, 'posgrado'])->name('posgrado');
 
     Route::get('/home/posgrado/diplomado', [HomeController::class, 'postgradoDiplomado'])->name('posgrado.diplomado');
+
+    Route::get('/home/posgrado/diplomado/pdf', [PdfController::class, 'postgradoDiplomadoPdf'])->name('posgrado.diplomadoPdf');
+
     Route::get('/home/posgrado/doctorado', [HomeController::class, 'postgradoDoctorado'])->name('posgrado.doctorado');
     Route::get('/home/posgrado/maestria', [HomeController::class, 'postgradoMaestria'])->name('posgrado.maestria');
 

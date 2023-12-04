@@ -19,11 +19,11 @@
     <div class="hero">
             <h1 class="text-center mt-3" style="color: #630505;">Servicios de Bienestar</h1>
                 <div class="Opciones2">
-                    @foreach($bienestares as $bienestar)
-                        <a href="{{ route('requisitosBienestaru', ['id_bienestar' => $bienestar->id, 'nombre' => Str::slug($bienestar->servicio)]) }}" class="button-anon-pen">
-                            <span>{{ $bienestar->servicio }}</span>
-                        </a>
-                    @endforeach
+                @foreach($bienestares as $bienestar)
+                    <a href="{{ route('requisitosBienestaru', ['id_bienestar' => $bienestar->id, 'servicio' => Str::slug($bienestar->servicio)]) }}" class="button-anon-pen">
+                        <span>{{ $bienestar->servicio }}</span>
+                    </a>
+                @endforeach
                 </div>
     </div>
       <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>

@@ -33,7 +33,7 @@
         </nav>-->
 
         <div>
-            <h2 style="color: white; text-align: center;">Requisitos de Servicio: {{ $servicioBienestar->nombre_caja }}</h2>
+            <h2 style="color: white; text-align: center;">Requisitos de Servicio: {{ $servicioBienestar->servicio }}</h2>
         </div>
 
 

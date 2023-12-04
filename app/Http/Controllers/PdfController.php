@@ -110,4 +110,86 @@ class PdfController extends Controller
         return $pdf->stream($filename);
     }
 
+    public function requisitosBienestaruPdf($idBienestar, $servicio = null)
+    {
+        $servicioBienestar = BienestarUniversitario::find($idBienestar);
+    
+        $servicios = RequisitoBienestar::where('Id_bienestar', $idBienestar)
+            ->where('estado', 1)
+            ->get();
+        
+        // Verificar si se encontró el BienestarUniversitario
+        if ($servicioBienestar) {
+            // Acceder a la relación 'ubicacion' para obtener la ubicación asociada
+            $ubicacion = $servicioBienestar->ubicacion;
+        } else {
+            // Manejar el caso en el que no se encuentre el BienestarUniversitario
+            $ubicacion = null;
+        }
+    
+        $data = [
+            'servicioBienestar' => $servicioBienestar,
+            'servicios' => $servicios,
+            'servicio' => $servicio,
+            'ubicacion' => $ubicacion,
+        ];
+
+        $pdf = PDF::loadView('home.bienestar.pdf.servicios', $data);
+        $filename = 'bienestar'.time().'.pdf';
+        return $pdf->stream($filename);
+    }
+
+    public function serviciosDireccionPdf($idDireccion, $servicio = null)
+    {
+        $servicioDireccion = DireccionCarrera::find($idDireccion);
+    
+        //$servicios = $servicioDireccion->servicios()->where('estado', 1)->get();
+
+        $servicios = ServicioDireccion::where('direccion_carrera_id', $idDireccion)
+            ->where('estado', 1)
+            ->get();
+
+        // Verificar si se encontró el BienestarUniversitario
+        if ($servicioDireccion) {
+            // Acceder a la relación 'ubicacion' para obtener la ubicación asociada
+            $ubicacion = $servicioDireccion->ubicacion;
+        } else {
+            // Manejar el caso en el que no se encuentre el BienestarUniversitario
+            $ubicacion = null;
+        }
+    
+        $data = [
+            'servicioDireccion' => $servicioDireccion,
+            'servicios' => $servicios,
+            'servicio' => $servicio,
+            'ubicacion' => $ubicacion,
+        ];
+
+        $pdf = PDF::loadView('home.direccioncarrera.pdf.servicio', $data);
+        $filename = 'direccion_carrera'.time().'.pdf';
+        return $pdf->stream($filename);
+    }
+
+    public function postgradoDiplomadoPdf()
+    {
+        $posgrados = postgrado::where('categoria', 'diplomado')->where('estado', 1)->get();
+        $categoria = 'Diplomado';
+        $data = ['posgrados'=>$posgrados, 'categoria'=>$categoria,];
+        $pdf = PDF::loadView('home.posgrado.pdf.index', $data);
+        $filename = 'posgrados'.time().'.pdf';
+        return $pdf->stream($filename);
+    }
+    public function postgradoDoctoradoPdf ()
+    {
+        $posgrados = postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
+
+        return view('home.posgrado.index', compact('posgrados'));
+    }
+    public function postgradoMaestriaPdf ()
+    {
+        $posgrados = postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
+
+        return view('home.posgrado.index', compact('posgrados'));
+    }
+
 }
