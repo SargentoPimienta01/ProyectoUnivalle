@@ -64,7 +64,7 @@
                     <div class="card">
                         <img src="{{ Vite::asset('resources/images/TRAMITESS.png') }}" alt="Imagen 1">
                         <div class="card-body">
-                            <h5 class="card-title">Tramites</h5>
+                            <h5 class="card-title">Información de Tramites</h5>
                             <p class="card-text">Gestión académica y administrativa.</p>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                     <div class="card">
                         <img src="{{ Vite::asset('resources/images/CAJASS.png') }}" alt="Imagen 1">
                         <div class="card-body">
-                            <h5 class="card-title">Cajas</h5>
+                            <h5 class="card-title">Información de Cajas</h5>
                             <p class="card-text">Finanzas y pagos.</p>
                         </div>
                     </div>
@@ -89,60 +89,8 @@
                     <div class="card">
                         <img src="{{ Vite::asset('resources/images/NAFF.png') }}" alt="Imagen 1">
                         <div class="card-body">
-                            <h5 class="card-title">Naf</h5>
+                            <h5 class="card-title">Información de Naf</h5>
                             <p class="card-text">Asesoría tributaria docentes.</p>
-                        </div>
-                    </div>
-                </div>                
-            </div>
-
-            
-
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="custom-link" onclick="window.location.href='{{ route('bienestar-universitario') }}'" style="cursor: pointer;">
-                    <div class="card">
-                        <img src="{{ Vite::asset('resources/images/MEDICOO.png') }}" alt="Imagen 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Bienestar Universitario</h5>
-                            <p class="card-text">Apoyo estudiantil integral.</p>
-                        </div>
-                    </div>
-                </div>                
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="custom-link" onclick="window.location.href='{{ route('biblioteca') }}'" style="cursor: pointer;">
-                    <div class="card">
-                        <img src="{{ Vite::asset('resources/images/BIBLIOTECAA.png') }}" alt="Imagen 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Biblioteca</h5>
-                            <p class="card-text">Recursos académicos esenciales.</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="custom-link" onclick="window.location.href='{{ route('posgrado') }}'" style="cursor: pointer;">
-                    <div class="card">
-                        <img src="{{ Vite::asset('resources/images/POSGRADOO.png') }}" alt="Imagen 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Postgrado</h5>
-                            <p class="card-text">Estudios avanzados.</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="custom-link" onclick="window.location.href='{{ route('cafeteria') }}'" style="cursor: pointer;">
-                    <div class="card">
-                        <img src="{{ Vite::asset('resources/images/CAFETERIAA.png') }}" alt="Imagen 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Cafeteria</h5>
-                            <p class="card-text">Opciones gastronómicas sociales.</p>
                         </div>
                     </div>
                 </div>                
@@ -153,24 +101,35 @@
                     <div class="card">
                         <img src="{{ Vite::asset('resources/images/D_CARRERAA.png') }}" alt="Imagen 1">
                         <div class="card-body">
-                            <h5 class="card-title">Direccion de carrera</h5>
+                            <h5 class="card-title">Información de Direcciones de carrera</h5>
                             <p class="card-text">Coordinación académica específica.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="custom-link" onclick="window.location.href='{{ route('posgrado') }}'" style="cursor: pointer;">
+                    <div class="card">
+                        <img src="{{ Vite::asset('resources/images/POSGRADOO.png') }}" alt="Imagen 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Postgrados</h5>
+                            <p class="card-text">Estudios avanzados.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="custom-link" onclick="window.location.href='{{ route('campus') }}'" style="cursor: pointer;">
+                <div class="custom-link" onclick="window.location.href='{{ route('bienestar-universitario') }}'" style="cursor: pointer;">
                     <div class="card">
-                        <img src="{{ Vite::asset('resources/images/CAMPUSS.png') }}" alt="Imagen 1">
+                        <img src="{{ Vite::asset('resources/images/MEDICOO.png') }}" alt="Imagen 1">
                         <div class="card-body">
-                            <h5 class="card-title">Campus</h5>
-                            <p class="card-text">Entorno universitario deportivo.</p>
+                            <h5 class="card-title">Información de Bienestar Universitario</h5>
+                            <p class="card-text">Apoyo estudiantil integral.</p>
                         </div>
                     </div>
-                </div>
-                
+                </div>                
             </div>
 
             <div class="col-sm-6 col-md-4 col-lg-3">
@@ -178,13 +137,54 @@
                     <div class="card">
                         <img src="https://img.freepik.com/free-vector/flat-customer-support-illustration_23-2148899114.jpg?w=740&t=st=1701622438~exp=1701623038~hmac=ff5d16f1f83731a48ee2e60bc4c93b1d786f4aeb01224128217f0d435b92bfb8" alt="Imagen 1">
                         <div class="card-body">
-                            <h5 class="card-title">Plataforma de atención</h5>
+                            <h5 class="card-title">Información de Plataforma de atención</h5>
                             <p class="card-text">Plataforma de atención.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="custom-link" onclick="window.location.href='{{ route('biblioteca') }}'" style="cursor: pointer;">
+                    <div class="card">
+                        <img src="{{ Vite::asset('resources/images/BIBLIOTECAA.png') }}" alt="Imagen 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Biblioteca</h5>
+                            <p class="card-text">Recursos académicos esenciales.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
             
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="custom-link" onclick="window.location.href='{{ route('cafeteria') }}'" style="cursor: pointer;">
+                    <div class="card">
+                        <img src="{{ Vite::asset('resources/images/CAFETERIAA.png') }}" alt="Imagen 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Cafeteria</h5>
+                            <p class="card-text">Opciones gastronómicas sociales.</p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+            
+
+            <div class="col-sm-6 col-md-4 col-lg-3">
+                <div class="custom-link" onclick="window.location.href='{{ route('campus') }}'" style="cursor: pointer;">
+                    <div class="card">
+                        <img src="{{ Vite::asset('resources/images/CAMPUSS.png') }}" alt="Imagen 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Información de Campus deportivo</h5>
+                            <p class="card-text">Entorno universitario deportivo.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
