@@ -41,6 +41,83 @@
         transform: scale(1.05); 
         box-shadow: 0 6px 13px rgba(128, 9, 9, 0.945); 
         }
+
+        #header {
+            text-align: center;
+            margin: 20px;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+
+        #person-container {
+            position: fixed;
+            width: 100px;
+            height: 200px;
+            margin-bottom: 30px;
+            margin-right: 30px;
+            margin-top: 450px;
+            display: flex;
+            background-color: #886060;
+            padding: 20px;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            z-index: 99;
+        }
+
+        #person {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            border-radius: 50%;
+            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+            animation: bounce 2s infinite;
+        }
+
+        #bubble {
+            width: 140px;
+            height: 100px;
+            background-color: #a0a0a0;
+            text-align: center;
+            margin: 30px;
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-70%);
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        #text {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -57,6 +134,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
+
+    <div id="person-container">
+ 
+        <img id="person" class="person-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_JdYlVpWfBP468NtwMoaWp7itjbhXr8NtFYoaWBMfQY4pH4iPWBa4zNuq7bNU3LkqFR4&usqp=CAU" alt="Person Icon">
+        <div id="bubble">
+            <p id="text"></p>
+        </div>
+    </div>
+    
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-6 col-md-4 col-lg-3">
@@ -183,13 +269,60 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
+
         </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const textArray = [
+            "¡Hola!",
+            "Estoy aquí para ayudarte.",
+            "Sere tu guía para guiarte en la pagina.", 
+            "Cada Boton es un link que te dara informacion.",
+            "Del Area que te indica.",
+            "Cuando el cursor este arriba de este boton.",
+            "Se hara mas grande.",
+            "¡Buena suerte!"
+        ];
+        let textIndex = 0;
+        const textElement = document.getElementById('text');
+        const bubble = document.getElementById('bubble');
+        const personImage = document.getElementById('person');
+    
+        function showText() {
+            if (textIndex < textArray.length) {
+                textElement.textContent = textArray[textIndex];
+                textIndex++;
+                bubble.style.visibility = 'visible';
+                bubble.style.opacity = '1';
+                setTimeout(() => {
+                    hideText();
+                }, 3000); // Ocultar -> 3 segundos
+            }
+        }
+    
+        function hideText() {
+            bubble.style.opacity = '0';
+            setTimeout(() => {
+                bubble.style.visibility = 'hidden';
+                showText();
+            }, 500); // Esperar 0.5 s
+        }
+    
+        // inicia anim
+        showText();
+    
+        // reiniciar
+        personImage.addEventListener('click', () => {
+    
+            textIndex = 0;
+            showText();
+        });
+    </script>
 
 </body>
 
