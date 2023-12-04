@@ -43,6 +43,7 @@
                             <!-- Agrega más campos según sea necesario -->
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                <a href="{{ route('servicio-direccion.index') }}" class="btn btn-danger">{{ __('Regresar') }}</a>
                             </div>
                         </form>
                     </div>

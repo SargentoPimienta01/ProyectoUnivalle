@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('ubicaciones', function (Blueprint $table) {
             $table->id();
             $table->string('nombre_ubicacion');
+            $table->string('Image')->nullable();
             $table->string('edificio');
             $table->integer('planta');
             $table->longText('horario');

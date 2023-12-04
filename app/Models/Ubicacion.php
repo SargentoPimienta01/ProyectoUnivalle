@@ -29,6 +29,7 @@ class Ubicacion extends Model
 
     protected $fillable = [
         'nombre_ubicacion',
+        'Image',
         'edificio',
         'planta',
         'horario',

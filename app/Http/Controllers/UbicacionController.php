@@ -50,13 +50,43 @@ class UbicacionController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Ubicacion::$rules);
+        // Validación de los datos de ubicación
+        $request->validate(Ubicacion::$rules);
 
-        $ubicacion = Ubicacion::create($request->all());
+        // Crear la ubicación con los datos del request
+        $ubicacion = Ubicacion::create($request->except('imagen'));
 
-        return redirect()->route('ubicacion.index')
-            ->with('success', 'Ubicacion created successfully.');
+        // Manejo de la imagen
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+            $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'image' => base64_encode(file_get_contents($imagen->path())),
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+            }
+
+            curl_close($ch);
+
+            $resultado = json_decode($response, true);
+
+            // Almacenar la URL de la imagen en el campo 'Image' de la ubicación
+            $ubicacion->update([
+                'Image' => $resultado['data']['url'],
+            ]);
+        }
+
+        return redirect()->route('ubicacion.index')->with('success', 'Ubicacion created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -93,13 +123,43 @@ class UbicacionController extends Controller
      */
     public function update(Request $request, Ubicacion $ubicacion)
     {
-        request()->validate(Ubicacion::$rules);
+        // Validación de los datos de ubicación
+        $request->validate(Ubicacion::$rules);
 
-        $ubicacion->update($request->all());
+        // Actualizar los campos de ubicación con los datos del request
+        $ubicacion->update($request->except('imagen'));
 
-        return redirect()->route('ubicacion.index')
-            ->with('success', 'Ubicacion updated successfully');
+        // Manejo de la imagen si se proporciona una nueva
+        if ($request->hasFile('imagen')) {
+            $imagen = $request->file('imagen');
+            $api_key = '053648b06603be2d33ae1491a2b5eb18'; // Reemplaza con tu clave API de ImgBB
+
+            $ch = curl_init('https://api.imgbb.com/1/upload?key=' . $api_key);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'image' => base64_encode(file_get_contents($imagen->path())),
+            ]);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+            $response = curl_exec($ch);
+
+            if ($response === false) {
+                return redirect()->back()->with('error', 'Error al subir la imagen a ImgBB: ' . curl_error($ch));
+            }
+
+            curl_close($ch);
+
+            $resultado = json_decode($response, true);
+
+            // Actualizar el campo 'Image' con la nueva URL de la imagen
+            $ubicacion->update([
+                'Image' => $resultado['data']['url'],
+            ]);
+        }
+
+        return redirect()->route('ubicacion.index')->with('success', 'Ubicacion updated successfully');
     }
+
 
     /**
      * @param int $id

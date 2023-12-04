@@ -16,6 +16,7 @@ class UbicacionesSeeder extends Seeder
     {
         Ubicacion::create([
             'nombre_ubicacion' => 'Departamento de trámites',
+            'Image'=> 'https://i.ibb.co/C6gF0vC/Bienestar-Universitario.jpg',
             'edificio' => 'Torre B, Av Argentina N°2067',
             'planta' => 0,
             'horario' => 'LUN A VIE 08:00 a 19:00, SAB 08:00 A 12:00.',
@@ -24,6 +25,7 @@ class UbicacionesSeeder extends Seeder
 
         Ubicacion::create([
             'nombre_ubicacion' => 'Auditorio',
+            'Image'=>'https://i.ibb.co/kJ9Zzdy/Clinica-Odontologica.jpg',
             'edificio' => 'Torre A, Av Argentina N°2083',
             'planta' => 0,
             'horario' => 'Preguntar en información',

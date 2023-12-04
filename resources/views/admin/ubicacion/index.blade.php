@@ -54,6 +54,7 @@
                                         <th>No</th>
                                         
 										<th>Nombre Ubicacion</th>
+                                        <th>Mapa</th>
 										<th>Edificio</th>
 										<th>Planta</th>
 										<th>Horario</th>
@@ -68,6 +69,72 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $ubicacion->nombre_ubicacion }}</td>
+                                            <td>
+                                                <img class="thumbnail" src="{{ $ubicacion->Image }}" onclick="showImagePopup('{{ $ubicacion->Image }}')">
+                                            </td>
+
+                                            <!-- Popup de la imagen -->
+                                            <div class="image-popup" id="imagePopup">
+                                                <span class="close" onclick="closeImagePopup()">&times;</span>
+                                                <img class="popup-content" id="imgPopup">
+                                            </div>
+
+                                            <style>
+                                                /* Estilos para la miniatura */
+                                                .thumbnail {
+                                                    cursor: pointer;
+                                                    max-width: 100px; /* Tamaño inicial de la miniatura */
+                                                }
+
+                                                /* Estilos para el popup */
+                                                .image-popup {
+                                                    display: none;
+                                                    position: fixed;
+                                                    z-index: 1;
+                                                    left: 0;
+                                                    top: 0;
+                                                    width: 100%;
+                                                    height: 100%;
+                                                    overflow: auto;
+                                                    background-color: rgba(0, 0, 0, 0.9);
+                                                    padding-top: 120px;
+                                                }
+
+                                                .popup-content {
+                                                    padding-left: 50px;
+                                                    margin: auto;
+                                                    display: block;
+                                                    max-width: 80%; /* Tamaño máximo del popup */
+                                                    max-height: 80vh;
+                                                }
+
+                                                .close {
+                                                    padding-top: 50px;
+                                                    color: #fff;
+                                                    position: absolute;
+                                                    top: 15px;
+                                                    right: 35px;
+                                                    font-size: 30px;
+                                                    font-weight: bold;
+                                                    cursor: pointer;
+                                                }
+                                            </style>
+
+                                            <script>
+                                                // Función para mostrar el popup con la imagen más grande
+                                                function showImagePopup(imgSrc) {
+                                                    var popup = document.getElementById("imagePopup");
+                                                    var popupImg = document.getElementById("imgPopup");
+                                                    popup.style.display = "block";
+                                                    popupImg.src = imgSrc;
+                                                }
+
+                                                // Función para cerrar el popup
+                                                function closeImagePopup() {
+                                                    var popup = document.getElementById("imagePopup");
+                                                    popup.style.display = "none";
+                                                }
+                                            </script>
 											<td>{{ $ubicacion->edificio }}</td>
 											<td>
                                             @if ($ubicacion->planta == 0)
@@ -80,7 +147,7 @@
 											<td>{{ $ubicacion->detalles_direccion }}</td>
 
                                             <td>
-                                                <a class="btn btn-sm btn-primary " href="{{ route('ubicacion.show',$ubicacion->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
+                                                <!--<a class="btn btn-sm btn-primary " href="{{ route('ubicacion.show',$ubicacion->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>-->
                                                 <a class="btn btn-sm btn-success" href="{{ route('ubicacion.edit',$ubicacion->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}</a>
                                                 <!-- Botón para cambiar el estado con modal de confirmación -->
     <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#confirmModal{{ $ubicacion->id }}">
