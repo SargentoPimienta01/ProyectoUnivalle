@@ -1,16 +1,16 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-52e09cd6.css",
+    "file": "assets/app-a05429b0.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
   "resources/css/asistente.css": {
-    "file": "assets/asistente-a7fe97f3.css",
+    "file": "assets/asistente-63c8beb2.css",
     "isEntry": true,
     "src": "resources/css/asistente.css"
   },
   "resources/css/cafeteria.css": {
-    "file": "assets/cafeteria-b39dac6b.css",
+    "file": "assets/cafeteria-1cb101e4.css",
     "isEntry": true,
     "src": "resources/css/cafeteria.css"
   },
@@ -30,123 +30,87 @@
     "src": "resources/css/login.css"
   },
   "resources/css/menu.css": {
-    "file": "assets/menu-7cbc3170.css",
+    "file": "assets/menu-7c6d3665.css",
     "isEntry": true,
     "src": "resources/css/menu.css"
   },
   "resources/css/styles.css": {
-    "file": "assets/styles-71206377.css",
+    "file": "assets/styles-58efbc14.css",
     "isEntry": true,
     "src": "resources/css/styles.css"
   },
   "resources/css/tramites.css": {
-    "file": "assets/tramites-1ea545e0.css",
+    "file": "assets/tramites-076a238d.css",
     "isEntry": true,
     "src": "resources/css/tramites.css"
   },
-  "resources/images/BIBLIOTECA.png": {
-    "file": "assets/BIBLIOTECA-4ed993c7.js",
+  "resources/images/BIBLIOTECAA.png": {
+    "file": "assets/BIBLIOTECAA-4ed993c7.js",
     "isEntry": true,
-    "src": "resources/images/BIBLIOTECA.png"
+    "src": "resources/images/BIBLIOTECAA.png"
   },
-  "resources/images/CAFETERIA.png": {
-    "file": "assets/CAFETERIA-4ed993c7.js",
+  "resources/images/CAFETERIAA.png": {
+    "file": "assets/CAFETERIAA-4ed993c7.js",
     "isEntry": true,
-    "src": "resources/images/CAFETERIA.png"
+    "src": "resources/images/CAFETERIAA.png"
   },
-  "resources/images/MEDICO.png": {
-    "file": "assets/MEDICO-4ed993c7.js",
+  "resources/images/CAJASS.png": {
+    "file": "assets/CAJASS-4ed993c7.js",
     "isEntry": true,
-    "src": "resources/images/MEDICO.png"
+    "src": "resources/images/CAJASS.png"
   },
-  "resources/images/NAF.png": {
-    "file": "assets/NAF-4ed993c7.js",
-    "isEntry": true,
-    "src": "resources/images/NAF.png"
+  "resources/images/CAMPUSS.png": {
+    "file": "assets/CAMPUSS-c9dab734.png",
+    "src": "resources/images/CAMPUSS.png"
   },
-  "resources/images/POSGRADO.png": {
-    "file": "assets/POSGRADO-4ed993c7.js",
-    "isEntry": true,
-    "src": "resources/images/POSGRADO.png"
+  "resources/images/D_CARRERAA.png": {
+    "file": "assets/D_CARRERAA-8cceb17c.png",
+    "src": "resources/images/D_CARRERAA.png"
   },
-  "resources/images/P_ATENCION.png": {
-    "file": "assets/P_ATENCION-4ed993c7.js",
+  "resources/images/MEDICOO.png": {
+    "file": "assets/MEDICOO-4ed993c7.js",
     "isEntry": true,
-    "src": "resources/images/P_ATENCION.png"
+    "src": "resources/images/MEDICOO.png"
+  },
+  "resources/images/NAFF.png": {
+    "file": "assets/NAFF-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/images/NAFF.png"
+  },
+  "resources/images/POSGRADOO.png": {
+    "file": "assets/POSGRADOO-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/images/POSGRADOO.png"
+  },
+  "resources/images/P_ATENCIONN.png": {
+    "file": "assets/P_ATENCIONN-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/images/P_ATENCIONN.png"
+  },
+  "resources/images/TRAMITESS.png": {
+    "file": "assets/TRAMITESS-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/images/TRAMITESS.png"
+  },
+  "resources/images/UnivalleLogo.png": {
+    "file": "assets/UnivalleLogo-b6e9f2d6.png",
+    "src": "resources/img/UnivalleLogo.png"
   },
   "resources/images/Univalle_logo.png": {
     "file": "assets/UnivalleLogo-b6e9f2d6.png",
     "src": "resources/img/UnivalleLogo.png"
   },
-  "resources/images/cafe.jpg": {
-    "file": "assets/cafe-47ad4b21.jpg",
-    "src": "resources/images/cafe.jpg"
-  },
-  "resources/images/cafecitoo.png": {
-    "file": "assets/cafecitoo-76b355dc.png",
-    "src": "resources/images/cafecitoo.png"
-  },
-  "resources/images/cajas.png": {
-    "file": "assets/cajas-4ed993c7.js",
-    "isEntry": true,
-    "src": "resources/images/cajas.png"
+  "resources/images/asistente.png": {
+    "file": "assets/asistente-825769b5.png",
+    "src": "resources/images/asistente.png"
   },
   "resources/images/fondo.jpeg": {
     "file": "assets/fondo-dc81c372.jpeg",
     "src": "resources/images/fondo.jpeg"
   },
-  "resources/images/torre_univalle.jpg": {
-    "file": "assets/torre_univalle-db462694.jpg",
-    "src": "resources/images/torre_univalle.jpg"
-  },
-  "resources/images/tramites.png": {
-    "file": "assets/tramites-4ed993c7.js",
-    "isEntry": true,
-    "src": "resources/images/tramites.png"
-  },
   "resources/images/univalle_fondo.gif": {
     "file": "assets/univalle_fondo-51328f78.gif",
     "src": "resources/images/univalle_fondo.gif"
-  },
-  "resources/img/Especiales/bbq.jpg": {
-    "file": "assets/bbq-b5f09664.jpg",
-    "src": "resources/img/Especiales/bbq.jpg"
-  },
-  "resources/img/Especiales/choriburguer.jpg": {
-    "file": "assets/choriburguer-7cdb34a1.jpg",
-    "src": "resources/img/Especiales/choriburguer.jpg"
-  },
-  "resources/img/Especiales/clasica.jpg": {
-    "file": "assets/clasica-ad81646f.jpg",
-    "src": "resources/img/Especiales/clasica.jpg"
-  },
-  "resources/img/Especiales/pique.jpg": {
-    "file": "assets/pique-fcc663ae.jpg",
-    "src": "resources/img/Especiales/pique.jpg"
-  },
-  "resources/img/Especiales/porky.jpg": {
-    "file": "assets/porky-92651e0a.jpg",
-    "src": "resources/img/Especiales/porky.jpg"
-  },
-  "resources/img/Especiales/salchiburguer.jpg": {
-    "file": "assets/salchiburguer-9bafc8f9.jpg",
-    "src": "resources/img/Especiales/salchiburguer.jpg"
-  },
-  "resources/img/Especiales/salchipapa.jpg": {
-    "file": "assets/salchipapa-b1259985.jpg",
-    "src": "resources/img/Especiales/salchipapa.jpg"
-  },
-  "resources/img/Especiales/suizo.jpg": {
-    "file": "assets/suizo-dc8f3034.jpg",
-    "src": "resources/img/Especiales/suizo.jpg"
-  },
-  "resources/img/Especiales/texmex.jpg": {
-    "file": "assets/texmex-7a95af14.jpg",
-    "src": "resources/img/Especiales/texmex.jpg"
-  },
-  "resources/img/UnivalleBackground.jpeg": {
-    "file": "assets/UnivalleBackground-bf65d40e.jpeg",
-    "src": "resources/img/UnivalleBackground.jpeg"
   },
   "resources/img/UnivalleLema.png": {
     "file": "assets/UnivalleLema-db645363.png",
@@ -161,230 +125,6 @@
     "file": "assets/banner-4ed993c7.js",
     "isEntry": true,
     "src": "resources/img/banner.png"
-  },
-  "resources/img/cafeteria/cafe.jpg": {
-    "file": "assets/cafe-517e245a.jpg",
-    "src": "resources/img/cafeteria/cafe.jpg"
-  },
-  "resources/img/cafeteria/capuchino.jpg": {
-    "file": "assets/capuchino-b96ddcbc.jpg",
-    "src": "resources/img/cafeteria/capuchino.jpg"
-  },
-  "resources/img/cafeteria/destilado.jpg": {
-    "file": "assets/destilado-712e34e3.jpg",
-    "src": "resources/img/cafeteria/destilado.jpg"
-  },
-  "resources/img/cafeteria/especialidad.jpg": {
-    "file": "assets/especialidad-595513d8.jpg",
-    "src": "resources/img/cafeteria/especialidad.jpg"
-  },
-  "resources/img/cafeteria/expreso.jpg": {
-    "file": "assets/expreso-9ce1d97d.jpg",
-    "src": "resources/img/cafeteria/expreso.jpg"
-  },
-  "resources/img/cafeteria/mokachino.jpg": {
-    "file": "assets/mokachino-5cae061b.jpg",
-    "src": "resources/img/cafeteria/mokachino.jpg"
-  },
-  "resources/img/cafeteria/sultana.jpg": {
-    "file": "assets/sultana-f232ce96.jpg",
-    "src": "resources/img/cafeteria/sultana.jpg"
-  },
-  "resources/img/cafeteria/temate.jpg": {
-    "file": "assets/temate-0221de88.jpg",
-    "src": "resources/img/cafeteria/temate.jpg"
-  },
-  "resources/img/cafeteria/tody.jpg": {
-    "file": "assets/tody-843c8926.jpg",
-    "src": "resources/img/cafeteria/tody.jpg"
-  },
-  "resources/img/cafeteria/tody_leche.jpg": {
-    "file": "assets/tody_leche-bf46e64c.jpg",
-    "src": "resources/img/cafeteria/tody_leche.jpg"
-  },
-  "resources/img/combos desayunos/americano.jpg": {
-    "file": "assets/americano-c183e36f.jpg",
-    "src": "resources/img/combos desayunos/americano.jpg"
-  },
-  "resources/img/combos desayunos/break.jpg": {
-    "file": "assets/break-762c82a2.jpg",
-    "src": "resources/img/combos desayunos/break.jpg"
-  },
-  "resources/img/combos desayunos/continental.jpg": {
-    "file": "assets/continental-8c45d87c.jpg",
-    "src": "resources/img/combos desayunos/continental.jpg"
-  },
-  "resources/img/combos desayunos/omelet.jpg": {
-    "file": "assets/omelet-d20736ca.jpg",
-    "src": "resources/img/combos desayunos/omelet.jpg"
-  },
-  "resources/img/combos desayunos/paceño.jpg": {
-    "file": "assets/paceño-a98ccbb8.jpg",
-    "src": "resources/img/combos desayunos/paceño.jpg"
-  },
-  "resources/img/combos desayunos/panqueques.jpg": {
-    "file": "assets/panqueques-bcacfb9d.jpg",
-    "src": "resources/img/combos desayunos/panqueques.jpg"
-  },
-  "resources/img/combos desayunos/ranchero.jpg": {
-    "file": "assets/ranchero-085cc5fc.jpg",
-    "src": "resources/img/combos desayunos/ranchero.jpg"
-  },
-  "resources/img/combos desayunos/revueltos.jpg": {
-    "file": "assets/revueltos-4e183ac9.jpg",
-    "src": "resources/img/combos desayunos/revueltos.jpg"
-  },
-  "resources/img/combos desayunos/wafles.jpg": {
-    "file": "assets/wafles-98273a42.jpg",
-    "src": "resources/img/combos desayunos/wafles.jpg"
-  },
-  "resources/img/ensaladas/cesar.jpg": {
-    "file": "assets/cesar-a0e1d3a8.jpg",
-    "src": "resources/img/ensaladas/cesar.jpg"
-  },
-  "resources/img/ensaladas/ensaladadeatun.jpg": {
-    "file": "assets/ensaladadeatun-f12bb600.jpg",
-    "src": "resources/img/ensaladas/ensaladadeatun.jpg"
-  },
-  "resources/img/ensaladas/mexicana.jpg": {
-    "file": "assets/mexicana-79de0a94.jpg",
-    "src": "resources/img/ensaladas/mexicana.jpg"
-  },
-  "resources/img/ensaladas/valle.jpg": {
-    "file": "assets/valle-f01a0188.jpg",
-    "src": "resources/img/ensaladas/valle.jpg"
-  },
-  "resources/img/ensaladas/verdulera.jpg": {
-    "file": "assets/verdulera-1044c201.jpg",
-    "src": "resources/img/ensaladas/verdulera.jpg"
-  },
-  "resources/img/jugos/durazno.jpg": {
-    "file": "assets/durazno-46805934.jpg",
-    "src": "resources/img/jugos/durazno.jpg"
-  },
-  "resources/img/jugos/frutilla.jpg": {
-    "file": "assets/frutilla-b7d2f9fe.jpg",
-    "src": "resources/img/jugos/frutilla.jpg"
-  },
-  "resources/img/jugos/limonada.jpg": {
-    "file": "assets/limonada-a5c97fcf.jpg",
-    "src": "resources/img/jugos/limonada.jpg"
-  },
-  "resources/img/jugos/limonada_hierva.jpg": {
-    "file": "assets/limonada_hierva-09ac7c76.jpg",
-    "src": "resources/img/jugos/limonada_hierva.jpg"
-  },
-  "resources/img/jugos/manzana.jpg": {
-    "file": "assets/manzana-732e4c87.jpg",
-    "src": "resources/img/jugos/manzana.jpg"
-  },
-  "resources/img/jugos/mora.jpg": {
-    "file": "assets/mora-caf6b4bb.jpg",
-    "src": "resources/img/jugos/mora.jpg"
-  },
-  "resources/img/jugos/papaya.jpg": {
-    "file": "assets/papaya-ed7e9282.jpg",
-    "src": "resources/img/jugos/papaya.jpg"
-  },
-  "resources/img/jugos/piña.jpg": {
-    "file": "assets/piña-1b7e6dfa.jpg",
-    "src": "resources/img/jugos/piña.jpg"
-  },
-  "resources/img/jugos/piña_manzana.jpg": {
-    "file": "assets/piña_manzana-0df45ad9.jpg",
-    "src": "resources/img/jugos/piña_manzana.jpg"
-  },
-  "resources/img/jugos/platano_oreo.jpg": {
-    "file": "assets/platano_oreo-862c119d.jpg",
-    "src": "resources/img/jugos/platano_oreo.jpg"
-  },
-  "resources/img/jugos/sandia.jpg": {
-    "file": "assets/sandia-f9c82c46.jpg",
-    "src": "resources/img/jugos/sandia.jpg"
-  },
-  "resources/img/postres/banana_split.jpg": {
-    "file": "assets/banana_split-aa1bb652.jpg",
-    "src": "resources/img/postres/banana_split.jpg"
-  },
-  "resources/img/postres/chocolate.jpg": {
-    "file": "assets/chocolate-dc36c75d.jpg",
-    "src": "resources/img/postres/chocolate.jpg"
-  },
-  "resources/img/postres/frutilla.jpg": {
-    "file": "assets/frutilla-3b638ac7.jpg",
-    "src": "resources/img/postres/frutilla.jpg"
-  },
-  "resources/img/postres/helado_brownie.jpg": {
-    "file": "assets/helado_brownie-f981daaf.jpg",
-    "src": "resources/img/postres/helado_brownie.jpg"
-  },
-  "resources/img/postres/melva.jpg": {
-    "file": "assets/melva-2f2bc97e.jpg",
-    "src": "resources/img/postres/melva.jpg"
-  },
-  "resources/img/postres/mil_shake.jpg": {
-    "file": "assets/mil_shake-e3cc9d50.jpg",
-    "src": "resources/img/postres/mil_shake.jpg"
-  },
-  "resources/img/postres/wafles.jpg": {
-    "file": "assets/wafles-0457b557.jpg",
-    "src": "resources/img/postres/wafles.jpg"
-  },
-  "resources/img/sandwiches/atun.jpg": {
-    "file": "assets/atun-e23f74a9.jpg",
-    "src": "resources/img/sandwiches/atun.jpg"
-  },
-  "resources/img/sandwiches/choripan.jpg": {
-    "file": "assets/choripan-7c5bfebc.jpg",
-    "src": "resources/img/sandwiches/choripan.jpg"
-  },
-  "resources/img/sandwiches/crocmadame.jpg": {
-    "file": "assets/crocmadame-5077e8de.jpg",
-    "src": "resources/img/sandwiches/crocmadame.jpg"
-  },
-  "resources/img/sandwiches/huevo.jpg": {
-    "file": "assets/huevo-5468cd4c.jpg",
-    "src": "resources/img/sandwiches/huevo.jpg"
-  },
-  "resources/img/sandwiches/jamon.jpg": {
-    "file": "assets/jamon-c5138c11.jpg",
-    "src": "resources/img/sandwiches/jamon.jpg"
-  },
-  "resources/img/sandwiches/jamon_queso.jpg": {
-    "file": "assets/jamon_queso-a0290f3a.jpg",
-    "src": "resources/img/sandwiches/jamon_queso.jpg"
-  },
-  "resources/img/sandwiches/limito_jamon.jpg": {
-    "file": "assets/limito_jamon-b992fb99.jpg",
-    "src": "resources/img/sandwiches/limito_jamon.jpg"
-  },
-  "resources/img/sandwiches/lomito_res.jpg": {
-    "file": "assets/lomito_res-daa6fd81.jpg",
-    "src": "resources/img/sandwiches/lomito_res.jpg"
-  },
-  "resources/img/sandwiches/milanesa.jpg": {
-    "file": "assets/milanesa-0a834f81.jpg",
-    "src": "resources/img/sandwiches/milanesa.jpg"
-  },
-  "resources/img/sandwiches/napolitana.jpg": {
-    "file": "assets/napolitana-edcaa32c.jpg",
-    "src": "resources/img/sandwiches/napolitana.jpg"
-  },
-  "resources/img/sandwiches/pizza.jpg": {
-    "file": "assets/pizza-59bab4cf.jpg",
-    "src": "resources/img/sandwiches/pizza.jpg"
-  },
-  "resources/img/sandwiches/pollo.jpg": {
-    "file": "assets/pollo-b4b2fdaf.jpg",
-    "src": "resources/img/sandwiches/pollo.jpg"
-  },
-  "resources/img/sandwiches/tocino.jpg": {
-    "file": "assets/tocino-49fc074a.jpg",
-    "src": "resources/img/sandwiches/tocino.jpg"
-  },
-  "resources/img/sandwiches/triple.jpg": {
-    "file": "assets/triple-3e1ed169.jpg",
-    "src": "resources/img/sandwiches/triple.jpg"
   },
   "resources/img/tramites/duracion.jpeg": {
     "file": "assets/duracion-51cd852c.jpeg",
