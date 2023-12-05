@@ -3,114 +3,126 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet" type="text/css" />
-    <title>Univalle</title>
+    <!-- Tus metadatos y enlaces a CSS y Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
+    <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     <style>
         body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
+            overflow: hidden;
         }
 
-        .header {
-            text-align: center;
-            background-color: #68091F;
-            color: #f0f0f0;
-            padding: 10px;
+        .card {
+            height: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
+            margin-bottom: 20px;
         }
 
-        .info-box {
-            background-color: #68091F;
-            border: 3px solid #ccc;
-            border-radius: 10px;
-            padding: 15px 20px;
-            margin: 20px;
+        .card.zoom-effect:hover {
+            transform: scale(1.01);
         }
 
-        .info-box p {
-            font-size: 17px;
-            color: #f0f0f0;
+        .card-body {
+            padding: 40px;
+            text-align: left;
         }
 
-        .contenedor {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
         }
 
-        .cuadroInformativo {
-            margin: 10px;
+        .card-text {
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        .cuadroInformativo h3 {
-            text-align: center;
-        }
-
-        .cuadroInformativo p {
-            text-align: justify;
-        }
-
-        .link-no-style {
+        .btn-custom {
+            background-color: rgb(90, 18, 18);
+            color: white;
+            padding: 10px 15px;
             text-decoration: none;
-            color: inherit;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .btn-custom:hover {
+            background-color: #631212;
+            color: white;
+        }
+
+        .card-text {
+            padding-bottom: 13px;
+            white-space: pre-line;
+        }
+
+        .card-link {
+            color: black; 
+            text-decoration: none; 
         }
     </style>
 </head>
 
 <body>
+    <div class="container mt-4">
+        <div class="header text-center">
+            <h1 class="text-center mt-5" style="color: #630505;">POSTGRADO</h1>
+        </div>
 
-    <div class="header">
-        <h2>POSTGRADO</h2>
-    </div>
-    <div class="info-box">
-        <p>En Postgrado Univalle contarás con un amplio portafolio de Programas enfocados a satisfacer tus necesidades académicas actuales. La calidad de nuestros programas está sustentada en la experiencia académica de los profesores, combinada con su desempeño en el mundo laboral actual.</p>
-    </div>
+        <div class="info-box mt-4">
+            <p>En Postgrado Univalle contarás con un amplio portafolio de Programas enfocados a satisfacer tus necesidades académicas actuales. La calidad de nuestros programas está sustentada en la experiencia académica de los profesores, combinada con su desempeño en el mundo laboral actual.</p>
+        </div>
 
-    <div class="contenedor">
-        <a href="{{ route('posgrado.doctorado') }}" class="link-no-style">
-            <div class="cuadroInformativo PROGRAMAS">
-                <div class="tituloInf">
-                    <h3>Doctorados</h3>
-                </div>
-                <div class="parrafoInf">
-                    <p>
-                        El grado de Doctor se confiere al doctorando que ha obtenido un grado de Magister en la respectiva disciplina y que ha aprobado un programa de correspondiente, acreditando que quien lo posee, tiene competencias necesarias para efectuar investigaciones originales. El Programa de Doctorado contempla necesariamente la elaboración presentación sustentación, defensa y aprobación de una tesis doctoral, consistente en una investigación original desarrollada en forma autónoma y que signifique una contribución a la disciplina de que se trate.
-                    </p>
-                </div>
+        <div class="row mt-4">
+            <div class="col-md-4">
+                <a href="{{ route('posgrado.doctorado') }}" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Doctorados</h3>
+                            <p class="card-text">El grado de Doctor se confiere al doctorando que ha obtenido un grado de Magister en la respectiva disciplina...</p>
+                            <a href="{{ route('posgrado.doctorado') }}" class="btn btn-outline-secondary btn-custom">Ver más detalles</a>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
 
-        <a href="{{ route('posgrado.maestria') }}" class="link-no-style">
-            <div class="cuadroInformativo PROGRAMAS">
-                <div class="tituloInf">
-                    <h3>Maestrias</h3>
-                </div>
-                <div class="parrafoInf">
-                    <p>
-                        Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos. Tiene como sustento el entrenamiento sistemático y riguroso en métodos, técnicas y procedimientos de investigación, los mismos que permiten al maestrante organizar el proceso de construcción de conocimientos en diferentes áreas y disciplinas de la ciencia y la tecnología.
-                    </p>
-                </div>
+            <div class="col-md-4">
+                <a href="{{ route('posgrado.maestria') }}" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Maestrías</h3>
+                            <p class="card-text">Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos...</p>
+                            <a href="{{ route('posgrado.maestria') }}" class="btn btn-outline-secondary btn-custom">Ver más detalles</a>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
 
-        <a href="{{ route('posgrado.diplomado') }}" class="link-no-style">
-            <div class="cuadroInformativo PROGRAMAS">
-                <div class="tituloInf">
-                    <h3>Diplomados</h3>
-                </div>
-                <div class="parrafoInf">
-                    <p>
-                        Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos. Tiene como sustento el entrenamiento sistemático y riguroso en métodos, técnicas y procedimientos de investigación, los mismos que permiten al maestrante organizar el proceso de construcción de conocimientos en diferentes áreas y disciplinas de la ciencia y la tecnología.
-                    </p>
-                </div>
+            <div class="col-md-4">
+                <a href="{{ route('posgrado.diplomado') }}" class="card-link">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Diplomados</h3>
+                            <p class="card-text">Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos...</p>
+                            <a href="{{ route('posgrado.diplomado') }}" class="btn btn-outline-secondary btn-custom">Ver más detalles</a>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </a>
+        </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 
 </html>

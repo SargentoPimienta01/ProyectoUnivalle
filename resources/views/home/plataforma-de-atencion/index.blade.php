@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{ Vite::asset('resources/css/plataformadeatencion/estilos.css') }}" rel="stylesheet" type="text/css"/>
     <title>Plataforma de Atención</title>

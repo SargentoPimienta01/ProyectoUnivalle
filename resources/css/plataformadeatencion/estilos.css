@@ -6,8 +6,8 @@ body {
 }
 
 header {
-    background-color: #6a0821; /* Guindo oscuro */
-    color: white;
+    
+    color: rgb(82, 15, 15);
     text-align: center;
     padding: 1em 0;
 }
@@ -18,10 +18,10 @@ nav ul {
 }
 
 nav li {
-    background-color: #9d033f;
+    background-color: #5f092a;
     display: inline;
     margin-right: 20px;
-    border: 1px solid #9d033f; /* Añade un borde de 1 píxel sólido con color #9d033f */
+    border: 1px solid #69092e; /* Añade un borde de 1 píxel sólido con color #9d033f */
     padding: 5px; /* Agrega un poco de espacio interno */
     border-radius: 8px;
 }
