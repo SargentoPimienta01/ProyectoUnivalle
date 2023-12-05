@@ -27,5 +27,10 @@ class PermissionTableSeeder extends Seeder
         foreach ($permissions as $permission) {
              Permission::create(['name' => $permission]);
         }
+
+        Permission::create(['name' => 'area-list']);
+        Permission::create(['name' => 'area-create']);
+        Permission::create(['name' => 'area-edit']);
+        Permission::create(['name' => 'area-delete']);
     }
 }
