@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 
 class ProductosTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class ProductosTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Durazno',
             'descripcion' => 'Un jugo de durazno. Agua - leche.',
             'precio' => 9,
@@ -21,7 +22,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Frutilla',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -29,7 +30,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Café Americano',
             'descripcion' => 'Un café suave y aromático.',
             'precio' => 2.50,
@@ -37,7 +38,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Mora',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -45,7 +46,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Platano con oreo',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -53,7 +54,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
         
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Piña',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -61,7 +62,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
         
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Papaya',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -69,7 +70,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
         
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Manzana',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -77,7 +78,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
         
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Sandia',
             'descripcion' => 'Agua - leche',
             'precio' => 9,
@@ -85,7 +86,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
         
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Limonada',
             'descripcion' => 'Agua',
             'precio' => 8,
@@ -93,7 +94,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 1,
         ]);
         
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Limonada con hierva buena, apio-manzana-hierva buena.',
             'descripcion' => 'Agua',
             'precio' => 7,
@@ -102,7 +103,7 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         // Seeder para postres
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Milk Shake',
             'descripcion' => 'Frapeado de frutilla-piña-papaya',
             'precio' => 12,
@@ -110,7 +111,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 2,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Helado con brownie',
             'descripcion' => 'Porción de torta con helado',
             'precio' => 10,
@@ -118,7 +119,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 2,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Banana Split',
             'descripcion' => '3 porciones de helado acompañado de plátanos y chocolates',
             'precio' => 12,
@@ -126,7 +127,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 2,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Wafles con helado',
             'descripcion' => '2 porciones de wafles acompañado con 2 sabores de helado y frutas de estación.',
             'precio' => 16,
@@ -134,7 +135,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 2,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Copa melba',
             'descripcion' => 'Copa a elección pequeño - grande',
             'precio' => 10,
@@ -142,7 +143,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 2,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Copa de chocolate y oreo',
             'descripcion' => 'Copa a elección pequeño - grande',
             'precio' => 10,
@@ -150,7 +151,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 2,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Copa de frutilla de cherrys',
             'descripcion' => 'Copa a elección pequeño - grande',
             'precio' => 10,
@@ -159,7 +160,7 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         // Seeder para cafetería
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Cappuccino',
             'descripcion' => 'Café con partes iguales de café, leche vaporizada y espuma de leche.',
             'precio' => 8.00,
@@ -167,7 +168,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Café Latte',
             'descripcion' => 'Café con leche vaporizada y una capa de espuma.',
             'precio' => 3.50,
@@ -175,7 +176,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Mokaccino',
             'descripcion' => 'Pequeño - Grande',
             'precio' => 8,
@@ -183,7 +184,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Expreso',
             'descripcion' => 'Pequeño - Grande',
             'precio' => 7,
@@ -191,7 +192,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Café con leche',
             'descripcion' => 'Pequeño - Grande',
             'precio' => 6,
@@ -199,7 +200,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Toddy con leche',
             'descripcion' => 'Pequeño - Grande',
             'precio' => 6,
@@ -207,7 +208,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Toddy',
             'descripcion' => 'Pequeño - Grande',
             'precio' => 4,
@@ -215,7 +216,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Destilado',
             'descripcion' => '-',
             'precio' => 5,
@@ -223,7 +224,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Té-mate',
             'descripcion' => '-',
             'precio' => 5,
@@ -231,7 +232,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Sultana',
             'descripcion' => '-',
             'precio' => 5,
@@ -239,7 +240,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 3,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Café con especialidad',
             'descripcion' => '-',
             'precio' => 10,
@@ -248,7 +249,7 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         // Seeder para combos de desayuno
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Paceño',
             'descripcion' => 'Pan marraqueta, queso y café.',
             'precio' => 8,
@@ -256,7 +257,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Break de huevos',
             'descripcion' => 'Omelette de verduras, tostadas, café y jugo.',
             'precio' => 14,
@@ -264,7 +265,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Omelette de carne',
             'descripcion' => 'Omelete de relleno de carne picada y jamón, tostaadas y café.',
             'precio' => 15,
@@ -272,7 +273,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Revueltos de huevos',
             'descripcion' => 'Acompañado de jamén, tomate, cebollin, tostadas, café y jugo.',
             'precio' => 13,
@@ -280,7 +281,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Americano',
             'descripcion' => 'Tostadas, huevos revueltos, tocino, mermelada, mantequilla, café y jugo.',
             'precio' => 17,
@@ -288,7 +289,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Ranchero',
             'descripcion' => 'Pan casero, salteado de carne con verduras, papas fritas, café o te.',
             'precio' => 15,
@@ -296,7 +297,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Continental',
             'descripcion' => 'Jamón, queso, tostadas, huevos, mermelada, mantequilla y café.',
             'precio' => 15,
@@ -304,7 +305,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Waffles',
             'descripcion' => '3 unidades. Acompañado de frutas de estacion, jarabe de chocolate, cafe o te.',
             'precio' => 15,
@@ -312,7 +313,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 4,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Panqueques',
             'descripcion' => '3 unidades. Acompañado de frutas de estacion, jarabe de chocolate, café o té.',
             'precio' => 14,
@@ -321,7 +322,7 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         // Seeder para sandwiches con fotos vacías
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Jamon y queso caliente',
             'descripcion' => 'Jamon y queso y pan miga',
             'precio' => 6,
@@ -329,7 +330,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Jamon y queso frío',
             'descripcion' => 'Lechuga, tomate, aderezos y pan miga',
             'precio' => 7,
@@ -337,7 +338,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Croc Madame',
             'descripcion' => '3 capas de pan miga, jamón, queso mozarella y salsa bechamel.',
             'precio' => 10,
@@ -345,7 +346,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Lomito de res/huevo',
             'descripcion' => 'Pan lechuga, tomate y aderezos.',
             'precio' => 10,
@@ -353,7 +354,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Lomito con queso y jamón',
             'descripcion' => 'Pan lechuga, tomate y aderezos.',
             'precio' => 10,
@@ -361,7 +362,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Pollo a la plancha',
             'descripcion' => 'Pan, lechuga, tomate, cebolla en vinagre y aderezos.',
             'precio' => 10,
@@ -369,7 +370,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Pasta atún',
             'descripcion' => 'Pan blanco o integral, lechuga, pasta atún y tomate.',
             'precio' => 10,
@@ -377,7 +378,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Triple de palta y huevo',
             'descripcion' => '3 capas de pan miga, palta, tomate, huevo frito y queso',
             'precio' => 9,
@@ -385,7 +386,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Huevo y tocino',
             'descripcion' => '-',
             'precio' => 7,
@@ -393,7 +394,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Milanesa de pollo',
             'descripcion' => 'Pan, lechuga, tomate y aderezos.',
             'precio' => 8,
@@ -401,7 +402,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Napolitana',
             'descripcion' => 'Pan, milaneza de pollo, lechuga, tomate, jamón y queso.',
             'precio' => 10,
@@ -409,7 +410,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Choripán',
             'descripcion' => 'Pan, lechuga, cebolla en vinagre, tomate y aderezos.',
             'precio' => 10,
@@ -417,7 +418,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Pan pizza',
             'descripcion' => 'Pan molde, chorizo, salsa de tomate y orégano.',
             'precio' => 8,
@@ -425,7 +426,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 5,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Sandwich de huevo',
             'descripcion' => '',
             'precio' => 4,
@@ -434,7 +435,7 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         // Seeder para hamburguesas y especiales
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Hamburguesa clasica',
             'descripcion' => 'Pan, carne de res, lechuga, tomate, queso y papas fritas.',
             'precio' => 13,
@@ -442,7 +443,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Hamburguesa BBQ',
             'descripcion' => 'Pan, carne de res, lechuga, tomate, pepinillos, salsa y papas fritas.',
             'precio' => 18,
@@ -450,7 +451,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Porky Guesa',
             'descripcion' => 'Pan, carne de res, tomate, lechuga, salsa, crispis de cebolla, tocino y papas fritas.',
             'precio' => 20,
@@ -458,7 +459,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Choriburguer',
             'descripcion' => 'Pan, carne de res, chorizo, lechuga, tomate, cebolla y salsa de ajo.',
             'precio' => 20,
@@ -466,7 +467,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Tex Mex',
             'descripcion' => 'Pan, carne de res, palta, pico de gallo, nacho, queso mozarella y papas fritas.',
             'precio' => 20,
@@ -474,7 +475,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Sandwich suizo',
             'descripcion' => 'Pan, carne de res, crema de leche, champiñones, cebolla, salsa de soya, queso mozarella y papas fritas.',
             'precio' => 22,
@@ -482,7 +483,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Pan pique',
             'descripcion' => 'Salteado de carne con cebolla, tomate y salchipapa, acompañado con papas fritas.',
             'precio' => 15,
@@ -490,7 +491,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Salchipapa',
             'descripcion' => '-',
             'precio' => 12,
@@ -498,7 +499,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 6,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Salchiburguer',
             'descripcion' => '-',
             'precio' => 17,
@@ -507,7 +508,7 @@ class ProductosTableSeeder extends Seeder
         ]);
 
         // Seeder para ensaladas
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Ensalada Cesar',
             'descripcion' => 'Mix de lechugas, pollo a la plancha, croutons, queso parmesano, salsa de ajo y tomates.',
             'precio' => 15,
@@ -515,7 +516,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 7,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Ensalada del valle',
             'descripcion' => 'Mix de lechugas, suprema de pollo, zanahoria, tomates, queso criollo, tostadas y salsa de ajo.',
             'precio' => 15,
@@ -523,7 +524,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 7,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Ensalada verdulrera',
             'descripcion' => 'Mix de lechugas,pollo a la plancha, palta, choclitos, jamón, tomates asados, zuchiny, salsa de albahaca.',
             'precio' => 17,
@@ -531,7 +532,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 7,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Ensalada de atún',
             'descripcion' => 'Mix de lechugas, atún, huevo duro, rabanitos, queso criollo, tomates, maní tostado y choclitos.',
             'precio' => 16,
@@ -539,7 +540,7 @@ class ProductosTableSeeder extends Seeder
             'id_categoria' => 7,
         ]);
 
-        Producto::create([
+        DB::table('productos')->insert([
             'nombre' => 'Ensalada mexicana',
             'descripcion' => 'Mix de lechugas, palta, pico de gallo, choclitos, nachos, pollo a la plancha y aderezo de queso.',
             'precio' => 17,
