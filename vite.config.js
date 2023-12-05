@@ -18,6 +18,7 @@ export default defineConfig({
                 'resources/css/laravel.css',
                 'resources/css/login.css',
                 'resources/css/tramites.css',
+                'resources/css/nav.css',
                 'resources/sass/app.scss',
                 'resources/js/app.js',
                 'resources/js/intro.js',
