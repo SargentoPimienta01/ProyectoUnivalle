@@ -26,7 +26,7 @@
             {{ Form::text('area_responsable', $contacto->area_responsable, ['class' => 'form-control' . ($errors->has('area_responsable') ? ' is-invalid' : ''), 'placeholder' => __('Área Responsable')]) }}
             {!! $errors->first('area_responsable', '<div class="invalid-feedback">:message</div>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
             {{ Form::label('id_usuario', __('Id Usuario')) }}
             {{ Form::text('id_usuario', $contacto->id_usuario, ['class' => 'form-control' . ($errors->has('id_usuario') ? ' is-invalid' : ''), 'placeholder' => __('Id Usuario')]) }}
             {!! $errors->first('id_usuario', '<div class="invalid-feedback">:message</div>') !!}
