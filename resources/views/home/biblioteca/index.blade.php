@@ -1,3 +1,5 @@
+
+
 @extends('layouts.backspace')
 <!DOCTYPE html>
 <html lang="es">
@@ -56,21 +58,22 @@
 
         .item {
         width: 400px;
-        height: 250px;
+        height: 50%;
+        border: 1px solid #ddd;
         background-color: #fff;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgb(87, 3, 0);
+        box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
+        border-radius: 8px; 
         padding: 5px;
         text-align: center;
         border-radius: 25px;
         position: relative;
         overflow: hidden;
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out; 
         margin: 20px 10px;
         }
 
         .item:hover {
-        transform: scale(1.05);
+        transform: scale(1.01);
         }
 
         .item::before {

@@ -1,3 +1,4 @@
+
 @extends('layouts.backspace')
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="summary_large_image" name="twitter:card"/>
     <meta property="og:type" content="website"/>
-    <meta content="Product Design, Product Management and Webflow Development. I design thoughtful user experiences that piece together a big picture with simple, impactful and shippable solutions focused on the customer" name="description"/>
-    <title>Servicios de Bienestar | Univalle</title>
-    <link href="{{ Vite::asset('resources/css/styles.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ Vite::asset('resources/css/menu.css') }}" rel="stylesheet" type="text/css"/>
+    <title>Cajas | Univalle</title>
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
-    <link href="{{ Vite::asset('resources/css/tramites/styles_user_tables.css') }}" rel="stylesheet" type="text/css"/>
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
     
 </head>
 <body>
@@ -90,4 +93,3 @@
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
 </html>
-
