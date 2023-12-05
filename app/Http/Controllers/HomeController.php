@@ -14,10 +14,10 @@ use App\Models\RequisitoBienestar;
 use App\Models\DireccionCarrera;
 use App\Models\ServicioDireccion;
 use App\Models\Campus;
-use App\Models\postgrado;
+use App\Models\Postgrado;
 use App\Models\PlataformaDeAtencion;
 use App\Models\Biblioteca;
-use App\Models\producto;
+use App\Models\Producto;
 use App\Models\CategoriaMenu;
 use App\Models\Naf;
 use App\Models\RequisitosNaf;
@@ -202,7 +202,7 @@ class HomeController extends Controller
     public function cafeteria ()
     {
         $categorias = CategoriaMenu::where('estado',1)->get()/*paginate(3)*/;
-        $productos = producto::where('estado', 1)->get();
+        $productos = Producto::where('estado', 1)->get();
         return view ('home.cafeteria.index', ['categorias' => $categorias, 'productos'=> $productos]);	
     }
 
