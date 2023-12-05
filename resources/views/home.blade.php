@@ -54,70 +54,76 @@
         }
 
         #person-container {
-            position: fixed;
-            width: 100px;
-            height: 200px;
-            margin-bottom: 30px;
-            margin-right: 30px;
-            margin-top: 450px;
-            display: flex;
-            background-color: #886060;
-            padding: 20px;
-            border-radius: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: flex-end;
-            z-index: 99;
-        }
+        position: fixed;
+        width: 200px;
+        height: 200px;
+        margin: 0;
+        bottom: 30px; 
+        right: 30px; 
+        display: flex;
+        background-color: transparent;
+        padding: 20px;
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        z-index: 99;
+    }
 
-        #person {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            border-radius: 50%;
-            box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-            animation: bounce 2s infinite;
-        }
+    #bubble {
+        width: auto;
+        max-width: 200px; 
+        height: auto;
+        background-color: rgba(68, 13, 13, 0.8); 
+        text-align: center;
+        margin: 30px;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 15px;
 
-        #bubble {
-            width: 140px;
-            height: 100px;
-            background-color: #a0a0a0;
-            text-align: center;
-            margin: 30px;
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-70%);
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            
-            visibility: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        white-space: normal; 
+    }
+
+    #person {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+        box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+        animation: bounce 2s infinite;
+        opacity: 0.7; 
+    }
+
+    #text {
+        margin: 0;
+        font-size: 16px;
+        color: #ffffff;
+        max-height: 100%; 
+        overflow: hidden; 
+    }
+
+    @keyframes fadeInUp {
+        from {
+            transform: translateY(50px);
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
         }
 
-        #text {
-            margin: 0;
-            font-size: 16px;
-            color: #333;
+        to {
+            transform: translateY(0);
+            opacity: 1;
         }
+    }
 
-        @keyframes fadeInUp {
-            from {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
     </style>
 </head>
 
@@ -137,7 +143,8 @@
 
     <div id="person-container">
  
-        <img id="person" class="person-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_JdYlVpWfBP468NtwMoaWp7itjbhXr8NtFYoaWBMfQY4pH4iPWBa4zNuq7bNU3LkqFR4&usqp=CAU" alt="Person Icon">
+        <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+
         <div id="bubble">
             <p id="text"></p>
         </div>
@@ -243,8 +250,6 @@
                 
             </div>
 
-            
-
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('cafeteria') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -256,8 +261,6 @@
                     </div>
                 </div>                
             </div>
-
-            
 
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('campus') }}'" style="cursor: pointer;">
@@ -280,13 +283,11 @@
     <script>
         const textArray = [
             "¡Hola!",
-            "Estoy aquí para ayudarte.",
-            "Sere tu guía para guiarte en la pagina.", 
-            "Cada Boton es un link que te dara informacion.",
-            "Del Area que te indica.",
-            "Cuando el cursor este arriba de este boton.",
-            "Se hara mas grande.",
-            "¡Buena suerte!"
+            "Bienvenid@, estoy aquí para ayudarte.",
+            "Seré tu guía a través de la página.",
+            "Donde se te proporcionará información",
+            "sobre nuestras distintas áreas y servicios.",
+            "¡No dudes en explorar y mucha suerte!",
         ];
         let textIndex = 0;
         const textElement = document.getElementById('text');
@@ -301,19 +302,17 @@
                 bubble.style.opacity = '1';
                 setTimeout(() => {
                     hideText();
-                }, 3000); // Ocultar -> 3 segundos
+                }, 3000); 
             }
         }
-    
         function hideText() {
             bubble.style.opacity = '0';
             setTimeout(() => {
                 bubble.style.visibility = 'hidden';
                 showText();
-            }, 500); // Esperar 0.5 s
+            }, 500); 
         }
     
-        // inicia anim
         showText();
     
         // reiniciar
