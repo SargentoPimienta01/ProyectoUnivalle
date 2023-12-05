@@ -9,15 +9,14 @@
 
     <link href="{{ Vite::asset('resources/css/cafeteria.css') }}" rel="stylesheet" type="text/css"/>
     <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 </head>
 
 <body class="mt-5 container-fluid">
-    <div class="menu-container">
-        <h1>Menú<span>El cafecito</span></h1>
-    </div>
+    <h1 class="text-center mt-3" style="color: #630505;">Menu de la cafeteria </h1>
     @foreach($categorias as $categoria)
     <div class="menu-category">
         <div class="category-header">
