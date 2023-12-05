@@ -438,6 +438,11 @@ return [
             'url' => '/campuses',
             'icon' => 'fas fa-hockey-puck',
         ],
+        [
+            'text' => 'Contactos',
+            'url' => '/contactos',
+            'icon' => 'fas fa-address-card',
+        ],
     ],
 
     /*

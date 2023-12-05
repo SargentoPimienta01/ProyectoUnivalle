@@ -32,6 +32,7 @@ use App\Http\Controllers\RequisitoBienestarController;
 use App\Http\Controllers\DireccionCarreraController;
 use App\Http\Controllers\ServicioDireccionController;
 use App\Http\Controllers\CampusController;
+use App\Http\Controllers\ContactoController;
   
 /*
 |--------------------------------------------------------------------------
@@ -156,6 +157,8 @@ use App\Http\Controllers\CampusController;
     Route::resource('products', ProductController::class);
     Route::resource('postgrados', PostgradoController::class);
     Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
+
+    Route::resource('/contactos', ContactoController::class);
 
     //Bienestar Universitario
     Route::get('/bienestar', [BienestarUniversitarioController::class, 'index'])->name('bienestar.index');

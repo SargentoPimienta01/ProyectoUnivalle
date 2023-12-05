@@ -55,5 +55,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CategoriaMenuSeeder::class);
         $this->call(ProductosTableSeeder::class);
+
+        $this->call(ContactosTableSeeder::class);
     }
 }
