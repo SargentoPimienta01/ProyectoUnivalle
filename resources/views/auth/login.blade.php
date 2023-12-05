@@ -56,12 +56,12 @@
                     <span class="button__text">{{ __('Iniciar sesión') }}</span>
                     <i class="button__icon fas fa-chevron-right"></i>
                 </button>
-
+                <!--
                 @if (Route::has('password.request'))
                     <a class="forgot-password-link" href="{{ route('password.request') }}">
                         {{ __('¿Olvidaste tu contraseña?') }}
                     </a>
-                    @endif
+                    @endif-->
             </form>
 			<div class="social-login">
 			
