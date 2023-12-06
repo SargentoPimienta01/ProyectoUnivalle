@@ -39,8 +39,7 @@
   },
   "resources/css/nav.css": {
     "file": "assets/nav-808418b7.css",
-    "isEntry": true,
-    "src": "resources/css/nav.css"
+    "src": "resources/js/app.css"
   },
   "resources/css/styles.css": {
     "file": "assets/styles-58efbc14.css",
@@ -136,8 +135,15 @@
     "file": "assets/ubicacion-8320eb19.jpeg",
     "src": "resources/img/tramites/ubicacion.jpeg"
   },
+  "resources/js/app.css": {
+    "file": "assets/nav-808418b7.css",
+    "src": "resources/js/app.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-94553a09.js",
+    "css": [
+      "assets/nav-808418b7.css"
+    ],
+    "file": "assets/app-d029a510.js",
     "imports": [
       "_axios-cdc9c5d2.js"
     ],
