@@ -16,7 +16,7 @@ class CreateTramiteTable extends Migration
             $table->boolean('estado');
             $table->foreign('id_categoria_tramites')
                 ->references('id_categoria_tramites')
-                ->on('CategoriaTramites');
+                ->on('categoriatramites');
             $table->unsignedBigInteger('id_ubicacion');
             $table->foreign('id_ubicacion')
                 ->references('id')
