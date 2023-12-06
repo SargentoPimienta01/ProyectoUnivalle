@@ -25,7 +25,7 @@ class CategoriaTramitesTableSeeder extends Seeder
         ];
 
         foreach ($categorias as $categoria) {
-            DB::table('CategoriaTramites')->insert([
+            DB::table('categoriatramites')->insert([
                 'nombre_categoria' => $categoria,
                 'estado' => true,
                 'Id_area' => 1, // Cambia esto según el Id del área al que pertenecen estas categorías
