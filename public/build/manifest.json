@@ -53,18 +53,15 @@
     "src": "resources/css/tramites.css"
   },
   "resources/images/BIBLIOTECAA.png": {
-    "file": "assets/BIBLIOTECAA-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/BIBLIOTECAA-b9b4e798.png",
     "src": "resources/images/BIBLIOTECAA.png"
   },
   "resources/images/CAFETERIAA.png": {
-    "file": "assets/CAFETERIAA-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/CAFETERIAA-7a31a77c.png",
     "src": "resources/images/CAFETERIAA.png"
   },
   "resources/images/CAJASS.png": {
-    "file": "assets/CAJASS-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/CAJASS-80cf5b6c.png",
     "src": "resources/images/CAJASS.png"
   },
   "resources/images/CAMPUSS.png": {
@@ -76,28 +73,23 @@
     "src": "resources/images/D_CARRERAA.png"
   },
   "resources/images/MEDICOO.png": {
-    "file": "assets/MEDICOO-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/MEDICOO-8cf3c900.png",
     "src": "resources/images/MEDICOO.png"
   },
   "resources/images/NAFF.png": {
-    "file": "assets/NAFF-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/NAFF-81dec1a8.png",
     "src": "resources/images/NAFF.png"
   },
   "resources/images/POSGRADOO.png": {
-    "file": "assets/POSGRADOO-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/POSGRADOO-556d10a1.png",
     "src": "resources/images/POSGRADOO.png"
   },
   "resources/images/P_ATENCIONN.png": {
-    "file": "assets/P_ATENCIONN-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/P_ATENCIONN-1581ed41.png",
     "src": "resources/images/P_ATENCIONN.png"
   },
   "resources/images/TRAMITESS.png": {
-    "file": "assets/TRAMITESS-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/TRAMITESS-d6c66c50.png",
     "src": "resources/images/TRAMITESS.png"
   },
   "resources/images/UnivalleLogo.png": {
@@ -125,13 +117,11 @@
     "src": "resources/img/UnivalleLema.png"
   },
   "resources/img/UnivalleLogo.png": {
-    "file": "assets/UnivalleLogo-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/UnivalleLogo-b6e9f2d6.png",
     "src": "resources/img/UnivalleLogo.png"
   },
   "resources/img/banner.png": {
-    "file": "assets/banner-4ed993c7.js",
-    "isEntry": true,
+    "file": "assets/banner-cf140d42.png",
     "src": "resources/img/banner.png"
   },
   "resources/img/tramites/duracion.jpeg": {
