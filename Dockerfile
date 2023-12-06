@@ -50,5 +50,7 @@ RUN touch /usr/local/etc/php/conf.d/uploads.ini \
 
 RUN composer install
 RUN npm install
-RUN npm run dev
+RUN npm update
+RUN npm cache clean --force
+RUN npm run build
 CMD composer dump-autoload && php artisan migrate:fresh --force && php artisan db:seed --force && php artisan storage:link && php artisan serve --host=0.0.0.0 --port=$PORT
