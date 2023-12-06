@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CategoriaTramite;
 use App\Models\CategoriaTramites;
 use Illuminate\Http\Request;
 

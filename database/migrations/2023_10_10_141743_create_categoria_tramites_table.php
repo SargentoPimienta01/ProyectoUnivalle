@@ -8,7 +8,7 @@ class CreateCategoriaTramitesTable extends Migration
 {
     public function up()
     {
-        Schema::create('CategoriaTramites', function (Blueprint $table) {
+        Schema::create('categoriatramites', function (Blueprint $table) {
             $table->id('id_categoria_tramites');
             $table->string('nombre_categoria');
             $table->boolean('estado');
