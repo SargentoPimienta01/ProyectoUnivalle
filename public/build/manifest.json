@@ -1,4 +1,7 @@
 {
+  "_axios-cdc9c5d2.js": {
+    "file": "assets/axios-cdc9c5d2.js"
+  },
   "resources/css/app.css": {
     "file": "assets/app-800f2243.css",
     "isEntry": true,
@@ -144,7 +147,10 @@
     "src": "resources/img/tramites/ubicacion.jpeg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-4ed993c7.js",
+    "file": "assets/app-94553a09.js",
+    "imports": [
+      "_axios-cdc9c5d2.js"
+    ],
     "isEntry": true,
     "src": "resources/js/app.js"
   },
@@ -154,7 +160,10 @@
     "src": "resources/js/asistenteHome.js"
   },
   "resources/js/bootstrap.js": {
-    "file": "assets/bootstrap-39dcccdc.js",
+    "file": "assets/bootstrap-94553a09.js",
+    "imports": [
+      "_axios-cdc9c5d2.js"
+    ],
     "isEntry": true,
     "src": "resources/js/bootstrap.js"
   },
