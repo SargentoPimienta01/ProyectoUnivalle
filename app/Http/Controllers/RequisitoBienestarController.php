@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class RequisitoBienestarController extends Controller
 {
-    public function index($id_bienestar)
+    public function index($id_bienestar, $bienestar)
     {
         // Obtén solo los requisitos de bienestar con estado 1
         $requisitosBienestar = RequisitoBienestar::where('Id_bienestar', $id_bienestar)
