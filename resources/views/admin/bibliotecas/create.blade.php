@@ -33,12 +33,12 @@
 
             <div class="mb-3">
                 <label for="fecha" class="form-label">Fecha:</label>
-                <input type="date" class="form-control" name="fecha" id="fecha" required>
+                <input type="text" class="form-control" name="fecha" id="fecha" value="{{ $fechaHoraActual->format('Y-m-d') }}" readonly>
             </div>
 
             <div class="mb-3">
-                <label for="hora" class="form-label">Hora:</label>
-                <input type="time" class="form-control" name="hora" id="hora" required>
+                <label for="hora" class="form-label">Hora actual - La Paz, Bolivia:</label>
+                <input type="text" class="form-control" name="hora" id="hora" value="{{ $fechaHoraActual->format('H:i') }}" readonly>
             </div>
 
             <div class="mb-3">

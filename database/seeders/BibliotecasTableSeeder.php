@@ -15,8 +15,8 @@ class BibliotecasTableSeeder extends Seeder
     public function run()
     {
         Biblioteca::create([
-            'titulo'      => 'Biblioteca 1',
-            'descripcion' => 'Biblioteca 1',
+            'titulo'      => 'Uso de computadoras',
+            'descripcion' => 'Se pueden usar las computadoras para buscar libros, trabajos y tesis',
             'hora'        => '14:17:01',
             'fecha'       => '2023-11-01',
             'foto'        => 'https://www.comunidadbaratz.com/wp-content/uploads/La-biblioteca-es-inclusion-social-e-igualdad-de-oportunidades.jpg',

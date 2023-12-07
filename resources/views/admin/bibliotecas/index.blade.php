@@ -297,7 +297,7 @@
                             @if($biblioteca->estado)
                             <button class="btn btn-sm btn-danger" data-toggle="modal"
                                 data-target="#changeEstadoModal{{ $biblioteca->id }}">
-                                Desactivar
+                                Eliminar
                             </button>
                             @else
                             <button class="btn btn-sm btn-success" data-toggle="modal"
@@ -321,7 +321,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            ¿Está seguro de que desea {{ $biblioteca->estado == 1 ? 'desactivar' :
+                                            ¿Está seguro de que desea {{ $biblioteca->estado == 1 ? 'eliminar' :
                                             'activar' }} esta biblioteca?
                                         </div>
                                         <div class="modal-footer">
@@ -371,7 +371,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Estas seguro de desactivar de la vista actual este registro registro?</p>
+                    <p>¿Estas seguro de eliminar de la vista actual este registro registro?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

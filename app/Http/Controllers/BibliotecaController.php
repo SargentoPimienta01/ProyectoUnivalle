@@ -10,6 +10,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Barryvdh\DomPDF\Facade\Pdf as FacadePdf;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 
 class BibliotecaController extends Controller
@@ -42,14 +43,14 @@ class BibliotecaController extends Controller
         return view('admin.bibliotecas.estados', compact('resultadosEliminados'));
     }
 
-   
+
     public function create()
     {
-        //$categorias = CategoriaMenu::all();
-        return view('admin.bibliotecas.create');
+        $fechaHoraActual = now()->timezone('America/La_Paz');
+        return view('admin.bibliotecas.create', compact('fechaHoraActual'));
     }
 
-    
+
     public function store(Request $request)
 {
     $request->validate([
@@ -108,10 +109,11 @@ class BibliotecaController extends Controller
     }
 
    
-    public function edit( $id)
+    public function edit($id)
     {
         $biblioteca = Biblioteca::find($id);
-        return view ('admin.bibliotecas.edit', ['biblioteca' => $biblioteca]);
+        $fechaHoraActual = now()->timezone('America/La_Paz');
+        return view('admin.bibliotecas.edit', compact('biblioteca'), compact('fechaHoraActual'));
     }
 
     

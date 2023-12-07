@@ -44,19 +44,14 @@
             </div>
         </div>
 
-        <div class="mb-3 row">
-            <label for="fecha" class="col-sm-2 col-form-label">Fecha:</label>
-            <div class="col-sm-5">
-                <!-- Adjust the type accordingly, assuming it's a date input -->
-                <input type="date" class="form-control" name="fecha" id="fecha" value="{{ $biblioteca->fecha }}" required>
-            </div>
+        <div class="mb-3">
+            <label for="fecha" class="form-label">Fecha:</label>
+            <input type="text" class="form-control" name="fecha" id="fecha" value="{{ $fechaHoraActual->format('Y-m-d') }}" readonly>
         </div>
 
-        <div class="mb-3 row">
-            <label for="hora" class="col-sm-2 col-form-label">Hora:</label>
-            <div class="col-sm-5">
-                <input type="text" class="form-control" name="hora" id="hora" value="{{ $biblioteca->hora }}" required>
-            </div>
+        <div class="mb-3">
+            <label for="hora" class="form-label">Hora actual - La Paz, Bolivia:</label>
+            <input type="text" class="form-control" name="hora" id="hora" value="{{ $fechaHoraActual->format('H:i') }}" readonly>
         </div>
 
         <div class="mb-3 row">
