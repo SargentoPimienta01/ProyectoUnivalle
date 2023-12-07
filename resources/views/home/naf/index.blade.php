@@ -19,8 +19,8 @@
 
     <style>
         body {
-            overflow: hidden;
-            background-color: #f8f9fa; /* Ajusta el color de fondo según tu preferencia */
+          /*  overflow: hidden;*/
+            background-color: #f8f9fa;
         }
 
         .hero {
@@ -41,7 +41,7 @@
         }
 
         .card-body {
-            padding: 10px; /* Reduje el padding para mejorar la apariencia en dispositivos pequeños */
+            padding: 10px;
             text-align: left; 
         }
 

@@ -17,9 +17,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        body{
-            overflow: hidden;  
+        body {
+              
         }
+
         .card {
             height: 100%;
             border: 1px solid #ddd;
@@ -27,15 +28,14 @@
             transition: transform 0.3s ease-in-out; 
             box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
             margin-bottom: 20px;
-            
         }
 
-        .card.zoom-effect:hover {
+        .card:hover {
             transform: scale(1.01); 
         }
 
         .card-body {
-            padding: 40px;
+            padding: 20px; 
             text-align: left; 
         }
 
@@ -44,10 +44,10 @@
             margin-bottom: 10px; 
         }
 
-
         .card-text {
             font-size: 14px; 
             line-height: 1.5;
+            white-space: pre-line;
         }
 
         .btn-custom {
@@ -58,33 +58,52 @@
             border-radius: 5px;
             display: inline-block;
             transition: background-color 0.3s ease;
-            
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
 
         .btn-custom:hover {
             background-color: #631212;
             color: white;
         }
 
-        .card-text {
-            white-space: pre-line;
+        .contact-info {
+            margin-top: 10px;
         }
 
+        .contact-link {
+            color: inherit;
+            text-decoration: underline;
+        }
+
+        .modal-content {
+            height: 90vh;
+        }
+
+        .modal-body {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            transform: scale(0.9);
+        }
     </style>
 </head>
+
 <body>
     <div class="hero">
-        <h1 class="text-center mt-3" style="color: #630505;">Tipos de trámites: {{ $tituloTramite }} </h1>
+        <h1 class="text-center mt-3" style="color: #630505;">Trámite de {{ $tituloTramite }} </h1>
 
         <div class="contenidopro row">
             @foreach ($requisitos as $requisito)
                 <div class="col-md-4s mb-3">
-                    <div class="card zoom-effect">
-                        <div class="card-body animated-hover">
+                    <div class="card">
+                        <div class="card-body">
                             <h5 class="card-title">Requisitos</h5>
                             <p class="card-text">{!! nl2br($requisito->descripcion_requisito) !!}</p>
                         </div>
@@ -92,8 +111,8 @@
                 </div>
     
                 <div class="col-md-4s mb-3">
-                    <div class="card zoom-effect">
-                        <div class="card-body animated-hover">
+                    <div class="card">
+                        <div class="card-body">
                             <h5 class="card-title">Duración</h5>
                             <p class="card-text">{{ $duracionTramite }}</p>
                             <h5 class="card-title">Ubicación de {{ $ubicacionTramite->nombre }}</h5>
@@ -109,65 +128,67 @@
                 </div>
 
                 <div class="col-md-4s mb-3">
-                    <div class="card zoom-effect">
-                        <div class="card-body animated-hover">
-                            <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top" alt="" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
-                
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top mx-auto d-block" alt="Icon" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+
                             <h5 class="card-title">Descarga los requisitos en tu teléfono</h5>
                             <p class="card-text">
-                                <b>Para tu teléfono</b>
-                                <br>
+ 
                                 <?php
                                     $pdfUrl = Request::url() . '/pdf';
                                     $whatsappUrl = "https://wa.me/71968841";
                                     $correoUrl = "mailto:aalanocae@univalle.edu";
                                 ?>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
-                            {!! QrCode::size(100)->generate($pdfUrl) !!}
-                            <div class="contact-info">
-                                <b>Contactar con Responsable:</b> Aydee Alanoca Endara
-                                <br>
-                                <a href="{{ $whatsappUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de WhatsApp</a>
-                                <br>
-                                {!! QrCode::size(75)->generate($whatsappUrl) !!}
-                                <br>
-                                <a href="{{ $correoUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de correo</a>
-                                <br>
-                                {!! QrCode::size(75)->generate($correoUrl) !!}
-                                <br>
-                            </div>
-                                <a href="{{ $pdfUrl }}" class="btn btn-custom">Descargar requisitos</a>
+                                <button style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;"data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
+                                {!! QrCode::size(150)->generate($pdfUrl) !!}
                             </p>
-                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
-                            {!! QrCode::size(100)->generate($pdfUrl) !!}
-                            <div class="contact-info">
-                                <b>Contactar con Responsable:</b> Aydee Alanoca Endara
-                                <br>
-                                <a href="{{ $whatsappUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de WhatsApp</a>
-                                <br>
-                                {!! QrCode::size(75)->generate($whatsappUrl) !!}
-                                <br>
-                                <a href="{{ $correoUrl }}" class="contact-link" style="color: inherit;">Enviar mensaje de correo</a>
-                                <br>
-                                {!! QrCode::size(75)->generate($correoUrl) !!}
-                                <br>
-                            </div>-->
                         </div>
                     </div>
                 </div>
+                
+                <div class="col-md-4s mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top mx-auto d-block" alt="Icon" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+
+                            <p class="card-text">
+                                <div class="contact-info">
+                                    <b>Contactar con Responsable:</b> Aydee Alanoca Endara
+                                    <br>
+                                    <a href="{{ $whatsappUrl }}" class="contact-link">Enviar mensaje de WhatsApp</a>
+                                    <br>
+                                    <br>
+                                    {!! QrCode::size(150)->generate($whatsappUrl) !!}
+                                    
+                                    <!--
+                                    <a href="{{ $correoUrl }}" class="contact-link">Enviar mensaje de correo</a>
+                                    <br>
+                                    
+                                    {!! QrCode::size(150)->generate($correoUrl) !!}
+                                </div>
+                                <a href="{{ $pdfUrl }}" class="btn btn-custom btn-outline-secondary">Descargar requisitos</a>
+                            -->
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                
+
                 <!-- Modal -->
                 <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                        <div class="modal-content" style="height: 90vh;">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="pdfModalLabel">PDF Viewer</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body" style="max-height: 80vh; overflow-y: auto;">
+                            <div class="modal-body">
                                 <!-- Contenedor para el PDF -->
-                                <iframe src="{{ $pdfUrl }}#view=FitH&hide=1" style="width: 100%; height: 100%; border: none; transform: scale(0.9);"></iframe>
+                                <iframe src="{{ $pdfUrl }}#view=FitH&hide=1"></iframe>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -180,6 +201,5 @@
     </div>
 
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
-
 </body>
 </html>

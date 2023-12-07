@@ -17,7 +17,7 @@
 
     <style>
         body {
-            overflow: hidden;  
+           /* overflow: hidden;  */
         }
 
         .card {
@@ -71,52 +71,80 @@
             height: auto;
         }
 
+        .service-group {
+        text-align: center;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .service-group h3 {
+        font-size: 24px;
+        color: #630505;
+        margin-top: 20px;
+    }
+    .service-title {
+        font-size: 24px;
+        color: #fff;
+        background-color: #630505; 
+        padding: 10px 20px; 
+        border-radius: 8px; 
+        display: flex;
+        align-items: center;
+    }
+
+    .service-title::after {
+       
+        font-size: 18px;
+        margin-left: 10px;
+    }
     </style>
 </head>
 <body>
-
     <div class="hero">
-        
-            <h1 style="color: #630505;">Servicios de: {{ $servicioDireccion->carrera }}</h1>
-        
-    
+        <h1 style="color: #630505;">Servicios de la carrera {{ $servicioDireccion->carrera }}</h1>
         <div class="contenidopro">
+            @php $serviceCounter = 1; @endphp 
             @foreach ($servicios as $servicio)
-                <div class="card bg-white border-0 rounded-3 mb-3">
-                    <div class="card-body text-center">
-                        <img src="{{ Vite::asset('resources/img/tramites/tramite.jpg') }}" alt="Requisitos" class="img-fluid">
-                        <h3 class="mt-3">Servicio</h3>
-                        <p>{{ $servicio->Titulo }}</p>
+                
+                <div class="service-group">
+                    <h3 class="service-title" style=" color: #fff">Servicio {{ $serviceCounter }}</h3>
+                    
+                
+                    <div class="card bg-white border-0 rounded-3 mb-3">
+                        <div class="card-body text-center">
+                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+                            <h3 class="mt-3">Requisitos</h3>
+                            <p>{{ $servicio->Requisitos }}</p>
+                        </div>
                     </div>
-                </div>
-    
-                <div class="card bg-white border-0 rounded-3 mb-3">
-                    <div class="card-body text-center">
-                        <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
-                        <h3 class="mt-3">Requisitos</h3>
-                        <p>{{ $servicio->Requisitos }}</p>
+                
+                   
+                    <div class="card bg-white border-0 rounded-3 mb-3">
+                        <div class="card-body text-center">
+                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+                            <h3 class="mt-3">Imagen</h3>
+                            <img src="{{ $servicio->Image }}" alt="Imagen de servicio" class="img-fluid">
+                        </div>
                     </div>
-                </div>
-    
-                <div class="card bg-white border-0 rounded-3 mb-3">
-                    <div class="card-body text-center">
-                        <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
-                        <h3 class="mt-3">Imagen</h3>
-                        <img src="{{ $servicio->Image }}" alt="Imagen de servicio" class="img-fluid">
+
+                    <div class="card bg-white border-0 rounded-3 mb-3">
+                        <div class="card-body text-center">
+                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+                            <h3 class="mt-3">Ubicación</h3>
+                            <p>{{ $ubicacion->nombre_ubicacion }}</p>
+                        </div>
                     </div>
+                 
                 </div>
-    
-                <div class="card bg-white border-0 rounded-3 mb-3">
-                    <div class="card-body text-center">
-                        <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
-                        <h3 class="mt-3">Ubicación</h3>
-                        <p>{{ $ubicacion->nombre_ubicacion }}</p>
-                    </div>
-                </div>
+               
+                @php $serviceCounter++; @endphp 
             @endforeach
         </div>
     </div>
-    
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
 </body>
+
 </html>
