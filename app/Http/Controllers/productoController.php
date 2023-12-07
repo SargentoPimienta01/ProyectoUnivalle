@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Producto;
+use App\Models\producto;
 use App\Models\CategoriaMenu;
 use Illuminate\Http\Request;
 
@@ -19,7 +19,7 @@ class ProductoController extends Controller
     public function index(Request $request)
 {
     $busqueda = $request->busqueda;
-    $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
+    $productos = producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
         ->where('estado', 1)
         ->paginate(5);
 
@@ -30,7 +30,7 @@ class ProductoController extends Controller
     public function inactivos(Request $request)
     {
         $busqueda = $request->busqueda;
-        $productos = Producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
+        $productos = producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
             ->where('estado', 0)
             ->paginate(5);
         return view('admin.cafecito.productos.inactivos', compact('productos', 'busqueda'));
@@ -40,7 +40,7 @@ class ProductoController extends Controller
     public function buscar(Request $request)
     {
         $query = $request->input('q');
-        $resultados = Producto::where('nombre', 'LIKE', '%' . $query . '%')
+        $resultados = producto::where('nombre', 'LIKE', '%' . $query . '%')
             ->orWhere('descripcion', 'LIKE', '%' . $query . '%')
             ->get();
 
@@ -50,7 +50,7 @@ class ProductoController extends Controller
 
     public function estados(Request $request)
     {
-        $resultadosEliminados = Producto::onlyTrashed()->get();
+        $resultadosEliminados = producto::onlyTrashed()->get();
         return view('admin.cafecito.productos.estados', compact('resultadosEliminados'));
     }
 
@@ -113,7 +113,7 @@ class ProductoController extends Controller
    
     public function show($id)
     {
-        $producto = Producto::find($id);
+        $producto = producto::find($id);
     
         if (!$producto) {
             return abort(404); // O puedes redirigir a una vista personalizada para el error 404
@@ -126,7 +126,7 @@ class ProductoController extends Controller
    
     public function edit( $id)
     {
-        $producto = Producto::find($id);
+        $producto = producto::find($id);
         $categorias = CategoriaMenu::all();
         return view('admin.cafecito.productos.edit', ['producto' => $producto, 'categorias' => $categorias]);
     }
@@ -142,7 +142,7 @@ class ProductoController extends Controller
             'id_categoria' => 'required',
         ]);
 
-        $producto = Producto::find($id);
+        $producto = producto::find($id);
         $producto->nombre = $request->input('nombre');
         $producto->descripcion = $request->input('descripcion');
         $producto->precio = $request->input('precio');
@@ -181,27 +181,27 @@ class ProductoController extends Controller
   
     public function destroy($id)
     {
-        Producto::destroy($id);
+        producto::destroy($id);
         return redirect()->route('productos.index')->with('success', 'Producto eliminado correctamente');
     }
     
 
     public function delete($id)
     {
-        Producto::find($id)->delete();
+        producto::find($id)->delete();
         return back()->with('success', 'Producto eliminado correctamente');
     }
     
 
 
     public function trashed(){
-        $producto = Producto::onlyTrashed()->get();
+        $producto = producto::onlyTrashed()->get();
         return view('trashed', compact('producto'));
     }
 
     public function activar($id)
     {
-        $producto = Producto::findOrFail($id);
+        $producto = producto::findOrFail($id);
         $producto->estado = true;
         $producto->save();
     
@@ -210,7 +210,7 @@ class ProductoController extends Controller
 
     public function desactivar($id)
     {
-        $producto = Producto::findOrFail($id);
+        $producto = producto::findOrFail($id);
         $producto->estado = false;
         $producto->save();
 
