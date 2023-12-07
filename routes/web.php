@@ -287,37 +287,37 @@ use App\Http\Controllers\ContactoController;
 
     //biblioteca
     
-    Route::resource('/bibliotecas', bibliotecaController::class);
+    Route::resource('/bibliotecas', BibliotecaController::class);
 
-    //Route::get('/bibliotecas/{id}', 'bibliotecaController@show')->name('bibliotecas.show');
+    //Route::get('/bibliotecas/{id}', 'BibliotecaController@show')->name('bibliotecas.show');
 
-    Route::delete('/bibliotecas/{id}', [bibliotecaController::class, 'delete'])->name('bibliotecas.delete');
+    Route::delete('/bibliotecas/{id}', [BibliotecaController::class, 'delete'])->name('bibliotecas.delete');
 
-    //Route::get('/bibliotecas/{id}', 'bibliotecaController@buscar')->name('bibliotecas.buscar');
+    //Route::get('/bibliotecas/{id}', 'BibliotecaController@buscar')->name('bibliotecas.buscar');
 
-    Route::get('/bibliotecas/estados', [bibliotecaController::class, 'estados'])->name('bibliotecas.estados');
+    Route::get('/bibliotecas/estados', [BibliotecaController::class, 'estados'])->name('bibliotecas.estados');
 
-    Route::patch('/bibliotecas/activar/{id}', [bibliotecaController::class, 'activar'])->name('bibliotecas.activar');
-    Route::patch('/bibliotecas/desactivar/{id}', [bibliotecaController::class, 'desactivar'])->name('bibliotecas.desactivar');
+    Route::patch('/bibliotecas/activar/{id}', [BibliotecaController::class, 'activar'])->name('bibliotecas.activar');
+    Route::patch('/bibliotecas/desactivar/{id}', [BibliotecaController::class, 'desactivar'])->name('bibliotecas.desactivar');
 
-    Route::get('bibliotecaspdf', [bibliotecaController::class, 'generarReporte'])->name('bibliotecaspdf');
-    Route::get('/productos/inactivos', [productoController::class, 'inactivos'])->name('productos.inactivos');
-    Route::resource('/productos',productoController::class);
+    Route::get('bibliotecaspdf', [BibliotecaController::class, 'generarReporte'])->name('bibliotecaspdf');
+    Route::get('/productos/inactivos', [ProductoController::class, 'inactivos'])->name('productos.inactivos');
+    Route::resource('/productos',ProductoController::class);
     
-    //Route::get('/productos/{id}', [productoController::class, 'show'])->name('productos.show');
+    //Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('productos.show');
 
 
-    Route::delete('/productos/{id}', [productoController::class, 'delete'])->name('productos.delete');
+    Route::delete('/productos/{id}', [ProductoController::class, 'delete'])->name('productos.delete');
 
-    //Route::get('/productos/{id}', 'productoController@buscar')->name('productos.buscar');
+    //Route::get('/productos/{id}', 'ProductoController@buscar')->name('productos.buscar');
 
     Route::get('/productos/estados', [ProductoController::class, 'estados'])->name('productos.estados');
 
 
-    Route::patch('/productos/activar/{id}', [productoController::class, 'activar'])->name('productos.activar');
-    Route::patch('/productos/desactivar/{id}', [productoController::class, 'desactivar'])->name('productos.desactivar');
+    Route::patch('/productos/activar/{id}', [ProductoController::class, 'activar'])->name('productos.activar');
+    Route::patch('/productos/desactivar/{id}', [ProductoController::class, 'desactivar'])->name('productos.desactivar');
 
-    Route::get('productospdf', [productoController::class, 'generarReporte'])->name('productospdf');
+    Route::get('productospdf', [ProductoController::class, 'generarReporte'])->name('productospdf');
 
 
     Route::resource('/categorias',CategoriaMenuController::class);
