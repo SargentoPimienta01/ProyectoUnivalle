@@ -2,25 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-/**
- * Class Postgrado
- *
- * @property $Id_postgrado
- * @property $nombre_programa
- * @property $descripcion
- * @property $modalidad
- * @property $categoria
- * @property $estado
- * @property $Id_area
- * @property $created_at
- * @property $updated_at
- *
- * @property Area $area
- * @package App
- * @mixin \Illuminate\Database\Eloquent\Builder
- */
 class Postgrado extends Model
 {
     
