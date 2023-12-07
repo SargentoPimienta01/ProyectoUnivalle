@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Servicios o eventos de Biblioteca')
+@section('title', 'Editar Anuncios o eventos de Biblioteca')
 
 @section('content')
 <main class="container py-4">

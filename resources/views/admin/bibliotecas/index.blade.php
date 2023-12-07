@@ -401,7 +401,7 @@
                 const modalTitle = deleteModal.querySelector('.modal-title')
                 const modalBodyInput = deleteModal.querySelector('.modal-body input')
 
-                modalTitle.textContent = `Se quitara de la lista el producto:  ${recipient}`
+                modalTitle.textContent = `Se quitara de la lista el anuncios:  ${recipient}`
 
                 modalBodyInput.value = recipient
 

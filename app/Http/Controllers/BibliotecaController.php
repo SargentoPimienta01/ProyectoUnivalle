@@ -95,7 +95,9 @@ class BibliotecaController extends Controller
     
     $biblioteca->save();
 
-    return view("admin.bibliotecas.message", ['msg' => "Registro guardado"]);
+    return redirect()->route('bibliotecas.index')
+            ->with('success', 'Anuncio agregado exitosamente.');
+    //return view("admin.bibliotecas.message", ['msg' => "Registro guardado"]);
 }
 
    
@@ -160,7 +162,9 @@ class BibliotecaController extends Controller
         // Guarda los cambios
         $biblioteca->save();
 
-        return view("admin.bibliotecas.message", ['msg' => "Registro modificado"]);
+        return redirect()->route('bibliotecas.index')
+            ->with('success', 'Anuncio modificado exitosamente.');
+        //return view("admin.bibliotecas.message", ['msg' => "Registro modificado"]);
     }
 
 
