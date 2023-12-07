@@ -14,7 +14,7 @@ use App\Models\RequisitoBienestar;
 use App\Models\DireccionCarrera;
 use App\Models\ServicioDireccion;
 use App\Models\Campus;
-use App\Models\Postgrado;
+use App\Models\postgrado;
 use App\Models\PlataformaDeAtencion;
 use App\Models\Biblioteca;
 use App\Models\producto;
@@ -215,27 +215,27 @@ class HomeController extends Controller
 
     public function posgrado ()
     {
-        /*$posgrados = Postgrado::where('estado', 1)->get();
+        /*$posgrados = postgrado::where('estado', 1)->get();
         return view('home.posgrado.index', ['posgrados' => $posgrados]);*/
-        $posgrados = Postgrado::where('estado', 1)->get();
+        $posgrados = postgrado::where('estado', 1)->get();
         return view('home.posgrado.posgrados', ['posgrados' => $posgrados]);
     }
 
     public function postgradoDiplomado ()
     {
-        $posgrados = Postgrado::where('categoria', 'diplomado')->where('estado', 1)->get();
+        $posgrados = postgrado::where('categoria', 'diplomado')->where('estado', 1)->get();
 
         return view('home.posgrado.index', compact('posgrados'));
     }
     public function postgradoDoctorado ()
     {
-        $posgrados = Postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
+        $posgrados = postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
 
         return view('home.posgrado.index', compact('posgrados'));
     }
     public function postgradoMaestria ()
     {
-        $posgrados = Postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
+        $posgrados = postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
 
         return view('home.posgrado.index', compact('posgrados'));
     }
