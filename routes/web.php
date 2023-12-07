@@ -25,7 +25,7 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\QRCodeController;
 use App\Http\Controllers\PlataformaDeAtencionController;
 use App\Http\Controllers\BibliotecaController;
-use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\productoController;
 use App\Http\Controllers\CategoriaMenuController;
 use App\Http\Controllers\BienestarUniversitarioController;
 use App\Http\Controllers\RequisitoBienestarController;
@@ -301,23 +301,23 @@ use App\Http\Controllers\ContactoController;
     Route::patch('/bibliotecas/desactivar/{id}', [BibliotecaController::class, 'desactivar'])->name('bibliotecas.desactivar');
 
     Route::get('bibliotecaspdf', [BibliotecaController::class, 'generarReporte'])->name('bibliotecaspdf');
-    Route::get('/productos/inactivos', [ProductoController::class, 'inactivos'])->name('productos.inactivos');
-    Route::resource('/productos',ProductoController::class);
+    Route::get('/productos/inactivos', [productoController::class, 'inactivos'])->name('productos.inactivos');
+    Route::resource('/productos',productoController::class);
     
-    //Route::get('/productos/{id}', [ProductoController::class, 'show'])->name('productos.show');
+    //Route::get('/productos/{id}', [productoController::class, 'show'])->name('productos.show');
 
 
-    Route::delete('/productos/{id}', [ProductoController::class, 'delete'])->name('productos.delete');
+    Route::delete('/productos/{id}', [productoController::class, 'delete'])->name('productos.delete');
 
-    //Route::get('/productos/{id}', 'ProductoController@buscar')->name('productos.buscar');
+    //Route::get('/productos/{id}', 'productoController@buscar')->name('productos.buscar');
 
-    Route::get('/productos/estados', [ProductoController::class, 'estados'])->name('productos.estados');
+    Route::get('/productos/estados', [productoController::class, 'estados'])->name('productos.estados');
 
 
-    Route::patch('/productos/activar/{id}', [ProductoController::class, 'activar'])->name('productos.activar');
-    Route::patch('/productos/desactivar/{id}', [ProductoController::class, 'desactivar'])->name('productos.desactivar');
+    Route::patch('/productos/activar/{id}', [productoController::class, 'activar'])->name('productos.activar');
+    Route::patch('/productos/desactivar/{id}', [productoController::class, 'desactivar'])->name('productos.desactivar');
 
-    Route::get('productospdf', [ProductoController::class, 'generarReporte'])->name('productospdf');
+    Route::get('productospdf', [productoController::class, 'generarReporte'])->name('productospdf');
 
 
     Route::resource('/categorias',CategoriaMenuController::class);

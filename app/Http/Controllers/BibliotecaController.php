@@ -95,7 +95,7 @@ class BibliotecaController extends Controller
     
     $biblioteca->save();
 
-    return view("admin.cafecito.bibliotecas.message", ['msg' => "Registro guardado"]);
+    return view("admin.bibliotecas.message", ['msg' => "Registro guardado"]);
 }
 
    
@@ -160,7 +160,7 @@ class BibliotecaController extends Controller
         // Guarda los cambios
         $biblioteca->save();
 
-        return view("admin.cafecito.bibliotecas.message", ['msg' => "Registro modificado"]);
+        return view("admin.bibliotecas.message", ['msg' => "Registro modificado"]);
     }
 
 

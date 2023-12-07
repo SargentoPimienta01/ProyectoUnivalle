@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 
-class ProductoController extends Controller
+class productoController extends Controller
 {
    
     public function index(Request $request)
