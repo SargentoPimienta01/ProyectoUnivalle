@@ -8,10 +8,10 @@
 }
 
 body {
-    padding: 60px;
+    padding: 10px;
     margin-bottom: 20px;
     background: linear-gradient(to right bottom, var(--platinum), var(--chocolate-cosmos));
-    /*background:#e2e2e2*/
+    background-attachment: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

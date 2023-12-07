@@ -34,7 +34,7 @@
     font-family: Arial, sans-serif !important;
     background-color: #68091Fff !important;
     margin: 0 !important;
-    padding: 0 !important;
+    padding: 10px !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-start !important;
