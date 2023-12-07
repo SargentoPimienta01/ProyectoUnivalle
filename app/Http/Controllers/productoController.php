@@ -106,7 +106,7 @@ class ProductoController extends Controller
 
         $producto->save();
     
-        return view("productos.message", ['msg' => "Registro guardado"]);
+        return view("admin.cafecito.productos.message", ['msg' => "Registro guardado"]);
     }
     
 
@@ -176,7 +176,7 @@ class ProductoController extends Controller
 
         $producto->save();
 
-        return view("productos.message", ['msg' => "Registro modificado"]);
+        return view("admin.cafecito.productos.message", ['msg' => "Registro modificado"]);
     }
   
     public function destroy($id)
