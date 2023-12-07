@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 
-class BibliotecaController extends Controller
+class bibliotecaController extends Controller
 {
    
     public function index(Request $request)
