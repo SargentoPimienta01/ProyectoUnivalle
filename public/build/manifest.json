@@ -3,7 +3,7 @@
     "file": "assets/axios-cdc9c5d2.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-800f2243.css",
+    "file": "assets/app-bbeceaf2.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -22,6 +22,11 @@
     "isEntry": true,
     "src": "resources/css/cards.css"
   },
+  "resources/css/gabinetemedicoynaf/styles.css": {
+    "file": "assets/styles-0d0fbb2c.css",
+    "isEntry": true,
+    "src": "resources/css/gabinetemedicoynaf/styles.css"
+  },
   "resources/css/laravel.css": {
     "file": "assets/laravel-204a46de.css",
     "isEntry": true,
@@ -38,8 +43,13 @@
     "src": "resources/css/menu.css"
   },
   "resources/css/nav.css": {
-    "file": "assets/nav-808418b7.css",
+    "file": "assets/nav-96e1c9e1.css",
     "src": "resources/js/app.css"
+  },
+  "resources/css/plataformadeatencion/estilos.css": {
+    "file": "assets/estilos-19157831.css",
+    "isEntry": true,
+    "src": "resources/css/plataformadeatencion/estilos.css"
   },
   "resources/css/styles.css": {
     "file": "assets/styles-58efbc14.css",
@@ -50,6 +60,16 @@
     "file": "assets/tramites-076a238d.css",
     "isEntry": true,
     "src": "resources/css/tramites.css"
+  },
+  "resources/css/tramites/styles.css": {
+    "file": "assets/styles-6f92ad91.css",
+    "isEntry": true,
+    "src": "resources/css/tramites/styles.css"
+  },
+  "resources/css/tramites/styles_user_tables.css": {
+    "file": "assets/styles_user_tables-285410c5.css",
+    "isEntry": true,
+    "src": "resources/css/tramites/styles_user_tables.css"
   },
   "resources/images/BIBLIOTECAA.png": {
     "file": "assets/BIBLIOTECAA-b9b4e798.png",
@@ -136,14 +156,14 @@
     "src": "resources/img/tramites/ubicacion.jpeg"
   },
   "resources/js/app.css": {
-    "file": "assets/nav-808418b7.css",
+    "file": "assets/nav-96e1c9e1.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.js": {
     "css": [
-      "assets/nav-808418b7.css"
+      "assets/nav-96e1c9e1.css"
     ],
-    "file": "assets/app-d029a510.js",
+    "file": "assets/app-1203f417.js",
     "imports": [
       "_axios-cdc9c5d2.js"
     ],

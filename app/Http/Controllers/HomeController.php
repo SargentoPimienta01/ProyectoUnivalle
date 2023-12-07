@@ -215,27 +215,27 @@ class HomeController extends Controller
 
     public function posgrado ()
     {
-        /*$posgrados = postgrado::where('estado', 1)->get();
+        /*$posgrados = Postgrado::where('estado', 1)->get();
         return view('home.posgrado.index', ['posgrados' => $posgrados]);*/
-        $posgrados = postgrado::where('estado', 1)->get();
+        $posgrados = Postgrado::where('estado', 1)->get();
         return view('home.posgrado.posgrados', ['posgrados' => $posgrados]);
     }
 
     public function postgradoDiplomado ()
     {
-        $posgrados = postgrado::where('categoria', 'diplomado')->where('estado', 1)->get();
+        $posgrados = Postgrado::where('categoria', 'diplomado')->where('estado', 1)->get();
 
         return view('home.posgrado.index', compact('posgrados'));
     }
     public function postgradoDoctorado ()
     {
-        $posgrados = postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
+        $posgrados = Postgrado::where('categoria', 'maestria')->where('estado', 1)->get();
 
         return view('home.posgrado.index', compact('posgrados'));
     }
     public function postgradoMaestria ()
     {
-        $posgrados = postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
+        $posgrados = Postgrado::where('categoria', 'doctorado')->where('estado', 1)->get();
 
         return view('home.posgrado.index', compact('posgrados'));
     }

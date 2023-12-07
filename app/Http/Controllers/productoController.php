@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\producto;
+use App\Models\Producto;
 use App\Models\CategoriaMenu;
 use Illuminate\Http\Request;
 
@@ -126,7 +126,7 @@ class ProductoController extends Controller
    
     public function edit( $id)
     {
-        $producto = producto::find($id);
+        $producto = Producto::find($id);
         $categorias = CategoriaMenu::all();
         return view('admin.cafecito.productos.edit', ['producto' => $producto, 'categorias' => $categorias]);
     }
@@ -195,13 +195,13 @@ class ProductoController extends Controller
 
 
     public function trashed(){
-        $producto = producto::onlyTrashed()->get();
+        $producto = Producto::onlyTrashed()->get();
         return view('trashed', compact('producto'));
     }
 
     public function activar($id)
     {
-        $producto = producto::findOrFail($id);
+        $producto = Producto::findOrFail($id);
         $producto->estado = true;
         $producto->save();
     
@@ -210,7 +210,7 @@ class ProductoController extends Controller
 
     public function desactivar($id)
     {
-        $producto = producto::findOrFail($id);
+        $producto = Producto::findOrFail($id);
         $producto->estado = false;
         $producto->save();
 
