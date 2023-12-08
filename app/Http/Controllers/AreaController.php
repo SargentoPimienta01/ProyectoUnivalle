@@ -62,7 +62,7 @@ class AreaController extends Controller
         $area = Area::create($request->all());
 
         return redirect()->route('areas.index')
-            ->with('success', 'Area created successfully.');
+            ->with('success', 'Área creada exitosamente.');
     }
 
     /**
@@ -106,7 +106,7 @@ class AreaController extends Controller
         $area->update($request->all());
 
         return redirect()->route('admin.areas.index')
-            ->with('success', 'Area updated successfully');
+            ->with('success', 'Área actualizada exitosamente');
     }
 
     /**
@@ -119,7 +119,7 @@ class AreaController extends Controller
         $area = Area::find($id)->delete();
 
         return redirect()->route('admin.areas.index')
-            ->with('success', 'Area deleted successfully');
+            ->with('success', 'Área eliminada exitosamente');
     }
 
     public function cambiarEstado(Request $request, $id)
@@ -136,9 +136,9 @@ class AreaController extends Controller
         $area->save();
 
         if ($nuevoEstado == 1) {
-            return redirect()->route('areas.index')->with('success', 'Área desactivada exitosamente');
-        } else {
             return redirect()->route('areas.index')->with('success', 'Área activada exitosamente');
+        } else {
+            return redirect()->route('areas.index')->with('success', 'Área desactivada exitosamente');
         }
     }
 

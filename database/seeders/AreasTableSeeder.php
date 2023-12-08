@@ -56,8 +56,13 @@ class AreasTableSeeder extends Seeder
                 'estado' => true,
             ],
             [
-                'nombre_area' => 'Plataforma de atención',
-                'descripcion' => 'Información de la universidad',
+                'nombre_area' => 'Biblioteca',
+                'descripcion' => 'Recursos académicos esenciales',
+                'estado' => true,
+            ],
+            [
+                'nombre_area' => 'Campus deportivo',
+                'descripcion' => 'Entorno universitario deportivo',
                 'estado' => true,
             ],
         ];

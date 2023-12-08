@@ -19,7 +19,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Brindamos asistencia técnica especializada',
             'requisitos' => 'Acceso a Netvalle. El estudiante debe haber cancelado 1000bs de inscripción.',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
 
         PlataformaDeAtencion::create([
@@ -27,7 +27,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Brindamos asistencia técnica especializada',
             'requisitos' => 'Plataforma inscribe en sistema Netvalle solo a estudiantes nuevos. Se necesitan: Fotocopia de CI, 2 Fotocopias legalizadas de Título de Bachiller, 2 Certificados de nacimiento.',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
     
         PlataformaDeAtencion::create([
@@ -35,7 +35,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Atención para consultas y preguntas generales',
             'requisitos' => 'Plataforma necesita acceso con montos aprobados y oficiales',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
 
         PlataformaDeAtencion::create([
@@ -43,7 +43,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Atención para consultas y preguntas generales',
             'requisitos' => 'Comprobante de pago o factura de Bs. 70, dos días para la impresión. Identificación del estudiante.',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
 
         PlataformaDeAtencion::create([
@@ -51,7 +51,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Atención para consultas y preguntas generales',
             'requisitos' => 'Estado económico sin deudas del estudiante, Plataforma de acceso a Netvalle.',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
 
         PlataformaDeAtencion::create([
@@ -59,7 +59,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Atención para consultas y preguntas generales',
             'requisitos' => 'El sistema de plataforma debe estar habilitado para la siguiente gestión. El estudiante debe presentar su CI y un pago mínimo para la siguiente gestión.',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
 
         PlataformaDeAtencion::create([
@@ -67,7 +67,7 @@ class PlataformaDeAtencionSeeder extends Seeder
             'descripcion' => 'Atención para consultas y preguntas generales',
             'requisitos' => 'Se deben realizar en el sistema o en cajas directamente.',
             'estado' => true,
-            'Id_area' => 9,
+            'Id_area' => 3,
         ]);
     }
 }

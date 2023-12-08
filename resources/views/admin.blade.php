@@ -6,6 +6,8 @@
     <h1>Opciones del panel de control</h1>
 @stop
 
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
+
 @section('content')
     <div class="container">
         <div class="row">

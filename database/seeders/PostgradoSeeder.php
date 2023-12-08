@@ -21,7 +21,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'modalidad virtual',
             'categoria' => 'diplomado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 22:55:00',
             'updated_at' => null,
         ]);
@@ -32,7 +32,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'diplomado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:00:00',
             'updated_at' => null,
         ]);
@@ -43,7 +43,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'modalidad virtual',
             'categoria' => 'diplomado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:05:00',
             'updated_at' => null,
         ]);
@@ -54,7 +54,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'diplomado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:10:00',
             'updated_at' => null,
         ]);
@@ -66,7 +66,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'doctorado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:15:00',
             'updated_at' => null,
         ]);
@@ -77,7 +77,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'doctorado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:20:00',
             'updated_at' => null,
         ]);
@@ -88,7 +88,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'doctorado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:25:00',
             'updated_at' => null,
         ]);
@@ -99,7 +99,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'doctorado',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:30:00',
             'updated_at' => null,
         ]);
@@ -111,7 +111,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'maestria',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:35:00',
             'updated_at' => null,
         ]);
@@ -122,7 +122,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'modalidad virtual',
             'categoria' => 'maestria',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:40:00',
             'updated_at' => null,
         ]);
@@ -133,7 +133,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'presencial',
             'categoria' => 'maestria',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:45:00',
             'updated_at' => null,
         ]);
@@ -144,7 +144,7 @@ class PostgradoSeeder extends Seeder
             'modalidad' => 'modalidad virtual',
             'categoria' => 'maestria',
             'estado' => '1',
-            'Id_area' => '7',
+            'Id_area' => '9',
             'created_at' => '2023-11-15 23:50:00',
             'updated_at' => null,
         ]);

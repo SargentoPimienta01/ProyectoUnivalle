@@ -152,31 +152,41 @@
     
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div  onclick="window.location.href='{{ route('tramites-inicio') }}'" style="cursor: pointer;">
-                    <div class="card">
-                        <img src="{{ Vite::asset('resources/images/TRAMITESS.png') }}" alt="Imagen 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Información de Tramites</h5>
-                            <p class="card-text">Gestión académica y administrativa.</p>
+            
+        @foreach ($areas as $area)
+            @php
+                $id_area = $area->Id_area;
+            @endphp
+
+            @if ($id_area == 1)
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div onclick="window.location.href='{{ route('tramites-inicio') }}'" style="cursor: pointer;">
+                        <div class="card">
+                            <img src="{{ Vite::asset('resources/images/TRAMITESS.png') }}" alt="Imagen 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Información de Tramites</h5>
+                                <p class="card-text">Gestión académica y administrativa.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="custom-link" onclick="window.location.href='{{ route('cajas') }}'" style="cursor: pointer;">
-                    <div class="card">
-                        <img src="{{ Vite::asset('resources/images/CAJASS.png') }}" alt="Imagen 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Información de Cajas</h5>
-                            <p class="card-text">Finanzas y pagos.</p>
+            @endif
+            
+            @if ($id_area == 2)
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="custom-link" onclick="window.location.href='{{ route('cajas') }}'" style="cursor: pointer;">
+                        <div class="card">
+                            <img src="{{ Vite::asset('resources/images/CAJASS.png') }}" alt="Imagen 2">
+                            <div class="card-body">
+                                <h5 class="card-title">Información de Cajas</h5>
+                                <p class="card-text">Finanzas y pagos.</p>
+                            </div>
                         </div>
                     </div>
-                </div>                
-            </div>
-
+                </div>
+            @endif
+        
+            @if ($id_area == 5)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{  route('naf') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -188,7 +198,9 @@
                     </div>
                 </div>                
             </div>
+            @endif
 
+            @if ($id_area == 8)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('direccion-de-carrera') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -200,7 +212,9 @@
                     </div>
                 </div>
             </div>
+            @endif
             
+            @if ($id_area == 9)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('posgrado') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -212,7 +226,9 @@
                     </div>
                 </div>
             </div>
+            @endif
 
+            @if ($id_area == 7)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('bienestar-universitario') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -224,7 +240,9 @@
                     </div>
                 </div>                
             </div>
+            @endif
 
+            @if ($id_area == 3)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('plataforma-de-atencion') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -236,7 +254,9 @@
                     </div>
                 </div>
             </div>
+            @endif
 
+            @if ($id_area == 10)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('biblioteca') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -247,9 +267,10 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
+            @endif
 
+            @if ($id_area == 6)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('cafeteria') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -261,7 +282,9 @@
                     </div>
                 </div>                
             </div>
+            @endif
 
+            @if ($id_area == 11)
             <div class="col-sm-6 col-md-4 col-lg-3">
                 <div class="custom-link" onclick="window.location.href='{{ route('campus') }}'" style="cursor: pointer;">
                     <div class="card">
@@ -273,7 +296,8 @@
                     </div>
                 </div>
             </div>
-
+            @endif
+        @endforeach
         </div>
     </div>
     
