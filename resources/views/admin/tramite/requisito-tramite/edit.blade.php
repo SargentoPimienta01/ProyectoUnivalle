@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Requisito Tramite
+    {{ __('Actualizar') }} requisito de trámite
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Requisito Tramite</span>
+                        <span class="card-title">{{ __('Actualizar') }} requisito de trámite</span>
                     </div>
                     <div class="card-body">
 

@@ -14,4 +14,11 @@ class RequisitoTramite extends Model
     protected $fillable = [
         'nombre_requisito', 'descripcion_requisito', 'estado', 'Id_tramite'
     ];
+
+    static $rules = [
+		'nombre_requisito' => 'required|max:100',
+        'descripcion_requisito' => 'required|max:500',
+        'estado'=> 'required',
+        'Id_tramite'=> 'required'
+    ];
 }

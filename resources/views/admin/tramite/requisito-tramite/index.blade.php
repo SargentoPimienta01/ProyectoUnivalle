@@ -4,8 +4,12 @@
 @section('template_title')
     Requisito Tramite
 @endsection
-
+@section('title', 'Univalle | Requisitos de trámites')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+        <h2>Listado de {{ __('requisitos de trámite: ') }}{{ $tramite -> nombre_tramite }}</h2>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -16,14 +20,16 @@
                             <span id="card_title">
                                 {{ __('Requisitos del Trámite: ') }}{{ $tramite -> nombre_tramite }}
                             </span>
-
+                            <a href="{{ route('requisito-tramites.inactivos') }}" class="btn btn-secondary">
+                                {{ __('Ir a Requisitos inactivos') }}
+                            </a>
                              <!--<div class="float-right">
                                 <a href="{{ route('requisito-tramites.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>-->
                             <a href="{{ route('tramites.index') }}" class="btn btn-danger">
-                                {{ __('Volver') }}
+                                {{ __('Volver a trámites') }}
                             </a>
 
 
@@ -115,11 +121,39 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!--<a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoTramite->Id_requisito) }}">
+                                                <i class="fa fa-fw fa-edit"></i> Editar
+                                            </a>-->
+                                            <!--
                                             <a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoTramite->Id_requisito) }}">
                                                 <i class="fa fa-fw fa-edit"></i> Editar
-                                            </a>
-                                            <!-- Otros botones de acciones -->
-                                            </td>
+                                            </a>-->
+                                                <td>
+                                                    <a class="btn btn-sm btn-success" href="#" data-toggle="modal" data-target="#editModal{{ $requisitoTramite->Id_requisito }}">
+                                                        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+                                                    </a>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="editModal{{ $requisitoTramite->Id_requisito }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="editModalLabel">{{ __('Editar requisito de trámite') }}</h5>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                <form method="POST" action="{{ route('requisito-tramites.update', $requisitoTramite->Id_requisito) }}" role="form" enctype="multipart/form-data">
+                                                                {{ method_field('PATCH') }}
+                                                                    @csrf
+                                                                    @include('admin.tramite.requisito-tramite.form')
+                                                                </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>   
                                         </tr>
                                     @endforeach
                                 </tbody>

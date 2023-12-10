@@ -4,8 +4,13 @@
 @section('template_title')
     Tramite
 @endsection
+@section('title', 'Admin | Trámites')
 
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+    <h2>Listado de Trámites Inactivos</h2>
+</div>
 <div class="card-body">
     <div class="mb-3">
         <form action="{{ route('tramites.index') }}" method="GET">
@@ -14,9 +19,6 @@
                 <button type="submit" class="btn btn-primary">Buscar</button>
             </div>
         </form>
-    </div>
-    <div class="table-responsive">
-        <!-- Tu tabla de tramites -->
     </div>
 </div>
 
@@ -79,17 +81,17 @@
                                                 <!--<a class="btn btn-sm btn-primary" href="{{ route('tramites.show', $tramite->Id_tramite) }}">
                                                     <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
                                                 </a>-->
-                                                <a class="btn btn-sm btn-success" href="{{ route('tramites.edit', $tramite->Id_tramite) }}">
-                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}
-                                                </a>
+                                                <!--<a class="btn btn-sm btn-success" href="{{ route('tramites.edit', $tramite->Id_tramite) }}">
+                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
+                                                </a>-->
                                                 <a class="btn btn-sm btn-secondary" href="{{ url('tramites/requisito-tramites/' . $tramite->Id_tramite) }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar requisitos') }}
+                                                    <i class="fas fa-tasks"></i> {{ __('Administrar requisitos') }}
                                                 </a>
 
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $tramite->Id_tramite }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $tramite->Id_tramite }}">
+                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                                 </button>
                                             </form>
                                         </td>

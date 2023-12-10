@@ -16,11 +16,33 @@ class CategoriaTramiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $categoriaTramites = CategoriaTramites::paginate();
+        $search = $request->input('search');
+        $latestFirst = $request->input('latestFirst', false);
+
+        $sortField = 'id_categoria_tramites';
+        $sortDirection = $latestFirst ? 'desc' : 'asc';
+
+        $categoriaTramites = CategoriaTramites::where('estado', 1)
+            ->where(function ($query) use ($search) {
+                $query->where('nombre_categoria', 'LIKE', "%$search%");
+            })
+            ->orderBy($sortField, $sortDirection)
+            ->paginate(10);
+
         $categoriaTramite = new CategoriaTramites();
-        return view('admin.tramite.categoria-tramite.index', compact('categoriaTramites', 'categoriaTramite'))
+
+        return view('admin.tramite.categoria-tramite.index', compact('categoriaTramites', 'categoriaTramite', 'search', 'latestFirst'))
+            ->with('i', ($categoriaTramites->currentPage() - 1) * $categoriaTramites->perPage());
+    }
+
+
+    public function inactivos()
+    {
+        $categoriaTramites = CategoriaTramites::where('estado', 0)->paginate(10);
+
+        return view('admin.tramite.categoria-tramite.inactivos', compact('categoriaTramites'))
             ->with('i', (request()->input('page', 1) - 1) * $categoriaTramites->perPage());
     }
 
@@ -43,6 +65,7 @@ class CategoriaTramiteController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate(CategoriaTramites::$rules);
         // Agregar el campo Id_area con el valor predeterminado de 1
         $request->merge(['Id_area' => 1]);
         
@@ -88,6 +111,7 @@ class CategoriaTramiteController extends Controller
      */
     public function update(Request $request, CategoriaTramites $categoriaTramite)
     {
+        request()->validate(CategoriaTramites::$rules);
         // Agregar el campo Id_area con el valor predeterminado de 1
         $request->merge(['Id_area' => 1]);
 
@@ -125,9 +149,9 @@ class CategoriaTramiteController extends Controller
         $categoriaTramite->save();
 
         if ($nuevoEstado == 1) {
-            return redirect()->route('categoria-tramites.index')->with('success', 'Categoría de Trámites desactivada exitosamente');
+            return redirect()->route('categoria-tramites.index')->with('success', 'Categoría de trámite activada exitosamente');
         } else {
-            return redirect()->route('categoria-tramites.index')->with('success', 'Categoría de Trámites activada exitosamente');
+            return redirect()->route('categoria-tramites.index')->with('success', 'Categoría de trámite desactivada exitosamente');
         }
     }
 }

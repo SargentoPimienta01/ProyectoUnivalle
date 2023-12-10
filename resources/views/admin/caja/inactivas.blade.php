@@ -3,8 +3,13 @@
 @section('template_title')
     Caja
 @endsection
+@section('title', 'Univalle | Cajas inactivas')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
+<div class="container py-1">
+        <h2>Listado de Cajas Inactivas</h2>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -60,16 +65,16 @@
                                                     <!--<a class="btn btn-sm btn-primary" href="{{ route('cajas.show', $caja->Id_caja) }}">
                                                         <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
                                                     </a>-->
-                                                    <a class="btn btn-sm btn-success" href="{{ route('cajas.edit', $caja->Id_caja) }}">
+                                                    <!--<a class="btn btn-sm btn-success" href="{{ route('cajas.edit', $caja->Id_caja) }}">
                                                         <i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}
-                                                    </a>
+                                                    </a>-->
                                                     @csrf
                                                     @method('DELETE')
                                                     <!--<button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}
                                                     </button>-->
-                                                    <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $caja->Id_caja }}">
-                                                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $caja->Id_caja }}">
+                                                        <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                                     </button>
 
 <!-- Modal de Confirmación para Cambio de Estado -->
@@ -90,8 +95,8 @@
                 <form method="POST" action="{{ route('cajas.cambiarEstado', $caja->Id_caja) }}">
                     @csrf
                     @method('PUT')
-                    <button type="submit" class="btn btn-warning btn-sm">
-                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                    <button type="submit" class="btn btn-warning">
+                        {{ ('Cambiar Estado') }}
                     </button>
                 </form>
             </div>

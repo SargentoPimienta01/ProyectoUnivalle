@@ -4,7 +4,8 @@
 @section('template_title')
     Requisito Tramite
 @endsection
-
+@section('title', 'Univalle | Requisitos inactivos de trámites')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -23,14 +24,14 @@
                                 </a>
                               </div>-->
                             <a href="{{ route('tramites.index') }}" class="btn btn-danger">
-                                {{ __('Volver atrás') }}
+                                {{ __('Volver a trámites') }}
                             </a>
 
 
                             <!-- Botón que abre el modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
                             {{ __('Agregar requisito') }}
-                            </button>
+                            </button>-->
 
                            
                             </div>
@@ -98,9 +99,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoInactivo->Id_requisito) }}">
+                                            <!--<a class="btn btn-sm btn-success" href="{{ route('requisito-tramites.edit', $requisitoInactivo->Id_requisito) }}">
                                                 <i class="fa fa-fw fa-edit"></i> Editar
-                                            </a>
+                                            </a>-->
                                             <!-- Otros botones de acciones -->
                                             </td>
                                         </tr>

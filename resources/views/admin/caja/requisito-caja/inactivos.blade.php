@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container py-1">
-        <h2>{{ __('Requisito de Caja: ') }}{{ $caja -> nombre_caja }}</h2>
+        <h2>{{ __('Requisito de Caja: ') }}</h2>
 </div>
     <div class="container-fluid">
         <div class="row">
@@ -18,43 +18,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisito de Caja: ') }}{{ $caja -> nombre_caja }}
+                                {{ __('Requisito de Caja: ') }}
                             </span>
-
-                            <a class="btn btn-secondary" href="{{ route('cajas.requisitos.inactivos') }}">
-                                {{ __('Ir a Requisitos de caja inactivos') }}
-                            </a>
 
                             <a href="{{ route('cajas.index') }}" class="btn btn-danger">
                                 {{ __('Volver a cajas') }}
                             </a>
-
-                            <div class="float-right">
-                                <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#createRequisitoCajaModal">
-                                    {{ __('Agregar') }}
-                                </button>
-                            </div>
-
-                            <!-- Modal para la creación de Requisito Caja -->
-                            <div class="modal fade" id="createRequisitoCajaModal" tabindex="-1" role="dialog" aria-labelledby="createRequisitoCajaModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="createRequisitoCajaModalLabel">{{ __('Crear nuevo Requisito de Caja') }}</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="card-body">
-                                        <form method="POST" action="{{ route('cajas.requisitos.store') }}"  role="form" enctype="multipart/form-data">
-                                            @csrf
-                                            @include('admin.caja.requisito-caja.formview')
-                                        </form>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -85,35 +54,6 @@
                                                 {{ $requisitoCaja->estado == 1 ? 'Activo' : 'Inactivo' }}
                                             </td>
                                             <td>
-                                                <!--<a class="btn btn-sm btn-success" href="{{ route('cajas.requisitos.edit', $requisitoCaja->Id_requisito) }}">
-                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-                                                </a>-->
-  
-                                                    <a class="btn btn-sm btn-success" href="#" data-toggle="modal" data-target="#editModal{{ $requisitoCaja->Id_requisito }}">
-                                                        <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-                                                    </a>
-
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="editModal{{ $requisitoCaja->Id_requisito }}" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="editModalLabel">{{ __('Editar requisito de trámite') }}</h5>
-                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                <form method="POST" action="{{ route('requisito-cajas.update', $requisitoCaja->Id_requisito) }}" role="form" enctype="multipart/form-data">
-                                                                {{ method_field('PUT') }}
-                                                                    @csrf
-                                                                    @include('admin.caja.requisito-caja.form')
-                                                                </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 <button type="button" class="btn btn-sm btn-{{ $requisitoCaja->estado == 1 ? 'danger' : 'success' }}" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoCaja->Id_requisito }}">
                                                 <i class="fa fa-fw fa-power-off"></i>
                                                 {{ $requisitoCaja->estado == 1 ? 'Desactivar' : 'Activar' }}

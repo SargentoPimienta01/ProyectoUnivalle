@@ -14,11 +14,19 @@ class RequisitoCajaController extends Controller
 {
     public function index($id_caja)
     {
-        $requisitoCajas = RequisitoCaja::where('Id_caja', $id_caja)->paginate();
+        $requisitoCajas = RequisitoCaja::where('Id_caja', $id_caja)->where('estado',1)->paginate(10);
         $requisitoCaja = new RequisitoCaja();
         $caja = Caja::where('Id_caja', $id_caja)->first();
 
         return view('admin.caja.requisito-caja.index', compact('requisitoCajas', 'requisitoCaja', 'id_caja','caja'))
+            ->with('i', (request()->input('page', 1) - 1) * $requisitoCajas->perPage());
+    }
+
+    public function inactivos()
+    {
+        $requisitoCajas = RequisitoCaja::where('estado', 0)->paginate(10);
+
+        return view('admin.caja.requisito-caja.inactivos', compact('requisitoCajas'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitoCajas->perPage());
     }
 
@@ -30,12 +38,14 @@ class RequisitoCajaController extends Controller
     }
 
     public function store(Request $request)
-{
-    $requisitoCaja = RequisitoCaja::create($request->all());
+    {
+        request()->validate(RequisitoCaja::$rules);
 
-    return redirect()->route('cajas.requisitos.index', ['id_caja' => $requisitoCaja->Id_caja])
-        ->with('success', 'RequisitoCaja created successfully.');
-}
+        $requisitoCaja = RequisitoCaja::create($request->all());
+
+        return redirect()->route('cajas.requisitos.index', ['id_caja' => $requisitoCaja->Id_caja])
+            ->with('success', 'Requisito de caja creado exitosamente.');
+    }
 
     
     public function show($id)
@@ -55,12 +65,14 @@ class RequisitoCajaController extends Controller
     }
 
     public function update(Request $request, RequisitoCaja $requisitoCaja)
-{
-    $requisitoCaja->update($request->all());
+    {
+        request()->validate(RequisitoCaja::$rules);
 
-    return redirect()->route('cajas.requisitos.index', ['id_caja' => $requisitoCaja->Id_caja])
-        ->with('success', 'RequisitoCaja updated successfully');
-}
+        $requisitoCaja->update($request->all());
+
+        return redirect()->route('cajas.requisitos.index', ['id_caja' => $requisitoCaja->Id_caja])
+            ->with('success', 'Requisito de caja actualizado exitosamente');
+    }
 
 
     public function destroy($id)
@@ -77,7 +89,7 @@ class RequisitoCajaController extends Controller
         $requisitoCaja->delete();
 
         return redirect()->route('cajas.requisitos.index', ['Id_caja' => $id_caja])
-            ->with('success', 'RequisitoCaja deleted successfully');
+            ->with('success', 'Requisito de caja exliminado exitosamente');
     }
 
     public function cambiarEstado($id)
@@ -101,14 +113,5 @@ class RequisitoCajaController extends Controller
         //return redirect()->route('cajas.requisitos.inactivos')->with('success', 'Estado del requisito de caja cambiado exitosamente');
     }
 }
-
-
-    public function inactivos()
-    {
-        $requisitoCaja = RequisitoCaja::where('estado', 0)->paginate();
-
-        return view('cajas.requisitos.inactivos', compact('requisitoCaja'))
-            ->with('i', (request()->input('page', 1) - 1) * $requisitoCaja->perPage());
-    }
 
 }

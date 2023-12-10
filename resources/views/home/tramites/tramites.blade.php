@@ -69,7 +69,7 @@
 
 <body>
     <div class="hero">
-        <h1 class="text-center mt-3" style="color: #630505;">Tipos de trámites</h1>
+    <h1 class="text-center mt-3" style="color: #630505;">Trámites - {{ $ctramite->nombre_categoria }}</h1>
         <div id="person-container">
             <img id="person" class="person-image" src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
             <div id="bubble">

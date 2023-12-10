@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Categoria Tramite
+    {{ __('Agregar') }} Categoria Tramite
 @endsection
-
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <section class="content container-fluid">
         <div class="row">

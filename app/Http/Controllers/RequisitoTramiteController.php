@@ -20,14 +20,14 @@ class RequisitoTramiteController extends Controller
     /*
     public function index()
     {
-        $requisitoTramites = RequisitoTramite::paginate();
+        $requisitoTramites = RequisitoTramite::paginate(10);
 
         return view('admin.tramite.requisito-tramite.index', compact('requisitoTramites'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitoTramites->perPage());
     }*/
     public function index($id_tramite)
     {
-        $requisitoTramites = RequisitoTramite::where('Id_tramite', $id_tramite)->paginate();
+        $requisitoTramites = RequisitoTramite::where('Id_tramite', $id_tramite)->where('estado',1)->paginate(10);
         $requisitoTramite = new RequisitoTramite();
         $tramite = Tramite::where('Id_tramite', $id_tramite)->first();
 
@@ -57,12 +57,13 @@ class RequisitoTramiteController extends Controller
     public function store(Request $request)
     {
         // Validación y creación del requisito de trámite
+        request()->validate(RequisitoTramite::$rules);
 
         $requisitoTramite = RequisitoTramite::create($request->all());
 
         // Redirigir al detalle del requisito de trámite recién creado
         return redirect()->route('requisito-tramites.show', ['requisito_tramite' => $requisitoTramite->Id_tramite])
-            ->with('success', 'RequisitoTramite created successfully.');
+            ->with('success', 'Requisito de trámite creado exitosamente.');
     }
 
 
@@ -102,12 +103,13 @@ class RequisitoTramiteController extends Controller
     public function update(Request $request, RequisitoTramite $requisitoTramite)
     {
         // Validación y actualización del requisito de trámite
+        request()->validate(RequisitoTramite::$rules);
 
         $requisitoTramite->update($request->all());
 
         // Redirigir al índice de requisitos de trámite
         return redirect()->route('requisito-tramites.show', $requisitoTramite->Id_tramite)
-    ->with('success', 'RequisitoTramite updated successfully');
+    ->with('success', 'Requisito de trámite actualizado exitosamente');
     }
 
 
@@ -132,12 +134,12 @@ class RequisitoTramiteController extends Controller
          $requisitoTramite->delete();
      
          return redirect()->route('requisito-tramites.show', ['requisito_tramite' => $id_tramite])
-             ->with('success', 'RequisitoTramite deleted successfully');
+             ->with('success', 'Requisito de trámite eliminado exitosamente');
      }
 
     public function inactivos()
     {
-        $requisitosInactivos = RequisitoTramite::where('estado', 0)->paginate();
+        $requisitosInactivos = RequisitoTramite::where('estado', 0)->paginate(10);
         return view('admin.tramite.requisito-tramite.inactivos', compact('requisitosInactivos'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosInactivos->perPage());
     }
@@ -162,7 +164,8 @@ class RequisitoTramiteController extends Controller
         // Redirige a requisito-tramites.index con el ID del trámite
         return redirect()->route('requisito-tramites.show', ['requisito_tramite' => $requisitoTramite->Id_tramite]);
     } else {
-        return redirect()->route('requisito-tramites.inactivos')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
+        //return redirect()->route('requisito-tramites.inactivos')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
+        return redirect()->route('requisito-tramites.index')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
     }
 }
 

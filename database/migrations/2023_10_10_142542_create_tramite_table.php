@@ -13,7 +13,7 @@ class CreateTramiteTable extends Migration
             $table->string('nombre_tramite');
             $table->string('duracion_tramite', 100);
             $table->unsignedBigInteger('id_categoria_tramites');
-            $table->boolean('estado');
+            $table->boolean('estado')->default(true);
             $table->foreign('id_categoria_tramites')
                 ->references('id_categoria_tramites')
                 ->on('categoriatramites');

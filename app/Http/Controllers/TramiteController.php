@@ -21,19 +21,31 @@ class TramiteController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $categoriaId = $request->input('categoria'); // Obtén la categoría seleccionada desde el formulario
 
-        // Consulta de tramites con búsqueda
+        $latestFirst = $request->input('latestFirst', false);
+        $sortField = 'id_tramite';
+        $sortDirection = $latestFirst ? 'desc' : 'asc';
+
+        $categorias = CategoriaTramites::all();
+        
+        // Consulta de tramites con búsqueda y filtro por categoría
         $tramites = Tramite::where('estado', 1)
             ->where(function ($query) use ($search) {
                 $query->where('nombre_tramite', 'LIKE', "%$search%")
                     ->orWhere('duracion_tramite', 'LIKE', "%$search%")
                     ->orWhere('id_categoria_tramites', 'LIKE', "%$search%");
             })
-            ->paginate();
+            ->when($categoriaId, function ($query, $categoriaId) {
+                $query->where('id_categoria_tramites', $categoriaId);
+            })
+            ->orderBy($sortField, $sortDirection)
+            ->paginate(10);
 
-        return view('admin.tramite.index', compact('tramites', 'search'))
+        return view('admin.tramite.index', compact('tramites', 'search', 'categorias', 'categoriaId', 'latestFirst'))
             ->with('i', (request()->input('page', 1) - 1) * $tramites->perPage());
     }
+
 
 
     public function inactivos()
@@ -65,12 +77,12 @@ class TramiteController extends Controller
      */
     public function store(Request $request)
     {
-        //request()->validate(Tramite::$rules);
+        request()->validate(Tramite::$rules);
 
         $tramite = Tramite::create($request->all());
 
         return redirect()->route('tramites.index')
-            ->with('success', 'Tramite created successfully.');
+            ->with('success', 'Trámite agregado exitosamente.');
     }
 
     /**
@@ -117,12 +129,12 @@ class TramiteController extends Controller
      */
     public function update(Request $request, Tramite $tramite)
     {
-        //request()->validate(Tramite::$rules);
+        request()->validate(Tramite::$rules);
 
         $tramite->update($request->all());
 
         return redirect()->route('tramites.index')
-            ->with('success', 'Tramite updated successfully');
+            ->with('success', 'Trámite actualizado exitosamente');
     }
 
     /**
@@ -135,7 +147,7 @@ class TramiteController extends Controller
         $tramite = Tramite::find($id)->delete();
 
         return redirect()->route('tramites.index')
-            ->with('success', 'Tramite deleted successfully');
+            ->with('success', 'Tramite eliminado exitosamente');
     }*/
     public function cambiarEstado($id)
     {
@@ -153,7 +165,8 @@ class TramiteController extends Controller
         if ($nuevoEstado == 1) {
             return redirect()->route('tramites.index')->with('success', 'Estado del trámite cambiado exitosamente');
         } else {
-            return redirect()->route('tramites.inactivos')->with('success', 'Estado del trámite cambiado exitosamente');
+            //return redirect()->route('tramites.inactivos')->with('success', 'Estado del trámite cambiado exitosamente');
+            return redirect()->route('tramites.index')->with('success', 'Estado del trámite cambiado exitosamente');
         }
     }
 

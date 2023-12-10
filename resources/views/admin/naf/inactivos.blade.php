@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container py-1">
-        <h2>Listado de Servicios de Núcleo de Apoyo Financiero</h2>
+        <h2>Listado de Servicios Inacticos de NAF</h2>
 </div>
     <div class="container-fluid">
         <div class="row">
@@ -19,12 +19,12 @@
                                 {{ __('Naf') }}
                             </span>
 
-                            <a class="btn btn-secondary" href="{{ route('nafs.inactivos') }}">
-                                {{ __('Ir a NAFs Inactivos') }}
+                            <a class="btn btn-danger" href="{{ route('nafs.index') }}">
+                                {{ __('Volver a Nafs') }}
                             </a>
 
                              <div class="float-right">
-                                <a href="{{ route('nafs.create') }}" class="btn btn-primary float-right"  data-placement="left">
+                                <a href="{{ route('nafs.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Agregar Servicio') }}
                                 </a>
                               </div>
@@ -68,37 +68,6 @@
                                                     <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar requisitos') }}
                                                 </a>
                                                 <a class="btn btn-sm btn-success" href="{{ route('nafs.edit',$naf->Id_naf) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $naf->id }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
-                                                </button>
-
-                                                <!-- Modal de Confirmación para Cambio de Estado -->
-                                                <div class="modal fade" id="confirmChangeState{{ $naf->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                ¿Está seguro de que desea cambiar el estado de este Naf?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <form method="POST" action="{{ route('nafs.cambiarEstado', $naf->Id_naf) }}">
-                                                                    @csrf
-                                                                    @method('PUT')
-                                                                    <button type="submit" class="btn btn-warning btn-sm">
-                                                                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                             </td>
                                         </tr>
                                     @endforeach

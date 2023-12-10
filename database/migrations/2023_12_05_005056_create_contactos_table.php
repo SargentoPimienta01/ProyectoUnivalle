@@ -19,7 +19,8 @@ class CreateContactosTable extends Migration
             $table->string('apellidos');
             $table->string('celular_trabajo');
             $table->string('correo_institucional');
-            $table->string('area_responsable');
+            $table->unsignedBigInteger('Id_area')->nullable();
+            $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->boolean('estado')->default(1);
             $table->unsignedBigInteger('id_usuario')->nullable();
             $table->foreign('id_usuario')->references('id')->on('users');

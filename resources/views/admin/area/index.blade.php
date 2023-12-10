@@ -3,8 +3,12 @@
 @section('template_title')
     Área
 @endsection
-
+@section('title', 'Admin | Áreas')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+        <h2>Listado de Áreas</h2>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -55,30 +59,35 @@
                         </div>
                     @endif
 
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
-                                    <tr>                                      
-										<th>Id</th>
-										<th>Nombre de Área</th>
-										<th>Descripción</th>
-										<th>Estado</th>
-
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($areas as $area)
-                                        <tr>                                          
-											<td>{{ $area->Id_area }}</td>
-											<td>{{ $area->nombre_area }}</td>
-											<td>{{ $area->descripcion }}</td>
-											<td>
-                                                {{ $area->estado == 1 ? 'Activo' : 'Inactivo' }}
-                                            </td>
-
-                                            <td>
+                  
+    <div class="card-body">
+    <div class="mb-3">
+        <div class="input-group">
+            <input type="text" name="search" id="searchInput"  class="form-control" placeholder="Escriba para filtrar área por nombre o descripción...">
+        </div>
+    </div>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <!-- Encabezado de la tabla -->
+                <thead class="thead">
+                    <tr>                                      
+                        <th>Id</th>
+                        <th>Nombre de Área</th>
+                        <th>Descripción</th>
+                        <th>Estado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <!-- Cuerpo de la tabla -->
+                <tbody>
+                    @foreach ($areas as $area)
+                        <tr>                                          
+                            <td>{{ $area->Id_area }}</td>
+                            <td>{{ $area->nombre_area }}</td>
+                            <td>{{ $area->descripcion }}</td>
+                            <td>{{ $area->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
+                            <td>
+                            <td>
                                                 <!--<form action="{{ route('areas.destroy',$area->Id_area) }}" method="POST">
                                                     <a class="btn btn-sm btn-success " href="{{ route('areas.show',$area->Id_area) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('areas.edit',$area->Id_area) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
@@ -145,8 +154,27 @@
                                                 </div>-->
                                             
                                             </td>
-                                        </tr>
-                                    @endforeach
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Agrega el script de JavaScript al final del archivo -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Función para filtrar las filas de la tabla según la búsqueda
+            $("#searchInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("table tbody tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
                                 </tbody>
                             </table>
                         </div>

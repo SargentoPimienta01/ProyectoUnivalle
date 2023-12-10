@@ -21,6 +21,7 @@ use App\Models\producto;
 use App\Models\CategoriaMenu;
 use App\Models\Naf;
 use App\Models\RequisitosNaf;
+use App\Models\Contacto;
 
 class HomeController extends Controller
 {
@@ -54,6 +55,8 @@ class HomeController extends Controller
 
     public function requisitos($id_categoria_tramites, $nombre_categoria, $id_tramite, $nombre_tramite = null)
     {
+        // Obtén la categoría de trámites correspondiente si se proporciona un ID
+        $ctramite = $id_categoria_tramites ? CategoriaTramites::find($id_categoria_tramites) : null;
         // Obtén la duración del trámite
         $duracionTramite = Tramite::where('id_categoria_tramites', $id_categoria_tramites)
             ->where('id_tramite', $id_tramite)
@@ -71,6 +74,11 @@ class HomeController extends Controller
         // Obtén la ubicación del trámite
         $ubicacionTramite = Tramite::find($id_tramite)->ubicacion;
 
+        $contactos = Contacto::where('estado', 1)
+            ->where('Id_area', 1)
+            ->paginate();
+
+
         return view('home.tramites.requisitos', [
             'nombreCategoria' => $nombre_categoria,
             'idCategoriaTramites' => $id_categoria_tramites,
@@ -79,7 +87,9 @@ class HomeController extends Controller
             'duracionTramite' => $duracionTramite,
             'tituloTramite' => $tituloTramite,
             'requisitos' => $requisitos,
-            'ubicacionTramite' => $ubicacionTramite
+            'ubicacionTramite' => $ubicacionTramite,
+            'contactos' => $contactos,
+            'ctramite' => $ctramite,
         ]);
     }
 

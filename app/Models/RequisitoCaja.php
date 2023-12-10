@@ -15,8 +15,12 @@ class RequisitoCaja extends Model
     protected $fillable = [
         'nombre_requisito',
         'descripcion_requisito',
-        'estado',
         'Id_caja',
-        // No incluyas '_token', ya que es una columna interna de Laravel y no debe agregarse aquí.
+    ];
+
+    static $rules = [
+		'nombre_requisito' => 'required|max:100',
+        'descripcion_requisito' => 'required|max:500',
+        'Id_caja'=> 'required'
     ];
 }

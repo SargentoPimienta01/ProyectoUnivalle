@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Requisito Caja
+    {{ __('Actualizar') }} requisito de caja
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Requisito Caja</span>
+                        <span class="card-title">{{ __('Actualizar') }} requisito de caja</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('requisito-cajas.update', $requisitoCaja->Id_requisito) }}"  role="form" enctype="multipart/form-data">

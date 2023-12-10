@@ -37,10 +37,7 @@ class CategoriaTramites extends Model
 
 
     static $rules = [
-		'id_categoria_tramites' => 'required',
 		'nombre_categoria' => 'required',
-		'estado' => 'required',
-		'Id_area' => 'required',
     ];
 
     protected $perPage = 20;

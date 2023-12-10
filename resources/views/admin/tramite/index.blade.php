@@ -4,7 +4,8 @@
 @section('template_title')
     Tramite
 @endsection
-
+@section('title', 'Admin | Trámites')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
 <div class="container py-1">
         <h2>Listado de Trámites</h2>
@@ -12,6 +13,18 @@
 <div class="card-body">
     <div class="mb-3">
         <form action="{{ route('tramites.index') }}" method="GET">
+        <div class="form-group mr-2">
+                <label for="categoria" class="mr-2">Filtar por categoría:</label>
+                <select class="form-control" name="categoria" id="categoria">
+                    <option value="">Todas las categorías</option>
+                    @foreach($categorias as $categoria)
+                        <option value="{{ $categoria->id_categoria_tramites }}" {{ $categoriaId == $categoria->id_categoria_tramites ? 'selected' : '' }}>
+                            {{ $categoria->nombre_categoria }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            <label for="categoria" class="mr-2">Buscar:</label>
             <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
                 <button type="submit" class="btn btn-primary">Buscar</button>
@@ -25,6 +38,9 @@
     </div>
 </div>
 
+<!-- Aquí puedes mostrar la tabla de tramites -->
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -35,12 +51,15 @@
                         <span id="card_title">
                             {{ __('Trámites') }}
                         </span>
+                        <a href="{{ route('tramites.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
+                                @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
+                            </a>
                         <a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
                             {{ __('Ir a Trámites inactivos') }}
                         </a>
-                        <a href="{{ route('admin') }}" class="btn btn-danger">
+                        <!--<a href="{{ route('admin') }}" class="btn btn-danger">
                             {{ __('Volver') }}
-                        </a>
+                        </a>-->
                          <div class="float-right">
                             <a href="{{ route('tramites.create') }}" class="btn btn-primary float-right"  data-placement="left">
                               {{ __('Crear nuevo trámite') }}
@@ -90,16 +109,16 @@
                                                     <i class="fa fa-fw fa-eye"></i> {{ __('Mostrar') }}
                                                 </a>-->
                                                 <a class="btn btn-sm btn-success" href="{{ route('tramites.edit', $tramite->Id_tramite) }}">
-                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Modificar') }}
+                                                    <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
                                                 </a>
                                                 <a class="btn btn-sm btn-secondary" href="{{ url('tramites/requisito-tramites/' . $tramite->Id_tramite) }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar requisitos') }}
+                                                    <i class="fas fa-tasks"></i> {{ __('Administrar requisitos') }}
                                                 </a>
 
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $tramite->Id_tramite }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $tramite->Id_tramite }}">
+                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                                 </button>
                                             </form>
                                         </td>

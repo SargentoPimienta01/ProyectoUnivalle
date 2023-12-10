@@ -11,8 +11,8 @@ class CreateCategoriaTramitesTable extends Migration
         Schema::create('categoriatramites', function (Blueprint $table) {
             $table->id('id_categoria_tramites');
             $table->string('nombre_categoria');
-            $table->boolean('estado');
-            $table->unsignedBigInteger('Id_area');
+            $table->boolean('estado')->default(true);
+            $table->unsignedBigInteger('Id_area')->default(1);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();
         });

@@ -22,9 +22,14 @@
             {!! $errors->first('correo_institucional', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('area_responsable', __('Área Responsable')) }}
-            {{ Form::text('area_responsable', $contacto->area_responsable, ['class' => 'form-control' . ($errors->has('area_responsable') ? ' is-invalid' : ''), 'placeholder' => __('Área Responsable')]) }}
-            {!! $errors->first('area_responsable', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::label('area_responsable', 'Área Responsable') }}
+            <select name="Id_area" class="form-control">
+                @foreach ($areas as $area)
+                    <option value="{{ $area->Id_area }}" {{ $area->Id_area == $contacto->Id_area ? 'selected' : '' }}>
+                        {{ $area->nombre_area }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group" style="display: none;">
             {{ Form::label('id_usuario', __('Id Usuario')) }}

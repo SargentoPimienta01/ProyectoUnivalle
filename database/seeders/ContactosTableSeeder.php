@@ -20,21 +20,21 @@ class ContactosTableSeeder extends Seeder
         // Insertar datos de ejemplo
         DB::table('contactos')->insert([
             [
-                'nombres' => 'Nombre1',
-                'apellidos' => 'Apellido1',
-                'celular_trabajo' => '123456789',
-                'correo_institucional' => 'nombre1@correo.com',
-                'area_responsable' => 'Área1',
+                'nombres' => 'Aydee',
+                'apellidos' => 'Alanoca Endara',
+                'celular_trabajo' => '71968841',
+                'correo_institucional' => 'aalanocae@univalle.edu',
+                'Id_area' => 1,
                 'id_usuario' => null, // Reemplaza con el ID real de un usuario existente
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'nombres' => 'Nombre2',
-                'apellidos' => 'Apellido2',
-                'celular_trabajo' => '987654321',
-                'correo_institucional' => 'nombre2@correo.com',
-                'area_responsable' => 'Área2',
+                'nombres' => 'Fabiola',
+                'apellidos' => 'Saavedra Áñez',
+                'celular_trabajo' => '73200080',
+                'correo_institucional' => 'fsaavedraa@univalle.edu',
+                'Id_area' => 2,
                 'id_usuario' => null, // Reemplaza con el ID real de otro usuario existente
                 'created_at' => now(),
                 'updated_at' => now(),

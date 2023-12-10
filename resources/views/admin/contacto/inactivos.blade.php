@@ -16,8 +16,8 @@
                                 {{ __('Contactos') }}
                             </span>
 
-                            <a class="btn btn-secondary" href="{{ route('contactos.inactivos') }}">
-                                {{ __('Ir a contactos inactivos') }}
+                            <a class="btn btn-danger" href="{{ route('contactos.index') }}">
+                                {{ __('Volver a contactos') }}
                             </a>
 
                              <div class="float-right">
@@ -29,11 +29,6 @@
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
-                    @if ($message = Session::get('error'))
-                        <div class="alert alert-danger">
                             <p>{{ $message }}</p>
                         </div>
                     @endif
@@ -51,7 +46,7 @@
 										<th>Correo Institucional</th>
 										<th>Área Responsable</th>
                                         <th>Estado</th>
-										<!--<th>Id Usuario</th>-->
+										<th>Id Usuario</th>
 
                                         <th></th>
                                     </tr>
@@ -65,44 +60,44 @@
 											<td>{{ $contacto->apellidos }}</td>
 											<td>{{ $contacto->celular_trabajo }}</td>
 											<td>{{ $contacto->correo_institucional }}</td>
-											<td>{{ $contacto->area->nombre_area }}</td>
+											<td>{{ $contacto->area_responsable }}</td>
                                             <td>
                                                 @if ($contacto->estado == 1) Activo @else Inactivo @endif
                                             </td>
-											<!--<td>{{ $contacto->id_usuario ? $contacto->id_usuario : 'Sin usuario asignado' }}</td>-->
+											<td>{{ $contacto->id_usuario ? $contacto->id_usuario : 'Sin usuario asignado' }}</td>
 
                                             <td>
                                                 <a class="btn btn-sm btn-success" href="{{ route('contactos.edit',$contacto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
                                                 <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $contacto->id }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
-                                                </button>
+    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+</button>
 
-                                                <!-- Modal de Confirmación para Cambio de Estado -->
-                                                <div class="modal fade" id="confirmChangeState{{ $contacto->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                ¿Está seguro de que desea cambiar el estado de este contacto?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                <form method="POST" action="{{ route('contactos.cambiarEstado', $contacto->id) }}">
-                                                                    @csrf
-                                                                    @method('PUT')
-                                                                    <button type="submit" class="btn btn-warning btn-sm">
-                                                                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+<!-- Modal de Confirmación para Cambio de Estado -->
+<div class="modal fade" id="confirmChangeState{{ $contacto->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmar Cambio de Estado</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro de que desea cambiar el estado de este contacto?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <form method="POST" action="{{ route('contactos.cambiarEstado', $contacto->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-warning btn-sm">
+                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
                                             </td>
                                         </tr>
                                     @endforeach

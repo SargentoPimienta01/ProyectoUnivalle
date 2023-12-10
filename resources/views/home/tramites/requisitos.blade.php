@@ -99,7 +99,7 @@
 
 <body>
     <div class="hero">
-        <h1 class="text-center mt-3" style="color: #630505;">Trámite de {{ $tituloTramite }} </h1>
+    <h1 class="text-center mt-3" style="color: #630505;">Trámites - {{$ctramite->nombre_categoria}} - {{ $tituloTramite }} </h1>
         <div id="person-container">
             <img id="person" class="person-image" src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
             <div id="bubble">
@@ -135,43 +135,54 @@
             </div>
 
             <div class="col-md-4s mb-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top mx-auto d-block" alt="Icon" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top mx-auto d-block" alt="Icon" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
 
-                        <h5 class="card-title">Descarga los requisitos en tu teléfono</h5>
-                        <p class="card-text">
-
-                            <?php
-                            $pdfUrl = Request::url() . '/pdf';
-                            $whatsappUrl = "https://wa.me/71968841";
-                            $correoUrl = "mailto:aalanocae@univalle.edu";
-                            ?>
-                            <button style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;" data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
-                            {!! QrCode::size(150)->generate($pdfUrl) !!}
-                        </p>
+                            <h5 class="card-title">Descarga los requisitos en tu teléfono</h5>
+                            <p class="card-text">
+ 
+                                <?php
+                                    $pdfUrl = Request::url() . '/pdf';
+                                ?>
+                                <button style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s;"data-toggle="modal" data-target="#pdfModal">Descargar requisitos</button>
+                                {!! QrCode::size(150)->generate($pdfUrl) !!}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="col-md-4s mb-3">
+                    <div class="card text-center">
+                        <div class="card-body">
+                            <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top mx-auto d-block" alt="Icon" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
 
-            <div class="col-md-4s mb-3">
-                <div class="card text-center">
-                    <div class="card-body">
-                        <img src="https://freerangestock.com/sample/118830/online-search-icon-vector.jpg" class="card-img-top mx-auto d-block" alt="Icon" style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%;">
-
-                        <p class="card-text">
-                            <div class="contact-info">
-                                <b>Contactar con Responsable:</b> Aydee Alanoca Endara
-                                <br>
-                                <a href="{{ $whatsappUrl }}" class="contact-link">Enviar mensaje de WhatsApp</a>
-                                <br>
-                                <br>
-                                {!! QrCode::size(150)->generate($whatsappUrl) !!}
-                            </div>
-                        </p>
+                            <p class="card-text">
+                                <div class="contact-info">
+                                @foreach ($contactos as $contacto)
+                                    <b>Contactar con Responsable:</b> {{ $contacto->nombres }} {{ $contacto->apellidos }}
+                                    <br>
+                                    <?php
+                                    $whatsappUrl = "https://wa.me/".$contacto->celular_trabajo;
+                                    $correoUrl = "mailto:".$contacto->correo_institucional;
+                                    ?>
+                                    <a href="{{ $whatsappUrl }}" class="contact-link">Enviar mensaje de WhatsApp</a>
+                                    <br>
+                                    {!! QrCode::size(150)->generate($whatsappUrl) !!}
+                                    
+                                    <br>
+                                    <!--
+                                    <a href="{{ $correoUrl }}" class="contact-link">Enviar mensaje de correo</a>
+                                    <br>
+                                    
+                                    {!! QrCode::size(90)->generate($correoUrl) !!}-->
+                                </div>@endforeach<!--
+                                <a href="{{ $pdfUrl }}" class="btn btn-custom btn-outline-secondary">Descargar requisitos</a>
+                            -->
+                            </p>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </div>  
 
             <!-- Modal -->
             <div class="modal fade" id="pdfModal" tabindex="-1" role="dialog" aria-labelledby="pdfModalLabel" aria-hidden="true">

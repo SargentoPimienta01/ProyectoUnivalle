@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container py-1">
-        <h2>Listado de Requisitos Activos NAF</h2>
+        <h2>Listado de Requisitos Inactivos NAF</h2>
 </div>
     <div class="container-fluid">
         <div class="row">

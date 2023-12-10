@@ -29,7 +29,7 @@ class Contacto extends Model
 		'apellidos' => 'required',
 		'celular_trabajo' => 'required',
 		'correo_institucional' => 'required',
-		'area_responsable' => 'required',
+		'Id_area' => 'required',
     ];
 
     protected $perPage = 20;
@@ -39,7 +39,7 @@ class Contacto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombres','apellidos','celular_trabajo','correo_institucional','area_responsable','id_usuario'];
+    protected $fillable = ['nombres','apellidos','celular_trabajo','correo_institucional','Id_area','id_usuario'];
 
 
     /**
@@ -48,6 +48,11 @@ class Contacto extends Model
     public function user()
     {
         return $this->hasOne('App\Models\User', 'id', 'id_usuario');
+    }
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class, 'Id_area', 'Id_area');
     }
     
 

@@ -3,7 +3,8 @@
 @section('template_title')
     {{ $requisitoTramite->name ?? "{{ __('Show') Requisito Tramite" }}
 @endsection
-
+@section('title', 'Univalle | Requisitos de trámites')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <section class="content container-fluid">
         <div class="row">

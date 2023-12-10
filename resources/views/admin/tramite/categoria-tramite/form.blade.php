@@ -8,7 +8,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('nombre_categoria') }}
-            {{ Form::text('nombre_categoria', $categoriaTramite->nombre_categoria, ['class' => 'form-control' . ($errors->has('nombre_categoria') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Categoria']) }}
+            {{ Form::text('nombre_categoria', $categoriaTramite->nombre_categoria, ['class' => 'form-control' . ($errors->has('nombre_categoria') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Categoria', 'required' => 'required',]) }}
             {!! $errors->first('nombre_categoria', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group" style="display: none;">
@@ -25,5 +25,8 @@
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
+    {{ __('Cerrar') }}<span aria-hidden="true"></span>
+    </button>
     </div>
 </div>

@@ -3,8 +3,27 @@
 @section('template_title')
     Categoria Tramite
 @endsection
-
+@section('title', 'Admin | Categorías de trámites')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+        <h2>Listado de Categorías de Trámites</h2>
+</div>
+<div class="card-body">
+    <div class="mb-3">
+        <form action="{{ route('categoria-tramites.index') }}" method="GET">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                @if($search)
+                    <div class="input-group-append">
+                        <a href="{{ route('categoria-tramites.index') }}" class="btn btn-outline-danger">Limpiar</a>
+                    </div>
+                @endif
+            </div>
+        </form>
+    </div>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -15,15 +34,25 @@
                             <span id="card_title">
                                 {{ __('Categoria Tramite') }}
                             </span>
-
+                            <a href="{{ route('categoria-tramites.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
+                                @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
+                            </a>
                              <!--<div class="float-right">
                                 <a href="{{ route('categoria-tramites.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear nueva categoría') }}
                                 </a>
                               </div>-->
                               <!-- Botón para abrir el modal de creación -->
+
+                            <a href="{{ route('categoria-tramites.inactivos') }}" class="btn btn-secondary">
+                                {{ __('Ir a Categorías de trámites inactivas') }}
+                            </a>
+                            <!--<a href="{{ route('admin') }}" class="btn btn-danger">
+                                {{ __('Volver') }}
+                            </a>-->
+
                             <div class="float-right">
-                                <button type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#createCategoriaTramiteModal">
+                                <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#createCategoriaTramiteModal">
                                     Crear nueva categoría
                                 </button>
                             </div>
@@ -53,6 +82,11 @@
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger">
                             <p>{{ $message }}</p>
                         </div>
                     @endif

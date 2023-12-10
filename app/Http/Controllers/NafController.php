@@ -19,7 +19,7 @@ class NafController extends Controller
      */
     public function index()
     {
-        $nafs = Naf::paginate();
+        $nafs = Naf::paginate(10);
 
         return view('admin.naf.index', compact('nafs'))
             ->with('i', (request()->input('page', 1) - 1) * $nafs->perPage());
@@ -109,4 +109,34 @@ class NafController extends Controller
         return redirect()->route('nafs.index')
             ->with('success', 'Naf deleted successfully');
     }
+
+    public function inactivos()
+    {
+        $nafs = Naf::where('estado', 0)->paginate(10);
+
+        return view('admin.naf.inactivos', compact('nafs'))
+            ->with('i', (request()->input('page', 1) - 1) * $nafs->perPage());
+    }
+
+
+    public function cambiarEstado($id)
+    {
+        $naf = Naf::find($id);
+
+        if (!$naf) {
+            return redirect()->route('nafs.index')->with('error', 'Naf no encontrado');
+        }
+
+        // Cambia el estado
+        $nuevoEstado = $naf->estado == 1 ? 0 : 1;
+        $naf->estado = $nuevoEstado;
+        $naf->save();
+
+        if ($nuevoEstado == 1) {
+            return redirect()->route('nafs.index')->with('success', 'Naf activado exitosamente');
+        } else {
+            return redirect()->route('nafs.index')->with('success', 'Naf eliminado exitosamente');
+        }
+    }
+
 }

@@ -14,6 +14,13 @@ class Tramite extends Model
         'nombre_tramite', 'duracion_tramite', 'id_categoria_tramites', 'estado', 'id_ubicacion'
     ];
 
+    static $rules = [
+		'nombre_tramite' => 'required|max:255',
+        'duracion_tramite' => 'required|max:100',
+        'id_categoria_tramites'=> 'required',
+        'id_ubicacion'=> 'required'
+    ];
+
     public function categoriaTramite()
     {
         return $this->belongsTo(CategoriaTramites::class, 'id_categoria_tramites', 'id_categoria_tramites');

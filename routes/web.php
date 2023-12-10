@@ -158,7 +158,10 @@ use App\Http\Controllers\ContactoController;
     Route::resource('postgrados', PostgradoController::class);
     Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
 
+    Route::get('contactos/inactivos', [ContactoController::class, 'inactivos'])->name('contactos.inactivos');
     Route::resource('/contactos', ContactoController::class);
+    Route::put('contactos/cambiarEstado/{contacto}', [ContactoController::class, 'cambiarEstado'])->name('contactos.cambiarEstado');
+
 
     //Bienestar Universitario
     Route::get('/bienestar', [BienestarUniversitarioController::class, 'index'])->name('bienestar.index');
@@ -222,8 +225,6 @@ use App\Http\Controllers\ContactoController;
 
     Route::put('/areas/cambiarEstado/{id}', [AreaController::class, 'cambiarEstado'])->name('areas.cambiarEstado');
     Route::resource('areas', AreaController::class);
-
-    Route::resource('categoria-tramites', CategoriaTramiteController::class);
     
     //Rutas de trámites
     Route::post('tramites/cambiarEstado/{id}', [TramiteController::class, 'cambiarEstado'])->name('tramites.cambiarEstado');
@@ -231,14 +232,14 @@ use App\Http\Controllers\ContactoController;
     //Route::resource('tramites', TramiteController::class);
     Route::resource('tramites', TramiteController::class)->names('tramites');
 
+    //Categorías de trámites
+    Route::get('categoria-tramites/inactivos', [CategoriaTramiteController::class, 'inactivos'])->name('categoria-tramites.inactivos');
     Route::put('/categoria-tramites/{id}/cambiarEstado', [CategoriaTramiteController::class, 'cambiarEstado'])->name('categoria-tramites.cambiarEstado');
     Route::resource('categoria-tramites', CategoriaTramiteController::class);
+
     //Requisitos de trámites
-    // Primero definir las rutas específicas antes de las rutas con parámetros
     Route::get('tramites/requisito-tramites/inactivos', [RequisitoTramiteController::class, 'inactivos'])->name('requisito-tramites.inactivos');
     Route::get('tramites/requisito-tramites/{id_tramite}', [RequisitoTramiteController::class, 'index'])->name('requisito-tramites.index');
-
-    // Ahora, las rutas generales o las rutas con parámetros
     Route::resource('tramites/requisito-tramites', RequisitoTramiteController::class);
     Route::put('tramites/requisito-tramites/cambiarEstado/{requisito}', [RequisitoTramiteController::class, 'cambiarEstado'])->name('requisito-tramites.cambiarEstado');
 
@@ -249,15 +250,14 @@ use App\Http\Controllers\ContactoController;
     Route::resource('cajas', CajaController::class);
     Route::put('cajas/cambiarEstado/{caja}', [CajaController::class, 'cambiarEstado'])->name('cajas.cambiarEstado');
 
-    // Rutas para Requisitos de Cajas
-    Route::post('cajas/requisitos', [RequisitoCajaController::class, 'store'])->name('requisito-cajas.store');
-    Route::get('cajas/requisitos/{id_caja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
+  // Rutas para Requisitos de Cajas
     Route::get('cajas/requisitos/inactivos', [RequisitoCajaController::class, 'inactivos'])->name('cajas.requisitos.inactivos');
+    Route::get('cajas/requisitos/{id_caja}', [RequisitoCajaController::class, 'index'])->name('cajas.requisitos.index');
 
-
+    Route::put('cajas/requisitos/update/{requisitoCaja}', [RequisitoCajaController::class, 'update'])->name('requisito-cajas.update');
     Route::post('cajas/requisitos/store', [RequisitoCajaController::class, 'store'])->name('cajas.requisitos.store');
     Route::post('cajas/requisitos/{requisitoCaja}/edit', [RequisitoCajaController::class, 'edit'])->name('cajas.requisitos.edit');
-    Route::put('cajas/requisitos/update/{requisitoCaja}', [RequisitoCajaController::class, 'update'])->name('requisito-cajas.update');
+
     /*Route::resource('cajas/requisitos', RequisitoCajaController::class);*/
     Route::put('cajas/requisitos/cambiarEstado/{requisitoCaja}', [RequisitoCajaController::class, 'cambiarEstado'])->name('cajas.requisitos.cambiarEstado');
 
@@ -275,6 +275,8 @@ use App\Http\Controllers\ContactoController;
     
     //NAFS
     // Rutas de nafs
+    Route::get('/nafs/inactivos', [NafController::class, 'inactivos'])->name('nafs.inactivos');
+    Route::put('/nafs/cambiarEstado/{id}', [NafController::class, 'cambiarEstado'])->name('nafs.cambiarEstado');
     Route::resource('nafs', NafController::class)->except(['show']);
 
     // Rutas de requisitos de nafs

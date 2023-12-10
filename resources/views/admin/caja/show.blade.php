@@ -3,6 +3,8 @@
 @section('template_title')
     {{ $caja->name ?? "{{ __('Show') Caja" }}
 @endsection
+@section('title', 'Univalle | Cajas')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
     <section class="content container-fluid">

@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Create') }} Requisito Tramite
+    {{ __('Agregar') }} requisito de tramite
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Create') }} Requisito Tramite</span>
+                        <span class="card-title">{{ __('Agregar') }} requisito de trámite</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('requisito-tramites.store') }}"  role="form" enctype="multipart/form-data">

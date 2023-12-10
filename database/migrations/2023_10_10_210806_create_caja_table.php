@@ -12,7 +12,7 @@ class CreateCajaTable extends Migration
             $table->id('Id_caja');
             $table->string('nombre_caja', 100);
             $table->string('descripcion_caja', 256);
-            $table->boolean('estado')->default(1);
+            $table->boolean('estado')->default(true);
             $table->unsignedBigInteger('Id_area')->default(2);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();
