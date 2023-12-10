@@ -1,12 +1,14 @@
-@extends('layouts.backspace')
+@extends('layout.barra')
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Univalle</title>
+        <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
+        
         <style>
             .container-fluid {
                 margin-top: 20px; 
@@ -61,9 +63,14 @@
         </style>
     </head>
 <body>
-   
+    <div class="hero">
             <h1 class="text-center mt-3" style="color: #630505;">Direcciones de carrera</h1>
-       
+            <div id="person-container">
+                <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+                <div id="bubble">
+                    <p id="text"></p>
+                </div>
+            </div>
         <div class="Opciones2">
             <div class="container-fluid">
                 <div class="row">
@@ -85,7 +92,64 @@
             </div>
         </div>
     
-    
+    </div>
       <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
+      <script>
+        const textArray = [
+            "¡Bienvenid@ al Area de direcciones de carrera",
+            "Aquí encontrarás información sobre diferentes carreras",
+           
+        ];
+        let textIndex = 0;
+        const textElement = document.getElementById('text');
+        const bubble = document.getElementById('bubble');
+        const personImage = document.getElementById('person');
+    
+        function showText() {
+            if (textIndex < textArray.length) {
+                textElement.textContent = textArray[textIndex];
+                textIndex++;
+                bubble.style.visibility = 'visible';
+                bubble.style.opacity = '1';
+                setTimeout(() => {
+                    showText();
+                }, 3000);
+            } else {
+                hideText();
+            }
+        }
+    
+        function hideText() {
+            bubble.style.opacity = '0';
+            setTimeout(() => {
+                bubble.style.visibility = 'hidden';
+                fadeOut(personImage, 2000);
+            }, 500);
+        }
+    
+        function fadeOut(element, duration) {
+            let opacity = 1;
+            const interval = 50;
+    
+            const fadeOutInterval = setInterval(() => {
+                if (opacity > 0) {
+                    opacity -= interval / duration;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeOutInterval);
+                    element.style.display = 'none';
+                }
+            }, interval);
+        }
+    
+        showText();
+    
+        personImage.addEventListener('click', () => {
+            textIndex = 0;
+            personImage.style.opacity = '1';
+            personImage.style.display = 'block';
+            showText();
+        });
+    </script>
 </body>
 </html>

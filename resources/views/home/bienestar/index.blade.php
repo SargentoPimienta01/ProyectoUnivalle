@@ -1,5 +1,4 @@
-
-@extends('layouts.backspace')
+@extends('layout.barra')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,11 +11,11 @@
     <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
-        <style>
         .container-fluid {
             margin-top: 20px; 
         }
@@ -39,25 +38,25 @@
         }
         
         .card:hover {
-        transform: scale(1.05); 
-        box-shadow: 0 6px 13px rgba(128, 9, 9, 0.945); 
+            transform: scale(1.05); 
+            box-shadow: 0 6px 13px rgba(128, 9, 9, 0.945); 
         }
 
         .card-title {
             color: var(--amaranth-purple);
-        border: none; 
-        margin: 0; 
-        padding: 0; 
-        background: none; 
-        padding-bottom: 15px;
-        cursor: pointer;
-        font-weight: bold;
+            border: none; 
+            margin: 0; 
+            padding: 0; 
+            background: none; 
+            padding-bottom: 15px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
         .card-box {
-        padding: 20px;
-        height: 160px; 
-        text-align: center; 
+            padding: 20px;
+            height: 160px; 
+            text-align: center; 
         }
 
         .card img {
@@ -70,27 +69,89 @@
     </style>
 </head>
 <body>
-
-            <h1 class="text-center mt-3" style="color: #630505;">Servicios de Bienestar</h1>
-            <div class="container-fluid">
-                <div class="row">
-                @foreach($bienestares as $bienestar)
-                <div class="col-sm-6 col-md-4 col-lg-2">
-                    <div class="card">
-                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image">
-                        <div class="card-body card-box">
-
-                    <a href="{{ route('requisitosBienestaru', ['id_bienestar' => $bienestar->id, 'servicio' => Str::slug($bienestar->servicio)]) }}" class="button-anon-pen" style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s; padding: 15px 20px;">
-                        <span>{{ $bienestar->servicio }}</span>
-                    </a>
-                </div>
+    <div class="hero">
+        <h1 class="text-center mt-3" style="color: #630505;">Servicios de Bienestar</h1>
+        <div id="person-container">
+            <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+            <div id="bubble">
+                <p id="text"></p>
             </div>
         </div>
+        <div class="container-fluid">
+            <div class="row">
+                @foreach($bienestares as $bienestar)
+                    <div class="col-sm-6 col-md-4 col-lg-2">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image">
+                            <div class="card-body card-box">
+                                <a href="{{ route('requisitosBienestaru', ['id_bienestar' => $bienestar->id, 'servicio' => Str::slug($bienestar->servicio)]) }}" class="button-anon-pen" style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s; padding: 15px 20px;">
+                                    <span>{{ $bienestar->servicio }}</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 @endforeach
-                </div>
             </div>
-      <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
+        </div>
+        <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
+        <script>
+            const textArray = [
+                "¡Bienvenid@ al Departamento de Bienestar Universitario!",
+                "Aquí encontrarás información sobre diferentes servicios y apoyos para tu bienestar.", 
+                "Contamos con atención médica, apoyo psicológico, consultorio jurídico y vitrina de descuentos universitarios."
+            ];
+
+            let textIndex = 0;
+            const textElement = document.getElementById('text');
+            const bubble = document.getElementById('bubble');
+            const personImage = document.getElementById('person');
+
+            function showText() {
+                if (textIndex < textArray.length) {
+                    textElement.textContent = textArray[textIndex];
+                    textIndex++;
+                    bubble.style.visibility = 'visible';
+                    bubble.style.opacity = '1';
+                    setTimeout(() => {
+                        showText();
+                    }, 3000);
+                } else {
+                    hideText();
+                }
+            }
+
+            function hideText() {
+                bubble.style.opacity = '0';
+                setTimeout(() => {
+                    bubble.style.visibility = 'hidden';
+                    fadeOut(personImage, 2000);
+                }, 500);
+            }
+
+            function fadeOut(element, duration) {
+                let opacity = 1;
+                const interval = 50;
+
+                const fadeOutInterval = setInterval(() => {
+                    if (opacity > 0) {
+                        opacity -= interval / duration;
+                        element.style.opacity = opacity;
+                    } else {
+                        clearInterval(fadeOutInterval);
+                        element.style.display = 'none';
+                    }
+                }, interval);
+            }
+
+            showText();
+
+            personImage.addEventListener('click', () => {
+                textIndex = 0;
+                personImage.style.opacity = '1';
+                personImage.style.display = 'block';
+                showText();
+            });
+        </script>
+    </div>
 </body>
 </html>
-
-

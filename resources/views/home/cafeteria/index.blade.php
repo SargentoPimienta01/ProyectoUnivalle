@@ -1,4 +1,4 @@
-@extends('layouts.backspace')
+@extends('layout.barra')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeteria Menu</title>
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -56,8 +57,14 @@
 </head>
 
 <body class="container-fluid">
-
+    <div class="hero">
     <h1 class="text-center mt-3" style="color: #630505;">Menú de la cafetería </h1>
+    <div id="person-container">
+        <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+        <div id="bubble">
+            <p id="text"></p>
+        </div>
+    </div>
     @foreach($categorias as $categoria)
         <div class="menu-category">
             <div class="category-header mt-4 mb-4">
@@ -85,7 +92,7 @@
             </div>
         </div>
     @endforeach
-
+</div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -95,5 +102,63 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script>
+            const textArray = [
+            "¡Bienvenid@ al Cafecito!",
+            "Aquí encontrarás información sobre nuestras deliciosas opciones de café.",
+            "Desde cafés con leche hasta especialidades exclusivas, estamos para satisfacer tu paladar.",
+        ];
+
+            let textIndex = 0;
+            const textElement = document.getElementById('text');
+            const bubble = document.getElementById('bubble');
+            const personImage = document.getElementById('person');
+        
+            function showText() {
+                if (textIndex < textArray.length) {
+                    textElement.textContent = textArray[textIndex];
+                    textIndex++;
+                    bubble.style.visibility = 'visible';
+                    bubble.style.opacity = '1';
+                    setTimeout(() => {
+                        showText();
+                    }, 3000);
+                } else {
+                    hideText();
+                }
+            }
+        
+            function hideText() {
+                bubble.style.opacity = '0';
+                setTimeout(() => {
+                    bubble.style.visibility = 'hidden';
+                    fadeOut(personImage, 2000);
+                }, 500);
+            }
+        
+            function fadeOut(element, duration) {
+                let opacity = 1;
+                const interval = 50;
+        
+                const fadeOutInterval = setInterval(() => {
+                    if (opacity > 0) {
+                        opacity -= interval / duration;
+                        element.style.opacity = opacity;
+                    } else {
+                        clearInterval(fadeOutInterval);
+                        element.style.display = 'none';
+                    }
+                }, interval);
+            }
+        
+            showText();
+        
+            personImage.addEventListener('click', () => {
+                textIndex = 0;
+                personImage.style.opacity = '1';
+                personImage.style.display = 'block';
+                showText();
+            });
+        </script>
 </body>
 </html>

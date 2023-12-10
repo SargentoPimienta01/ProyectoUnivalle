@@ -1,6 +1,4 @@
-
-
-@extends('layouts.backspace')
+@extends('layout.barra')
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -113,7 +111,7 @@
   </style>
 </head>
 <body>
-
+    <div class="hero">
   <h1>Biblioteca</h1>
   <div class="container">
     <div class="column">
@@ -155,6 +153,6 @@
     </div>
 </div>
 {{ $bibliotecas->links('vendor.pagination.custom') }}
-
+</div>
 </body>
 </html>

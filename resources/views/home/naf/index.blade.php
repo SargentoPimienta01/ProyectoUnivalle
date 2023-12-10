@@ -1,4 +1,4 @@
-@extends('layouts.backspace')
+@extends('layout.barra')
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +13,7 @@
     <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -33,6 +34,7 @@
             transition: transform 0.3s ease-in-out; 
             box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
             margin-bottom: 20px;
+            height: 450px;
        
         }
 
@@ -79,7 +81,14 @@
 </head>
 
 <body>
+    <div class="hero">
     <h1 class="text-center mt-3" style="color: #630505;">NAF</h1>
+    <div id="person-container">
+        <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+        <div id="bubble">
+            <p id="text"></p>
+        </div>
+    </div>
     <div class="contenidopro row">
             @foreach($nafs as $naf)
                 <div class="col-md-4s mb-3">
@@ -128,6 +137,62 @@
             @endforeach
         
     </div>
+    <script>
+        const textArray = [
+            "¡Bienvenid@ a NAF (Atención al Contribuyente)",
+            
+        ];
+        let textIndex = 0;
+        const textElement = document.getElementById('text');
+        const bubble = document.getElementById('bubble');
+        const personImage = document.getElementById('person');
+    
+        function showText() {
+            if (textIndex < textArray.length) {
+                textElement.textContent = textArray[textIndex];
+                textIndex++;
+                bubble.style.visibility = 'visible';
+                bubble.style.opacity = '1';
+                setTimeout(() => {
+                    showText();
+                }, 3000);
+            } else {
+                hideText();
+            }
+        }
+    
+        function hideText() {
+            bubble.style.opacity = '0';
+            setTimeout(() => {
+                bubble.style.visibility = 'hidden';
+                fadeOut(personImage, 2000);
+            }, 500);
+        }
+    
+        function fadeOut(element, duration) {
+            let opacity = 1;
+            const interval = 50;
+    
+            const fadeOutInterval = setInterval(() => {
+                if (opacity > 0) {
+                    opacity -= interval / duration;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeOutInterval);
+                    element.style.display = 'none';
+                }
+            }, interval);
+        }
+    
+        showText();
+    
+        personImage.addEventListener('click', () => {
+            textIndex = 0;
+            personImage.style.opacity = '1';
+            personImage.style.display = 'block';
+            showText();
+        });
+    </script>
 </body>
 
 </html>

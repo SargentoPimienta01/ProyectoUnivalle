@@ -1,4 +1,4 @@
-@extends('layouts.backspace')
+@extends('layout.barra')
 <!DOCTYPE html>
 <html lang="en">
 <head>
