@@ -1,7 +1,8 @@
 @extends('adminlte::page')
 @extends('layouts.jquery')
 
-@section('title', 'Univalle')
+@section('title', 'Admin | Productos Cafetería')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main>
@@ -15,7 +16,19 @@
 
   <div class="card-body">
     <div class="mb-3">
-      <form action="{{ route('productos.index') }}" method="GET">
+        <form action="{{ route('productos.index') }}" method="GET">
+        <div class="form-group mr-2">
+        <label for="categoria" class="mr-2">Filtar por categoría:</label>
+            <select class="form-control" name="categoria" id="categoria">
+              <option value="">Todas las categorías</option>
+              @foreach($categorias as $categoria)
+              <option value="{{ $categoria->id }}" {{ $categoriaId == $categoria->id ? 'selected' : '' }}>
+                {{ $categoria->nombre }}
+              </option>
+              @endforeach
+            </select>
+        </div>
+        <label for="categoria" class="mr-2">Buscar:</label>
         <div class="input-group">
           <input type="search" name="busqueda" placeholder="Buscar..." class="form-control">
           <button type="submit" class="btn btn-primary">Buscar</button>
@@ -41,7 +54,10 @@
                 </span>
                 <!--<a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
                             {{ __('Ir a Trámites inactivos') }}
-                        </a>-->
+                </a>-->
+                <a href="{{ route('productos.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
+                  @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
+                </a>
                 <a href="{{ route('admin') }}" class="btn btn-danger">
                   {{ __('Volver') }}
                 </a>

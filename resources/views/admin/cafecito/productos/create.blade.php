@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Registrar Producto')
+@section('title', 'Admin | Agregar producto Cafetería')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main>
@@ -55,6 +56,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ url('productos') }}" class="btn btn-secondary">Regresar</a>
         </form>
     </div>
 </main>

@@ -1,7 +1,8 @@
 @extends('adminlte::page')
 @extends('layouts.jquery')
 
-@section('title', 'Univalle')
+@section('title', 'Admin | Productos inactivos Cafetería')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main>

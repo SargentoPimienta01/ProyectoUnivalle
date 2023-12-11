@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'registrar producto')
+@section('title', 'Admin | Productos Cafetería')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main>

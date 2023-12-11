@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Producto')
+@section('title', 'Admin | Editar producto Cafetería')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main>
@@ -63,10 +64,8 @@
                     @endforeach
                 </select>
             </div>
-
-
-            <a href="{{ url('productos') }}" class="btn btn-secondary">Regresar</a>
             <button type="submit" class="btn btn-success">Editar</button>
+            <a href="{{ url('productos') }}" class="btn btn-secondary">Regresar</a>
         </form>
 
         <script>

@@ -19,11 +19,23 @@ class productoController extends Controller
     public function index(Request $request)
 {
     $busqueda = $request->busqueda;
+    $categoriaId = $request->input('categoria');
+
+    $latestFirst = $request->input('latestFirst', false);
+    $sortField = 'id';
+    $sortDirection = $latestFirst ? 'desc' : 'asc';
+
+    $categorias = CategoriaMenu::all();
+
     $productos = producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
         ->where('estado', 1)
-        ->paginate(5);
+        ->when($categoriaId, function ($query, $categoriaId) {
+            $query->where('id_categoria', $categoriaId);
+        })
+        ->orderBy($sortField, $sortDirection)
+        ->paginate(10);
 
-    return view('admin.cafecito.productos.index', compact('productos', 'busqueda'));
+    return view('admin.cafecito.productos.index', compact('productos', 'busqueda', 'latestFirst', 'categorias', 'categoriaId'));
 }
 
 
@@ -32,7 +44,7 @@ class productoController extends Controller
         $busqueda = $request->busqueda;
         $productos = producto::where('nombre', 'LIKE', '%' . $busqueda . '%')
             ->where('estado', 0)
-            ->paginate(5);
+            ->paginate(10);
         return view('admin.cafecito.productos.inactivos', compact('productos', 'busqueda'));
     }
 
