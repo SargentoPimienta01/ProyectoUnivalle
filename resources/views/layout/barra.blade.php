@@ -48,7 +48,7 @@
             color: #ffffff;
             font-weight: bold;
             font-size: 30px;
-            padding: 0px;
+            padding: 12px;
         }
 
         .navbar-nav {

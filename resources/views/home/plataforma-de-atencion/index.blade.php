@@ -12,7 +12,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 20px;
             box-sizing: border-box;
             color: black;
         }
@@ -82,7 +82,7 @@
         }
 
         .service-card {
-            width: calc(20% - 20px);
+            width: calc(100% - 20px);
             display: none;
         }
 
@@ -110,6 +110,18 @@
 
         #servicios h3 {
             color: rgb(0, 0, 0);
+        }
+
+        @media (min-width: 768px) {
+            .service-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .service-card {
+                width: calc(33.33% - 20px);
+            }
         }
     </style>
 </head>

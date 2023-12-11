@@ -1,6 +1,7 @@
 @extends('layout.barra')
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,9 +21,14 @@
            /* overflow: hidden;  */
         }
 
+        .hero {
+            padding: 20px;
+        }
+
         .card {
             border: 1px solid #ddd;
             border-radius: 8px; 
+            width: 100%;
             transition: transform 0.3s ease-in-out; 
             box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
             margin-bottom: 20px;
@@ -33,7 +39,7 @@
         }
 
         .card-body {
-            padding: 40px;
+            padding: 20px;
             text-align: left; 
         }
 
@@ -72,36 +78,46 @@
         }
 
         .service-group {
-        text-align: center;
-        margin-bottom: 20px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-    }
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    .service-group h3 {
-        font-size: 24px;
-        color: #630505;
-        margin-top: 20px;
-    }
-    .service-title {
-        font-size: 24px;
-        color: #fff;
-        background-color: #630505; 
-        padding: 10px 20px; 
-        border-radius: 8px; 
-        display: flex;
-        align-items: center;
-    }
+        .service-group h3 {
+            font-size: 24px;
+            color: #630505;
+            margin-top: 20px;
+        }
 
-    .service-title::after {
-       
-        font-size: 18px;
-        margin-left: 10px;
-    }
+        .service-title {
+            font-size: 24px;
+            color: #fff;
+            background-color: #630505;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .service-title::after {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .service-group {
+                flex-direction: row;
+            }
+
+            .card {
+                width: 30%;
+                margin: 0 10px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="hero">
         <h1 style="color: #630505;">Servicios de la carrera {{ $servicioDireccion->carrera }}</h1>

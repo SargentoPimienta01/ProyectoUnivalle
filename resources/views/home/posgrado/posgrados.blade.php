@@ -15,7 +15,6 @@
         }
 
         .card {
-            height: 100%;
             border: 1px solid #ddd;
             border-radius: 8px;
             transition: transform 0.3s ease-in-out;
@@ -28,7 +27,7 @@
         }
 
         .card-body {
-            padding: 40px;
+            padding: 20px;
             text-align: left;
         }
 
@@ -40,6 +39,8 @@
         .card-text {
             font-size: 14px;
             line-height: 1.5;
+            padding-bottom: 13px;
+            white-space: pre-line;
         }
 
         .btn-custom {
@@ -48,7 +49,6 @@
             padding: 10px 15px;
             text-decoration: none;
             border-radius: 5px;
-            display: inline-block;
             transition: background-color 0.3s ease;
             display: flex;
             justify-content: center;
@@ -58,11 +58,6 @@
         .btn-custom:hover {
             background-color: #631212;
             color: white;
-        }
-
-        .card-text {
-            padding-bottom: 13px;
-            white-space: pre-line;
         }
 
         .card-link {
@@ -75,59 +70,60 @@
 <body>
     
     <div class="hero">
-    <div class="container mt-4">
-        <div class="header text-center">
-            <h1 class="text-center mt-5" style="color: #630505;">POSTGRADO</h1>
-        </div>
-        <div id="person-container">
-            <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
-            <div id="bubble">
-                <p id="text"></p>
+        <div class="container mt-4">
+            <div class="header text-center">
+                <h1 class="text-center mt-5" style="color: #630505;">POSTGRADO</h1>
             </div>
-        </div>
-        <div class="info-box mt-4">
-            <p>En Postgrado Univalle contarás con un amplio portafolio de Programas enfocados a satisfacer tus necesidades académicas actuales. La calidad de nuestros programas está sustentada en la experiencia académica de los profesores, combinada con su desempeño en el mundo laboral actual.</p>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-md-4">
-                <a href="{{ route('posgrado.doctorado') }}" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Doctorados</h3>
-                            <p class="card-text">El grado de Doctor se confiere al doctorando que ha obtenido un grado de Magister en la respectiva disciplina...</p>
-                            <a href="{{ route('posgrado.doctorado') }}" class="btn btn-outline-secondary btn-custom">Ver más detalles</a>
-                        </div>
-                    </div>
-                </a>
+            <div id="person-container">
+                <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+                <div id="bubble">
+                    <p id="text"></p>
+                </div>
+            </div>
+            <div class="info-box mt-4">
+                <p>En Postgrado Univalle contarás con un amplio portafolio de Programas enfocados a satisfacer tus necesidades académicas actuales. La calidad de nuestros programas está sustentada en la experiencia académica de los profesores, combinada con su desempeño en el mundo laboral actual.</p>
             </div>
 
-            <div class="col-md-4">
-                <a href="{{ route('posgrado.maestria') }}" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Maestrías</h3>
-                            <p class="card-text">Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos...</p>
-                            <a href="{{ route('posgrado.maestria') }}" class="btn btn-outline-secondary btn-custom">Ver más detalles</a>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <a href="{{ route('posgrado.doctorado') }}" class="card-link">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Doctorados</h3>
+                                <p class="card-text">El grado de Doctor se confiere al doctorando que ha obtenido un grado de Magister en la respectiva disciplina...</p>
+                                <a href="{{ route('posgrado.doctorado') }}" style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s; padding: 15px 20px;">Ver más detalles</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
 
-            <div class="col-md-4">
-                <a href="{{ route('posgrado.diplomado') }}" class="card-link">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title">Diplomados</h3>
-                            <p class="card-text">Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos...</p>
-                            <a href="{{ route('posgrado.diplomado') }}" class="btn btn-outline-secondary btn-custom">Ver más detalles</a>
+                <div class="col-md-4">
+                    <a href="{{ route('posgrado.maestria') }}" class="card-link">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Maestrías</h3>
+                                <p class="card-text">Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos...</p>
+                                <a href="{{ route('posgrado.maestria') }}" style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s; padding: 15px 20px;">Ver más detalles</a>
+                            </div>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="{{ route('posgrado.diplomado') }}" class="card-link">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">Diplomados</h3>
+                                <p class="card-text">Los Programas de Maestría brindan conocimientos, destrezas y habilidades en diferentes campos y disciplinas científicos...</p>
+                                <a href="{{ route('posgrado.diplomado') }}" style="color: black; text-decoration: none; display: inline-block; padding: 15px 20px; background-color: #eee; border: 1px solid #ccc; border-radius: 5px; transition: background-color 0.3s; padding: 15px 20px;">Ver más detalles</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -141,7 +137,7 @@
         const textElement = document.getElementById('text');
         const bubble = document.getElementById('bubble');
         const personImage = document.getElementById('person');
-    
+
         function showText() {
             if (textIndex < textArray.length) {
                 textElement.textContent = textArray[textIndex];
@@ -155,7 +151,7 @@
                 hideText();
             }
         }
-    
+
         function hideText() {
             bubble.style.opacity = '0';
             setTimeout(() => {
@@ -163,11 +159,11 @@
                 fadeOut(personImage, 2000);
             }, 500);
         }
-    
+
         function fadeOut(element, duration) {
             let opacity = 1;
             const interval = 50;
-    
+
             const fadeOutInterval = setInterval(() => {
                 if (opacity > 0) {
                     opacity -= interval / duration;
@@ -178,9 +174,9 @@
                 }
             }, interval);
         }
-    
+
         showText();
-    
+
         personImage.addEventListener('click', () => {
             textIndex = 0;
             personImage.style.opacity = '1';
