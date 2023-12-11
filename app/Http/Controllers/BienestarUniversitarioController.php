@@ -20,7 +20,7 @@ class BienestarUniversitarioController extends Controller
                     ->orWhere('detalle', 'LIKE', "%$search%")
                     ->orWhere('Id_area', 'LIKE', "%$search%");
             })
-            ->paginate();
+            ->paginate(10);
 
         return view('admin.bienestar.index', compact('bienestarUniversitario', 'search','ubicaciones'))
             ->with('i', (request()->input('page', 1) - 1) * $bienestarUniversitario->perPage());
@@ -28,7 +28,7 @@ class BienestarUniversitarioController extends Controller
 
     public function inactivos()
     {
-        $bienestarUniversitario = BienestarUniversitario::where('estado', 0)->paginate();
+        $bienestarUniversitario = BienestarUniversitario::where('estado', 0)->paginate(10);
         return view('admin.bienestar.inactivos', compact('bienestarUniversitario'))
             ->with('i', (request()->input('page', 1) - 1) * $bienestarUniversitario->perPage());;
     }

@@ -3,10 +3,26 @@
 @section('template_title')
     Naf
 @endsection
-
+@section('title', 'Admin | NAF')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
 <div class="container py-1">
         <h2>Listado de Servicios de Núcleo de Apoyo Financiero</h2>
+</div>
+<div class="card-body">
+    <div class="mb-3">
+        <form action="{{ route('nafs.index') }}" method="GET">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                @if($search)
+                    <div class="input-group-append">
+                        <a href="{{ route('nafs.index') }}" class="btn btn-outline-danger">Limpiar</a>
+                    </div>
+                @endif
+            </div>
+        </form>
+    </div>
 </div>
     <div class="container-fluid">
         <div class="row">
@@ -65,11 +81,11 @@
 											<td>{{ $naf->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
                                             <td>
                                                 <a class="btn btn-sm btn-secondary" href="{{ url('nafs/requisitos-naf/' . $naf->Id_naf) }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar requisitos') }}
+                                                    <i class="fas fa-tasks"></i> {{ __('Administrar requisitos') }}
                                                 </a>
                                                 <a class="btn btn-sm btn-success" href="{{ route('nafs.edit',$naf->Id_naf) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $naf->id }}">
-                                                    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $naf->id }}">
+                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                                 </button>
 
                                                 <!-- Modal de Confirmación para Cambio de Estado -->

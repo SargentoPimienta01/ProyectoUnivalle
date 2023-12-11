@@ -8,17 +8,32 @@ use Illuminate\Http\Request;
 
 class RequisitoBienestarController extends Controller
 {
-    public function index($id_bienestar)
+    public function index($id_bienestar, Request $request)
     {
+        $search = $request->input('search');
+        $categoriaId = $request->input('categoria'); // Obtén la categoría seleccionada desde el formulario
+
+        $latestFirst = $request->input('latestFirst', false);
+        $sortField = 'id';
+        $sortDirection = $latestFirst ? 'desc' : 'asc';
         // Obtén solo los requisitos de bienestar con estado 1
         $requisitosBienestar = RequisitoBienestar::where('Id_bienestar', $id_bienestar)
             ->where('estado', 1)
-            ->paginate();
+            ->where(function ($query) use ($search) {
+                $query->where('servicio', 'LIKE', "%$search%")
+                    ->orWhere('detalle', 'LIKE', "%$search%")
+                    ->orWhere('requisitos', 'LIKE', "%$search%");
+            })
+            ->when($categoriaId, function ($query, $categoriaId) {
+                $query->where('id_categoria_tramites', $categoriaId);
+            })
+            ->orderBy($sortField, $sortDirection)
+            ->paginate(10);
 
         $requisitoBienestar = new RequisitoBienestar();
         $bienestar = BienestarUniversitario::find($id_bienestar);
 
-        return view('admin.bienestar.requisito-bienestar.index', compact('requisitosBienestar', 'requisitoBienestar', 'id_bienestar', 'bienestar'))
+        return view('admin.bienestar.requisito-bienestar.index', compact('requisitosBienestar', 'requisitoBienestar', 'id_bienestar', 'bienestar', 'latestFirst', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $requisitosBienestar->perPage());
     }
 
@@ -26,7 +41,7 @@ class RequisitoBienestarController extends Controller
     public function inactivos()
     {
         // Obtén todos los requisitos de bienestar inactivos paginados
-        $requisitosInactivos = RequisitoBienestar::where('estado', 0)->paginate();
+        $requisitosInactivos = RequisitoBienestar::where('estado', 0)->paginate(10);
 
         // Puedes pasar los requisitos inactivos paginados a la vista correspondiente
         return view('admin.bienestar.requisito-bienestar.inactivos', compact('requisitosInactivos'));
@@ -100,7 +115,9 @@ class RequisitoBienestarController extends Controller
         // Redirige a diferentes vistas según el estado cambiado
         if ($requisitoBienestar->estado == 0) {
             // Si el estado es 0, redirige a la vista de inactivos
-            return redirect()->route('requisito-bienestares.inactivos')
+            /*return redirect()->route('requisito-bienestares.inactivos')
+                ->with('success', 'Estado cambiado exitosamente.');*/
+            return redirect()->route('requisito-bienestares.index')
                 ->with('success', 'Estado cambiado exitosamente.');
         } else {
             // Si el estado es 1, redirige a la vista de requisitos activos

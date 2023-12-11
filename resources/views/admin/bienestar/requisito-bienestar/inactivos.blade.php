@@ -1,8 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', 'Requisitos de Bienestar inactivos')
-
+@section('title', 'Admin | Requisitos de Bienestar inactivos')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+        <h2>{{ __('Requisitos de Bienestar inactivos: ') }}</h2>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -52,10 +55,10 @@
                                             {{ $requisitoInactivo->estado == 1 ? 'Activo' : 'Inactivo' }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('requisito-bienestares.edit', ['id_bienestar' => $requisitoInactivo->Id_bienestar, 'id' => $requisitoInactivo->id]) }}" class="btn btn-success">Editar</a>
+                                            <!--<a href="{{ route('requisito-bienestares.edit', ['id_bienestar' => $requisitoInactivo->Id_bienestar, 'id' => $requisitoInactivo->id]) }}" class="btn btn-success">Editar</a>-->
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoInactivo->id }}">
+                                            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoInactivo->id }}">
                                                 Cambiar Estado
                                             </a>
                                         </td>

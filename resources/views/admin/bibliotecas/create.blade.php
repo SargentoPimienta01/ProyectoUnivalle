@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Registrar Anuncio de Biblioteca')
+@section('title', 'Admin | Registrar Anuncio de Biblioteca')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main>
@@ -53,7 +54,7 @@
 
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto:</label>
-                <input type="file" class="form-control" name="foto" id="foto">
+                <input type="file" class="form-control" name="foto" id="foto" required>
             </div>
 
             <button type="submit" class="btn btn-primary">Guardar</button>

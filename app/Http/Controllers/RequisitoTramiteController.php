@@ -145,29 +145,29 @@ class RequisitoTramiteController extends Controller
     }
 
     public function cambiarEstado($id)
-{
-    $requisitoTramite = RequisitoTramite::find($id);
+    {
+        $requisitoTramite = RequisitoTramite::find($id);
 
-    if (!$requisitoTramite) {
-        return redirect()->route('requisito-tramites.index')->with('error', 'Requisito de trámite no encontrado');
+        if (!$requisitoTramite) {
+            return redirect()->route('requisito-tramites.index')->with('error', 'Requisito de trámite no encontrado');
+        }
+
+        // Guarda el ID del trámite antes de cambiar el estado
+        $idTramite = $requisitoTramite->Id_tramite;
+
+        // Cambia el estado
+        $nuevoEstado = $requisitoTramite->estado == 1 ? 0 : 1;
+        $requisitoTramite->estado = $nuevoEstado;
+        $requisitoTramite->save();
+
+        if ($nuevoEstado == 1) {
+            // Redirige a requisito-tramites.index con el ID del trámite
+            return redirect()->route('requisito-tramites.show', ['requisito_tramite' => $requisitoTramite->Id_tramite]);
+        } else {
+            //return redirect()->route('requisito-tramites.inactivos')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
+            return redirect()->route('requisito-tramites.index')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
+        }
     }
-
-    // Guarda el ID del trámite antes de cambiar el estado
-    $idTramite = $requisitoTramite->Id_tramite;
-
-    // Cambia el estado
-    $nuevoEstado = $requisitoTramite->estado == 1 ? 0 : 1;
-    $requisitoTramite->estado = $nuevoEstado;
-    $requisitoTramite->save();
-
-    if ($nuevoEstado == 1) {
-        // Redirige a requisito-tramites.index con el ID del trámite
-        return redirect()->route('requisito-tramites.show', ['requisito_tramite' => $requisitoTramite->Id_tramite]);
-    } else {
-        //return redirect()->route('requisito-tramites.inactivos')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
-        return redirect()->route('requisito-tramites.index')->with('success', 'Estado del requisito de trámite cambiado exitosamente');
-    }
-}
 
      
 }

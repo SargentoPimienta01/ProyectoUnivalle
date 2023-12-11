@@ -1,8 +1,28 @@
 @extends('adminlte::page')
 
-@section('title', 'Requisitos de Bienestar')
-
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
+<head>
+  <title>Admin | {{ $bienestar->servicio }}</title>
+</head>
 @section('content')
+<div class="container py-1">
+        <h2>{{ __('Bienestar: ') }}{{ $bienestar->servicio }}</h2>
+</div>
+<div class="card-body">
+    <div class="mb-3">
+        <form action="{{ route ('requisito-bienestares.index', ['id_bienestar' => $bienestar->id]) }}" method="GET">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
+                <button type="submit" class="btn btn-primary">Buscar</button>
+                @if($search)
+                    <div class="input-group-append">
+                        <a href="{{ route ('requisito-bienestares.index', ['id_bienestar' => $bienestar->id]) }}" class="btn btn-outline-danger">Limpiar</a>
+                    </div>
+                @endif
+            </div>
+        </form>
+    </div>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -13,6 +33,10 @@
                             <span id="card_title">
                                 {{ __('Requisitos de Bienestar: ') }}{{ $bienestar->servicio }}
                             </span>
+
+                            <a href="{{ route('requisito-bienestares.index', ['id_bienestar' => $bienestar->id, 'latestFirst' => !$latestFirst]) }}" class="btn btn-info">
+                                @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
+                            </a>
 
                             <a href="{{ route('bienestar.index') }}" class="btn btn-danger">
                                 {{ __('Volver a Bienestar') }}
@@ -62,11 +86,11 @@
                                             {{ $requisitoBienestar->estado == 1 ? 'Activo' : 'Inactivo' }}
                                         </td>
                                         <td>
-                                            <a href="{{ route('requisito-bienestares.edit', ['id_bienestar' => $requisitoBienestar->Id_bienestar, 'id' => $requisitoBienestar->id]) }}" class="btn btn-success">Modificar</a>
+                                            <a href="{{ route('requisito-bienestares.edit', ['id_bienestar' => $requisitoBienestar->Id_bienestar, 'id' => $requisitoBienestar->id]) }}" class="btn btn-success"><i class="fa fa-edit"></i>Editar</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoBienestar->id }}">
-                                                Cambiar Estado
+                                            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirmChangeState{{ $requisitoBienestar->id }}">
+                                            <i class="fa fa-fw fa-power-off"></i>Cambiar Estado
                                             </a>
                                         </td>
                                     </tr>

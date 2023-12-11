@@ -3,7 +3,8 @@
 @section('template_title')
     {{ __('Crear') }} Contacto
 @endsection
-
+@section('title', 'Admin | Contactos')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <section class="content container-fluid">
         <div class="row">

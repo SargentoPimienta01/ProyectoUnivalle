@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('servicio', 100);
             $table->string('descripcion', 100);
             $table->text('requisitos');
-            $table->boolean('estado');
+            $table->boolean('estado')->default(true);
             $table->unsignedBigInteger('Id_area')->default(10);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();

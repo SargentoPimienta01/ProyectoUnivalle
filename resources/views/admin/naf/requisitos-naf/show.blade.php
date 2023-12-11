@@ -3,7 +3,8 @@
 @section('template_title')
     {{ $requisitosNaf->name ?? "{{ __('Show') Requisitos Naf" }}
 @endsection
-
+@section('title', 'Admin | NAF')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <section class="content container-fluid">
         <div class="row">

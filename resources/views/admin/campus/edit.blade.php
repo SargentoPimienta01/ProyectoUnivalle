@@ -3,6 +3,8 @@
 @section('template_title')
     {{ __('Actualizar') }} Campus
 @endsection
+@section('title', 'Admin | Editar Anuncios de Campus Deportivo')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
     <section class="content container-fluid">

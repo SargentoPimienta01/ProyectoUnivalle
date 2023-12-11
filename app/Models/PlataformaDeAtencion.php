@@ -26,7 +26,6 @@ class PlataformaDeAtencion extends Model
 		'servicio' => 'required',
 		'descripcion' => 'required',
     'requisitos' => 'required',
-		'estado' => 'required',
     ];
 
     protected $primaryKey = 'Id_plataforma_de_atencion';

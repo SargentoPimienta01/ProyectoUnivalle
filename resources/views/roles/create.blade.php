@@ -1,5 +1,6 @@
 @extends('adminlte::page')
-
+@section('title', 'Admin | Roles')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
 <div class="row">
     <div class="col-lg-12 margin-tb">

@@ -13,32 +13,6 @@
     <div class="container py-1">
         <h2>Listado de Anuncios Biblioteca</h2>
     </div>
-
-    <div class="card-body">
-        <div class="mb-3">
-        <form action="{{ route('bibliotecas.index') }}" method="GET">
-            <div class="form-group mr-2">
-                    <label for="categoria" class="mr-2">Filtar por categoría:</label>
-                    <select class="form-control" name="categoria" id="categoria">
-                        <option value="">Todas las categorías</option>
-                        <option value="Anuncio">Anuncios</option>
-                        <option value="Evento">Eventos</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <input type="search" name="busqueda" placeholder="Buscar..." class="form-control" value="{{ $busqueda }}">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
-                    @if($busqueda)
-                    <div class="input-group-append">
-                        <a href="{{ route('bibliotecas.index') }}" class="btn btn-outline-danger">Limpiar</a>
-                    </div>
-                    @endif
-                </div>
-            </form>
-        </div>
-
-        <!--<a href="{{ route('bibliotecaspdf') }}" class="btn btn-success float-left">Generar reporte</a>-->
-
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
@@ -49,20 +23,20 @@
                                     {{ __('Listado de anuncios Biblioteca') }}
                                 </span>
                                 <!--<a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
-                            {{ __('Ir a Trámites inactivos') }}
-                        </a>-->
-                                <a href="{{ route('bibliotecas.inactivos') }}" class="btn btn-secondary">
-                                    {{ __('Ir a anuncios de biblioteca inactivos') }}
-                                </a>
+                                    {{ __('Ir a Trámites inactivos') }}
+                                </a>-->
                                 <!--<a href="{{ route('admin') }}" class="btn btn-danger">
                                     {{ __('Volver') }}
                                 </a>-->
-                                <div class="float-right">
+                                <a href="{{ route('bibliotecas.index') }}" class="btn btn-danger">
+                                    {{ __('Volver a anuncios de biblioteca') }}
+                                </a>
+                                <!--<div class="float-right">
                                     <a href="{{ route('bibliotecas.create') }}" class="btn btn-primary float-right"
                                         data-placement="left">
                                         {{ __('Crear nuevo anuncio') }}
                                     </a>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                         @if(session()->has('success'))
@@ -197,13 +171,13 @@
                                             </div>
                                             <!--modal mostrar FIN-->
 
-                                            <td><a href="{{url('bibliotecas/'.$biblioteca->id.'/edit')}}"
+                                            <!--<td><a href="{{url('bibliotecas/'.$biblioteca->id.'/edit')}}"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#editModal{{$biblioteca->id}}"
-                                                    class="btn btn-sm btn-success">Editar</a></td>
+                                                    class="btn btn-sm btn-success">Editar</a></td>-->
                                             <!--modal editar-->
 
-                                            <div class="modal fade" id="editModal{{$biblioteca->id}}" tabindex="-1"
+                                            <!--<div class="modal fade" id="editModal{{$biblioteca->id}}" tabindex="-1"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
@@ -223,9 +197,9 @@
                                                                 <div class="my-2">
                                                                     <label for="foto"
                                                                         class="col-sm-2 col-form-label">Foto:</label>
-                                                                    <div class="col-sm-9">
+                                                                    <div class="col-sm-9">-->
                                                                         <!-- Puedes mostrar la foto actual y proporcionar la opción de cargar una nueva -->
-                                                                        <input type="file" class="form-control"
+                                                                        <!--<input type="file" class="form-control"
                                                                             name="foto" id="foto" accept="image/*">
                                                                     </div>
                                                                 </div>
@@ -260,9 +234,9 @@
                                                                 <div class="my-2">
                                                                     <label for="fecha"
                                                                         class="col-sm-2 col-form-label">Fecha:</label>
-                                                                    <div class="col-sm-9">
+                                                                    <div class="col-sm-9">-->
                                                                         <!-- Display the default date as a disabled text input -->
-                                                                        <input type="text" class="form-control"
+                                                                        <!--<input type="text" class="form-control"
                                                                             name="fecha" id="fecha"
                                                                             value="{{$biblioteca->fecha}}" disabled>
                                                                     </div>
@@ -300,7 +274,7 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div>-->
                             </div>
                         </div>
 

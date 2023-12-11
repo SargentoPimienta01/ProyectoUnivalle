@@ -1,9 +1,10 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Ubicacion
+    {{ __('Actualizar') }} Ubicacion
 @endsection
-
+@section('title', 'Admin | Ubicaciones')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <section class="content container-fluid">
         <div class="">
@@ -13,7 +14,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">{{ __('Update') }} Ubicacion</span>
+                        <span class="card-title">{{ __('Actualizar') }} Ubicacion</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('ubicacion.update', $ubicacion->id) }}"  role="form" enctype="multipart/form-data">

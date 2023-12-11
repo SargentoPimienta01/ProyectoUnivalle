@@ -21,7 +21,7 @@ class TramiteController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
-        $categoriaId = $request->input('categoria'); // Obtén la categoría seleccionada desde el formulario
+        $categoriaId = $request->input('categoria');
 
         $latestFirst = $request->input('latestFirst', false);
         $sortField = 'id_tramite';
@@ -52,7 +52,7 @@ class TramiteController extends Controller
     {
         $tramitesInactivos = Tramite::where('estado', 0)->paginate();
         return view('admin.tramite.inactivos', compact('tramitesInactivos'))
-            ->with('i', (request()->input('page', 1) - 1) * $tramitesInactivos->perPage());;
+            ->with('i', (request()->input('page', 1) - 1) * $tramitesInactivos->perPage());
     }
 
     /**

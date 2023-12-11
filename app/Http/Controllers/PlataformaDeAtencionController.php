@@ -16,13 +16,34 @@ class PlataformaDeAtencionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $plataformaDeAtencions = PlataformaDeAtencion::paginate();
+        $search = $request->input('search');
 
-        return view('admin.plataforma-de-atencion.index', compact('plataformaDeAtencions'))
+        $latestFirst = $request->input('latestFirst', false);
+        $sortField = 'id_plataforma_de_atencion';
+        $sortDirection = $latestFirst ? 'desc' : 'asc';
+
+        $plataformaDeAtencions = PlataformaDeAtencion::where('estado',1)
+        ->where(function ($query) use ($search) {
+            $query->where('servicio', 'LIKE', "%$search%")
+                ->orWhere('descripcion', 'LIKE', "%$search%")
+                ->orWhere('requisitos', 'LIKE', "%$search%");
+        })
+        ->orderBy($sortField, $sortDirection)
+        ->paginate(10);
+
+        return view('admin.plataforma-de-atencion.index', compact('plataformaDeAtencions', 'search', 'latestFirst'))
             ->with('i', (request()->input('page', 1) - 1) * $plataformaDeAtencions->perPage());
     }
+
+    public function inactivos()
+    {
+        $plataformaDeAtencions = PlataformaDeAtencion::where('estado', 0)->paginate();
+        return view('admin.plataforma-de-atencion.inactivos', compact('plataformaDeAtencions'))
+            ->with('i', (request()->input('page', 1) - 1) * $plataformaDeAtencions->perPage());
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -48,7 +69,7 @@ class PlataformaDeAtencionController extends Controller
         $plataformaDeAtencion = PlataformaDeAtencion::create($request->all());
 
         return redirect()->route('plataforma-de-atencions.index')
-            ->with('success', 'PlataformaDeAtencion created successfully.');
+            ->with('success', 'Servicio de Plataforma de atención creado exitosamente.');
     }
 
     /**
@@ -91,7 +112,7 @@ class PlataformaDeAtencionController extends Controller
         $plataformaDeAtencion->update($request->all());
 
         return redirect()->route('plataforma-de-atencions.index')
-            ->with('success', 'PlataformaDeAtencion updated successfully');
+            ->with('success', 'Servicio de Plataforma de atención actualizado exitosamente');
     }
 
     /**
@@ -104,6 +125,28 @@ class PlataformaDeAtencionController extends Controller
         $plataformaDeAtencion = PlataformaDeAtencion::find($id)->delete();
 
         return redirect()->route('plataforma-de-atencions.index')
-            ->with('success', 'PlataformaDeAtencion deleted successfully');
+            ->with('success', 'Servicio de Plataforma de atención eliminado exitosamente');
     }
+
+    public function cambiarEstado($id)
+    {
+        $plataforma = PlataformaDeAtencion::find($id);
+
+        if (!$plataforma) {
+            return redirect()->route('plataformas.index')->with('error', 'Plataforma de Atención no encontrada');
+        }
+
+        // Cambia el estado
+        $nuevoEstado = $plataforma->estado == 1 ? 0 : 1;
+        $plataforma->estado = $nuevoEstado;
+        $plataforma->save();
+
+        if ($nuevoEstado == 1) {
+            return redirect()->route('plataforma-de-atencions.index')->with('success', 'Estado del servicio de Plataforma de Atención cambiado exitosamente');
+        } else {
+            //return redirect()->route('admin.plataforma-de-atencion.inactivos')->with('success', 'Estado de la Plataforma de Atención cambiado exitosamente');
+            return redirect()->route('plataforma-de-atencions.index')->with('success', 'Estado del servicio Plataforma de Atención cambiado exitosamente');
+        }
+    }
+
 }

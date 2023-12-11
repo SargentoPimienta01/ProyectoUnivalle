@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Anuncios o eventos de Biblioteca')
+@section('title', 'Admin | Editar Anuncios o eventos de Biblioteca')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <main class="container py-4">

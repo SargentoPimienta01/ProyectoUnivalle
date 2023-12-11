@@ -3,7 +3,8 @@
 @section('template_title')
     {{ __('Actualizar') }} Plataforma De Atencion
 @endsection
-
+@section('title', 'Admin | Actualizar plataforma de atención')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <section class="content container-fluid">
         <div class="">

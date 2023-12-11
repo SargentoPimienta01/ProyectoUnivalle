@@ -4,7 +4,8 @@
 @section('template_title')
     Ubicacion
 @endsection
-
+@section('title', 'Admin | Ubicaciones')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <div class="container-fluid">
         <div class="row">

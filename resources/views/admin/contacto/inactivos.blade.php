@@ -3,7 +3,8 @@
 @section('template_title')
     Contacto
 @endsection
-
+@section('title', 'Admin | Contactos inactivos')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -20,11 +21,11 @@
                                 {{ __('Volver a contactos') }}
                             </a>
 
-                             <div class="float-right">
+                             <!--<div class="float-right">
                                 <a href="{{ route('contactos.create') }}" class="btn btn-primary float-right"  data-placement="left">
                                   {{ __('Agregar') }}
                                 </a>
-                              </div>
+                              </div>-->
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -67,10 +68,10 @@
 											<td>{{ $contacto->id_usuario ? $contacto->id_usuario : 'Sin usuario asignado' }}</td>
 
                                             <td>
-                                                <a class="btn btn-sm btn-success" href="{{ route('contactos.edit',$contacto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
-                                                <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $contacto->id }}">
-    <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
-</button>
+                                                <!--<a class="btn btn-sm btn-success" href="{{ route('contactos.edit',$contacto->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>-->
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $contacto->id }}">
+                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Activar') }}
+                                                </button>
 
 <!-- Modal de Confirmación para Cambio de Estado -->
 <div class="modal fade" id="confirmChangeState{{ $contacto->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -90,8 +91,8 @@
                 <form method="POST" action="{{ route('contactos.cambiarEstado', $contacto->id) }}">
                     @csrf
                     @method('PUT')
-                    <button type="submit" class="btn btn-warning btn-sm">
-                        <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                    <button type="submit" class="btn btn-warning">
+                        {{ __('Cambiar Estado') }}
                     </button>
                 </form>
             </div>

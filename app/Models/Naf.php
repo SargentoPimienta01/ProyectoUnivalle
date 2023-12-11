@@ -25,7 +25,6 @@ class Naf extends Model
     static $rules = [
 		'nombre_naf' => 'required',
 		'id_ubicacion' => 'required',
-		'estado' => 'required',
     ];
 
     protected $perPage = 20;

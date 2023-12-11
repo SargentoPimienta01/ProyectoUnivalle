@@ -3,7 +3,8 @@
 @section('template_title')
     Naf
 @endsection
-
+@section('title', 'Admin | NAF')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
 <div class="container py-1">
         <h2>Listado de Servicios Inacticos de NAF</h2>

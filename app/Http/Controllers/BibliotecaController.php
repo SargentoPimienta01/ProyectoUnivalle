@@ -18,11 +18,26 @@ class BibliotecaController extends Controller
    
     public function index(Request $request)
     {
-        $busqueda = $request->busqueda;
-        $bibliotecas = Biblioteca::where('titulo', 'LIKE', '%' . $busqueda . '%')
-            ->paginate(5);
+        $busqueda = $request->input('busqueda');
+        $categoriaId = $request->input('categoria');
 
-        return view('admin.bibliotecas.index', compact('bibliotecas', 'busqueda'));
+        $bibliotecas = Biblioteca::where('estado',1)
+        ->where(function ($query) use ($busqueda) {
+            $query->where('titulo', 'LIKE', '%' . $busqueda . '%')
+                ->orWhere('descripcion', 'LIKE', '%' . $busqueda . '%');
+        })
+        ->when($categoriaId, function ($query, $categoriaId) {
+            $query->where('categoria', $categoriaId);
+        })
+        ->paginate(10);
+
+        return view('admin.bibliotecas.index', compact('bibliotecas', 'busqueda', 'categoriaId'));
+    }
+
+    public function inactivos(Request $request)
+    {
+        $bibliotecas = Biblioteca::where('estado',0)->paginate(10);
+        return view('admin.bibliotecas.inactivos', compact('bibliotecas'));
     }
 
 
@@ -203,7 +218,7 @@ class BibliotecaController extends Controller
         $biblioteca->estado = true;
         $biblioteca->save();
     
-        return redirect()->back()->with('success', "Producto activado correctamente.");
+        return redirect()->route('bibliotecas.index')->with('success', "Producto activado correctamente.");
     }
 
     public function desactivar($id)

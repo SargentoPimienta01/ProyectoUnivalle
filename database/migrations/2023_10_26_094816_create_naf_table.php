@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('id_ubicacion')
                 ->references('id')
                 ->on('ubicaciones')->default(1);
-            $table->boolean('estado')->default(1);
+            $table->boolean('estado')->default(true);
             $table->unsignedBigInteger('Id_area')->default(5);
             $table->foreign('Id_area')->references('Id_area')->on('areas');
             $table->timestamps();

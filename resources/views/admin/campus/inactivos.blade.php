@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container py-1">
-        <h2>Anuncios de Campus deportivo</h2>
+        <h2>Anuncios inactivos de Campus deportivo</h2>
 </div>
     <div class="container-fluid">
         <div class="row">
@@ -21,15 +21,15 @@
                                 {{ __('Campus') }}
                             </span>
 
-                            <a href="{{ route('campuses.inactivos') }}" class="btn btn-secondary">
-                                {{ __('Ir a Anuncios inactivos') }}
+                            <a href="{{ route('campuses.index') }}" class="btn btn-danger">
+                                {{ __('Volver a Anuncios activos') }}
                             </a>
 
-                             <div class="float-right">
-                                <a href="{{ route('campuses.create') }}" class="btn btn-primary float-right"  data-placement="left">
+                             <!--<div class="float-right">
+                                <a href="{{ route('campuses.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nuevo') }}
                                 </a>
-                              </div>
+                              </div>-->
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -72,13 +72,13 @@
                                             <td>
                                                 <!--<form action="{{ route('campuses.destroy',$campus->id) }}" method="POST">-->
                                                     <!--<a class="btn btn-sm btn-primary " href="{{ route('campuses.show',$campus->id) }}"><i class="fa fa-fw fa-eye"></i> {{ __('Ver') }}</a>-->
-                                                    <a class="btn btn-sm btn-success" href="{{ route('campuses.edit',$campus->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>
+                                                    <!--<a class="btn btn-sm btn-success" href="{{ route('campuses.edit',$campus->id) }}"><i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}</a>-->
                                                     <!--@csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> {{ __('Eliminar') }}</button>-->
                                                 <!--</form>-->
-                                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $campus->id }}">
-                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
+                                                <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $campus->id }}">
+                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Reactivar') }}
                                                 </button>
                                                 <!-- Modal de Confirmación para Cambio de Estado -->
                                             <div class="modal fade" id="confirmChangeState{{ $campus->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

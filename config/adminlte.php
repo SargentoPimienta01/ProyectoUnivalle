@@ -434,7 +434,7 @@ return [
             'icon' => 'fas fa-book',
         ],
         [
-            'text' => 'Servicios de campus deportivo',
+            'text' => 'Anuncios de campus deportivo',
             'url' => '/campuses',
             'icon' => 'fas fa-hockey-puck',
         ],

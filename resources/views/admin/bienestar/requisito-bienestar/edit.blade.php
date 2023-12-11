@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar Requisito de Trámite')
-
+@section('title', 'Admin | Editar Requisito de Trámite')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -41,6 +41,7 @@
                             <!-- Agrega más campos según sea necesario -->
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                <a href="{{ route('requisito-bienestares.index', ['id_bienestar' => $id_bienestar]) }}" class="btn btn-danger">Volver</a>
                             </div>
                         </form>
                     </div>

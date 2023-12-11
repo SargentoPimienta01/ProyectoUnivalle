@@ -3,7 +3,8 @@
 @section('template_title')
     Requisitos Naf
 @endsection
-
+@section('title', 'Admin | NAF')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
 <div class="container py-1">
         <h2>Listado de Requisitos Inactivos NAF</h2>
@@ -16,7 +17,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Requisitos Naf: ') }}{{ $naf->nombre_naf }}
+                                {{ __('Requisitos Naf inactivos ') }}
                             </span>
 
                             <a href="{{ route('nafs.index') }}" class="btn btn-danger">
@@ -29,12 +30,12 @@
                                 </a>
                               </div>-->
                               <!-- Botón que abre el modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
+                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createModal">
                             {{ __('Agregar requisito') }}
-                            </button>
+                            </button>-->
 
                             <!-- Modal de creación -->
-                            <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+                            <!--<div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                 <div class="modal-header">
@@ -47,39 +48,39 @@
                                 <form method="POST" action="{{ route('requisitos-naf.store') }}"  role="form" enctype="multipart/form-data">
                                     @csrf
                                     <div class="box box-info padding-1">
-    <div class="box-body">
-        <div class="form-group">
-            {{ Form::label('nombre_requisito') }}
-            {{ Form::text('nombre_requisito', $requisitosNaf->nombre_requisito ?? '', ['class' => 'form-control' . ($errors->has('nombre_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Requisito']) }}
-            {!! $errors->first('nombre_requisito', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('descripcion_requisito') }}
-            {{ Form::text('descripcion_requisito', $requisitosNaf->descripcion_requisito ?? '', ['class' => 'form-control' . ($errors->has('descripcion_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion Requisito']) }}
-            {!! $errors->first('descripcion_requisito', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group" style="display: none;">
-            {{ Form::label('estado') }}
-            {{ Form::text('estado', $requisitosNaf->estado ?? '', ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
-            {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group" style="display: none;">
-            {{ Form::label('Id_naf') }}
-            {{ Form::text('Id_naf', $requisitosNaf->Id_naf ?? '', ['class' => 'form-control' . ($errors->has('Id_naf') ? ' is-invalid' : ''), 'placeholder' => 'Id Naf']) }}
-            {!! $errors->first('Id_naf', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-    </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
-        <a href="{{ route('nafs.index') }}" class="btn btn-danger">{{ __('Volver a Nafs') }}</a>
-    </div>
-</div>
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                {{ Form::label('nombre_requisito') }}
+                                                {{ Form::text('nombre_requisito', $requisitosNaf->nombre_requisito ?? '', ['class' => 'form-control' . ($errors->has('nombre_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Nombre Requisito']) }}
+                                                {!! $errors->first('nombre_requisito', '<div class="invalid-feedback">:message</div>') !!}
+                                            </div>
+                                            <div class="form-group">
+                                                {{ Form::label('descripcion_requisito') }}
+                                                {{ Form::text('descripcion_requisito', $requisitosNaf->descripcion_requisito ?? '', ['class' => 'form-control' . ($errors->has('descripcion_requisito') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion Requisito']) }}
+                                                {!! $errors->first('descripcion_requisito', '<div class="invalid-feedback">:message</div>') !!}
+                                            </div>
+                                            <div class="form-group" style="display: none;">
+                                                {{ Form::label('estado') }}
+                                                {{ Form::text('estado', $requisitosNaf->estado ?? '', ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''), 'placeholder' => 'Estado']) }}
+                                                {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
+                                            </div>
+                                            <div class="form-group" style="display: none;">
+                                                {{ Form::label('Id_naf') }}
+                                                {{ Form::text('Id_naf', $requisitosNaf->Id_naf ?? '', ['class' => 'form-control' . ($errors->has('Id_naf') ? ' is-invalid' : ''), 'placeholder' => 'Id Naf']) }}
+                                                {!! $errors->first('Id_naf', '<div class="invalid-feedback">:message</div>') !!}
+                                            </div>
+                                        </div>
+                                        <div class="box-footer mt20">
+                                            <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
+                                            <a href="{{ route('nafs.index') }}" class="btn btn-danger">{{ __('Volver a Nafs') }}</a>
+                                        </div>
+                                    </div>
 
                                 </form>
                                 </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">

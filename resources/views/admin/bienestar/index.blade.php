@@ -4,8 +4,12 @@
 @section('template_title')
     Bienestar Universitario
 @endsection
-
+@section('title', 'Admin | Bienestar Universitario')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+        <h2>Bienestar Universitario</h2>
+</div>
 <div class="card-body">
     <div class="mb-3">
         <form action="{{ route('bienestar.index') }}" method="GET">
@@ -158,6 +162,7 @@
                     </div>
                 </div>
             </div>
+            {!! $bienestarUniversitario->links() !!}
         </div>
     </div>
 </div>

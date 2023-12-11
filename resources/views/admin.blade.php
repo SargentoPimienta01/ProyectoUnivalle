@@ -106,9 +106,6 @@
                             <p class="card-text">
                                 <i class="fas fa-fw fa-money-bill-wave"></i>
                                 <a href="/nafs">Nafs</a>
-                                <br>
-                                <i class="fas fa-clipboard-list"></i>
-                                <a href="/requisitos-naf">Nafs Requisitos</a>
                             </p>
                         </div>
                     </div>
@@ -121,26 +118,7 @@
                         <div class="card-body">
                             <p class="card-text">
                                 <i class="fas fa-fw fa-medkit"></i>
-                                <a href="/gabinetes-medico">Gabinetes Médicos</a>
-                                <br>
-                                <i class="fas fa-clipboard-list"></i>
-                                <a href="/requisitos-gabinetesmedico">Gabinetes Médicos Requisitos</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Gestionar Gabinetes Médicos</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <i class="fas fa-fw fa-medkit"></i>
-                                <a href="/gabinetes-medico">Gabinetes Médicos</a>
-                                <br>
-                                <i class="fas fa-clipboard-list"></i>
-                                <a href="/requisitos-gabinetesmedico">Gabinetes Médicos Requisitos</a>
+                                <a href="/bienestar/1/requisitos/gabinete-medico">Gabinetes Médicos</a>
                             </p>
                         </div>
                     </div>
@@ -219,6 +197,19 @@
                             <p class="card-text">
                                 <i class="fas fa-hockey-puck"></i>
                                 <a href="/campuses">Campus deportivo</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Administrar contactos</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-address-card"></i>
+                                <a href="/contactos">Contactos</a>
                             </p>
                         </div>
                     </div>

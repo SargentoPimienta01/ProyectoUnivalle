@@ -3,27 +3,12 @@
 @section('template_title')
     Plataforma De Atencion
 @endsection
-@section('title', 'Admin | Plataforma de atención')
+@section('title', 'Admin | Plataforma de atención inactivos')
 <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 <div class="container py-1">
         <h2>Plataforma de Atención - servicios</h2>
-</div>
-<div class="card-body">
-    <div class="mb-3">
-    <form action="{{ route('plataforma-de-atencions.index') }}" method="GET">
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-                @if($search)
-                    <div class="input-group-append">
-                        <a href="{{ route('plataforma-de-atencions.index') }}" class="btn btn-outline-danger">Limpiar</a>
-                    </div>
-                @endif
-            </div>
-        </form>
-    </div>
 </div>
     <div class="container-fluid">
         <div class="row">
@@ -36,19 +21,17 @@
                                 {{ __('Plataforma De Atencion') }}
                             </span>
 
-                            <a href="{{ route('plataforma-de-atencions.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
-                                @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
-                            </a>
+                            <div class="float-right">
+                                <a href="{{ route('plataforma-de-atencions.index') }}" class="btn btn-danger float-right"  data-placement="left">
+                                  {{ __('Volver a Servicios de Plataforma de atención') }}
+                                </a>
+                            </div>
 
-                            <a href="{{ route('plataforma-de-atencions.inactivos') }}" class="btn btn-secondary">
-                                {{ __('Ir a servicios de plataforma de atención inactivos') }}
-                            </a>
-
-                             <div class="float-right">
+                             <!--<div class="float-right">
                                 <a href="{{ route('plataforma-de-atencions.create') }}" class="btn btn-primary float-right"  data-placement="left">
                                   {{ __('Agregar') }}
                                 </a>
-                              </div>
+                              </div>-->
                         </div>
                     </div>
                     @if ($message = Session::get('success'))

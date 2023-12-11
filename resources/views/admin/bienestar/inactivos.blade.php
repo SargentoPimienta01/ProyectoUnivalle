@@ -4,8 +4,12 @@
 @section('template_title')
     Bienestar Universitario
 @endsection
-
+@section('title', 'Admin | Bienestar - Inactivos')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 @section('content')
+<div class="container py-1">
+        <h2>Bienestar - Inactivos</h2>
+</div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -111,6 +115,7 @@
                     </div>
                 </div>
             </div>
+            {!! $bienestarUniversitario->links() !!}
         </div>
     </div>
 </div>

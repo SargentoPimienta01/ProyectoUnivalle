@@ -17,11 +17,17 @@ class NafController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $nafs = Naf::paginate(10);
+        $search = $request->input('search');
 
-        return view('admin.naf.index', compact('nafs'))
+        $nafs = Naf::where('estado', 1)->where(function ($query) use ($search) {
+            $query->where('nombre_naf', 'LIKE', "%$search%")
+                ->orWhere('descripcion', 'LIKE', "%$search%");
+        })
+        ->paginate(10);
+
+        return view('admin.naf.index', compact('nafs', 'search'))
             ->with('i', (request()->input('page', 1) - 1) * $nafs->perPage());
     }
 
@@ -50,7 +56,7 @@ class NafController extends Controller
         $naf = Naf::create($request->all());
 
         return redirect()->route('nafs.index')
-            ->with('success', 'Naf created successfully.');
+            ->with('success', 'Naf creado exitosamente.');
     }
 
     /**
@@ -94,7 +100,7 @@ class NafController extends Controller
         $naf->update($request->all());
 
         return redirect()->route('nafs.index')
-            ->with('success', 'Naf updated successfully');
+            ->with('success', 'Naf actualizado exitosamente.');
     }
 
     /**

@@ -159,6 +159,9 @@ use App\Http\Controllers\ContactoController;
     Route::post('postgrados/cambiarEstado/{id}', [PostgradoController::class, 'cambiarEstado'])->name('postgrados.cambiarEstado');
     Route::get('/postgrados/inactivos', [PostgradoController::class, 'inactivos'])->name('postgrados.inactivos');
     Route::resource('postgrados', PostgradoController::class);
+
+    Route::post('plataforma-de-atencions/cambiarEstado/{id}', [PlataformaDeAtencionController::class, 'cambiarEstado'])->name('plataforma-de-atencions.cambiarEstado');
+    Route::get('/plataforma-de-atencions/inactivos', [PlataformaDeAtencionController::class, 'inactivos'])->name('plataforma-de-atencions.inactivos');
     Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
 
     Route::get('contactos/inactivos', [ContactoController::class, 'inactivos'])->name('contactos.inactivos');
@@ -215,6 +218,8 @@ use App\Http\Controllers\ContactoController;
     });
 
     //Campus
+    Route::post('campuses/cambiarEstado/{id}', [CampusController::class, 'cambiarEstado'])->name('campuses.cambiarEstado');
+    Route::get('/campuses/inactivos', [CampusController::class, 'inactivos'])->name('campuses.inactivos');
     Route::resource('campuses', CampusController::class);
 
 
@@ -284,16 +289,17 @@ use App\Http\Controllers\ContactoController;
 
     // Rutas de requisitos de nafs
     // Primero definir las rutas específicas antes de las rutas con parámetros
-    Route::get('nafs/requisitos-naf/{id_naf}', [RequisitosNafController::class, 'index'])->name('requisitos-naf.index');
     Route::get('nafs/requisitos-naf/inactivos', [RequisitosNafController::class, 'inactivos'])->name('requisitos-naf.inactivos');
+    Route::get('nafs/requisitos-naf/{id_naf}', [RequisitosNafController::class, 'index'])->name('requisitos-naf.index');
 
     // Ahora, las rutas generales o las rutas con parámetros
-    Route::resource('nafs/requisitos-naf', RequisitosNafController::class)->except(['show'])->names('requisitos-naf');
+    Route::put('nafs/requisitos-naf/{requisitos_naf}', [RequisitosNafController::class, 'update'])->name('requisitos-naf.update');
     Route::put('nafs/requisitos-naf/cambiarEstado/{requisito}', [RequisitosNafController::class, 'cambiarEstado'])->name('requisitos-naf.cambiarEstado');
+    Route::resource('nafs/requisitos-naf', RequisitosNafController::class)->except(['show','update'])->names('requisitos-naf');
 
 
     //biblioteca
-    
+    Route::get('/bibliotecas/inactivos', [BibliotecaController::class, 'inactivos'])->name('bibliotecas.inactivos');
     Route::resource('/bibliotecas', BibliotecaController::class);
 
     //Route::get('/bibliotecas/{id}', 'BibliotecaController@show')->name('bibliotecas.show');
@@ -308,6 +314,8 @@ use App\Http\Controllers\ContactoController;
     Route::patch('/bibliotecas/desactivar/{id}', [BibliotecaController::class, 'desactivar'])->name('bibliotecas.desactivar');
 
     Route::get('bibliotecaspdf', [BibliotecaController::class, 'generarReporte'])->name('bibliotecaspdf');
+
+    //Productos cafecito
     Route::get('/productos/inactivos', [productoController::class, 'inactivos'])->name('productos.inactivos');
     Route::resource('/productos',productoController::class);
     

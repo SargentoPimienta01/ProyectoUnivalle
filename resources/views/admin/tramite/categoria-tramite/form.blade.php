@@ -26,7 +26,7 @@
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">
-    {{ __('Cerrar') }}<span aria-hidden="true"></span>
-    </button>
+            {{ __('Cerrar') }}<span aria-hidden="true"></span>
+        </button>
     </div>
 </div>
