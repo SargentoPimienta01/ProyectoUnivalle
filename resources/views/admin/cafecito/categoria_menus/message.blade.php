@@ -1,4 +1,6 @@
 @section('title', 'registrar producto')
+@section('title', 'Admin | Cafecito Categorías Menú')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
 

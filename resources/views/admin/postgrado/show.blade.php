@@ -3,6 +3,8 @@
 @section('template_title')
     {{ $postgrado->name ?? "{{ __('Mostrar') Postgrado" }}
 @endsection
+@section('title', 'Admin | Postgrados')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
     <section class="content container-fluid">

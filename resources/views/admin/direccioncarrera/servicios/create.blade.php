@@ -1,6 +1,8 @@
 @extends('adminlte::page')
 
 @section('title', 'Crear Servicio Dirección')
+@section('title', 'Admin | Servicios de direcciones de carrera')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
     <div class="container-fluid">
@@ -34,7 +36,10 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">Guardar Servicio Dirección</button>
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <a href="{{ route('servicio-direccion.index', ['direccion_carrera_id' => $direccion_carrera_id]) }}" class="btn btn-danger">
+                                    Volver
+                                </a>
                             </div>
                         </form>
                     </div>

@@ -3,7 +3,7 @@
 @section('template_title')
     Caja
 @endsection
-@section('title', 'Univalle | Cajas')
+@section('title', 'Admin | Cajas')
 <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
@@ -35,6 +35,12 @@
                             <span id="card_title">
                                 {{ __('Cajas') }}
                             </span>
+
+                            <a href="{{ route('cajas.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
+                                @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
+                            </a>
+
+
                             <a class="btn btn-secondary" href="{{ route('cajas.inactivas') }}">
                                 {{ __('Ir a Cajas Inactivas') }}
                             </a>

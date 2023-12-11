@@ -4,8 +4,13 @@
 @section('template_title')
     Direccion Carrera
 @endsection
+@section('title', 'Admin | Direcciones de carrera')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
+<div class="container py-1">
+        <h2>Listado de Direcciones de carrera</h2>
+</div>
 <div class="card-body">
     <div class="mb-3">
         <form action="{{ route('direccion-carrera.index') }}" method="GET">
@@ -138,11 +143,11 @@
                                             <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editDireccionCarreraModal{{ $item->id }}">
                                                 <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
                                             </button>
-                                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $item->id }}">
-                                                <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                                            <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $item->id }}">
+                                                <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                             </button>
                                             <a class="btn btn-sm btn-secondary" href="{{ route('servicio-direccion.index', ['direccion_carrera_id' => $item->id]) }}">
-                                                <i class="fa fa-fw fa-exchange"></i> {{ __('Administrar servicios') }}
+                                                <i class="fas fa-tasks"></i> {{ __('Administrar servicios') }}
                                             </a>
                                         </td>
 
@@ -238,6 +243,7 @@
                     </div>
                 </div>
             </div>
+            {{ $direccionCarreras->links() }}
         </div>
     </div>
 </div>

@@ -1,8 +1,13 @@
 @extends('adminlte::page')
 
 @section('title', 'Servicios de Dirección de carrera')
+@section('title', 'Admin | Servicios de direcciones de carrera')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
+<div class="container py-1">
+        <h2>{{ __('Servicios de dirección de ') }}{{ $direccionCarrera->carrera }}</h2>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -126,11 +131,11 @@
                                                 {{ $servicioDireccion->estado == 1 ? 'Activo' : 'Inactivo' }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('servicio-direccion.edit', ['id' => $servicioDireccion->id, 'direccion_carrera_id' => $servicioDireccion->direccion_carrera_id]) }}" class="btn btn-success">Modificar</a>
+                                                <a href="{{ route('servicio-direccion.edit', ['id' => $servicioDireccion->id, 'direccion_carrera_id' => $servicioDireccion->direccion_carrera_id]) }}" class="btn btn-success">Editar</a>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#confirmChangeState{{ $servicioDireccion->id }}">
-                                                    Cambiar Estado
+                                                <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirmChangeState{{ $servicioDireccion->id }}">
+                                                    <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                                 </a>
                                             </td>
                                         </tr>

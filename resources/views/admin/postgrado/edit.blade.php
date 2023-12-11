@@ -1,8 +1,10 @@
 @extends('adminlte::page')
 
 @section('template_title')
-    {{ __('Update') }} Postgrado
+    {{ __('Actualizar') }} Postgrado
 @endsection
+@section('title', 'Admin | Postgrados')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
     <section class="content container-fluid">

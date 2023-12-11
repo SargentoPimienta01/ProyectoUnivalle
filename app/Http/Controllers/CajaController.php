@@ -10,14 +10,21 @@ class CajaController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+
+        $latestFirst = $request->input('latestFirst', false);
+        $sortField = 'id_caja';
+        $sortDirection = $latestFirst ? 'desc' : 'asc';
+
+
         $cajas = Caja::where('estado', 1)
             ->where(function ($query) use ($search) {
                 $query->where('nombre_caja', 'LIKE', "%$search%")
                     ->orWhere('descripcion_caja', 'LIKE', "%$search%");
             })
+            ->orderBy($sortField, $sortDirection)
             ->paginate(10);
 
-        return view('admin.caja.index', compact('cajas', 'search'))
+        return view('admin.caja.index', compact('cajas', 'search', 'latestFirst'))
             ->with('i', (request()->input('page', 1) - 1) * $cajas->perPage());
     }
 
@@ -101,6 +108,4 @@ class CajaController extends Controller
         $cajas = Caja::where('estado', 0)->paginate(10);
         return view('admin.caja.inactivas', compact('cajas'));
     }
-
-
 }

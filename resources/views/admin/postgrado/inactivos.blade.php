@@ -3,7 +3,7 @@
 @section('template_title')
     Postgrado
 @endsection
-@section('title', 'Admin | Postgrados')
+@section('title', 'Admin | Postgrados inactivos')
 <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
@@ -12,30 +12,6 @@
 </div>
 
 <div class="card-body">
-    <div class="mb-3">
-        <form action="{{ route('postgrados.index') }}" method="GET">
-        <div class="form-group mr-2">
-                <label for="categoria" class="mr-2">Filtar por categoría:</label>
-                <select class="form-control" name="categoria" id="categoria">
-                    <option value="">Todas las categorías</option>
-                    <option value="diplomado">Diplomados</option>
-                    <option value="doctorado">Doctorados</option>
-                    <option value="maestria">Maestrías</option>
-                </select>
-            </div>
-            <label for="categoria" class="mr-2">Buscar:</label>
-            <div class="input-group">
-                <input type="text" name="search" class="form-control" placeholder="Buscar..." value="{{ $search }}">
-                <button type="submit" class="btn btn-primary">Buscar</button>
-                @if($search)
-                    <div class="input-group-append">
-                        <a href="{{ route('postgrados.index') }}" class="btn btn-outline-danger">Limpiar</a>
-                    </div>
-                @endif
-            </div>
-        </form>
-    </div>
-</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -46,18 +22,10 @@
                             <span id="card_title">
                                 {{ __('Postgrado') }}
                             </span>
-
-                            <a href="{{ route('postgrados.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
-                                @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
-                            </a>
-
-                            <a href="{{ route('postgrados.inactivos') }}" class="btn btn-secondary">
-                                {{ __('Ir a postgrados inactivos') }}
-                            </a>
-
+                            
                              <div class="float-right">
-                                <a href="{{ route('postgrados.create') }}" class="btn btn-primary float-right"  data-placement="left">
-                                  {{ __('Agregar') }}
+                                <a href="{{ route('postgrados.index') }}" class="btn btn-danger float-right"  data-placement="left">
+                                  {{ __('Volver a Postgrados') }}
                                 </a>
                               </div>
                         </div>
@@ -123,7 +91,7 @@
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                        <form action="{{ route('postgrados.cambiarEstado', $postgrado->Id_postgrado) }}" method="POST">
+                                                        <form action="{{ route('direccion-carrera.cambiarEstado', $postgrado->Id_postgrado) }}" method="POST">
                                                             @csrf
                                                             <button type="submit" class="btn btn-warning">Confirmar Cambio de Estado</button>
                                                         </form>

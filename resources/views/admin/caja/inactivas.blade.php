@@ -3,7 +3,7 @@
 @section('template_title')
     Caja
 @endsection
-@section('title', 'Univalle | Cajas inactivas')
+@section('title', 'Admin | Cajas inactivas')
 <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')

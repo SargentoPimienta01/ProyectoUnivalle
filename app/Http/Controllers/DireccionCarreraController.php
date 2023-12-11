@@ -18,7 +18,7 @@ class DireccionCarreraController extends Controller
                 $query->where('carrera', 'LIKE', "%$search%")
                     ->orWhere('descripcion', 'LIKE', "%$search%");
             })
-            ->paginate();
+            ->paginate(10);
 
         $ubicaciones = Ubicacion::all();
 
@@ -84,7 +84,8 @@ class DireccionCarreraController extends Controller
         if ($nuevoEstado == 1) {
             return redirect()->route('direccion-carrera.index')->with('success', 'Estado del registro cambiado exitosamente');
         } else {
-            return redirect()->route('direccion-carrera.inactivos')->with('success', 'Estado del registro cambiado exitosamente');
+            //return redirect()->route('direccion-carrera.inactivos')->with('success', 'Estado del registro cambiado exitosamente');
+            return redirect()->route('direccion-carrera.index')->with('success', 'Estado del registro cambiado exitosamente');
         }
     }
 }

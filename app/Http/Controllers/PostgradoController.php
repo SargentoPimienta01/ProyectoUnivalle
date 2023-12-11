@@ -16,13 +16,39 @@ class PostgradoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $postgrados = Postgrado::paginate();
+        $search = $request->input('search');
+        $categoriaId = $request->input('categoria');
 
-        return view('admin.postgrado.index', compact('postgrados'))
+        $latestFirst = $request->input('latestFirst', false);
+        $sortField = 'id_postgrado';
+        $sortDirection = $latestFirst ? 'desc' : 'asc';
+
+        // Consulta de Postgrado con búsqueda
+        $postgrados = Postgrado::where('estado', 1)->where(function ($query) use ($search) {
+                $query->where('nombre_programa', 'LIKE', "%$search%")
+                    ->orWhere('descripcion', 'LIKE', "%$search%");
+            })
+            ->when($categoriaId, function ($query, $categoriaId) {
+                $query->where('categoria', $categoriaId);
+            })
+            ->orderBy($sortField, $sortDirection)
+            ->paginate(10);
+
+        // Puedes agregar más lógica según tus necesidades para obtener datos adicionales, si es necesario.
+
+        return view('admin.postgrado.index', compact('postgrados', 'search', 'latestFirst'))
             ->with('i', (request()->input('page', 1) - 1) * $postgrados->perPage());
     }
+
+    public function inactivos()
+    {
+        $postgrados = Postgrado::where('estado', 0)->paginate();
+        return view('admin.postgrado.inactivos', compact('postgrados'))
+            ->with('i', (request()->input('page', 1) - 1) * $postgrados->perPage());;
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -110,5 +136,26 @@ class PostgradoController extends Controller
 
         return redirect()->route('postgrados.index')
             ->with('success', 'Postgrado deleted successfully');
+    }
+
+    public function cambiarEstado($id)
+    {
+        $postgrado = Postgrado::find($id);
+
+        if (!$postgrado) {
+            return redirect()->route('postgrados.index')->with('error', 'Trámite no encontrado');
+        }
+
+        // Cambia el estado
+        $nuevoEstado = $postgrado->estado == 1 ? 0 : 1;
+        $postgrado->estado = $nuevoEstado;
+        $postgrado->save();
+
+        if ($nuevoEstado == 1) {
+            return redirect()->route('postgrados.index')->with('success', 'Estado del trámite cambiado exitosamente');
+        } else {
+            //return redirect()->route('postgrados.inactivos')->with('success', 'Estado del trámite cambiado exitosamente');
+            return redirect()->route('postgrados.index')->with('success', 'Estado del trámite cambiado exitosamente');
+        }
     }
 }

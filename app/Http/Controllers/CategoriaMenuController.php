@@ -10,7 +10,7 @@ class CategoriaMenuController extends Controller
 {
     public function index()
     {
-        $categorias = CategoriaMenu::where('estado', 1)->get();
+        $categorias = CategoriaMenu::where('estado', 1)->paginate(10);
         return view('admin.cafecito.categoria_menus.index', compact('categorias'));
     }
 
@@ -40,7 +40,7 @@ class CategoriaMenuController extends Controller
         
             $categoria->save();
     
-            return view("categoria_menus.message", ['msg' => "Registro guardado"]);
+            return view("admin.cafecito.categoria_menus.index")->with('success', "Registro guardado");
     }
 
     public function edit( $id)
@@ -61,7 +61,7 @@ class CategoriaMenuController extends Controller
         $categoria->descripcion = $request->input('descripcion');
         $categoria->save();
 
-        return view("categoria_menus.message", ['msg' => "Registro modificado"]);
+        return view("admin.cafecito.categoria_menus.index")->with("success","Registro modificado");
     }
 
     public function destroy($id) {

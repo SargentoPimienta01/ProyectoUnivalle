@@ -397,7 +397,7 @@ return [
                     'icon' => 'fas fa-coffee',
                 ],
                 [
-                    'text' => 'Gestionar anuncios de cafetería',
+                    'text' => 'Gestionar productos de cafetería',
                     'url' => '/productos',
                     'icon' => 'fas fa-coffee',
                 ],

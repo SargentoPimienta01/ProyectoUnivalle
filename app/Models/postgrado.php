@@ -13,7 +13,6 @@ class postgrado extends Model
 		'descripcion' => 'required',
 		'modalidad' => 'required',
 		'categoria' => 'required',
-		'estado' => 'required',
     ];
 
     protected $perPage = 20;

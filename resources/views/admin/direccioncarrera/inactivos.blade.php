@@ -4,8 +4,13 @@
 @section('template_title')
     Dirección Carrera - Inactivos
 @endsection
+@section('title', 'Admin | Direcciones de carrera inactivas')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
+<div class="container py-1">
+        <h2>Listado de Direcciones de carrera inactivas</h2>
+</div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12">
@@ -49,11 +54,11 @@
                                         <td>{{ $item->estado == 1 ? 'Activo' : 'Inactivo' }}</td>
                                         <td>
                                             <!-- Botón para abrir el modal de edición -->
-                                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editDireccionCarreraModal{{ $item->id }}">
+                                            <!--<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editDireccionCarreraModal{{ $item->id }}">
                                                 <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
-                                            </button>
+                                            </button>-->
                                             <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#confirmChangeState{{ $item->id }}">
-                                                <i class="fa fa-fw fa-exchange"></i> {{ __('Cambiar Estado') }}
+                                                {{('Cambiar Estado') }}
                                             </button>
                                         </td>
 
@@ -145,6 +150,7 @@
                     </div>
                 </div>
             </div>
+            {{ $direccionCarreras->links() }}
         </div>
     </div>
 </div>

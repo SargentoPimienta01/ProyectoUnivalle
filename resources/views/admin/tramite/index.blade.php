@@ -53,7 +53,7 @@
                         </span>
                         <a href="{{ route('tramites.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
                                 @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
-                            </a>
+                        </a>
                         <a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
                             {{ __('Ir a Trámites inactivos') }}
                         </a>

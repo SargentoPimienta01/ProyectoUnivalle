@@ -171,7 +171,9 @@ class ServicioDireccionController extends Controller
         // Redirige a diferentes vistas según el estado cambiado
         if ($servicioDireccion->estado == 0) {
             // Si el estado es 0, redirige a la vista de inactivos
-            return redirect()->route('servicio-direccion.inactivos', ['direccion_carrera_id' => $direccion_carrera_id])
+            /*return redirect()->route('servicio-direccion.inactivos', ['direccion_carrera_id' => $direccion_carrera_id])
+                ->with('success', 'Estado cambiado exitosamente.');*/
+            return redirect()->route('servicio-direccion.index', ['direccion_carrera_id' => $direccion_carrera_id])
                 ->with('success', 'Estado cambiado exitosamente.');
         } else {
             // Si el estado es 1, redirige a la vista de servicios activos

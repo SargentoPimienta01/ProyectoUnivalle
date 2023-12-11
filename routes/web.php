@@ -155,6 +155,9 @@ use App\Http\Controllers\ContactoController;
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
+
+    Route::post('postgrados/cambiarEstado/{id}', [PostgradoController::class, 'cambiarEstado'])->name('postgrados.cambiarEstado');
+    Route::get('/postgrados/inactivos', [PostgradoController::class, 'inactivos'])->name('postgrados.inactivos');
     Route::resource('postgrados', PostgradoController::class);
     Route::resource('plataforma-de-atencions', PlataformaDeAtencionController::class);
 

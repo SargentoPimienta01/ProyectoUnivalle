@@ -1,8 +1,13 @@
 @extends('adminlte::page')
 
 @section('title', 'Servicios de Dirección Inactivos')
+@section('title', 'Admin | Servicios inactivos de direcciones de carrera')
+<link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
+<div class="container py-1">
+        <h2>{{ __('Servicios inactivos de Direcciones de carrera') }}</h2>
+</div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -53,8 +58,8 @@
                                         <a href="{{ route('servicio-direccion.edit', ['id' => $servicioInactivo->id, 'direccion_carrera_id' => $servicioInactivo->direccion_carrera_id]) }}" class="btn btn-success">Modificar</a>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#confirmChangeState{{ $servicioInactivo->id }}">
-                                                Cambiar Estado
+                                            <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#confirmChangeState{{ $servicioInactivo->id }}">
+                                                <i class="fa fa-fw fa-power-off"></i> {{ __('Cambiar Estado') }}
                                             </a>
                                         </td>
                                     </tr>
