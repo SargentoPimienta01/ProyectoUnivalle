@@ -41,6 +41,7 @@
             .card-title {
                 font-size: 18px; 
                 margin-bottom: 10px; 
+                text-align: center;
             }
     
     
@@ -84,7 +85,7 @@
                 <div class="card zoom-effect">
                     <div class="card-body animated-hover">
                         <h5 class="card-title">Servicio de Campus</h5>
-                        <img src="{{ Vite::asset('resources/img/tramites/tramite.jpg') }}" alt="Requisitos" class="img-fluid">
+                        <img src="{{ Vite::asset('resources/img/deporte.jpg') }}" alt="Requisitos" class="img-fluid">
                         <p class="card-text">{{ $campus->nombre }}</p>
                         <p class="card-text">{{ $campus->detalle }}</p>
                         <p class="card-text">{{ $campus->hora }}</p>
