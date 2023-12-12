@@ -159,7 +159,7 @@
 
             <div class="card">
                 <div class="face front">
-                    <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+                    <img src="https://i.ibb.co/C6gF0vC/Bienestar-Universitario.jpg" alt="Duracion" class="img-fluid">
                             <h3 class="mt-3">Ubicación</h3>
                             <p>{{ $ubicacion->nombre_ubicacion }}</p>
                         </div>

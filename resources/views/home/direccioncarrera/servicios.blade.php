@@ -9,7 +9,6 @@
     <meta property="og:type" content="website"/>
     <title>Direccion de Carrera | Univalle</title>
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
-    <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -26,17 +25,14 @@
         }
 
         .card {
+            height: 100%;
             border: 1px solid #ddd;
-            border-radius: 8px; 
-            width: 100%;
-            transition: transform 0.3s ease-in-out; 
+            border-radius: 8px;
+            transition: transform 0.3s ease-in-out;
             box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
             margin-bottom: 20px;
         }
 
-        .card:hover {
-            transform: scale(1.05);
-        }
 
         .card-body {
             padding: 20px;
@@ -148,7 +144,7 @@
 
                     <div class="card bg-white border-0 rounded-3 mb-3">
                         <div class="card-body text-center">
-                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+                            <img src="https://i.ibb.co/C6gF0vC/Bienestar-Universitario.jpg" alt="Duracion" class="img-fluid">
                             <h3 class="mt-3">Ubicación</h3>
                             <p>{{ $ubicacion->nombre_ubicacion }}</p>
                         </div>
