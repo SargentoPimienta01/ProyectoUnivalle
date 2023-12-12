@@ -3,7 +3,7 @@
     "file": "assets/axios-cdc9c5d2.js"
   },
   "resources/css/app.css": {
-    "file": "assets/app-bbeceaf2.css",
+    "file": "assets/app-5a7f2ea8.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -11,6 +11,11 @@
     "file": "assets/asistente-63c8beb2.css",
     "isEntry": true,
     "src": "resources/css/asistente.css"
+  },
+  "resources/css/asistente_real.css": {
+    "file": "assets/asistente_real-291dc1aa.css",
+    "isEntry": true,
+    "src": "resources/css/asistente_real.css"
   },
   "resources/css/cafeteria.css": {
     "file": "assets/cafeteria-1cb101e4.css",
@@ -142,6 +147,10 @@
   "resources/img/banner.png": {
     "file": "assets/banner-cf140d42.png",
     "src": "resources/img/banner.png"
+  },
+  "resources/img/deporte.jpg": {
+    "file": "assets/deporte-9bd2e41f.jpg",
+    "src": "resources/img/deporte.jpg"
   },
   "resources/img/tramites/duracion.jpeg": {
     "file": "assets/duracion-51cd852c.jpeg",
