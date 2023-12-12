@@ -15,7 +15,6 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Univalle</title>
 
     <style>
         .cuadroInformativo {
@@ -56,6 +55,87 @@
             list-style-type: none;
             padding: 0;
         }
+
+        #servicios-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .toggle-button {
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            margin: 10px auto;
+        }
+
+            .card,
+            .service-card,
+            .image-card {
+                margin: 10px;
+                padding: 10px;
+                text-align: center;
+                background: var(--transparent-white);
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
+                transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+            }
+
+            .image-card img {
+                width: 100%;
+                height: auto;
+                max-width: 300px;
+                max-height: 200px;
+            }
+
+            .service-card {
+                width: calc(100% - 20px);
+                display: none;
+            }
+
+            .service-card.active {
+                display: block;
+                opacity: 1;
+                height: auto;
+            }
+
+            .service-card:hover,
+            .image-card:hover {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            button {
+                background-color: #333;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            #servicios h3 {
+                color: rgb(0, 0, 0);
+            }
+
+            @media (min-width: 768px) {
+                .service-card {
+                    width: calc(50% - 20px);
+                }
+            }
+
+            @media (min-width: 992px) {
+                .service-card {
+                    width: calc(33.33% - 20px);
+                }
+            }
     </style>
 </head>
 <body>

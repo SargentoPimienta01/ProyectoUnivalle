@@ -5,9 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cafeteria Menu</title>
+    <title>Cafeteria | Univalle</title>
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
@@ -52,6 +53,87 @@
 
         .menu-item-price {
             font-weight: bold;
+        }
+
+        #servicios-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .toggle-button {
+            color: black;
+            text-decoration: none;
+            display: inline-block;
+            padding: 15px 20px;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            margin: 10px auto;
+        }
+
+        .card,
+        .service-card,
+        .image-card {
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            background: var(--transparent-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            max-height: 200px;
+        }
+
+        .service-card {
+            width: calc(100% - 20px);
+            display: none;
+        }
+
+        .service-card.active {
+            display: block;
+            opacity: 1;
+            height: auto;
+        }
+
+        .service-card:hover,
+        .image-card:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #servicios h3 {
+            color: rgb(0, 0, 0);
+        }
+
+        @media (min-width: 768px) {
+            .service-card {
+                width: calc(50% - 20px);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .service-card {
+                width: calc(33.33% - 20px);
+            }
         }
     </style>
 </head>
@@ -162,3 +244,4 @@
         </script>
 </body>
 </html>
+

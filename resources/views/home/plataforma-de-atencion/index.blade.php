@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plataforma de Atención</title>
+    <title>Plataforma de Atención | Univalle</title>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
     <style>
         body {
             font-family: Arial, sans-serif;
