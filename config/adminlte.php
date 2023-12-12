@@ -327,6 +327,7 @@ return [
             'text' => 'Áreas',
             'url' => '/areas',
             'icon' => 'fas fa-th',
+            'can' => 'areas.index',
         ],
         [
             'text'    => 'Trámites',

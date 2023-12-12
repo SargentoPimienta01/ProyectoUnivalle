@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="summary_large_image" name="twitter:card"/>
     <meta property="og:type" content="website"/>
-    <title>Direccion de Carrera | Univalle</title>
+    <title>Bienestar Universitario | Univalle</title>
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
     <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
@@ -15,6 +15,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
 
     <style>
         body {
@@ -120,35 +121,45 @@
 
 <body>
     <div class="hero">
-        <h1 style="color: #630505;">Servicios de la carrera {{ $servicioDireccion->carrera }}</h1>
+        <div style="color: #8B0000; text-align: center; margin-top: 20px; margin-bottom: 40px;">
+            <h2>Requisitos de Servicio {{ $servicioBienestar->servicio }}</h2>
+        </div>
+        
+        <div id="person-container">
+            <img id="person" class="person-image"  src="{{ Vite::asset('resources/images/asistente.png') }}" alt="Person Icon">
+            <div id="bubble">
+                <p id="text"></p>
+            </div>
+        </div>
+        <h1 style="color: #630505;">Servicios de la carrera {{ $servicioBienestar->carrera }}</h1>
         <div class="contenidopro">
             @php $serviceCounter = 1; @endphp 
             @foreach ($servicios as $servicio)
-                
-                <div class="service-group">
-                    <h3 class="service-title" style=" color: #fff">Servicio {{ $serviceCounter }}</h3>
+            <div class="card">
+                <div class="face front">
+                    <img src="{{ Vite::asset('resources/img/tramites/tramite.jpg') }}" alt="Requisitos" class="img-fluid">
                     
-                
-                    <div class="card bg-white border-0 rounded-3 mb-3">
-                        <div class="card-body text-center">
-                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
-                            <h3 class="mt-3">Requisitos</h3>
-                            <p>{{ $servicio->Requisitos }}</p>
-                        </div>
-                    </div>
-                
-                   
-                    <div class="card bg-white border-0 rounded-3 mb-3">
-                        <div class="card-body text-center">
-                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
-                            <h3 class="mt-3">Imagen</h3>
-                            <img src="{{ $servicio->Image }}" alt="Imagen de servicio" class="img-fluid">
-                        </div>
-                    </div>
+                </div>
+                <div class="face back">
+                    <h3>Servicio</h3>
+                    <p>{{ $servicio->servicio }}</p>
+                </div>
+            </div>
 
-                    <div class="card bg-white border-0 rounded-3 mb-3">
-                        <div class="card-body text-center">
-                            <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+            <div class="card">
+                <div class="face front">
+                    <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
+                    
+                </div>
+                <div class="face back">
+                    <h3>Requisitos</h3>
+                    <p>{{ $servicio->detalle }}</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="face front">
+                    <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
                             <h3 class="mt-3">Ubicación</h3>
                             <p>{{ $ubicacion->nombre_ubicacion }}</p>
                         </div>
@@ -161,6 +172,63 @@
         </div>
     </div>
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
+    <script>
+        const textArray = [
+            "Aqui podras encontrar los requisitos de cada servicio",
+            "tambien la unicacion de cada gabinete",
+           
+        ];
+        let textIndex = 0;
+        const textElement = document.getElementById('text');
+        const bubble = document.getElementById('bubble');
+        const personImage = document.getElementById('person');
+    
+        function showText() {
+            if (textIndex < textArray.length) {
+                textElement.textContent = textArray[textIndex];
+                textIndex++;
+                bubble.style.visibility = 'visible';
+                bubble.style.opacity = '1';
+                setTimeout(() => {
+                    showText();
+                }, 3000);
+            } else {
+                hideText();
+            }
+        }
+    
+        function hideText() {
+            bubble.style.opacity = '0';
+            setTimeout(() => {
+                bubble.style.visibility = 'hidden';
+                fadeOut(personImage, 2000);
+            }, 500);
+        }
+    
+        function fadeOut(element, duration) {
+            let opacity = 1;
+            const interval = 50;
+    
+            const fadeOutInterval = setInterval(() => {
+                if (opacity > 0) {
+                    opacity -= interval / duration;
+                    element.style.opacity = opacity;
+                } else {
+                    clearInterval(fadeOutInterval);
+                    element.style.display = 'none';
+                }
+            }, interval);
+        }
+    
+        showText();
+    
+        personImage.addEventListener('click', () => {
+            textIndex = 0;
+            personImage.style.opacity = '1';
+            personImage.style.display = 'block';
+            showText();
+        });
+    </script>
 </body>
 
 </html>
