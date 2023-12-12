@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     <style>
         body {
-            overflow: hidden;
+         
         }
 
         .card {
@@ -190,11 +190,17 @@
             </div>
             </section>
             
-            <div class="info-box mt-4">
-                <p>En Postgrado Univalle contarás con un amplio portafolio de Programas enfocados a satisfacer tus necesidades académicas actuales. La calidad de nuestros programas está sustentada en la experiencia académica de los profesores, combinada con su desempeño en el mundo laboral actual.</p>
+            <div class="container mt-4">
+                <div class="card bg-light" style="width: 500px; height:200px; margin: 0 auto;">
+                    <div class="card-body">
+                        <p class="card-text">En Postgrado Univalle contarás con un amplio portafolio de Programas enfocados a satisfacer tus necesidades académicas actuales. La calidad de nuestros programas está sustentada en la experiencia académica de los profesores, combinada con su desempeño en el mundo laboral actual.</p>
+                    </div>
+                </div>
             </div>
+            
+            
 
-            <div class="row mt-4">
+            <div class="row justify-content-center mt-4">
                 <div class="col-md-4">
                     <a href="{{ route('posgrado.doctorado') }}" class="card-link">
                         <div class="card">
@@ -206,7 +212,7 @@
                         </div>
                     </a>
                 </div>
-
+            
                 <div class="col-md-4">
                     <a href="{{ route('posgrado.maestria') }}" class="card-link">
                         <div class="card">
@@ -218,7 +224,7 @@
                         </div>
                     </a>
                 </div>
-
+            
                 <div class="col-md-4">
                     <a href="{{ route('posgrado.diplomado') }}" class="card-link">
                         <div class="card">
@@ -230,6 +236,8 @@
                         </div>
                     </a>
                 </div>
+            </div>
+            
             </div>
         </div>
     </div>

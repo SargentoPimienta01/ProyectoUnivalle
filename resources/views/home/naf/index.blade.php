@@ -174,13 +174,13 @@
     <section id="servicios-container">
         <div class="image-card">
             <a href="https://belltech.la/wp-content/uploads/2022/12/Software-y-plataforma-de-atencion-al-cliente-Ventajas-para-tu-empresa-2.jpg" target="_blank">
-                <img src="https://belltech.la/wp-content/uploads/2022/12/Software-y-plataforma-de-atencion-al-cliente-Ventajas-para-tu-empresa-2.jpg" alt="Descripción de la imagen 1" style="max-width: 100%; height: auto;">
+                <img src="" style="max-width: 100%; height: auto;">
             </a>
         </div>
 
         <div class="image-card">
             <a href="https://cdn.www.gob.pe/uploads/document/file/2999129/standard_WhatsApp%20Image%202022-04-06%20at%204.41.45%20PM.jpeg.jpeg" target="_blank">
-                <img src="https://cdn.www.gob.pe/uploads/document/file/2999129/standard_WhatsApp%20Image%202022-04-06%20at%204.41.45%20PM.jpeg.jpeg" alt="Descripción de la imagen 2" style="max-width: 100%; height: auto;">
+                <img src="https://media.istockphoto.com/id/618963716/es/foto/solicitud-de-archivo-armario.jpg?s=612x612&w=0&k=20&c=lgOUL7o4Ui1dNYCjKU3k87ZuxQYLQ1i1_7jYJzmbrzI=" alt="Descripción de la imagen 2" style="max-width: 100%; height: auto;">
             </a>
         </div>
 
