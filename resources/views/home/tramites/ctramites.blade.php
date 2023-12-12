@@ -82,27 +82,6 @@
 </head>
 
 <body>
-<!--intro inicio-->
-    
-     <div class="container-fluid casdBox-img">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://tramitespara.com/wp-content/uploads/2023/08/tramites_personalizados.jpg" class="card-img-top" alt="Imagen 1">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://example.com/tu_url_de_imagen_2.jpg" class="card-img-top" alt="Imagen 2">
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img src="https://example.com/tu_url_de_imagen_3.jpg" class="card-img-top" alt="Imagen 3">
-                </div>
-            </div>
-        </div>
-    </div>
     
     <div class="hero">
         <div class="container-fluid">
