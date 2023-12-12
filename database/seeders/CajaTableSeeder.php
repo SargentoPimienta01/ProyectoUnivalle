@@ -16,6 +16,19 @@ class CajaTableSeeder extends Seeder
                 'estado' => true,
                 'Id_area' => 2,
             ],
+            [
+                'nombre_caja' => 'Cobro de tramites',
+                'descripcion_caja' => 'Esta caja se utiliza para el cobro por tramites que necesitan un pago adicional.',
+                'estado' => true,
+                'Id_area' => 2,
+            ],
+            [
+                'nombre_caja' => 'Cobro de cheques',
+                'descripcion_caja' => 'Esta caja se utiliza para el cobro de cheques que la universidad expenda.',
+                'estado' => true,
+                'Id_area' => 2,
+            ],
+            
         ];
         foreach ($cajas as $caja) {
             DB::table('caja')->insert($caja);

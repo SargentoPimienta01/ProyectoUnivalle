@@ -17,6 +17,18 @@ class RequisitoCajaTableSeeder extends Seeder
                 'estado' => true,
                 'Id_caja' => 1, // Cambia esto según el ID de la caja correspondiente
             ],
+            [
+                'nombre_requisito' => 'Cobro tramites',
+                'descripcion_requisito' => 'Formulario de solvencia emitido por el area de tramites.',
+                'estado' => true,
+                'Id_caja' => 2, // Cambia esto según el ID de la caja correspondiente
+            ],
+            [
+                'nombre_requisito' => 'Cobro cheques',
+                'descripcion_requisito' => 'Carnet de identidad, indispensable en caso de tercero se requiere carta autorizada, Todo ingreso o cobro debe ser realizado en cajas de la univerisdad.',
+                'estado' => true,
+                'Id_caja' => 3, // Cambia esto según el ID de la caja correspondiente
+            ],
             // Puedes agregar más requisitos según sea necesario
         ];
 
