@@ -39,11 +39,26 @@
                                 </div>-->
                             </div>
                         </div>
-                        @if(session()->has('success'))
-                        <div class="alert alert-success">
-                            {{session()->get('success')}}
-                        </div>
-                        @endif
+                        @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                    @endif
+                    @if (session('error'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Error!',
+                                text: '{{ session('error') }}',
+                                icon: 'error'
+                            });
+                        </script>
+                    @endif
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-striped table-hover">

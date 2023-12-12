@@ -12,11 +12,36 @@
         <a href="{{url('categoria_menus/create')}}" class="btn btn-outline-success my-2">Nueva Categoría</a>
 
         <a href="{{url('categoria_menus/inactivos')}}" class="btn btn-outline-secondary my-2">Ir a inactivos</a>
-        @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+        @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                        @endif
+                        @if (session('error'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('error') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
+                        @if (session('fail'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('fail') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
         <table class="table table-hover">
             <thead>
                 <tr>

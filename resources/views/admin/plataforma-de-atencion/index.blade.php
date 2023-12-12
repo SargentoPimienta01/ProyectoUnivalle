@@ -39,11 +39,11 @@
                             <a href="{{ route('plataforma-de-atencions.index', ['latestFirst' => !$latestFirst]) }}" class="btn btn-info">
                                 @if($latestFirst) Ordenar Asc @else Ordenar Desc @endif<i class="fa fa-sort"></i>
                             </a>
-
+                            @if(auth()->user()->hasRole('Admin'))
                             <a href="{{ route('plataforma-de-atencions.inactivos') }}" class="btn btn-secondary">
                                 {{ __('Ir a servicios de plataforma de atención inactivos') }}
                             </a>
-
+@endif
                              <div class="float-right">
                                 <a href="{{ route('plataforma-de-atencions.create') }}" class="btn btn-primary float-right"  data-placement="left">
                                   {{ __('Agregar') }}
@@ -51,11 +51,36 @@
                               </div>
                         </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+                    @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                        @endif
+                        @if (session('error'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('error') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
+                        @if (session('fail'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('fail') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
 
                     <div class="card-body">
                         <div class="table-responsive">

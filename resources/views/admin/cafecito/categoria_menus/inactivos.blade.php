@@ -3,6 +3,36 @@
 <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
 
 @section('content')
+@if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                        @endif
+                        @if (session('error'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('error') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
+                        @if (session('fail'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('fail') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
     <div class="container">
         <h2>Categorías Inactivas</h2>
 
