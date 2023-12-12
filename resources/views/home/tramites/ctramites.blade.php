@@ -27,7 +27,7 @@
             margin-bottom: 20px;
             display: flex;
             flex-direction: column;
-            min-height: 250px; /* Ajusta esto según tus necesidades */
+            min-height: 250px;
         }
 
         .card.zoom-effect:hover {
@@ -37,7 +37,7 @@
         .card-body {
             padding: 10px;
             text-align: left;
-            flex: 1; /* Ocupa todo el espacio disponible en el contenedor flex */
+            flex: 1; 
         }
 
         .card-title {
@@ -59,11 +59,68 @@
             display: none;
         }
 
-       
+        /**/
+        .casdBox-img {
+            padding-top: 20px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .casdBox-img .card {
+            max-width: 100%;
+        }
+
+        .casdBox-img {
+            width: 100%;
+            height: auto;
+        }
+        .casdBox-img .card:hover {
+        transform: scale(1.05); 
+}
     </style>
 </head>
 
 <body>
+<!--intro inicio-->
+    
+     <div class="container-fluid casdBox-img">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://tramitespara.com/wp-content/uploads/2023/08/tramites_personalizados.jpg" class="card-img-top" alt="Imagen 1">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://example.com/tu_url_de_imagen_2.jpg" class="card-img-top" alt="Imagen 2">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://example.com/tu_url_de_imagen_3.jpg" class="card-img-top" alt="Imagen 3">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hero">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image">
+                        <div class="card-body card-box">
+                            <h5 class="card-title">Descripción de Trámites</h5>
+                            <p class="card-text">Aquí encontrarás información sobre los trámites universitarios. Desde gestión académica hasta servicios administrativos, estamos para ayudarte.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--intro fin--> 
+    
     <div class="hero">
         <h1 class="text-center mt-3" style="color: #630505;">Información de Trámites</h1>
         <div id="person-container">

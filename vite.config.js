@@ -16,6 +16,7 @@ export default defineConfig({
                 'resources/css/gabinetemedicoynaf/styles.css',
                 'resources/css/tramites/styles.css',
                 'resources/css/tramites/styles_user_tables.css',
+                'resources/css/asistente_real.css',
                 'resources/css/asistente.css',
                 'resources/css/cafeteria.css',
                 'resources/css/cards.css',

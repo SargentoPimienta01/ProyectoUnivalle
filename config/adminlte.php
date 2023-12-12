@@ -317,20 +317,24 @@ return [
             'text' => 'Administrar Usuarios',
             'url' => '/users',
             'icon' => 'fas fa-users',
+            'can' => 'user-list',
         ],
         [
             'text' => 'Administrar Roles',
             'url' => '/roles',
             'icon' => 'fas fa-user-tag',
+            'can' => 'role-list',
         ],
         [
             'text' => 'Áreas',
             'url' => '/areas',
             'icon' => 'fas fa-th',
+            'can' => 'areas.index',
         ],
         [
             'text'    => 'Trámites',
             'icon'    => 'fas fa-fw fa-file',
+            'can' => 'tramites.index',
             'submenu' => [
                 [
                     'text' => 'Categorías de Trámites',
@@ -347,6 +351,7 @@ return [
         [
         'text'    => 'Cajas',
             'icon'    => 'fas fa-fw fa-archive',
+            'can' => 'cajas.index',
             'submenu' => [
                 [
                     'text' => 'Gestionar Cajas',
@@ -358,6 +363,7 @@ return [
         [
             'text'    => 'Nafs',
             'icon'    => 'fas fa-fw fa-money-bill-wave',
+            'can' => 'nafs.index',
             'submenu' => [
                 [
                     'text' => 'Gestionar Nafs',
@@ -369,6 +375,7 @@ return [
         [
             'text'    => 'Gabinetes Médicos',
             'icon'    => 'fas fa-fw fa-medkit',
+            'can' => 'gabinetemedico.index',
             'submenu' => [
                 [
                     'text' => 'Gestionar Gabinetes Médicos',
@@ -390,6 +397,7 @@ return [
         [
             'text'    => 'Cafetería',
             'icon'    => 'fas fa-coffee',
+            'can' => 'cafeteria.index',
             'submenu' => [
                 [
                     'text' => 'Gestionar categorías de cafetería',
@@ -407,41 +415,49 @@ return [
             'text' => 'Ubicaciones',
             'url' => '/ubicacion',
             'icon' => 'fas fa-map-marker-alt',
+            'can' => 'ubicaciones.index',
         ],
         [
             'text' => 'Postgrados',
             'url' => '/postgrados',
             'icon' => 'fas fa-graduation-cap',
+            'can' => 'postgrados.index',
         ],
         [
             'text' => 'Bienestar Universitario',
             'url' => '/bienestar',
             'icon' => 'fas fa-university',
+            'can' => 'bienestar.index',
         ],
         [
             'text' => 'Direcciones de carrera',
             'url' => '/direccion-carrera',
             'icon' => 'fas fa-award',
+            'can' => 'direccion.index',
         ], 
         [
             'text' => 'Plataforma de Atención',
             'url' => '/plataforma-de-atencions',
             'icon' => 'fas fa-comments',
+            'can' => 'plataforma.index',
         ],   
         [
             'text' => 'Biblioteca',
             'url' => '/bibliotecas',
             'icon' => 'fas fa-book',
+            'can' => 'biblioteca.index',
         ],
         [
             'text' => 'Anuncios de campus deportivo',
             'url' => '/campuses',
             'icon' => 'fas fa-hockey-puck',
+            'can' => 'campus.index',
         ],
         [
             'text' => 'Contactos',
             'url' => '/contactos',
             'icon' => 'fas fa-address-card',
+            'can' => 'contactos.index',
         ],
     ],
 

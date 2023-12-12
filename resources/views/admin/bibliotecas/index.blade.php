@@ -51,9 +51,12 @@
                                 <!--<a href="{{ route('tramites.inactivos') }}" class="btn btn-secondary">
                             {{ __('Ir a Trámites inactivos') }}
                         </a>-->
-                                <a href="{{ route('bibliotecas.inactivos') }}" class="btn btn-secondary">
-                                    {{ __('Ir a anuncios de biblioteca inactivos') }}
-                                </a>
+                        @if(auth()->user()->hasRole('Admin'))
+                            <a href="{{ route('bibliotecas.inactivos') }}" class="btn btn-secondary">
+                                {{ __('Ir a anuncios de biblioteca inactivos') }}
+                            </a>
+                        @endif
+
                                 <!--<a href="{{ route('admin') }}" class="btn btn-danger">
                                     {{ __('Volver') }}
                                 </a>-->
@@ -65,10 +68,35 @@
                                 </div>
                             </div>
                         </div>
-                        @if(session()->has('success'))
-                        <div class="alert alert-success">
-                            {{session()->get('success')}}
-                        </div>
+                        @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                        @endif
+                        @if (session('error'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('error') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
+                        @if (session('fail'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('fail') }}',
+                                    icon: 'error'
+                                });
+                            </script>
                         @endif
                         <div class="card-body">
                             <div class="table-responsive">
@@ -306,17 +334,26 @@
 
 
                         <td>
-                            @if($biblioteca->estado)
-                            <button class="btn btn-sm btn-danger" data-toggle="modal"
-                                data-target="#changeEstadoModal{{ $biblioteca->id }}">
-                                Eliminar
-                            </button>
-                            @else
-                            <button class="btn btn-sm btn-success" data-toggle="modal"
-                                data-target="#changeEstadoModal{{ $biblioteca->id }}">
-                                Activar
-                            </button>
-                            @endif
+                        @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                    @endif
+                    @if (session('error'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Error!',
+                                text: '{{ session('error') }}',
+                                icon: 'error'
+                            });
+                        </script>
+                    @endif
 
                             <!-- Modal de cambio de estado de biblioteca -->
                             <div class="modal fade" id="changeEstadoModal{{ $biblioteca->id }}" tabindex="-1"

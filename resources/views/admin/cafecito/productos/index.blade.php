@@ -61,9 +61,11 @@
                 <a href="{{ route('admin') }}" class="btn btn-danger">
                   {{ __('Volver') }}
                 </a>
+                @if(auth()->user()->hasRole('Admin'))
                 <a href="{{ route('productos.inactivos') }}" class="btn btn-secondary">
                   {{ __('Ir a inactivos') }}
                 </a>
+                @endif
                 <div class="float-right">
                   <a href="{{ route('productos.create') }}" class="btn btn-primary float-right" data-placement="left">
                     {{ __('Agregar producto') }}
@@ -71,11 +73,36 @@
                 </div>
               </div>
             </div>
-            @if(session()->has('success'))
-            <div class="alert alert-success">
-              {{session()->get('success')}}
-            </div>
-            @endif
+            @if (session('success'))
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        <script>
+                            Swal.fire({
+                                title: 'Éxito',
+                                text: '{{ session('success') }}',
+                                icon: 'success'
+                            });
+                        </script>
+                        @endif
+                        @if (session('error'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('error') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
+                        @if (session('fail'))
+                            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                            <script>
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: '{{ session('fail') }}',
+                                    icon: 'error'
+                                });
+                            </script>
+                        @endif
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-striped table-hover">

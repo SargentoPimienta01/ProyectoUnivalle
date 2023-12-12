@@ -5,61 +5,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="summary_large_image" name="twitter:card" />
-    <meta property="og:type" content="website" />
-    <title>Cajas | Univalle</title>
+    <meta content="summary_large_image" name="twitter:card"/>
+    <meta property="og:type" content="website"/>
+    <title>Bienestar Universitario | Univalle</title>
     <link rel="stylesheet" href="{{ Vite::asset('resources/css/nav.css') }}">
-    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/images/UnivalleLogo.png') }}">
+    <link href="{{ Vite::asset('resources/css/cards.css') }}" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" type="image/png" href="{{ Vite::asset('resources/img/UnivalleLogo.png') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ Vite::asset('resources/css/asistente_real.css') }}">
+
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+           /* overflow: hidden;  */
         }
 
-        .contenidopro {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+        .hero {
+            padding: 20px;
         }
 
         .card {
-            width: 300px;
-            height: 100%;
-            padding: 10PX;
             border: 1px solid #ddd;
-            border-radius: 8px;
-            transition: transform 0.3s ease-in-out;
+            border-radius: 8px; 
+            width: 100%;
+            transition: transform 0.3s ease-in-out; 
             box-shadow: 0 4px 8px rgba(128, 9, 9, 0.945);
             margin-bottom: 20px;
-            display: flex;
-            flex-direction: column;
-            margin-right: 10px; /* Add margin here */
         }
 
         .card:hover {
-            transform: scale(1.01);
+            transform: scale(1.05);
         }
 
         .card-body {
             padding: 20px;
-            text-align: left;
+            text-align: left; 
         }
 
         .card-title {
-            font-size: 18px;
-            margin-bottom: 10px;
+            font-size: 18px; 
+            margin-bottom: 10px; 
         }
 
         .card-text {
-            font-size: 14px;
+            font-size: 14px; 
             line-height: 1.5;
             white-space: pre-line;
         }
@@ -75,7 +66,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: auto;
         }
 
         .btn-custom:hover {
@@ -83,29 +73,48 @@
             color: white;
         }
 
-        .contact-info {
-            margin-top: auto;
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
         }
 
-        .contact-link {
-            color: inherit;
-            text-decoration: underline;
+        .service-group {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .modal-content {
-            height: 90vh;
+        .service-group h3 {
+            font-size: 24px;
+            color: #630505;
+            margin-top: 20px;
         }
 
-        .modal-body {
-            max-height: 80vh;
-            overflow-y: auto;
+        .service-title {
+            font-size: 24px;
+            color: #fff;
+            background-color: #630505;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 20px;
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            transform: scale(0.9);
+        .service-title::after {
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .service-group {
+                flex-direction: row;
+            }
+
+            .card {
+                width: 30%;
+                margin: 0 10px;
+            }
         }
     </style>
 </head>
@@ -122,7 +131,9 @@
                 <p id="text"></p>
             </div>
         </div>
+        <h1 style="color: #630505;">Servicios de la carrera {{ $servicioBienestar->carrera }}</h1>
         <div class="contenidopro">
+            @php $serviceCounter = 1; @endphp 
             @foreach ($servicios as $servicio)
             <div class="card">
                 <div class="face front">
@@ -149,19 +160,18 @@
             <div class="card">
                 <div class="face front">
                     <img src="{{ Vite::asset('resources/img/tramites/duracion.jpeg') }}" alt="Duracion" class="img-fluid">
-                    
+                            <h3 class="mt-3">Ubicación</h3>
+                            <p>{{ $ubicacion->nombre_ubicacion }}</p>
+                        </div>
+                    </div>
+                 
                 </div>
-                <div class="face back">
-                    <h3>Ubicación</h3>
-                    <p>{{ $ubicacion->nombre_ubicacion }}</p>
-                </div>
-            </div>
+               
+                @php $serviceCounter++; @endphp 
             @endforeach
         </div>
     </div>
-
     <script src="{{ Vite::asset('resources/js/intro.js') }}"></script>
-
     <script>
         const textArray = [
             "Aqui podras encontrar los requisitos de cada servicio",

@@ -11,35 +11,117 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Administrar usuarios</h3>
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            <i class="fas fa-users"></i>
-                            <a href="/users">Usuarios</a>
-                            <br>
-                            <i class="fas fa-user-tag"></i>
-                            <a href="/roles">Roles</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
+            
+        {{-- Administrar Usuarios --}}
+            @can('user-list')
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Administrar áreas</h3>
+                            <h3>Administrar usuarios</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
-                                <i class="fas fa-folder"></i>
+                                <i class="fas fa-users"></i>
+                                <a href="/users">Usuarios</a>
+                                <br>
+                                <i class="fas fa-user-tag"></i>
+                                <a href="/roles">Roles</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            {{-- Administrar Roles --}}
+            @can('role-list')
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Administrar Roles</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-user-tag"></i>
+                                <a href="/roles">Roles</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            {{-- Áreas --}}
+            @can('areas.index')
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Áreas</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-th"></i>
                                 <a href="/areas">Áreas</a>
                             </p>
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Trámites --}}
+            @can('tramites.index')
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Administrar Trámites</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-fw fa-file"></i>
+                                <a href="/categoria-tramites">Categorías de trámites</a>
+                                <br>
+                                <i class="fas fa-list"></i>
+                                <a href="/tramites">Trámites</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            {{-- Cajas --}}
+            @can('cajas.index')
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Administrar Cajas</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-fw fa-archive"></i>
+                                <a href="/cajas">Cajas</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            {{-- Nafs --}}
+            @can('nafs.index')
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Gestionar Nafs</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-fw fa-money-bill-wave"></i>
+                                <a href="/nafs">Nafs</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            {{-- Bienestar Universitario --}}
+            @can('bienestar.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -54,10 +136,14 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Direcciones de Carrera --}}
+            @can('direccion.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Administrar Direcciones de carrera</h3>
+                            <h3>Administrar Direcciones de Carrera</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -68,48 +154,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Administrar Trámites</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <i class="fas fa-folder"></i>
-                                <a href="/categoria-tramites">Categorías de trámites</a>
-                                <br>
-                                <i class="fas fa-list"></i>
-                                <a href="/tramites">Trámites</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Administrar Cajas</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <i class="fas fa-clipboard-list"></i>
-                                <a href="/cajas">Cajas</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Gestionar Nafs</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <i class="fas fa-fw fa-money-bill-wave"></i>
-                                <a href="/nafs">Nafs</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            @endcan
+
+            {{-- Gabinetes Médicos --}}
+            @can('gabinetemedico.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -123,6 +171,30 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Cafetería --}}
+            @can('cafeteria.index')
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Cafetería</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <i class="fas fa-coffee"></i>
+                                <a href="/categoria_menus">Gestionar categorías de cafetería</a>
+                                <br>
+                                <i class="fas fa-coffee"></i>
+                                <a href="/productos">Gestionar productos de cafetería</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endcan
+
+            {{-- Ubicaciones --}}
+            @can('ubicaciones.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -136,6 +208,10 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Postgrados --}}
+            @can('postgrados.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -149,6 +225,10 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Plataforma de Atención --}}
+            @can('plataforma.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -162,6 +242,10 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Biblioteca --}}
+            @can('biblioteca.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
@@ -175,36 +259,31 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Anuncios de Campus Deportivo --}}
+            @can('campus.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Cafetería</h3>
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">
-                                <i class="fas fa-coffee"></i>
-                                <a href="/productos">Cafetería</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3>Administrar servicios de Campus deportivo</h3>
+                            <h3>Anuncios de Campus Deportivo</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
                                 <i class="fas fa-hockey-puck"></i>
-                                <a href="/campuses">Campus deportivo</a>
+                                <a href="/campuses">Anuncios de Campus Deportivo</a>
                             </p>
                         </div>
                     </div>
                 </div>
+            @endcan
+
+            {{-- Contactos --}}
+            @can('contactos.index')
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-header">
-                            <h3>Administrar contactos</h3>
+                            <h3>Administrar Contactos</h3>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -214,6 +293,8 @@
                         </div>
                     </div>
                 </div>
+            @endcan
+
         </div>
     </div>
 @stop
