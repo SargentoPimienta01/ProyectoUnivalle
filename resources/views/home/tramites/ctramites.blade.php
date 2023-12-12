@@ -78,18 +78,22 @@
         .casdBox-img .card:hover {
         transform: scale(1.05); 
 }
+
+        #Padding{
+            padding: 20px;
+        }
     </style>
 </head>
 
 <body>
     
-    <div class="hero">
+    {{-- <div class="hero">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="card">
                         <img src="https://via.placeholder.com/150" class="card-img-top" alt="Card Image">
-                        <div class="card-body card-box">
+                        <div class="card-body card-box" id="Padding">
                             <h5 class="card-title">Descripción de Trámites</h5>
                             <p class="card-text">Aquí encontrarás información sobre los trámites universitarios. Desde gestión académica hasta servicios administrativos, estamos para ayudarte.</p>
                         </div>
@@ -97,7 +101,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 <!--intro fin--> 
     
     <div class="hero">
